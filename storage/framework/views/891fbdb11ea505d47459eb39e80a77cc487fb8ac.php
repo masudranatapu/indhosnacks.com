@@ -357,12 +357,7 @@
 
                         </a>
                      </li>
-                     <li>
-                        <a href="<?php echo e(url('service')); ?>" class="for_button_value">
-                        <?php echo e(__('messages.service')); ?>
-
-                        </a>
-                     </li>
+                     
                      <li>
                         <a href="<?php echo e(url('contactus')); ?>" class="for_button_value">
                         <?php echo e(__('messages.contact')); ?>
@@ -413,7 +408,7 @@
                      <ul class="p-0">
                         <li><a href="<?php echo e(url('/')); ?>"><?php echo e(__('messages.home')); ?></a></li>
                         <li><a href="<?php echo e(url('aboutus')); ?>"><?php echo e(__('messages.aboutus')); ?></a></li>
-                        <li><a href="<?php echo e(url('service')); ?>"><?php echo e(__('messages.service')); ?></a></li>
+                        
                         <li><a href="<?php echo e(url('contactus')); ?>"><?php echo e(__('messages.contact')); ?></a></li>
                      </ul>
                   </div>
@@ -617,7 +612,7 @@
                      <ul class="textdata">
                         <li><a href="<?php echo e(url('/')); ?>"><?php echo e(__('messages.home')); ?></a></li>
                         <li><a href="<?php echo e(url('aboutus')); ?>"><?php echo e(__('messages.aboutus')); ?></a></li>
-                        <li><a href="<?php echo e(url('service')); ?>"><?php echo e(__('messages.service')); ?></a></li>
+                        
                         <li><a href="<?php echo e(url('contactus')); ?>"><?php echo e(__('messages.contact')); ?></a></li>
                      </ul>
                   </div>
