@@ -37,12 +37,12 @@
             },
             "installation-source": "dist",
             "autoload": {
-                "files": [
-                    "helpers.php"
-                ],
                 "psr-4": {
                     "BeyondCode\\DumpServer\\": "src"
-                }
+                },
+                "files": [
+                    "helpers.php"
+                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -62,10 +62,6 @@
                 "beyondcode",
                 "laravel-dump-server"
             ],
-            "support": {
-                "issues": "https://github.com/beyondcode/laravel-dump-server/issues",
-                "source": "https://github.com/beyondcode/laravel-dump-server/tree/1.3.0"
-            },
             "install-path": "../beyondcode/laravel-dump-server"
         },
         {
@@ -150,10 +146,6 @@
                 "php",
                 "security"
             ],
-            "support": {
-                "issues": "https://github.com/cartalyst/sentinel/issues",
-                "source": "https://github.com/cartalyst/sentinel/tree/v2.0.18"
-            },
             "install-path": "../cartalyst/sentinel"
         },
         {
@@ -273,10 +265,6 @@
                 "laravel",
                 "support"
             ],
-            "support": {
-                "issues": "https://github.com/cartalyst/support/issues",
-                "source": "https://github.com/cartalyst/support/tree/2.0"
-            },
             "install-path": "../cartalyst/support"
         },
         {
@@ -1699,10 +1687,6 @@
                 "laravel",
                 "psysh"
             ],
-            "support": {
-                "issues": "https://github.com/laravel/tinker/issues",
-                "source": "https://github.com/laravel/tinker/tree/v1.0.10"
-            },
             "install-path": "../laravel/tinker"
         },
         {
@@ -1751,12 +1735,12 @@
             },
             "installation-source": "dist",
             "autoload": {
-                "files": [
-                    "src/helpers.php"
-                ],
                 "psr-4": {
                     "Collective\\Html\\": "src/"
-                }
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -1774,10 +1758,6 @@
             ],
             "description": "HTML and Form Builders for the Laravel Framework",
             "homepage": "https://laravelcollective.com",
-            "support": {
-                "issues": "https://github.com/LaravelCollective/html/issues",
-                "source": "https://github.com/LaravelCollective/html"
-            },
             "install-path": "../laravelcollective/html"
         },
         {
@@ -2640,10 +2620,6 @@
                 "rest",
                 "sdk"
             ],
-            "support": {
-                "issues": "https://github.com/paypal/PayPal-PHP-SDK/issues",
-                "source": "https://github.com/paypal/PayPal-PHP-SDK/tree/master"
-            },
             "abandoned": true,
             "install-path": "../paypal/rest-api-sdk-php"
         },
@@ -2688,25 +2664,21 @@
             "authors": [
                 {
                     "name": "Arne Blankerts",
-                    "email": "arne@blankerts.de",
-                    "role": "Developer"
+                    "role": "Developer",
+                    "email": "arne@blankerts.de"
                 },
                 {
                     "name": "Sebastian Heuer",
-                    "email": "sebastian@phpeople.de",
-                    "role": "Developer"
+                    "role": "Developer",
+                    "email": "sebastian@phpeople.de"
                 },
                 {
                     "name": "Sebastian Bergmann",
-                    "email": "sebastian@phpunit.de",
-                    "role": "Developer"
+                    "role": "Developer",
+                    "email": "sebastian@phpunit.de"
                 }
             ],
             "description": "Component for reading phar.io manifest information from a PHP Archive (PHAR)",
-            "support": {
-                "issues": "https://github.com/phar-io/manifest/issues",
-                "source": "https://github.com/phar-io/manifest/tree/master"
-            },
             "install-path": "../phar-io/manifest"
         },
         {
@@ -2757,10 +2729,6 @@
                 }
             ],
             "description": "Library for handling version information and constraints",
-            "support": {
-                "issues": "https://github.com/phar-io/version/issues",
-                "source": "https://github.com/phar-io/version/tree/master"
-            },
             "install-path": "../phar-io/version"
         },
         {
@@ -3257,10 +3225,6 @@
                 "testing",
                 "xunit"
             ],
-            "support": {
-                "issues": "https://github.com/sebastianbergmann/php-code-coverage/issues",
-                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/master"
-            },
             "install-path": "../phpunit/php-code-coverage"
         },
         {
@@ -3368,10 +3332,6 @@
             "keywords": [
                 "template"
             ],
-            "support": {
-                "issues": "https://github.com/sebastianbergmann/php-text-template/issues",
-                "source": "https://github.com/sebastianbergmann/php-text-template/tree/1.2.1"
-            },
             "install-path": "../phpunit/php-text-template"
         },
         {
@@ -3805,9 +3765,6 @@
                 "request",
                 "response"
             ],
-            "support": {
-                "source": "https://github.com/php-fig/http-message/tree/master"
-            },
             "install-path": "../psr/http-message"
         },
         {
@@ -3912,9 +3869,6 @@
                 "psr-16",
                 "simple-cache"
             ],
-            "support": {
-                "source": "https://github.com/php-fig/simple-cache/tree/master"
-            },
             "install-path": "../psr/simple-cache"
         },
         {
@@ -4039,10 +3993,6 @@
                 }
             ],
             "description": "A polyfill for getallheaders.",
-            "support": {
-                "issues": "https://github.com/ralouphie/getallheaders/issues",
-                "source": "https://github.com/ralouphie/getallheaders/tree/develop"
-            },
             "install-path": "../ralouphie/getallheaders"
         },
         {
@@ -4550,10 +4500,6 @@
             "keywords": [
                 "global state"
             ],
-            "support": {
-                "issues": "https://github.com/sebastianbergmann/global-state/issues",
-                "source": "https://github.com/sebastianbergmann/global-state/tree/2.0.0"
-            },
             "install-path": "../sebastian/global-state"
         },
         {
@@ -4839,10 +4785,6 @@
             ],
             "description": "Library that helps with managing the version number of Git-hosted PHP projects",
             "homepage": "https://github.com/sebastianbergmann/version",
-            "support": {
-                "issues": "https://github.com/sebastianbergmann/version/issues",
-                "source": "https://github.com/sebastianbergmann/version/tree/master"
-            },
             "install-path": "../sebastian/version"
         },
         {
