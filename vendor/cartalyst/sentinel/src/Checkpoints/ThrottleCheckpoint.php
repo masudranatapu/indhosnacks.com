@@ -143,7 +143,12 @@ class ThrottleCheckpoint implements CheckpointInterface
      */
     protected function throwException($message, $type, $delay)
     {
-          return $message;
-      
+        $exception = new ThrottlingException($message);
+
+        $exception->setDelay($delay);
+
+        $exception->setType($type);
+
+        throw $exception;
     }
 }
