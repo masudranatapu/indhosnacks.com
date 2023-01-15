@@ -596,8 +596,12 @@
             <div class="container kb-footer">
                <div class="row">
                   <div class="col-md-3 about">
-                     <img src="<?php echo e(Session::get('logo')); ?>">
-                     <p><?php echo e(__('messages.footer_text')); ?></p>
+                     <div class="fo-text">
+                        <h1><?php echo e(__('messages.open')); ?></h1>
+                     </div>
+                     <p class="p-0 m-0">Jigjida: 7am - 2am</p>
+                     <p class="p-0 m-0">Idaacada: 10am - 11pm</p>
+                     <p class="p-0 m-0">Berbera: 10am - 11pm</p>
                      <div class="footer-social">
                         <a href="<?php echo e(Session::get('facebook')); ?>" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
                         <a href="<?php echo e(Session::get('twitter')); ?>"  target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
