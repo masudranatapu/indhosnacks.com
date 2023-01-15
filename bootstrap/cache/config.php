@@ -4,7 +4,7 @@
     'name' => 'indhosnacks',
     'env' => 'local',
     'debug' => true,
-    'url' => 'https://localhost',
+    'url' => 'http://localhost/webdevs/indhosnacks.com',
     'asset_url' => NULL,
     'timezone' => 'UTC',
     'locale' => 'en',
@@ -463,7 +463,7 @@
       array (
         'driver' => 'local',
         'root' => 'C:\\xampp\\htdocs\\webdevs\\indhosnacks.com\\storage\\app/public',
-        'url' => 'https://localhost/storage',
+        'url' => 'http://localhost/webdevs/indhosnacks.com/storage',
         'visibility' => 'public',
       ),
       's3' => 
