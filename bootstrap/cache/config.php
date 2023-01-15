@@ -777,6 +777,7 @@
       0 => 'password',
       1 => 'password_confirmation',
     ),
+    'escape_inline_listeners' => false,
   ),
   'debug-server' => 
   array (
