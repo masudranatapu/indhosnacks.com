@@ -73,7 +73,9 @@ class AuthenticationController extends Controller {
        $store->facebook_id=$request->get("facebook_id");
        $store->twitter_id=$request->get("twitter_id");
        $store->linkedin_id=$request->get("linkedin_id");
-       $store->linkedin_id=$request->get("linkedin_id");
+       $store->instragram_id=$request->get("instragram_id");
+       $store->tiktok_id=$request->get("tiktok_id");
+    
        $store->whatsapp=$request->get("whatsapp");
        $store->address=$request->get("address");
        $store->email=$request->get("email");
@@ -92,7 +94,9 @@ class AuthenticationController extends Controller {
          $store->facebook_id=$request->get("facebook_id");
          $store->twitter_id=$request->get("twitter_id");
          $store->linkedin_id=$request->get("linkedin_id");
-         $store->google_plus_id=$request->get("google_plus_id");
+         $store->instragram_id=$request->get("instragram_id");
+         $store->tiktok_id=$request->get("tiktok_id");
+    
          $store->whatsapp=$request->get("whatsapp");
          $store->app_store_url=$request->get("appstore");
          $store->play_store_url=$request->get("playstore");
