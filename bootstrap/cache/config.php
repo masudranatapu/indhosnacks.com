@@ -1,16 +1,16 @@
 <?php return array (
   'app' => 
   array (
-    'name' => 'Laravel',
-    'env' => 'production',
-    'debug' => false,
-    'url' => 'https://freaktemplate.com',
+    'name' => 'indhosnacks',
+    'env' => 'local',
+    'debug' => true,
+    'url' => 'http://localhost/indhosnacks.com/',
     'asset_url' => NULL,
     'timezone' => 'UTC',
     'locale' => 'en',
     'fallback_locale' => 'en',
     'faker_locale' => 'en_US',
-    'key' => NULL,
+    'key' => 'base64:u5fyImVWU4JMNwUAc6lvb8fjvgtSqkz9yuaP3/Zog3M=',
     'cipher' => 'AES-256-CBC',
     'providers' => 
     array (
@@ -137,18 +137,18 @@
   ),
   'broadcasting' => 
   array (
-    'default' => 'null',
+    'default' => 'log',
     'connections' => 
     array (
       'pusher' => 
       array (
         'driver' => 'pusher',
-        'key' => NULL,
-        'secret' => NULL,
-        'app_id' => NULL,
+        'key' => '',
+        'secret' => '',
+        'app_id' => '',
         'options' => 
         array (
-          'cluster' => NULL,
+          'cluster' => 'mt1',
           'encrypted' => true,
         ),
       ),
@@ -221,13 +221,13 @@
       'dynamodb' => 
       array (
         'driver' => 'dynamodb',
-        'key' => NULL,
-        'secret' => NULL,
+        'key' => '',
+        'secret' => '',
         'region' => 'us-east-1',
         'table' => 'cache',
       ),
     ),
-    'prefix' => 'laravel_cache',
+    'prefix' => 'indhosnacks_cache',
   ),
   'cartalyst' => 
   array (
@@ -321,7 +321,7 @@
       array (
         'driver' => 'sqlite',
         'url' => NULL,
-        'database' => 'E:\\xampp\\htdocs\\indhosnacks.com\\database\\database.sqlite',
+        'database' => 'indhodb',
         'prefix' => '',
         'foreign_key_constraints' => true,
       ),
@@ -331,8 +331,8 @@
         'url' => NULL,
         'host' => '127.0.0.1',
         'port' => '3306',
-        'database' => 'forge',
-        'username' => 'forge',
+        'database' => 'indhodb',
+        'username' => 'root',
         'password' => '',
         'unix_socket' => '',
         'charset' => 'utf8mb4',
@@ -350,9 +350,9 @@
         'driver' => 'pgsql',
         'url' => NULL,
         'host' => '127.0.0.1',
-        'port' => '5432',
-        'database' => 'forge',
-        'username' => 'forge',
+        'port' => '3306',
+        'database' => 'indhodb',
+        'username' => 'root',
         'password' => '',
         'charset' => 'utf8',
         'prefix' => '',
@@ -364,10 +364,10 @@
       array (
         'driver' => 'sqlsrv',
         'url' => NULL,
-        'host' => 'localhost',
-        'port' => '1433',
-        'database' => 'forge',
-        'username' => 'forge',
+        'host' => '127.0.0.1',
+        'port' => '3306',
+        'database' => 'indhodb',
+        'username' => 'root',
         'password' => '',
         'charset' => 'utf8',
         'prefix' => '',
@@ -381,20 +381,20 @@
       'options' => 
       array (
         'cluster' => 'predis',
-        'prefix' => 'laravel_database_',
+        'prefix' => 'indhosnacks_database_',
       ),
       'default' => 
       array (
         'host' => '127.0.0.1',
         'password' => NULL,
-        'port' => 6379,
+        'port' => '6379',
         'database' => 0,
       ),
       'cache' => 
       array (
         'host' => '127.0.0.1',
         'password' => NULL,
-        'port' => 6379,
+        'port' => '6379',
         'database' => 1,
       ),
     ),
@@ -463,16 +463,16 @@
       array (
         'driver' => 'local',
         'root' => 'E:\\xampp\\htdocs\\indhosnacks.com\\storage\\app/public',
-        'url' => '/storage',
+        'url' => 'http://localhost/indhosnacks.com//storage',
         'visibility' => 'public',
       ),
       's3' => 
       array (
         'driver' => 's3',
-        'key' => NULL,
-        'secret' => NULL,
-        'region' => NULL,
-        'bucket' => NULL,
+        'key' => '',
+        'secret' => '',
+        'region' => 'us-east-1',
+        'bucket' => '',
         'url' => NULL,
       ),
     ),
@@ -607,17 +607,17 @@
   ),
   'mail' => 
   array (
-    'driver' => 'mail',
-    'host' => 'smtp.mailgun.org',
-    'port' => 587,
+    'driver' => 'smtp',
+    'host' => 'smtp.gmail.com',
+    'port' => '465',
     'from' => 
     array (
       'address' => 'hello@example.com',
       'name' => 'Example',
     ),
-    'encryption' => 'tls',
-    'username' => NULL,
-    'password' => NULL,
+    'encryption' => 'ssl',
+    'username' => '',
+    'password' => '',
     'sendmail' => '/usr/sbin/sendmail -bs',
     'markdown' => 
     array (
@@ -631,15 +631,15 @@
   ),
   'mapdetail' => 
   array (
-    'key' => NULL,
-    'lat' => NULL,
-    'long' => NULL,
+    'key' => 'AIzaSyC1JUHjsnQZtKx5eBOpG42E_CLoJ1s39AU',
+    'lat' => '21.2284231',
+    'long' => '72.896816',
     'web_color' => NULL,
   ),
   'paypal' => 
   array (
-    'client_id' => NULL,
-    'secret' => NULL,
+    'client_id' => '',
+    'secret' => '',
     'settings' => 
     array (
       'mode' => 'sandbox',
@@ -676,8 +676,8 @@
       'sqs' => 
       array (
         'driver' => 'sqs',
-        'key' => NULL,
-        'secret' => NULL,
+        'key' => '',
+        'secret' => '',
         'prefix' => 'https://sqs.us-east-1.amazonaws.com/your-account-id',
         'queue' => 'your-queue-name',
         'region' => 'us-east-1',
@@ -711,8 +711,8 @@
     ),
     'ses' => 
     array (
-      'key' => NULL,
-      'secret' => NULL,
+      'key' => '',
+      'secret' => '',
       'region' => 'us-east-1',
     ),
     'sparkpost' => 
@@ -722,8 +722,8 @@
     'stripe' => 
     array (
       'model' => 'App\\User',
-      'key' => NULL,
-      'secret' => NULL,
+      'key' => '',
+      'secret' => '',
       'webhook' => 
       array (
         'secret' => NULL,
@@ -734,7 +734,7 @@
   'session' => 
   array (
     'driver' => 'file',
-    'lifetime' => 120,
+    'lifetime' => '120',
     'expire_on_close' => false,
     'encrypt' => false,
     'files' => 'E:\\xampp\\htdocs\\indhosnacks.com\\storage\\framework/sessions',
@@ -746,7 +746,7 @@
       0 => 2,
       1 => 100,
     ),
-    'cookie' => 'laravel_session',
+    'cookie' => 'indhosnacks_session',
     'path' => '/',
     'domain' => NULL,
     'secure' => false,
