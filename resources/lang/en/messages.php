@@ -10,7 +10,7 @@
     'contact'=>'Contact',
     'service'=>'Service',
     'silder1h'=>'Get ready',
-    'silderh2'=>'Welcome to King Burger',
+    'silderh2'=>'Welcome to Indhosnacks',
     'silderp'=>'Want to know how our dishes takes from good to great? Lets begin our story about our delicious hamburgers.',
     'silder23'=>'BEST RESTAURANT IN NEW YORK CITY WITH AWES OME FOODS',
     'psilder23'=>'Ristora is a restaurant, bar and coffee roastery located on a busy corner site in Farringdon’s Exmouth Market. With glazed frontage on two sides of the building, overlooking the market and a bustling London intersection optio cumque nihil i mpedit quo minus id quod maxime.',

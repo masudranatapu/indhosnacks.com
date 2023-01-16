@@ -212,3 +212,4 @@
         border: 1px solid <?=Session::get("webcolor")?> !important;
     }
 </style>
+<?php /**PATH D:\xampp\htdocs\test\indhosnacks.com\resources\views/user/cssclass.blade.php ENDPATH**/ ?>

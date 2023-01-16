@@ -1,15 +1,15 @@
-@if($cookieConsentConfig['enabled'] && ! $alreadyConsentedWithCookies)
+<?php if($cookieConsentConfig['enabled'] && ! $alreadyConsentedWithCookies): ?>
 
-@include('cookieConsent::dialogContents')
+<?php echo $__env->make('cookieConsent::dialogContents', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 <script>
     window.laravelCookieConsent = (function () {
 
             const COOKIE_VALUE = 1;
-            const COOKIE_DOMAIN = '{{ config('session.domain') ?? request()->getHost() }}';
+            const COOKIE_DOMAIN = '<?php echo e(config('session.domain') ?? request()->getHost()); ?>';
 
             function consentWithCookies() {
-                setCookie('{{ $cookieConsentConfig['cookie_name'] }}', COOKIE_VALUE, {{ $cookieConsentConfig['cookie_lifetime'] }});
+                setCookie('<?php echo e($cookieConsentConfig['cookie_name']); ?>', COOKIE_VALUE, <?php echo e($cookieConsentConfig['cookie_lifetime']); ?>);
                 hideCookieDialog();
             }
 
@@ -31,11 +31,11 @@
                 document.cookie = name + '=' + value
                     + ';expires=' + date.toUTCString()
                     + ';domain=' + COOKIE_DOMAIN
-                    + ';path=/{{ config('session.secure') ? ';secure' : null }}'
-                    + '{{ config('session.same_site') ? ';samesite='.config('session.same_site') : null }}';
+                    + ';path=/<?php echo e(config('session.secure') ? ';secure' : null); ?>'
+                    + '<?php echo e(config('session.same_site') ? ';samesite='.config('session.same_site') : null); ?>';
             }
 
-            if (cookieExists('{{ $cookieConsentConfig['cookie_name'] }}')) {
+            if (cookieExists('<?php echo e($cookieConsentConfig['cookie_name']); ?>')) {
                 hideCookieDialog();
             }
 
@@ -52,4 +52,5 @@
         })();
 </script>
 
-@endif
+<?php endif; ?>
+<?php /**PATH D:\xampp\htdocs\test\indhosnacks.com\resources\views/vendor/cookieConsent/index.blade.php ENDPATH**/ ?>
