@@ -25,6 +25,8 @@
     'information'=>'Information',
     'open' => 'Opening Hours',
     'myaccount'=>'My Account',
+    'tiktok_id' => 'Tiktok Id',
+    'instragram_id' => 'Instagram Id',
     'myorder'=>'My Order',
     'checkout'=>'Checkout',
     'cart'=>'Cart',
