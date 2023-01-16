@@ -1,14 +1,10 @@
 <?php return array (
-  'app' => 
+  'app' =>
   array (
     'name' => 'indhosnacks',
     'env' => 'local',
     'debug' => true,
-<<<<<<< HEAD
     'url' => 'http://localhost/webdevs/indhosnacks/',
-=======
-    'url' => 'http://localhost/webdevs/indhosnacks.com',
->>>>>>> develop
     'asset_url' => NULL,
     'timezone' => 'UTC',
     'locale' => 'en',
@@ -16,7 +12,7 @@
     'faker_locale' => 'en_US',
     'key' => 'base64:u5fyImVWU4JMNwUAc6lvb8fjvgtSqkz9yuaP3/Zog3M=',
     'cipher' => 'AES-256-CBC',
-    'providers' => 
+    'providers' =>
     array (
       0 => 'Illuminate\\Auth\\AuthServiceProvider',
       1 => 'Illuminate\\Broadcasting\\BroadcastServiceProvider',
@@ -51,7 +47,7 @@
       30 => 'MasterRO\\LaravelXSSFilter\\XSSFilterServiceProvider',
       31 => 'Collective\\Html\\HtmlServiceProvider',
     ),
-    'aliases' => 
+    'aliases' =>
     array (
       'App' => 'Illuminate\\Support\\Facades\\App',
       'Arr' => 'Illuminate\\Support\\Arr',
@@ -100,38 +96,38 @@
       'Html' => 'Collective\\Html\\HtmlFacade',
     ),
   ),
-  'auth' => 
+  'auth' =>
   array (
-    'defaults' => 
+    'defaults' =>
     array (
       'guard' => 'web',
       'passwords' => 'users',
     ),
-    'guards' => 
+    'guards' =>
     array (
-      'web' => 
+      'web' =>
       array (
         'driver' => 'session',
         'provider' => 'users',
       ),
-      'api' => 
+      'api' =>
       array (
         'driver' => 'token',
         'provider' => 'users',
         'hash' => false,
       ),
     ),
-    'providers' => 
+    'providers' =>
     array (
-      'users' => 
+      'users' =>
       array (
         'driver' => 'eloquent',
         'model' => 'App\\User',
       ),
     ),
-    'passwords' => 
+    'passwords' =>
     array (
-      'users' => 
+      'users' =>
       array (
         'provider' => 'users',
         'table' => 'password_resets',
@@ -139,77 +135,77 @@
       ),
     ),
   ),
-  'broadcasting' => 
+  'broadcasting' =>
   array (
     'default' => 'log',
-    'connections' => 
+    'connections' =>
     array (
-      'pusher' => 
+      'pusher' =>
       array (
         'driver' => 'pusher',
         'key' => '',
         'secret' => '',
         'app_id' => '',
-        'options' => 
+        'options' =>
         array (
           'cluster' => 'mt1',
           'encrypted' => true,
         ),
       ),
-      'redis' => 
+      'redis' =>
       array (
         'driver' => 'redis',
         'connection' => 'default',
       ),
-      'log' => 
+      'log' =>
       array (
         'driver' => 'log',
       ),
-      'null' => 
+      'null' =>
       array (
         'driver' => 'null',
       ),
     ),
   ),
-  'cache' => 
+  'cache' =>
   array (
     'default' => 'file',
-    'stores' => 
+    'stores' =>
     array (
-      'apc' => 
+      'apc' =>
       array (
         'driver' => 'apc',
       ),
-      'array' => 
+      'array' =>
       array (
         'driver' => 'array',
       ),
-      'database' => 
+      'database' =>
       array (
         'driver' => 'database',
         'table' => 'cache',
         'connection' => NULL,
       ),
-      'file' => 
+      'file' =>
       array (
         'driver' => 'file',
         'path' => 'C:\\xampp\\htdocs\\webdevs\\indhosnacks\\storage\\framework/cache/data',
       ),
-      'memcached' => 
+      'memcached' =>
       array (
         'driver' => 'memcached',
         'persistent_id' => NULL,
-        'sasl' => 
+        'sasl' =>
         array (
           0 => NULL,
           1 => NULL,
         ),
-        'options' => 
+        'options' =>
         array (
         ),
-        'servers' => 
+        'servers' =>
         array (
-          0 => 
+          0 =>
           array (
             'host' => '127.0.0.1',
             'port' => 11211,
@@ -217,12 +213,12 @@
           ),
         ),
       ),
-      'redis' => 
+      'redis' =>
       array (
         'driver' => 'redis',
         'connection' => 'cache',
       ),
-      'dynamodb' => 
+      'dynamodb' =>
       array (
         'driver' => 'dynamodb',
         'key' => '',
@@ -233,61 +229,61 @@
     ),
     'prefix' => 'indhosnacks_cache',
   ),
-  'cartalyst' => 
+  'cartalyst' =>
   array (
-    'sentinel' => 
+    'sentinel' =>
     array (
       'session' => 'cartalyst_sentinel',
       'cookie' => 'cartalyst_sentinel',
-      'users' => 
+      'users' =>
       array (
         'model' => 'Cartalyst\\Sentinel\\Users\\EloquentUser',
       ),
-      'roles' => 
+      'roles' =>
       array (
         'model' => 'Cartalyst\\Sentinel\\Roles\\EloquentRole',
       ),
-      'permissions' => 
+      'permissions' =>
       array (
         'class' => 'Cartalyst\\Sentinel\\Permissions\\StandardPermissions',
       ),
-      'persistences' => 
+      'persistences' =>
       array (
         'model' => 'Cartalyst\\Sentinel\\Persistences\\EloquentPersistence',
         'single' => false,
       ),
-      'checkpoints' => 
+      'checkpoints' =>
       array (
         0 => 'throttle',
         1 => 'activation',
       ),
-      'activations' => 
+      'activations' =>
       array (
         'model' => 'Cartalyst\\Sentinel\\Activations\\EloquentActivation',
         'expires' => 259200,
-        'lottery' => 
+        'lottery' =>
         array (
           0 => 2,
           1 => 100,
         ),
       ),
-      'reminders' => 
+      'reminders' =>
       array (
         'model' => 'Cartalyst\\Sentinel\\Reminders\\EloquentReminder',
         'expires' => 14400,
-        'lottery' => 
+        'lottery' =>
         array (
           0 => 2,
           1 => 100,
         ),
       ),
-      'throttling' => 
+      'throttling' =>
       array (
         'model' => 'Cartalyst\\Sentinel\\Throttling\\EloquentThrottle',
-        'global' => 
+        'global' =>
         array (
           'interval' => 900,
-          'thresholds' => 
+          'thresholds' =>
           array (
             10 => 1,
             20 => 2,
@@ -297,12 +293,12 @@
             60 => 32,
           ),
         ),
-        'ip' => 
+        'ip' =>
         array (
           'interval' => 900,
           'thresholds' => 5,
         ),
-        'user' => 
+        'user' =>
         array (
           'interval' => 900,
           'thresholds' => 5,
@@ -310,18 +306,18 @@
       ),
     ),
   ),
-  'cookie-consent' => 
+  'cookie-consent' =>
   array (
     'enabled' => true,
     'cookie_name' => 'laravel_cookie_consent',
     'cookie_lifetime' => 7300,
   ),
-  'database' => 
+  'database' =>
   array (
     'default' => 'mysql',
-    'connections' => 
+    'connections' =>
     array (
-      'sqlite' => 
+      'sqlite' =>
       array (
         'driver' => 'sqlite',
         'url' => NULL,
@@ -329,7 +325,7 @@
         'prefix' => '',
         'foreign_key_constraints' => true,
       ),
-      'mysql' => 
+      'mysql' =>
       array (
         'driver' => 'mysql',
         'url' => NULL,
@@ -345,11 +341,11 @@
         'prefix_indexes' => true,
         'strict' => true,
         'engine' => NULL,
-        'options' => 
+        'options' =>
         array (
         ),
       ),
-      'pgsql' => 
+      'pgsql' =>
       array (
         'driver' => 'pgsql',
         'url' => NULL,
@@ -364,7 +360,7 @@
         'schema' => 'public',
         'sslmode' => 'prefer',
       ),
-      'sqlsrv' => 
+      'sqlsrv' =>
       array (
         'driver' => 'sqlsrv',
         'url' => NULL,
@@ -379,22 +375,22 @@
       ),
     ),
     'migrations' => 'migrations',
-    'redis' => 
+    'redis' =>
     array (
       'client' => 'predis',
-      'options' => 
+      'options' =>
       array (
         'cluster' => 'predis',
         'prefix' => 'indhosnacks_database_',
       ),
-      'default' => 
+      'default' =>
       array (
         'host' => '127.0.0.1',
         'password' => NULL,
         'port' => '6379',
         'database' => 0,
       ),
-      'cache' => 
+      'cache' =>
       array (
         'host' => '127.0.0.1',
         'password' => NULL,
@@ -403,9 +399,9 @@
       ),
     ),
   ),
-  'datatables' => 
+  'datatables' =>
   array (
-    'search' => 
+    'search' =>
     array (
       'smart' => true,
       'multi_term' => true,
@@ -413,69 +409,64 @@
       'use_wildcards' => false,
     ),
     'index_column' => 'DT_RowIndex',
-    'engines' => 
+    'engines' =>
     array (
       'eloquent' => 'Yajra\\DataTables\\EloquentDataTable',
       'query' => 'Yajra\\DataTables\\QueryDataTable',
       'collection' => 'Yajra\\DataTables\\CollectionDataTable',
       'resource' => 'Yajra\\DataTables\\ApiResourceDataTable',
     ),
-    'builders' => 
+    'builders' =>
     array (
     ),
     'nulls_last_sql' => '%s %s NULLS LAST',
     'error' => NULL,
-    'columns' => 
+    'columns' =>
     array (
-      'excess' => 
+      'excess' =>
       array (
         0 => 'rn',
         1 => 'row_num',
       ),
       'escape' => '*',
-      'raw' => 
+      'raw' =>
       array (
         0 => 'action',
       ),
-      'blacklist' => 
+      'blacklist' =>
       array (
         0 => 'password',
         1 => 'remember_token',
       ),
       'whitelist' => '*',
     ),
-    'json' => 
+    'json' =>
     array (
-      'header' => 
+      'header' =>
       array (
       ),
       'options' => 0,
     ),
   ),
-  'filesystems' => 
+  'filesystems' =>
   array (
     'default' => 'local',
     'cloud' => 's3',
-    'disks' => 
+    'disks' =>
     array (
-      'local' => 
+      'local' =>
       array (
         'driver' => 'local',
         'root' => 'C:\\xampp\\htdocs\\webdevs\\indhosnacks\\storage\\app',
       ),
-      'public' => 
+      'public' =>
       array (
         'driver' => 'local',
-<<<<<<< HEAD
         'root' => 'C:\\xampp\\htdocs\\webdevs\\indhosnacks\\storage\\app/public',
         'url' => 'http://localhost/webdevs/indhosnacks//storage',
-=======
-        'root' => 'C:\\xampp\\htdocs\\webdevs\\indhosnacks.com\\storage\\app/public',
-        'url' => 'http://localhost/webdevs/indhosnacks.com/storage',
->>>>>>> develop
         'visibility' => 'public',
       ),
-      's3' => 
+      's3' =>
       array (
         'driver' => 's3',
         'key' => '',
@@ -486,59 +477,59 @@
       ),
     ),
   ),
-  'hashing' => 
+  'hashing' =>
   array (
     'driver' => 'bcrypt',
-    'bcrypt' => 
+    'bcrypt' =>
     array (
       'rounds' => 10,
     ),
-    'argon' => 
+    'argon' =>
     array (
       'memory' => 1024,
       'threads' => 2,
       'time' => 2,
     ),
   ),
-  'laravel-share' => 
+  'laravel-share' =>
   array (
-    'services' => 
+    'services' =>
     array (
-      'facebook' => 
+      'facebook' =>
       array (
         'uri' => 'https://www.facebook.com/sharer/sharer.php?u=',
       ),
-      'twitter' => 
+      'twitter' =>
       array (
         'uri' => 'https://twitter.com/intent/tweet',
         'text' => 'Default share text',
       ),
-      'linkedin' => 
+      'linkedin' =>
       array (
         'uri' => 'http://www.linkedin.com/shareArticle',
-        'extra' => 
+        'extra' =>
         array (
           'mini' => 'true',
         ),
       ),
-      'whatsapp' => 
+      'whatsapp' =>
       array (
         'uri' => 'https://wa.me/?text=',
-        'extra' => 
+        'extra' =>
         array (
           'mini' => 'true',
         ),
       ),
-      'pinterest' => 
+      'pinterest' =>
       array (
         'uri' => 'http://pinterest.com/pin/create/button/?url=',
       ),
-      'reddit' => 
+      'reddit' =>
       array (
         'uri' => 'https://www.reddit.com/submit',
         'text' => 'Default share text',
       ),
-      'telegram' => 
+      'telegram' =>
       array (
         'uri' => 'https://telegram.me/share/url',
         'text' => 'Default share text',
@@ -546,34 +537,34 @@
     ),
     'fontAwesomeVersion' => 4,
   ),
-  'logging' => 
+  'logging' =>
   array (
     'default' => 'stack',
-    'channels' => 
+    'channels' =>
     array (
-      'stack' => 
+      'stack' =>
       array (
         'driver' => 'stack',
-        'channels' => 
+        'channels' =>
         array (
           0 => 'daily',
         ),
         'ignore_exceptions' => false,
       ),
-      'single' => 
+      'single' =>
       array (
         'driver' => 'single',
         'path' => 'C:\\xampp\\htdocs\\webdevs\\indhosnacks\\storage\\logs/laravel.log',
         'level' => 'debug',
       ),
-      'daily' => 
+      'daily' =>
       array (
         'driver' => 'daily',
         'path' => 'C:\\xampp\\htdocs\\webdevs\\indhosnacks\\storage\\logs/laravel.log',
         'level' => 'debug',
         'days' => 14,
       ),
-      'slack' => 
+      'slack' =>
       array (
         'driver' => 'slack',
         'url' => NULL,
@@ -581,45 +572,45 @@
         'emoji' => ':boom:',
         'level' => 'critical',
       ),
-      'papertrail' => 
+      'papertrail' =>
       array (
         'driver' => 'monolog',
         'level' => 'debug',
         'handler' => 'Monolog\\Handler\\SyslogUdpHandler',
-        'handler_with' => 
+        'handler_with' =>
         array (
           'host' => NULL,
           'port' => NULL,
         ),
       ),
-      'stderr' => 
+      'stderr' =>
       array (
         'driver' => 'monolog',
         'handler' => 'Monolog\\Handler\\StreamHandler',
         'formatter' => NULL,
-        'with' => 
+        'with' =>
         array (
           'stream' => 'php://stderr',
         ),
       ),
-      'syslog' => 
+      'syslog' =>
       array (
         'driver' => 'syslog',
         'level' => 'debug',
       ),
-      'errorlog' => 
+      'errorlog' =>
       array (
         'driver' => 'errorlog',
         'level' => 'debug',
       ),
     ),
   ),
-  'mail' => 
+  'mail' =>
   array (
     'driver' => 'smtp',
     'host' => 'smtp.gmail.com',
     'port' => '465',
-    'from' => 
+    'from' =>
     array (
       'address' => 'hello@example.com',
       'name' => 'Example',
@@ -628,28 +619,28 @@
     'username' => '',
     'password' => '',
     'sendmail' => '/usr/sbin/sendmail -bs',
-    'markdown' => 
+    'markdown' =>
     array (
       'theme' => 'default',
-      'paths' => 
+      'paths' =>
       array (
         0 => 'C:\\xampp\\htdocs\\webdevs\\indhosnacks\\resources\\views/vendor/mail',
       ),
     ),
     'log_channel' => NULL,
   ),
-  'mapdetail' => 
+  'mapdetail' =>
   array (
     'key' => 'AIzaSyC1JUHjsnQZtKx5eBOpG42E_CLoJ1s39AU',
     'lat' => '21.2284231',
     'long' => '72.896816',
     'web_color' => NULL,
   ),
-  'paypal' => 
+  'paypal' =>
   array (
     'client_id' => '',
     'secret' => '',
-    'settings' => 
+    'settings' =>
     array (
       'mode' => 'sandbox',
       'http.ConnectionTimeOut' => 1000,
@@ -658,23 +649,23 @@
       'log.LogLevel' => 'FINE',
     ),
   ),
-  'queue' => 
+  'queue' =>
   array (
     'default' => 'sync',
-    'connections' => 
+    'connections' =>
     array (
-      'sync' => 
+      'sync' =>
       array (
         'driver' => 'sync',
       ),
-      'database' => 
+      'database' =>
       array (
         'driver' => 'database',
         'table' => 'jobs',
         'queue' => 'default',
         'retry_after' => 90,
       ),
-      'beanstalkd' => 
+      'beanstalkd' =>
       array (
         'driver' => 'beanstalkd',
         'host' => 'localhost',
@@ -682,7 +673,7 @@
         'retry_after' => 90,
         'block_for' => 0,
       ),
-      'sqs' => 
+      'sqs' =>
       array (
         'driver' => 'sqs',
         'key' => '',
@@ -691,7 +682,7 @@
         'queue' => 'your-queue-name',
         'region' => 'us-east-1',
       ),
-      'redis' => 
+      'redis' =>
       array (
         'driver' => 'redis',
         'connection' => 'default',
@@ -700,47 +691,47 @@
         'block_for' => NULL,
       ),
     ),
-    'failed' => 
+    'failed' =>
     array (
       'database' => 'mysql',
       'table' => 'failed_jobs',
     ),
   ),
-  'services' => 
+  'services' =>
   array (
-    'mailgun' => 
+    'mailgun' =>
     array (
       'domain' => NULL,
       'secret' => NULL,
       'endpoint' => 'api.mailgun.net',
     ),
-    'postmark' => 
+    'postmark' =>
     array (
       'token' => NULL,
     ),
-    'ses' => 
+    'ses' =>
     array (
       'key' => '',
       'secret' => '',
       'region' => 'us-east-1',
     ),
-    'sparkpost' => 
+    'sparkpost' =>
     array (
       'secret' => NULL,
     ),
-    'stripe' => 
+    'stripe' =>
     array (
       'model' => 'App\\User',
       'key' => '',
       'secret' => '',
-      'webhook' => 
+      'webhook' =>
       array (
         'secret' => NULL,
         'tolerance' => 300,
       ),
     ),
   ),
-  'session' => 
+  'session' =>
   array (
     'driver' => 'file',
     'lifetime' => '120',
@@ -750,7 +741,7 @@
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
-    'lottery' => 
+    'lottery' =>
     array (
       0 => 2,
       1 => 100,
@@ -762,7 +753,7 @@
     'http_only' => true,
     'same_site' => NULL,
   ),
-  'shopping_cart' => 
+  'shopping_cart' =>
   array (
     'format_numbers' => false,
     'decimals' => 0,
@@ -771,38 +762,38 @@
     'storage' => NULL,
     'events' => NULL,
   ),
-  'view' => 
+  'view' =>
   array (
-    'paths' => 
+    'paths' =>
     array (
       0 => 'C:\\xampp\\htdocs\\webdevs\\indhosnacks\\resources\\views',
     ),
     'compiled' => 'C:\\xampp\\htdocs\\webdevs\\indhosnacks\\storage\\framework\\views',
   ),
-  'xss-filter' => 
+  'xss-filter' =>
   array (
-    'except' => 
+    'except' =>
     array (
       0 => 'password',
       1 => 'password_confirmation',
     ),
     'escape_inline_listeners' => false,
   ),
-  'debug-server' => 
+  'debug-server' =>
   array (
     'host' => 'tcp://127.0.0.1:9912',
   ),
-  'trustedproxy' => 
+  'trustedproxy' =>
   array (
     'proxies' => NULL,
     'headers' => 30,
   ),
-  'tinker' => 
+  'tinker' =>
   array (
-    'commands' => 
+    'commands' =>
     array (
     ),
-    'dont_alias' => 
+    'dont_alias' =>
     array (
       0 => 'App\\Nova',
     ),
