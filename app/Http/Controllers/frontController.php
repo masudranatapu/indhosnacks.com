@@ -29,7 +29,7 @@ class frontController extends Controller {
       Session::put("facebook",$store->facebook_id);
       Session::put("twitter",$store->twitter_id);
       Session::put("linkedin",$store->linkedin_id);
-      Session::put("google_plus_id",$store->google_plus_id);
+      //Session::put("google_plus_id",$store->google_plus_id);
       Session::put("whatsapp",$store->whatsapp);
       Session::put("address",$store->address);
       Session::put("email",$store->email);
@@ -80,7 +80,7 @@ class frontController extends Controller {
    	  Session::put("facebook",$store->facebook_id);
    	  Session::put("twitter",$store->twitter_id);
    	  Session::put("linkedin",$store->linkedin_id);
-   	  Session::put("google_plus_id",$store->google_plus_id);
+   	  //Session::put("google_plus_id",$store->google_plus_id);
    	  Session::put("whatsapp",$store->whatsapp);
    	  Session::put("address",$store->address);
    	  Session::put("email",$store->email);

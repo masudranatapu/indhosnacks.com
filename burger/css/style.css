@@ -89,7 +89,7 @@ ul.textdata a {
 }
 
 .modal-1 .modal-content {
-    height: auto;
+    height: 100vh !important;
 }
 
 .acco-c-button button {
@@ -810,7 +810,7 @@ main.main {
 
 .fo-text h1 {
     font-family: "Roboto";
-    font-size: 32px;
+    font-size: 25px;
     color: #fff;
     position: relative;
 }
@@ -1831,7 +1831,7 @@ div#forgotbody {
 .cart-bill-and-category .cart-head h1 {
     font-size: 40px;
     font-family: 'roboto';
-    padding: 0px 0px 40px 0px;
+    padding: 0px 0px 10px 0px;
     font-weight: 400;
     color: #af191a;
 }
@@ -1859,6 +1859,7 @@ div#forgotbody {
     padding: 5px;
     width: 96px;
     margin: 23px auto;
+    background: #fff;
 }
 
 .table-striped tbody tr:nth-of-type(even) {
@@ -1876,6 +1877,7 @@ div#forgotbody {
     font-weight: 700;
     color: black;
     padding-left: 15px;
+    vertical-align: middle;
 }
 
 .cart-category .cart-category-items #producttotal6 {
@@ -1912,9 +1914,10 @@ div#forgotbody {
 }
 
 .cart-bill-box {
-    border: 1px solid #d7d7d7;
     padding: 29px;
     border-radius: 5px;
+    background: #ffffff;
+    box-shadow: rgb(99 99 99 / 20%) 0px 2px 8px 0px;
 }
 
 .cart-bill-box .cart-bill-box-head h4 {
@@ -2019,9 +2022,10 @@ div#orderplace1 button {
 
 .cart-shipping-box {
     padding: 29px;
-    border: 1px solid #d7d7d7;
-    margin-top: 20px;
     border-radius: 5px;
+    background: #ffffff;
+    box-shadow: rgb(99 99 99 / 20%) 0px 2px 8px 0px;
+    margin-top:20px;
 }
 
 .cart-b-shipping {
@@ -2267,7 +2271,7 @@ div#orderplace1 button {
 
 .login-modal input#modal-text {
     width: 100%;
-    padding: 8px;
+    padding: 12px 17px;
     background-color: #f6f6f6;
     border: none;
     outline: none;
@@ -2279,6 +2283,18 @@ div#orderplace1 button {
     display: inline-block;
     font-weight: 600;
     margin-bottom: 6px;
+}
+
+.cart-modal img {
+    width: 14px !important;
+    height: 13px !important;
+}
+.cart-modal .b-img{
+    padding:0px !important;
+}
+.cart-modal .b-img img {
+    width: 95px !important;
+    height: 95px !important;
 }
 
 .login-modal .modal-re {
@@ -2677,7 +2693,7 @@ td.cart-product-image img {
 }
 
 .checkout-back {
-    background-color: #edeae6;
+    /* background-color: #edeae6; */
     padding: 50px 0px;
 }
 
@@ -2723,7 +2739,7 @@ td.cart-product-image img {
     width: 100%;
     background-color: #f7f7f7;
     border: none;
-    padding: 8px;
+    padding: 14px 20px;
     margin-bottom: 15px;
 }
 
@@ -2842,7 +2858,7 @@ img#pay1.activepayment {
 
 .city select {
     width: 100%;
-    padding: 5px 10px;
+    padding: 14px 12px;
     font-size: 14px;
     outline: 0;
     border: none;
@@ -3053,9 +3069,10 @@ img#pay1.activepayment {
 }
 
 .account-pro-tab .acc-pro-box {
-    padding: 45px;
-    border: 1px solid #d7d7d7;
+    padding: 27px 30px;
+    border: 1px solid #f2f2f2;
     text-align: center;
+    border-radius: 0px;
 }
 
 .acc-pro-box .acc-proimg {
@@ -3087,9 +3104,10 @@ img#pay1.activepayment {
 }
 
 .account-pro-tab .nav-item .nav-link {
-    padding: 30px;
-    border: 1px solid #d7d7d7;
+    padding: 13px 20px;
+    border: 1px solid #f2f2f2;
     border-top: none;
+    border-radius: 0px !important;
 }
 
 .account-pro-tab .nav-item .nav-link p {
@@ -3152,8 +3170,8 @@ img#pay1.activepayment {
     margin-bottom: 40px;
     font-family: "roboto";
     font-size: 25px;
-    border-bottom: 1px solid #d7d7d7;
-    padding-bottom: 30px;
+    /* border-bottom: 1px solid #d7d7d7;
+    padding-bottom: 30px; */
 }
 
 .acco-tab-content .acco-cp-box {
@@ -3181,11 +3199,11 @@ img#pay1.activepayment {
 
 input#acco-tab-fo {
     width: 100%;
-    padding: 7px 15px;
+    padding: 17px 15px;
     background-color: #f7fafa;
     border: none;
     outline: 0;
-    margin-bottom: 30px;
+    margin-bottom: 11px;
 }
 
 .acco-button .acco-c-button {
@@ -3219,9 +3237,9 @@ input#acco-tab-fo {
     color: #000;
     font-weight: 600;
     line-height: 18px;
-    margin-bottom: 0px;
+    /* margin-bottom: 0px;
     border-bottom: 1px solid #d7d7d7;
-    padding-bottom: 34px;
+    padding-bottom: 34px; */
 }
 
 .order-my {

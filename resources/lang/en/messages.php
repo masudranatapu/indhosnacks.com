@@ -25,6 +25,8 @@
     'information'=>'Information',
     'open' => 'Opening Hours',
     'myaccount'=>'My Account',
+    'tiktok_id' => 'Tiktok Id',
+    'instragram_id' => 'Instagram Id',
     'myorder'=>'My Order',
     'checkout'=>'Checkout',
     'cart'=>'Cart',
@@ -275,7 +277,13 @@
     "Footer Up Image"=>"Footer Up Image",
     "Footer Image"=>"Footer Image",
     "Android Applciation Link"=>"Android Applciation Link",
-    "Ios Application Link"=>"Ios Application Link"
+    "Ios Application Link"=>"Ios Application Link",
+    "about_us"=>"About Us",
+    "privacy_policy"=>"Privacy & Policy",
+    "page_title"=>"Page title",
+    "page_desc"=>"Page desc",
+    "page_img"=>"Page img"
+
 
 ];
 ?>

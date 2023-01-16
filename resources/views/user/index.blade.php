@@ -528,13 +528,13 @@
         </div>
         <div class="play">
             <div class="container">
-                <div class="row">
+                <div class="row align-items-center">
                     <div class="col-md-6">
-                        <div class="play-logo">
+                        {{-- <div class="play-logo">
                             <img src="{{Session::get('logo')}}" width="200">
-                        </div>
+                        </div> --}}
                         <div class="play-b">
-                            <img src="{{Session::get('footer_up_img')}}" width="200">
+                            <img src="{{Session::get('footer_up_img')}}">
                         </div>
                     </div>
                     <div class="col-md-6 text-box">
