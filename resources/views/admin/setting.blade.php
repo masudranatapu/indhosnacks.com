@@ -1,5 +1,19 @@
 @extends('admin.index')
 @section('content')
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    </script>
+
+
+
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
+
     <div class="breadcrumbs breadsetting" style="margin-top: 5px">
         <div class="col-sm-4">
             <div class="page-header float-left">
@@ -56,6 +70,15 @@
                                         aria-selected="true">{{ __('messages.web images') }}</a>
                                 </li>
                             @endif
+                            <li class="nav-item">
+                                <a class="nav-link" id="about_us-tab" data-toggle="tab" href="#about_us" role="tab"
+                                    aria-controls="about_us" aria-selected="true">{{ __('messages.about_us') }}</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="privacy_page-tab" data-toggle="tab" href="#privacy_page"
+                                    role="tab" aria-controls="privacy_page"
+                                    aria-selected="true">{{ __('messages.privacy_policy') }}</a>
+                            </li>
                         </ul>
                         <div class="tab-content pl-3 p-1" id="myTabContent">
                             <div class="tab-pane fade <?= $tab == 1 ? 'active show ' : '' ?>" id="step1" role="tabpanel"
@@ -459,6 +482,86 @@
                                 </form>
                             </div>
                         </div>
+                        <div class="tab-pane fade" id="about_us" role="tabpanel" aria-labelledby="about_us-tab">
+                            <div class="tabdiv">
+                                <form action="{{ url('savewebpage') }}" method="post" enctype="multipart/form-data">
+                                    <div class="form-group">
+                                        <label for="page_title"
+                                            class=" form-control-label">{{ __('messages.page_title') }}<span
+                                                class="">*</span></label>
+                                        <input type="text" name="page_title"
+                                            placeholder="{{ __('messages.page_title') }}" class="form-control"
+                                            required>{{ $data->page_title }}</textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="page_desc"
+                                            class=" form-control-label">{{ __('messages.page_desc') }}<span
+                                                class="">*</span></label>
+                                        <textarea id="page_desc" name="page_desc" placeholder="{{ __('messages.page_desc') }}"class="form-control"
+                                            required>{{ $data->page_desc }}</textarea>
+                                        <div id="summernote"></div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="image"
+                                            class=" form-control-label">{{ __('messages.page_img') }}<span
+                                                class="">*</span></label>
+                                        <input type="file" name="page_img"
+                                            placeholder="{{ __('messages.page_img') }}" class="form-control"
+                                            required>{{ $data->page_img }}</textarea>
+                                    </div>
+                                    <div class="form-group col-md-12">
+
+                                        @if (Session::get('demo') == 0)
+                                            <button id="payment-button" type="button"
+                                                class="btn btn-lg btn-info btn-block" onclick="disablebtn()">
+                                                {{ __('messages.update') }}
+                                            </button>
+                                        @else
+                                            <button class="btn btn-primary btnright" type="submit">
+                                                {{ __('messages.update') }}</button>
+                                        @endif
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="privacy_page" role="tabpanel" aria-labelledby="privacy_page-tab">
+
+                            <div class="tabdiv">
+                                <form action="{{ url('savewebpage') }}" method="post" enctype="multipart/form-data">
+                                    <div class="form-group">
+
+                                        <label for="page_title"
+                                            class=" form-control-label">{{ __('messages.page_title') }}<span
+                                                class="">*</span></label>
+                                        <input type="text" name="page_title"
+                                            placeholder="{{ __('messages.page_title') }}" class="form-control"
+                                            required>{{ $data->page_title }}</textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="description"
+                                            class=" form-control-label">{{ __('messages.page_desc') }}<span
+                                                class="">*</span></label>
+                                        <textarea id="page_desc" name="page_desc" placeholder="{{ __('messages.page_desc') }}" class="form-control"
+                                            required>{{ $data->page_desc }}</textarea>
+                                        <div id="summernote1"></div>
+                                    </div>
+
+                                    <div class="form-group col-md-12">
+
+                                        @if (Session::get('demo') == 0)
+                                            <button id="payment-button" type="button"
+                                                class="btn btn-lg btn-info btn-block" onclick="disablebtn()">
+                                                {{ __('messages.update') }}
+                                            </button>
+                                        @else
+                                            <button class="btn btn-primary btnright" type="submit">
+                                                {{ __('messages.update') }}</button>
+                                        @endif
+                                    </div>
+
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -467,5 +570,20 @@
     <input type="hidden" id="req_msg" value="{{ __('successerr.req_fields') }}">
     <input type="hidden" id="datasave" value="{{ __('successerr.data_save') }}">
 @stop
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 @section('footer')
+    <script>
+        $('#summernote').summernote({
+            placeholder: 'Hello Bootstrap 4',
+            tabsize: 2,
+            height: 100
+        });
+    </script>
+    <script>
+        $('#summernote1').summernote({
+            placeholder: 'Hello Bootstrap 4',
+            tabsize: 2,
+            height: 100
+        });
+    </script>
+    <script>
+    @endsection

@@ -289,6 +289,7 @@ class AuthenticationController extends Controller {
        Session::flash('alert-class', 'alert-success');
        return redirect("setting/4");
     }
+
    
     public function postlogin(Request $request){ 
             $user=Sentinel::authenticate($request->all());

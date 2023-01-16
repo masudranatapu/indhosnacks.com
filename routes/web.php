@@ -11,6 +11,8 @@
 |
 */
 
+use App\Http\Controllers\PagesController;
+
 Route::group(['middleware' => ['XSS']], function () {
 
 Route::get('/cache-clear', function() {
@@ -75,6 +77,10 @@ Route::group(['middleware' => ['admincheckexiste']], function () {
     Route::any("savesoicalsetting","AuthenticationController@savesoicalsetting")->name("savesoicalsetting");
     Route::any("savepaymentdata","AuthenticationController@savepaymentdata");
     Route::any("savewebimage","AuthenticationController@savewebimage");
+
+	Route::get("index","PagesController@index");
+    Route::any("savewebpage","PagesController@savewebpage");
+	
 
 
 	//menu category
