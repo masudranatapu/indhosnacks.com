@@ -4,7 +4,7 @@
     'name' => 'indhosnacks',
     'env' => 'local',
     'debug' => true,
-    'url' => 'https://localhost',
+    'url' => 'http://localhost/test/indhosnacks.com/',
     'asset_url' => NULL,
     'timezone' => 'UTC',
     'locale' => 'en',
@@ -189,7 +189,7 @@
       'file' => 
       array (
         'driver' => 'file',
-        'path' => 'C:\\xampp\\htdocs\\webdevs\\indhosnacks.com\\storage\\framework/cache/data',
+        'path' => 'D:\\xampp\\htdocs\\test\\indhosnacks.com\\storage\\framework/cache/data',
       ),
       'memcached' => 
       array (
@@ -457,13 +457,13 @@
       'local' => 
       array (
         'driver' => 'local',
-        'root' => 'C:\\xampp\\htdocs\\webdevs\\indhosnacks.com\\storage\\app',
+        'root' => 'D:\\xampp\\htdocs\\test\\indhosnacks.com\\storage\\app',
       ),
       'public' => 
       array (
         'driver' => 'local',
-        'root' => 'C:\\xampp\\htdocs\\webdevs\\indhosnacks.com\\storage\\app/public',
-        'url' => 'https://localhost/storage',
+        'root' => 'D:\\xampp\\htdocs\\test\\indhosnacks.com\\storage\\app/public',
+        'url' => 'http://localhost/test/indhosnacks.com//storage',
         'visibility' => 'public',
       ),
       's3' => 
@@ -554,13 +554,13 @@
       'single' => 
       array (
         'driver' => 'single',
-        'path' => 'C:\\xampp\\htdocs\\webdevs\\indhosnacks.com\\storage\\logs/laravel.log',
+        'path' => 'D:\\xampp\\htdocs\\test\\indhosnacks.com\\storage\\logs/laravel.log',
         'level' => 'debug',
       ),
       'daily' => 
       array (
         'driver' => 'daily',
-        'path' => 'C:\\xampp\\htdocs\\webdevs\\indhosnacks.com\\storage\\logs/laravel.log',
+        'path' => 'D:\\xampp\\htdocs\\test\\indhosnacks.com\\storage\\logs/laravel.log',
         'level' => 'debug',
         'days' => 14,
       ),
@@ -624,7 +624,7 @@
       'theme' => 'default',
       'paths' => 
       array (
-        0 => 'C:\\xampp\\htdocs\\webdevs\\indhosnacks.com\\resources\\views/vendor/mail',
+        0 => 'D:\\xampp\\htdocs\\test\\indhosnacks.com\\resources\\views/vendor/mail',
       ),
     ),
     'log_channel' => NULL,
@@ -645,7 +645,7 @@
       'mode' => 'sandbox',
       'http.ConnectionTimeOut' => 1000,
       'log.LogEnabled' => true,
-      'log.FileName' => 'C:\\xampp\\htdocs\\webdevs\\indhosnacks.com\\storage/logs/paypal.log',
+      'log.FileName' => 'D:\\xampp\\htdocs\\test\\indhosnacks.com\\storage/logs/paypal.log',
       'log.LogLevel' => 'FINE',
     ),
   ),
@@ -737,7 +737,7 @@
     'lifetime' => '120',
     'expire_on_close' => false,
     'encrypt' => false,
-    'files' => 'C:\\xampp\\htdocs\\webdevs\\indhosnacks.com\\storage\\framework/sessions',
+    'files' => 'D:\\xampp\\htdocs\\test\\indhosnacks.com\\storage\\framework/sessions',
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -766,9 +766,9 @@
   array (
     'paths' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\webdevs\\indhosnacks.com\\resources\\views',
+      0 => 'D:\\xampp\\htdocs\\test\\indhosnacks.com\\resources\\views',
     ),
-    'compiled' => 'C:\\xampp\\htdocs\\webdevs\\indhosnacks.com\\storage\\framework\\views',
+    'compiled' => 'D:\\xampp\\htdocs\\test\\indhosnacks.com\\storage\\framework\\views',
   ),
   'xss-filter' => 
   array (
