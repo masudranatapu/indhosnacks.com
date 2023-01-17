@@ -100,7 +100,11 @@ class frontController extends Controller {
       Session::put("footer_img",asset("public/upload/web/").'/'.$store->footer_img);
       $setting=Setting::find(1);
       Session::put("orderstatus",$setting->order_status);
-      return view("user.index")->with("category",$category)->with("items",$item)->with("ingredient",$inter)->with("allmenu",$allmenu)->with("setting",$setting);
+
+
+      $popular_item=Item::inRandomOrder()->with('categoryitem')->where("is_deleted",'0')->take(16)->get();
+
+      return view("user.index")->with("category",$category)->with("items",$item)->with("ingredient",$inter)->with("allmenu",$allmenu)->with("setting",$setting)->with('popular_item',$popular_item);
    }
 
 

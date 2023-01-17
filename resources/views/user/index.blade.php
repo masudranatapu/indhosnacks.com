@@ -581,7 +581,8 @@
                 </div>
             </div>
         </div>
-        <div class="secound-section">
+
+        {{-- <div class="secound-section">
             <div class="container">
                 <div class="col-md-12">
                     <div class="row">
@@ -599,7 +600,43 @@
                     </div>
                 </div>
             </div>
+        </div> --}}
+
+        <!-- ============================ Popular item start ================================= -->
+        <div class="popular_section pt-5 pb-5">
+            <div class="container">
+                <div class="heading mb-5 text-center">
+                    <h1>{{__('Popular Items')}}</h1>
+                </div>
+                <div class="row">
+                    @foreach($popular_item as $it)
+                    <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+                        <div class="shop_product">
+                            <div class="card_product">
+                                <a href="{{url('detailitem/'.$it->id)}}">
+                                    <img src="{{asset('public/upload/images/menu_item_icon/'.$it->menu_image)}}"
+                                        class="card-img-top" alt="{{$it->menu_name}}">
+                                </a>
+                                <div class="card_body">
+                                    <h1><a href="{{url('detailitem/'.$it->id)}}">{{$it->menu_name}}</a></h1>
+                                    <p>
+                                        {{substr($it->description,0,75)}}
+                                    </p>
+                                    <div class="shop_price">
+                                        <p>
+                                            {{Session::get("usercurrency")}} {{$it->price}}
+                                            <a href="{{url('detailitem/'.$it->id)}}">{{__('messages.addcart')}}</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
+                </div>
+            </div>
         </div>
+        <!-- ============================ Popular item end ================================= -->
 
         <div class="play">
             <div class="container">
