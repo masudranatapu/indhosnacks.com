@@ -23,7 +23,7 @@
 }
 
 div#addressorder span {
-    color: #317153;
+    color: #dc3545;
 }
 
 ul.textdata a {
@@ -180,7 +180,7 @@ body {
 
 .accordion.indicator-plus-before.round-indicator .card-header.d-detail.payment:before {
     content: "\f0d6";
-    color: #317153;
+    color: #dc3545;
     font-size: 20pt;
     float: left;
     line-height: normal;
@@ -311,7 +311,7 @@ div#orderplacestrip .stripe-button-el span {
 .about-history h2 {
     font-family: 'roboto';
     text-align: center;
-    color: #317153;
+    color: #dc3545;
     font-weight: 400;
     font-size: 35px;
     margin-bottom: 20px;
@@ -326,7 +326,7 @@ div#orderplacestrip .stripe-button-el span {
 }
 
 .about-content-1 p span {
-    color: #317153;
+    color: #dc3545;
 }
 
 .about-image-1 {
@@ -508,7 +508,7 @@ img#pay3.activepayment {
 }
 
 .active-work {
-    background-color: #317153 !important;
+    background-color: #dc3545 !important;
 }
 
 .active-work:after {
@@ -518,10 +518,10 @@ img#pay3.activepayment {
     height: 0px;
     top: 104px;
     left: 35%;
-    border-top: 10px solid #317153;
+    border-top: 10px solid #dc3545;
     border-left: 25px solid transparent;
     border-right: 25px solid transparent;
-    border-top: 23px solid #317153;
+    border-top: 23px solid #dc3545;
 }
 
 .tab-b:focus {
@@ -577,10 +577,10 @@ img#pay3.activepayment {
     height: 0px;
     top: 104px;
     left: 35%;
-    border-top: 10px solid #317153;
+    border-top: 10px solid #dc3545;
     border-left: 25px solid transparent;
     border-right: 25px solid transparent;
-    border-top: 23px solid #317153;
+    border-top: 23px solid #dc3545;
 }
 
 .tab-b i {
@@ -652,10 +652,10 @@ img#pay3.activepayment {
 .cart a {
     font-family: "Roboto";
     font-size: 12px;
-    color: #317153;
+    color: #dc3545;
     font-weight: 500;
     padding: 9px 11px;
-    background-color: #3171531f;
+    background-color: #dc35451f;
     transition: all 0.5s;
     border-radius: 4px;
     width: 100%;
@@ -663,7 +663,7 @@ img#pay3.activepayment {
 }
 
 .cart a:hover {
-    background-color: #317153;
+    background-color: #dc3545;
     text-decoration: none;
     color: #fff;
 }
@@ -732,7 +732,7 @@ main.main {
 
 .head h1:after {
     content: "";
-    border: 2px solid #317153;
+    border: 2px solid #dc3545;
     position: absolute;
     bottom: 0;
     left: 0;
@@ -774,7 +774,7 @@ main.main {
 .crl {
     width: 10px;
     height: 10px;
-    background-color: #317153;
+    background-color: #dc3545;
     border-radius: 50%;
     float: left;
     margin-top: 5px;
@@ -817,7 +817,7 @@ main.main {
 
 .fo-text h1:after {
     content: "";
-    border: 1px solid #317153;
+    border: 1px solid #dc3545;
     position: absolute;
     bottom: 0;
     left: 0;
@@ -942,19 +942,19 @@ main.main {
 }
 
 #content-slider li .active {
-    background: #317153;
+    background: #dc3545;
     color: #fff;
 }
 
 .slick-slide .active {
-    color: #317153;
+    color: #dc3545;
     height: 80px;
     width: 160px;
     background-color: transparent;
 }
 
 .category_wrapper .slick-slide .active {
-    color: #317153;
+    color: #dc3545;
     width: 100% !important;
     background-color: transparent;
 }
@@ -1325,7 +1325,7 @@ span#login_error_msg {
 }
 
 .detail-background-box {
-    background-color: #317153;
+    background-color: #dc3545;
     width: 100%;
     /* padding-bottom: 15px; */
 }
@@ -1413,7 +1413,7 @@ button.detail-navbar-2.tab-b {
 }
 
 .detail-product-box .detail-product-head h4 {
-    color: #317153;
+    color: #dc3545;
     font-size: 35px;
     font-family: roboto;
     font-weight: 400;
@@ -1505,7 +1505,7 @@ button.detail-navbar-2.tab-b {
 
 .detail-ingredients .detail-ingredients-heading:after {
     content: '';
-    border-top: 3px solid #317153;
+    border-top: 3px solid #dc3545;
     width: 15%;
     position: absolute;
 }
@@ -1592,7 +1592,7 @@ button.detail-navbar-2.tab-b {
 
 .detail-product-box .detail-plus-add-cart {
     padding: 10px 60px;
-    background-color: #317153;
+    background-color: #dc3545;
     border-radius: 1000px;
     display: inline-block;
 }
@@ -1643,7 +1643,7 @@ button.detail-navbar-2.tab-b {
 
 .detail-related-head:after {
     content: '';
-    border-top: 3px solid #317153;
+    border-top: 3px solid #dc3545;
     width: 10%;
     position: absolute;
     right: 46%;
@@ -1838,7 +1838,7 @@ div#forgotbody {
     font-family: 'roboto';
     padding: 0px 0px 10px 0px;
     font-weight: 400;
-    color: #317153;
+    color: #dc3545;
 }
 
 .cart-category .cart-category-name {
@@ -1900,7 +1900,7 @@ div#forgotbody {
 .cart-category i.fa.fa-trash-o {
     font-size: 22px;
     padding-right: 20px;
-    color: #317153;
+    color: #dc3545;
 }
 
 .cart-category .cart-box-items {
@@ -1975,7 +1975,7 @@ div#forgotbody {
 }
 
 .contact-head .submit {
-    background-color: #317153;
+    background-color: #dc3545;
     border-radius: 1000px;
     margin-right: 15px;
     color: white;
@@ -2401,7 +2401,7 @@ span.modal-forgot {
 .por-1 .b-text p {
     font-size: 18px;
     font-weight: 500;
-    color: #317153;
+    color: #dc3545;
     font-family: "Montserrat";
 }
 
@@ -2450,7 +2450,7 @@ span.modal-forgot {
 
 .por-1 .price i {
     font-size: 25px;
-    color: #317153;
+    color: #dc3545;
     cursor: pointer;
     margin-bottom: 10px;
 }
@@ -2492,7 +2492,7 @@ span.modal-forgot {
 }
 
 .viewcart h1 a {
-    background-color: #317153;
+    background-color: #dc3545;
     ;
     padding: 12px 26px;
     border-radius: 22px;
@@ -2616,7 +2616,7 @@ span.modal-forgot {
 
 .accordion .card-header {
     cursor: pointer;
-    border-top: 6px solid #317153;
+    border-top: 6px solid #dc3545;
     border-bottom: none;
     border-radius: 0px !important;
     padding: 15px 10px;
@@ -2647,7 +2647,7 @@ td.cart-product-image img {
 
 .accordion.indicator-plus-before.round-indicator .card-header:before {
     content: "\f007";
-    color: #317153;
+    color: #dc3545;
     font-size: 20pt;
     float: left;
     line-height: normal;
@@ -2657,7 +2657,7 @@ td.cart-product-image img {
 
 .accordion.indicator-plus-before.round-indicator .card-header.d-detail:before {
     content: "\f041";
-    color: #317153;
+    color: #dc3545;
     font-size: 20pt;
     float: left;
     line-height: normal;
@@ -2693,7 +2693,7 @@ td.cart-product-image img {
 .checkbox-acco1 a.card-title {
     font-size: 20px;
     font-family: 'roboto';
-    color: #317153 !important;
+    color: #dc3545 !important;
     padding: 0px 4px;
 }
 
@@ -2749,7 +2749,7 @@ td.cart-product-image img {
 }
 
 .card-body form span {
-    color: #317153;
+    color: #dc3545;
     font-size: 14px;
     font-weight: 700;
     padding: 0px 2px;
@@ -2771,7 +2771,7 @@ img#pay1.activepayment {
 }
 
 .card-body .sub input {
-    background-color: #317153;
+    background-color: #dc3545;
     color: #fff;
     padding: 3px 60px;
     font-family: 'Montserrat';
@@ -2792,7 +2792,7 @@ img#pay1.activepayment {
 .forgot a {
     font-family: 'Montserrat';
     font-size: 15px;
-    color: #317153;
+    color: #dc3545;
     cursor: pointer;
 }
 
@@ -2855,7 +2855,7 @@ img#pay1.activepayment {
 }
 
 .billing span {
-    color: #317153;
+    color: #dc3545;
     font-size: 14px;
     font-weight: 700;
     padding: 0px 3px
@@ -2924,7 +2924,7 @@ img#pay1.activepayment {
 }
 
 .Location span {
-    color: #317153;
+    color: #dc3545;
     font-size: 14px;
     font-weight: 700;
     padding: 0px 3px;
@@ -3068,7 +3068,7 @@ img#pay1.activepayment {
 }
 
 .account-page-head h1 {
-    color: #317153;
+    color: #dc3545;
     margin: 50px 0px;
     font-family: 'Roboto';
 }
@@ -3133,7 +3133,7 @@ img#pay1.activepayment {
 }
 
 .nav-pills .nav-link.active {
-    background-color: #317153 !important;
+    background-color: #dc3545 !important;
 }
 
 .acc-pro1-box .nav-link:before {
@@ -3163,7 +3163,7 @@ img#pay1.activepayment {
 }
 
 .account-pro-tab .nav-item .nav-link.active:hover {
-    background-color: #317153;
+    background-color: #dc3545;
 }
 
 .account-pro-tab .nav-pills>li+li {
@@ -3198,7 +3198,7 @@ img#pay1.activepayment {
 }
 
 .acco-tab-content label span {
-    color: #317153;
+    color: #dc3545;
     padding-left: 3px;
 }
 
@@ -3302,7 +3302,7 @@ input#acco-tab-fo {
 }
 
 .pending-btn a {
-    background-color: #317153;
+    background-color: #dc3545;
     color: #fff;
     font-family: 'Montserrat';
     font-size: 15px;
@@ -3388,7 +3388,7 @@ input#acco-tab-fo {
 .logout-but .btn {
     padding: 6px 40px;
     border-radius: 30px;
-    background-color: #317153;
+    background-color: #dc3545;
 }
 
 .logout-but .btn-1 {
@@ -3454,7 +3454,7 @@ input#acco-tab-fo {
 
 .contact-head h1:after {
     content: "";
-    border: 2px solid #317153;
+    border: 2px solid #dc3545;
     position: absolute;
     bottom: 0;
     left: 0;
@@ -3479,7 +3479,7 @@ input#acco-tab-fo {
 
 .contact-head-1 h1:after {
     content: "";
-    border: 2px solid #317153;
+    border: 2px solid #dc3545;
     position: absolute;
     bottom: 0;
     left: 0;
@@ -3535,7 +3535,7 @@ input#acco-tab-fo {
 
 .order-d h1:after {
     content: "";
-    border: 3px solid #317153;
+    border: 3px solid #dc3545;
     position: absolute;
     bottom: 0;
     left: 28%;
@@ -3558,7 +3558,7 @@ input#acco-tab-fo {
 .order-status ul .round-d {
     height: 55px;
     width: 55px;
-    background-color: #317153;
+    background-color: #dc3545;
     border-radius: 50%;
     color: #fff;
     margin: 0 auto;
@@ -3589,7 +3589,7 @@ input#acco-tab-fo {
 
 .order-status ul .process-1:after {
     content: "";
-    border: 3px solid #317153;
+    border: 3px solid #dc3545;
     position: absolute;
     top: 26px;
     left: 165px;
@@ -3623,7 +3623,7 @@ input#acco-tab-fo {
     font-family: "Montserrat";
     font-weight: 600;
     font-size: 16px;
-    color: #317153;
+    color: #dc3545;
     margin: 0;
 }
 
@@ -4472,7 +4472,7 @@ input#acco-tab-fo {
     }
 
     .order-status ul .process-1:after {
-        border: 3px solid #317153;
+        border: 3px solid #dc3545;
         top: 22px;
         left: 88px;
         width: 78%;
@@ -5593,7 +5593,7 @@ button.slick-arrow {
 }
 
 /*.box.slick-slide.slick-current.slick-active{
-    background: #317153;
+    background: #dc3545;
     color: #fff;
     outline: none;
 }
@@ -5616,11 +5616,11 @@ button.slick-arrow {
     left: -106px;
     border-left: 25px solid transparent;
     border-right: 25px solid transparent;
-    border-top: 23px solid #317153;
+    border-top: 23px solid #dc3545;
 }*/
 
 /* .King_script_active {
-    background: #317153;
+    background: #dc3545;
     color: #fff;
     outline: none;
 } */
@@ -5631,7 +5631,7 @@ button.slick-arrow {
 
 .King_script_active h3 {
     font-size: 14px;
-    color: #317153;
+    color: #dc3545;
     font-weight: bold;
 }
 /*
@@ -5644,7 +5644,7 @@ button.slick-arrow {
     left: -106px;
     border-left: 25px solid transparent;
     border-right: 25px solid transparent;
-    border-top: 23px solid #317153;
+    border-top: 23px solid #dc3545;
 } */
 
 .slick-initialized .slick-slide {
@@ -5734,11 +5734,11 @@ button:focus {
 }
 
 .header_section .nav-link:hover {
-    color: #317153 !important;
+    color: #dc3545 !important;
 }
 
 .header_right_nav a {
-    color: #317153;
+    color: #dc3545;
     font-size: 17px;
     display: inline-block;
     margin: 0px 14px 0px 0px;
@@ -5837,8 +5837,8 @@ button:focus {
 .shop_price p a {
     float: right;
     font-size: 12px;
-    border: 1px solid #31715329;
-    background: #28a74533;
+    border: 1px solid #dc354529;
+    background: #dc35451f;
     padding: 4px 11px;
     border-radius: 2px;
     color: #212529;
@@ -5847,7 +5847,7 @@ button:focus {
 }
 
 .shop_price p a:hover {
-    background: #317153;
+    background: #dc3545;
     color: #fff;
 }
 
@@ -5863,6 +5863,6 @@ button:focus {
     box-shadow: none !important;
 }
 .pagination .page-item.active .page-link {
-    background-color: #317153 !important;
-    border-color: #317153 !important;
+    background-color: #dc3545 !important;
+    border-color: #dc3545 !important;
 }

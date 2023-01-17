@@ -37,7 +37,7 @@ body{
 .about-history h2{
     font-family: 'roboto';
     text-align: center;
-    color: #317153;
+    color: #dc3545;
     font-weight: 400;
     font-size: 35px;
     margin-bottom: 20px;
@@ -53,7 +53,7 @@ body{
     text-align: right;
 }
 .about-content-1 p span{
-    color: #317153;
+    color: #dc3545;
 }
 .about-image-1{
     width: 100%;
@@ -218,7 +218,7 @@ body{
     position: relative;
 }
 .active-work {
-    background-color: #317153 !important;
+    background-color: #dc3545 !important;
 }
 .active-work:after {
     content: "";
@@ -227,10 +227,10 @@ body{
     height:0px;
     top: 104px;
     left: 35%;
-    border-top: 10px solid #317153;
+    border-top: 10px solid #dc3545;
     border-left: 25px solid transparent;
     border-right: 25px solid transparent;
-    border-top: 23px solid #317153;
+    border-top: 23px solid #dc3545;
 }
 .tab-b:focus{
     outline: none;
@@ -280,10 +280,10 @@ body{
     height: 0px;
     top: 104px;
     left: 35%;
-    border-top: 10px solid #317153;
+    border-top: 10px solid #dc3545;
     border-left: 25px solid transparent;
     border-right: 25px solid transparent;
-    border-top: 23px solid #317153;
+    border-top: 23px solid #dc3545;
 }
 
 
@@ -365,7 +365,7 @@ div#loginmodel {
     border-radius:6px;
 }
 .cart a:hover{
-    background-color:#317153;
+    background-color:#dc3545;
     text-decoration: none;
     color:#fff;
 }
@@ -422,7 +422,7 @@ main.main {
 }
 .head h1:after {
     content: "";
-    border: 2px solid #317153;
+    border: 2px solid #dc3545;
     position: absolute;
     bottom: 0;
     right: 0;
@@ -458,7 +458,7 @@ main.main {
 .crl {
    width: 10px;
     height: 10px;
-    background-color: #317153;
+    background-color: #dc3545;
     border-radius: 50%;
     float: right;
     margin-top: 5px;
@@ -508,7 +508,7 @@ main.main {
    }
    .fo-text h1:after {
     content: "";
-    border: 2px solid #317153;
+    border: 2px solid #dc3545;
     position: absolute;
     bottom: 0;
     right:0;
@@ -631,11 +631,11 @@ main.main {
 }
 
 #content-slider li .active {
-    background: #317153;
+    background: #dc3545;
     color:#fff;
 }
 .slick-slide .active {
-    background: #317153;
+    background: #dc3545;
     color:#fff;
 }
 
@@ -986,7 +986,7 @@ select {
 
 /* -- detail ---*/
 .detail-background-box{
-    background-color: #317153;
+    background-color: #dc3545;
     width: 100%;
     padding-bottom:15px;
 }
@@ -1056,7 +1056,7 @@ button.detail-navbar-2.tab-b {
     text-align: right;
 }
 .detail-product-box .detail-product-head h4{
-    color: #317153;
+    color: #dc3545;
     font-size: 35px;
     font-family: roboto;
     font-weight: 400;
@@ -1134,7 +1134,7 @@ button.detail-navbar-2.tab-b {
 }
 .detail-ingredients .detail-ingredients-heading:after{
     content: '';
-    border-top: 3px solid #317153;
+    border-top: 3px solid #dc3545;
     width: 15%;
     position: absolute;
 }
@@ -1204,7 +1204,7 @@ button.detail-navbar-2.tab-b {
 }
 .detail-product-box .detail-plus-add-cart{
     padding: 10px 60px;
-    background-color: #317153;
+    background-color: #dc3545;
     border-radius: 1000px;
     display: inline-block;
 }
@@ -1241,7 +1241,7 @@ button.detail-navbar-2.tab-b {
 }
 .detail-related-head:after{
     content: '';
-    border-top: 3px solid #317153;
+    border-top: 3px solid #dc3545;
     width: 10%;
     position: absolute;
     right: 46%;
@@ -1308,7 +1308,7 @@ p#category_div {
     font-family: 'roboto';
     padding: 0px 0px 40px 0px;
     font-weight: 400;
-    color: #317153;
+    color: #dc3545;
 }
 .cart-category .cart-category-name{
     padding: 23px 0px;
@@ -1356,7 +1356,7 @@ p#category_div {
 .cart-category i.fa.fa-trash-o {
     font-size: 22px;
     padding-left: 20px;
-    color: #317153;
+    color: #dc3545;
 }
 .cart-category .cart-box-items{
     border-top: 1px solid #d7d7d7;
@@ -1723,7 +1723,7 @@ span.modal-forgot {
 .por-1 .b-text p {
     font-size: 18px;
     font-weight: 500;
-    color:#317153;
+    color:#dc3545;
     font-family: "Montserrat";
 }
 .b-text p img {
@@ -1766,7 +1766,7 @@ span.modal-forgot {
 }
 .por-1 .price i {
  font-size: 25px;
- color: #317153;
+ color: #dc3545;
  cursor: pointer;
  margin-bottom: 10px;
 }
@@ -1802,7 +1802,7 @@ span.modal-forgot {
     float: right;
 }
 .viewcart h1 a {
-    background-color:#317153;
+    background-color:#dc3545;
     padding: 12px 26px;
     border-radius: 22px;
     font-weight: 500;
@@ -1916,7 +1916,7 @@ span.modal-forgot {
 /*--checkout---*/
 .accordion .card-header {
     cursor: pointer;
-    border-top: 6px solid #317153;
+    border-top: 6px solid #dc3545;
     border-bottom: none;
     border-radius: 0px !important;
     padding: 15px 10px;
@@ -1940,7 +1940,7 @@ span.modal-forgot {
 
 .accordion.indicator-plus-before.round-indicator .card-header:before {
    content: "\f007";
-   color: #317153;
+   color: #dc3545;
    font-size: 20pt;
      float: right;
     line-height: normal;
@@ -1949,7 +1949,7 @@ span.modal-forgot {
 }
 .accordion.indicator-plus-before.round-indicator .card-header.d-detail:before {
     content: "\f041";
-    color: #317153;
+    color: #dc3545;
     font-size: 20pt;
     float: right;
     line-height: normal;
@@ -1982,7 +1982,7 @@ span.modal-forgot {
 .checkbox-acco1 a.card-title {
     font-size:20px;
     font-family: 'roboto';
-    color: #317153 !important;
+    color: #dc3545 !important;
     padding: 0px 4px;
 }
 .checkout-back{
@@ -2032,7 +2032,7 @@ span.modal-forgot {
 }
 
 .card-body form span {
-    color: #317153;
+    color: #dc3545;
     font-size: 14px;
     font-weight: 700;
     padding: 0px 2px;
@@ -2048,7 +2048,7 @@ span.modal-forgot {
 
 }
 .card-body .sub input {
-    background-color: #317153;
+    background-color: #dc3545;
     color: #fff;
     padding: 3px 60px;
     font-family: 'Montserrat';
@@ -2068,7 +2068,7 @@ span.modal-forgot {
 .forgot a{
     font-family: 'Montserrat';
     font-size: 15px;
-    color: #317153;
+    color: #dc3545;
     cursor: pointer;
 }
 .forgot a:hover{
@@ -2115,7 +2115,7 @@ span.modal-forgot {
     margin-bottom: 20px;
 }
 .billing span{
-    color: #317153;
+    color: #dc3545;
     font-size: 14px;
     font-weight: 700;
     padding: 0px 3px
@@ -2175,7 +2175,7 @@ span.modal-forgot {
     padding: 20px 15px;
 }
 .Location span{
-    color: #317153;
+    color: #dc3545;
     font-size: 14px;
     font-weight: 700;
     padding: 0px 3px;
@@ -2316,7 +2316,7 @@ span.modal-forgot {
 }
 /* My Account*/
 .account-page-head h1{
-    color: #317153;
+    color: #dc3545;
     margin: 50px 0px;
     font-family: 'Roboto';
     text-align: right;
@@ -2370,7 +2370,7 @@ span.modal-forgot {
     margin-bottom: 50px;
 }
 .nav-pills .nav-link.active{
-    background-color: #317153 !important;
+    background-color: #dc3545 !important;
 }
 .acc-pro1-box .nav-link:before {
     font-family: 'FontAwesome';
@@ -2396,7 +2396,7 @@ span.modal-forgot {
     background-color: transparent;
 }
 .account-pro-tab .nav-item .nav-link.active:hover{
-    background-color: #317153;
+    background-color: #dc3545;
 }
 .account-pro-tab .nav-pills>li+li{
     margin-left: 0px;
@@ -2431,7 +2431,7 @@ span.modal-forgot {
     font-weight: 500;
 }
 .acco-tab-content label span{
-    color: #317153;
+    color: #dc3545;
     padding-left: 3px;
 }
 input#acco-tab-fo{
@@ -2542,7 +2542,7 @@ input#acco-tab-fo{
     text-align: left;
 }
 .pending-btn a {
-  background-color: #317153;
+  background-color: #dc3545;
     color: #fff;
     font-family: 'Montserrat';
     font-size: 15px;
@@ -2619,7 +2619,7 @@ input#acco-tab-fo{
 .logout-but .btn{
     padding: 6px 40px;
     border-radius: 30px;
-    background-color: #317153;
+    background-color: #dc3545;
 }
 .logout-but .btn-1{
     padding: 6px 40px;
@@ -2676,7 +2676,7 @@ input#acco-tab-fo{
 }
 .contact-head h1:after {
     content: "";
-    border: 2px solid #317153;
+    border: 2px solid #dc3545;
     position: absolute;
     bottom: 0;
     right: 0;
@@ -2702,7 +2702,7 @@ input#acco-tab-fo{
 }
 .contact-head-1 h1:after {
     content: "";
-    border: 2px solid #317153;
+    border: 2px solid #dc3545;
     position: absolute;
     bottom: 0;
     right: 0;
@@ -2754,7 +2754,7 @@ input#acco-tab-fo{
 
 .order-d h1:after {
       content: "";
-    border: 3px solid #317153;
+    border: 3px solid #dc3545;
     position: absolute;
     bottom: 0;
     left: 28%;
@@ -2777,7 +2777,7 @@ input#acco-tab-fo{
 .order-status ul .round-d{
      height: 65px;
     width: 65px;
-    background-color: #317153;
+    background-color: #dc3545;
     border-radius: 50%;
     color: #fff;
     background-image: url(../images/ture.png);
@@ -2801,7 +2801,7 @@ input#acco-tab-fo{
 }
 .order-status ul .process-1:after {
     content: "";
-    border: 3px solid #317153;
+    border: 3px solid #dc3545;
     position: absolute;
     top: 32px;
     right: 169px;
@@ -2832,7 +2832,7 @@ input#acco-tab-fo{
     font-family: "Montserrat";
     font-weight: 600;
     font-size: 16px;
-    color: #317153;
+    color: #dc3545;
     margin: 0;
 }
 .order-d-text {
@@ -3544,7 +3544,7 @@ border:none;
     margin-bottom: 80px;
     }
 .order-status ul .process-1:after {
-    border: 3px solid #317153;
+    border: 3px solid #dc3545;
     top: 24px;
     right: 88px;
     width: 78%;
@@ -3921,7 +3921,7 @@ border:none;
     }
  .order-status ul .round-d:after {
      content: "";
-    border: 4px solid #317153;
+    border: 4px solid #dc3545;
     top: 37px;
     height: 50px;
     position: absolute;
@@ -4753,7 +4753,7 @@ button.slick-arrow {
 }
 
 /*.box.slick-slide.slick-current.slick-active{
-    background: #317153;
+    background: #dc3545;
     color: #fff;
     outline: none;
 }
@@ -4776,11 +4776,11 @@ button.slick-arrow {
     left: -106px;
     border-left: 25px solid transparent;
     border-right: 25px solid transparent;
-    border-top: 23px solid #317153;
+    border-top: 23px solid #dc3545;
 }*/
 
 .King_script_active {
-    background: #317153;
+    background: #dc3545;
     color: #fff;
     outline: none;
     width: 160px;
@@ -4804,7 +4804,7 @@ button.slick-arrow {
     left: 100px;
     border-left: 25px solid transparent;
     border-right: 25px solid transparent;
-    border-top: 23px solid #317153;
+    border-top: 23px solid #dc3545;
 }
 
 .slick-initialized .slick-slide {
@@ -4836,7 +4836,7 @@ button:focus{
     text-align: left;
 }
 .main-pizza-sb-2 {
-    background-color: #317153;
+    background-color: #dc3545;
     height: 111px;
 }
 .King_script_active .pizza-content-box {
@@ -4860,7 +4860,7 @@ button:focus{
 
 
 .detail-background-box {
-    background-color: #317153;
+    background-color: #dc3545;
     width: 100%;
     padding-bottom: 15px;
 }

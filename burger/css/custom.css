@@ -8,7 +8,7 @@
     font-family: 'roboto';
     padding: 0px 0px 40px 0px;
     font-weight: 400;
-    color: #317153;
+    color: #dc3545;
 }
 .cart-category .cart-category-name{
     padding: 23px 0px;
@@ -55,7 +55,7 @@
 .cart-category i.fa.fa-trash-o {
     font-size: 22px;
     padding-right: 20px;
-    color: #317153;
+    color: #dc3545;
 }
 .cart-category .cart-box-items{
     border-top: 1px solid #d7d7d7;
