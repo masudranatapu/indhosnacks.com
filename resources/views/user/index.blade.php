@@ -71,7 +71,7 @@
     <script type="text/javascript" src=""></script>
     <script type="text/javascript" src="{{asset('burger/js/jquery.mixitup.min.js')}}"></script>
     <script type="text/javascript"
-        src='https://maps.google.com/maps/api/js?key=AIzaSyC1JUHjsnQZtKx5eBOpG42E_CLoJ1s39AU&sensor=false&libraries=places'>
+        src='https://maps.google.com/maps/api/js?key=AIzaSyATgI95Rp6YpYchbA6c8rD-3tC9xRIc96c&sensor=false&libraries=places'>
     </script>
     <script src="{{url('public/js/locationpicker.js')}}"></script>
 

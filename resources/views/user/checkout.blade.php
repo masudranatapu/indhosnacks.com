@@ -142,7 +142,7 @@
                         <div class="cashswipe">
                            <div class="radio check">
                               <input type="checkbox" name="order_payment_type" id="order_payment_type_1" value="Cash" onchange="changebutton(this.value)">
-                              <img id="pay1" onclick="changebutton('Cash')" src="{{asset('burger/images/5.png')}}"/>
+                              <img id="pay1" onclick="changebutton('Cash')" src="{{asset('burger/images/9.png')}}"/>
                            </div>
                            @if($setting->paypal_active=='1')
                            <div class="check">
