@@ -8,7 +8,7 @@
     font-family: 'roboto';
     padding: 0px 0px 40px 0px;
     font-weight: 400;
-    color: #af191a;
+    color: #317153;
 }
 .cart-category .cart-category-name{
     padding: 23px 0px;
@@ -55,10 +55,10 @@
 .cart-category i.fa.fa-trash-o {
     font-size: 22px;
     padding-right: 20px;
-    color: #af191a;
+    color: #317153;
 }
 .cart-category .cart-box-items{
-    border-top: 1px solid #d7d7d7; 
+    border-top: 1px solid #d7d7d7;
 }
 .cart-category .cart-category-head{
     background-color: #f9fafa;
@@ -72,7 +72,7 @@
 .cart-bill-box{
 	border:1px solid #d7d7d7;
 	padding: 29px;
-	border-radius: 5px; 
+	border-radius: 5px;
 }
 .cart-bill-box .cart-bill-box-head h4{
 	border-bottom: 1px solid #d7d7d7;
@@ -153,7 +153,7 @@
 .cart-b-button a{
 	text-decoration: none;
 	color: white;
-	font-weight: 700; 
+	font-weight: 700;
 	font-size: 16px;
 }
 .cart-category .cart-coupon-button-tab .cart-coupon-code{
