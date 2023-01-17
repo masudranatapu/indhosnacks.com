@@ -107,8 +107,6 @@ class frontController extends Controller {
       return view("user.index")->with("category",$category)->with("items",$item)->with("ingredient",$inter)->with("allmenu",$allmenu)->with("setting",$setting)->with('popular_item',$popular_item);
    }
 
-
-
    public function detailitem($item_id){
       $category=Category::where("is_deleted",'0')->get();
       $itemdetails=Item::find($item_id);
