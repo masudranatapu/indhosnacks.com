@@ -44,6 +44,7 @@ Route::get("userlogin","AppuserController@login");
 Route::get("user_logout","AppuserController@logout");
 Route::get("forgotpassword","AppuserController@forgotpassword");
 route::get("aboutus","frontController@showaboutus");
+route::get("shop","frontController@shop");
 route::get("service","frontController@showservice");
 route::get("contactus","frontController@showcontactus");
 Route::get("termofuse","frontController@termofuse");
@@ -80,11 +81,11 @@ Route::group(['middleware' => ['admincheckexiste']], function () {
 
 	Route::get("index","PagesController@index");
     Route::any("savewebpage","PagesController@savewebpage");
-	
+
 
 
 	//menu category
-	Route::get("category","CategoryController@showcategory")->name("showcategory");	
+	Route::get("category","CategoryController@showcategory")->name("showcategory");
 	Route::get("categorydatatable","CategoryController@categorydatatable")->name("categorydatatable");
 	Route::post("add_menu_cateogry","CategoryController@addcateogry")->name("add_menu_cateogry");
 	Route::get("deletemenu/{id}","CategoryController@deletemenu")->name("deletemenu");
@@ -167,7 +168,7 @@ Route::group(['prefix' => 'deliveryboy'], function () {
 
 	Route::get("/","DeliveryController@login");
 	Route::post("postlogin","DeliveryController@postlogin");
-   
+
     Route::group(['middleware' => ['deliveryboy']], function () {
 	   Route::get('dashboard',"DeliveryController@dashboard");
 	   Route::get("logout","DeliveryController@logout");

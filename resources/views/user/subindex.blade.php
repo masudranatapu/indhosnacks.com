@@ -281,78 +281,78 @@
                 <?php }?>
             </div>
         </div>
-        <div class="detail-background-box">
-            <div class="kb-nav-logo text-center">
-                <a href="{{url('/')}}">
-                    <img src="{{Session::get('logo')}}" class="mt-2" width="300">
-                </a>
-            </div>
-            <div class="container kb-nav detail-nav">
-                <div class="first-section">
-                    <div class="row detail-navbar">
 
-                        <div class="kb-menu">
-                            <ul class="p-0">
-                                <li><a href="{{url('/')}}">{{ __('messages.home') }}</a></li>
-                                <li><a href="{{url('aboutus')}}">{{__('messages.aboutus')}}</a></li>
-                                <li><a href="{{url('service')}}">{{__('messages.service')}}</a></li>
-                                <li><a href="{{url('contactus')}}">{{__('messages.contact')}}</a></li>
-                            </ul>
-                        </div>
-                        <div class="kd-social">
+        <!-- ============================ Header start ================================= -->
+        <div class="header_section pt-3 pb-3">
+            <div class="container">
+                <nav class="navbar navbar-expand-lg navbar-light p-0">
+                    <a class="navbar-brand" href="{{ url('/') }}">
+                        <img src="{{Session::get('logo')}}" width="200" class="img-fluid">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{url('/')}}">{{ __('messages.home') }}</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{url('aboutus')}}">{{__('messages.aboutus')}}</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{url('shop')}}">Shop</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{url('contactus')}}">{{__('messages.contact')}}</a>
+                            </li>
+                        </ul>
+                        <ul class="navbar-nav ml-auto header_right_nav">
                             <div class="login">
                                 <?php if(empty(Session::get('login_user'))){?>
-                                <a href="#" data-toggle="modal" data-target="#myModal1"><i class="fa fa-user"
-                                        aria-hidden="true"></i></a>
+                                <a href="#" data-toggle="modal" data-target="#myModal1">
+                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                </a>
                                 <?php }else{?>
-                                <a href="{{url('myaccount')}}"><i class="fa fa-user" aria-hidden="true"></i></a>
+                                <a href="{{url('myaccount')}}">
+                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                </a>
                                 <?php }?>
-                                <a href="#" data-toggle="modal" data-target="#myModal"><i class="fa fa-shopping-cart"
-                                        aria-hidden="true">
+                                <a href="#" data-toggle="modal" data-target="#myModal">
+                                    <i class="fa fa-shopping-cart" aria-hidden="true">
                                         <span id="totalcart">
                                             <?php $cartCollection = Cart::getContent();
-                           $carttotal=0;
-                            if($cartCollection->count()!=0)
-                                {
-                                    $carttotal=$cartCollection->count();
-                                    echo '<div class="cric" style="border: 1px solid white;">'.$cartCollection->count().'</div>';
-                                }
-                           ?>
+                            $carttotal=0;
+                             if($cartCollection->count()!=0)
+                                 {
+                                     $carttotal=$cartCollection->count();
+                                     echo '<div class="cric">'.$cartCollection->count().'</div>';
+                                 }
+                            ?>
                                         </span>
                                         <input type="hidden" id="carttotal" value="{{$carttotal}}">
-                                    </i></a>
+                                    </i>
+                                </a>
+                                <span class="mr-2">|</span>
+
+                                <a href="{{ Session::get('facebook')}}" target="_blank"><i class="fa fa-facebook"
+                                        aria-hidden="true"></i></a>
+                                <a href="{{ Session::get('twitter')}}" target="_blank"><i class="fa fa-twitter"
+                                        aria-hidden="true"></i></a>
+                                <a href="{{ Session::get('whatsapp')}}" target="_blank"><i class="fa fa-whatsapp"
+                                        aria-hidden="true"></i></a>
                             </div>
-                            <a href="{{ Session::get('facebook')}}" target="_blank"> <i class="fa fa-facebook"
-                                    aria-hidden="true"></i></a>
-                            <a href="{{ Session::get('twitter')}}" target="_blank"><i class="fa fa-twitter"
-                                    aria-hidden="true"></i></a>
-                            <a href="{{ Session::get('whatsapp')}}" target="_blank"><i class="fa fa-whatsapp"
-                                    aria-hidden="true"></i></a>
-                        </div>
-                        <div class="tm">
-                            <div id="toggle" onclick="changetab()">
-                                <div class="one"></div>
-                                <div class="two"></div>
-                                <div class="three"></div>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div id="menu">
-                                <ul class="p-0">
-                                    <li><a href="{{url('/')}}">{{ __('messages.home') }}</a></li>
-                                    <li><a href="{{url('aboutus')}}">{{__('messages.aboutus')}}</a></li>
-                                    <li><a href="{{url('service')}}">{{__('messages.service')}}</a></li>
-                                    <li><a href="{{url('contactus')}}">{{__('messages.contact')}}</a></li>
-                                </ul>
-                            </div>
-                        </div>
+                        </ul>
                     </div>
-                </div>
+                </nav>
             </div>
         </div>
 
+        <!-- ============================ Header end ================================= -->
 
-        <div class="main-pizza-sb-2 mt-5 category_wrapper">
+
+        <div class="main-pizza-sb-2 mt-5 category_wrapper" style="margin-top:72px !important;">
             <div class="container">
                 <div class="carousel">
                     <?php $i=0;?>
