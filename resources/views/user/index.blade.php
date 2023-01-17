@@ -34,6 +34,7 @@
     @if(__('messages.rtl')=='0')
 
     <link rel="stylesheet" type="text/css" href="{{asset('burger/css/style.css').'?version=232132'}}">
+
     @else
     <link rel="stylesheet" type="text/css" href="{{asset('burger/css/rtl.css').'?version=88888'}}">
     @endif
@@ -45,20 +46,14 @@
     <link rel="stylesheet" type="text/css" href="{{asset('burger/css/app.css')}}" />
     <link rel="stylesheet" href="{{asset('burger/css/font.css')}}">
 
-
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-
-
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
-    </script>
     <link rel="stylesheet" type="text/css" href="{{asset('burger/css/bootstrap.min.css')}}">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{{asset('burger/css/responsive-custom.css')}}">
 
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script type="text/javascript" src="{{asset('burger/js/dropdown.js')}}"></script>
@@ -68,12 +63,13 @@
     </script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.js">
     </script>
-    <script type="text/javascript" src=""></script>
     <script type="text/javascript" src="{{asset('burger/js/jquery.mixitup.min.js')}}"></script>
     <script type="text/javascript"
         src='https://maps.google.com/maps/api/js?key=AIzaSyATgI95Rp6YpYchbA6c8rD-3tC9xRIc96c&sensor=false&libraries=places'>
     </script>
     <script src="{{url('public/js/locationpicker.js')}}"></script>
+
+
 
 </head>
 
@@ -334,7 +330,8 @@
             <?php }?>
         </div>
     </div>
-    <div class="first-section">
+    <!--
+     <div class="first-section">
         <div class="img">
         </div>
         <div class="container kb-nav">
@@ -425,33 +422,90 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="secound-section">
+        </div>
+    -->
+
+    <!-- ============================ Header start ================================= -->
+    <div class="header_section pt-3 pb-3">
         <div class="container">
-            <div class="col-md-12">
-                <div class="row">
-                    <div class="col-md-6 about-img">
-                        <img src="{{Session::get('second_sec_img')}}" class="img-fluid">
-                    </div>
-                    <div class="col-md-6 about-text">
-                        <img src="{{Session::get('secong_icon_img')}}" class="img-fluid">
-                        <h5>{{__('messages.silder23')}}
-                        </h5>
-                        <p>
-                            {{__('messages.psilder23')}}
-                        </p>
-                    </div>
+            <nav class="navbar navbar-expand-lg navbar-light p-0">
+                <a class="navbar-brand" href="{{ url('/') }}">
+                    <img src="{{Session::get('logo')}}" width="200" class="img-fluid">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{url('/')}}">{{ __('messages.home') }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{url('aboutus')}}">{{__('messages.aboutus')}}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{url('shop')}}">Shop</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{url('contactus')}}">{{__('messages.contact')}}</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav ml-auto header_right_nav">
+                        <div class="login">
+                            <?php if(empty(Session::get('login_user'))){?>
+                            <a href="#" data-toggle="modal" data-target="#myModal1">
+                                <i class="fa fa-user" aria-hidden="true"></i>
+                            </a>
+                            <?php }else{?>
+                            <a href="{{url('myaccount')}}">
+                                <i class="fa fa-user" aria-hidden="true"></i>
+                            </a>
+                            <?php }?>
+                            <a href="#" data-toggle="modal" data-target="#myModal">
+                                <i class="fa fa-shopping-cart" aria-hidden="true">
+                                    <span id="totalcart">
+                                        <?php $cartCollection = Cart::getContent();
+                            $carttotal=0;
+                             if($cartCollection->count()!=0)
+                                 {
+                                     $carttotal=$cartCollection->count();
+                                     echo '<div class="cric">'.$cartCollection->count().'</div>';
+                                 }
+                            ?>
+                                    </span>
+                                    <input type="hidden" id="carttotal" value="{{$carttotal}}">
+                                </i>
+                            </a>
+                            <span class="mr-2">|</span>
+
+                            <a href="{{ Session::get('facebook')}}" target="_blank"><i class="fa fa-facebook"
+                                    aria-hidden="true"></i></a>
+                            <a href="{{ Session::get('twitter')}}" target="_blank"><i class="fa fa-twitter"
+                                    aria-hidden="true"></i></a>
+                            <a href="{{ Session::get('whatsapp')}}" target="_blank"><i class="fa fa-whatsapp"
+                                    aria-hidden="true"></i></a>
+                        </div>
+                    </ul>
                 </div>
+            </nav>
+        </div>
+    </div>
+
+    <!-- ============================ Header end ================================= -->
+
+    <!-- ============================ Banner start ================================= -->
+    <div class="banner_section">
+        <div class="container">
+            <div class="banner_content">
+                <h1>{{__('messages.silder1h')}}</h1>
+                <h2>{{__('messages.silderh2')}}</h2>
+                <p>{{__('messages.silderp')}}.</p>
             </div>
         </div>
     </div>
-    <div class="heading">
+    <!-- ============================ Banner end ================================= -->
 
-        <h1>
-
-            {{__('messages.menu_title')}}</h1>
-
-    </div>
 
 
     <div class="main-pizza-sb">
@@ -483,6 +537,7 @@
         </div>
         <input type="hidden" id="totalcategory" value="{{$i}}">
     </div>
+
     <div class="container">
         <div class="portfolist_sb_b" id="portfoliolist">
             <div class="row">
@@ -526,8 +581,68 @@
                 </div>
             </div>
         </div>
+
+        {{-- <div class="secound-section">
+            <div class="container">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-6 about-img">
+                            <img src="{{Session::get('second_sec_img')}}" class="img-fluid">
+                        </div>
+                        <div class="col-md-6 about-text">
+                            <img src="{{Session::get('secong_icon_img')}}" class="img-fluid">
+                            <h5>{{__('messages.silder23')}}
+                            </h5>
+                            <p>
+                                {{__('messages.psilder23')}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> --}}
+
+        <!-- ============================ Popular item start ================================= -->
+        <div class="popular_section pt-5 pb-5">
+            <div class="container">
+                <div class="heading mb-5 text-center">
+                    <h1>{{__('Popular Items')}}</h1>
+                </div>
+                <div class="row">
+                    @foreach($popular_item as $it)
+                    <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+                        <div class="shop_product">
+                            <div class="card_product">
+                                <a href="{{url('detailitem/'.$it->id)}}">
+                                    <img src="{{asset('public/upload/images/menu_item_icon/'.$it->menu_image)}}"
+                                        class="card-img-top" alt="{{$it->menu_name}}">
+                                </a>
+                                <div class="card_body">
+                                    <h1><a href="{{url('detailitem/'.$it->id)}}">{{$it->menu_name}}</a></h1>
+                                    <p>
+                                        {{substr($it->description,0,75)}}
+                                    </p>
+                                    <div class="shop_price">
+                                        <p>
+                                            {{Session::get("usercurrency")}} {{$it->price}}
+                                            <a href="{{url('detailitem/'.$it->id)}}">{{__('messages.addcart')}}</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+        <!-- ============================ Popular item end ================================= -->
+
         <div class="play">
             <div class="container">
+                <div class="heading">
+                    <h1>{{__('messages.menu_title')}}</h1>
+                </div>
                 <div class="row align-items-center">
                     <div class="col-md-6">
                         {{-- <div class="play-logo">
@@ -648,24 +763,26 @@
                             <div class="fo-text">
                                 <h1>{{__('messages.contact_us')}}</h1>
                             </div>
+                            <p>
                             <div class="f-location">
                                 <img src="{{asset('burger/images/location.png')}}">
                             </div>
-                            <span>
-                                {{Session::get('address')}}
-                            </span>
+                            {{Session::get('address')}}
+                            </p>
+
+                            <p>
                             <div class="f-location">
                                 <img src="{{asset('burger/images/phone.png')}}">
                             </div>
-                            <span>
-                                {{Session::get('phone')}}
-                            </span>
+                            {{Session::get('phone')}}
+                            </p>
+
+                            <p>
                             <div class="f-location">
                                 <img src="{{asset('burger/images/email.png')}}">
                             </div>
-                            <span>
-                                {{Session::get('email')}}
-                            </span>
+                            {{Session::get('email')}}
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -699,44 +816,48 @@
             </div>
         </div>
         <div class="img-aa"></div>
-</body>
-<div class="modal modal-2" id="myModal2">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header logout">
-                <h4 class="modal-title">{{__('messages.register')}}</h4>
-                <p>{{Session::get('user_phone')}}</p>
-                <h1>{{__('messages.logout_msg')}}</h1>
-                <div class="logout-but">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">{{__('messages.cancel')}}</button>
-                    <button type="button" class="btn-1" data-dismiss="modal" onclick="logout()"><i
-                            class="fa fa-sign-out" aria-hidden="true"></i>{{__('messages.logout')}}
-                    </button>
+    </div>
+
+
+
+    <div class="modal modal-2" id="myModal2">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header logout">
+                    <h4 class="modal-title">{{__('messages.register')}}</h4>
+                    <p>{{Session::get('user_phone')}}</p>
+                    <h1>{{__('messages.logout_msg')}}</h1>
+                    <div class="logout-but">
+                        <button type="button" class="btn btn-danger"
+                            data-dismiss="modal">{{__('messages.cancel')}}</button>
+                        <button type="button" class="btn-1" data-dismiss="modal" onclick="logout()"><i
+                                class="fa fa-sign-out" aria-hidden="true"></i>{{__('messages.logout')}}
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<input type="hidden" id="is_rtl" value="{{__('messages.rtl')}}" />
-<input type="hidden" id="currency" value='{{Session::get("usercurrency")}}' />
-<input type="hidden" id="addcart" value='{{__("messages.addcart")}}' />
-<input type="hidden" id="path_site" value="{{url('/')}}" />
-<input type="hidden" id="forgot_error" value="{{__('messages.forgot_error')}}" />
-<input type="hidden" id="reg_error" value="{{__('messages.reg_error')}}" />
-<input type="hidden" id="pwdmatch" value="{{__('messages.pwdmatch')}}" />
-<input type="hidden" id="login_error" value="{{__('messages.login_error')}}" />
-<input type="hidden" id="required_field" value="{{__('messages.required_field')}}" />
-<input type="hidden" id="login_error" value="{{__('messages.login_error')}}" />
-<input type="hidden" id="forgot_error_2" value="{{__('messages.forgot_error_2')}}">
+    <input type="hidden" id="is_rtl" value="{{__('messages.rtl')}}" />
+    <input type="hidden" id="currency" value='{{Session::get("usercurrency")}}' />
+    <input type="hidden" id="addcart" value='{{__("messages.addcart")}}' />
+    <input type="hidden" id="path_site" value="{{url('/')}}" />
+    <input type="hidden" id="forgot_error" value="{{__('messages.forgot_error')}}" />
+    <input type="hidden" id="reg_error" value="{{__('messages.reg_error')}}" />
+    <input type="hidden" id="pwdmatch" value="{{__('messages.pwdmatch')}}" />
+    <input type="hidden" id="login_error" value="{{__('messages.login_error')}}" />
+    <input type="hidden" id="required_field" value="{{__('messages.required_field')}}" />
+    <input type="hidden" id="login_error" value="{{__('messages.login_error')}}" />
+    <input type="hidden" id="forgot_error_2" value="{{__('messages.forgot_error_2')}}">
 
-<script type="text/javascript" src="{{ URL::to('public/js/code.js').'?version=965326' }}"></script>
+    <script type="text/javascript" src="{{ URL::to('public/js/code.js').'?version=965326' }}"></script>
 
 
-<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
-<script type="text/javascript" src="{{ URL::to('public/demo/button.js').'?version=1'}}"></script>
-<script src="{{ URL::to('public/demo/script.js').'?version=1111' }}"></script>
-<script type="text/javascript">
-    function changecategory(cat_id,id){
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    <script type="text/javascript" src="{{ URL::to('public/demo/button.js').'?version=1'}}"></script>
+    <script src="{{ URL::to('public/demo/script.js').'?version=1111' }}"></script>
+    <script type="text/javascript">
+        function changecategory(cat_id,id){
            var total=$("#totalcategory").val();
            console.log(id);
            for(var i=0;i<total;i++){
@@ -746,6 +867,7 @@
            document.getElementById("category"+id).style.display="block";
            $("#box"+id).addClass('King_script_active');
       }
-</script>
+    </script>
+</body>
 
 </html>

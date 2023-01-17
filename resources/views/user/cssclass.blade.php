@@ -8,9 +8,9 @@
         background-image: url(<?=Session::get("main_banner")?>) !important;
     }
 
-    .footer-section {
+    /* .footer-section {
         background-image: url(<?=Session::get("footer_img")?>) !important;
-    }
+    } */
 
     .about-text h5:after {
         background: <?=Session::get("webcolor")?> !important;
@@ -22,17 +22,17 @@
         color: <?=Session::get("webcolor")?> !important;
     }
 
-    .King_script_active:after {
+    /* .King_script_active:after {
         border-top: 23px solid <?=Session::get("webcolor")?> !important;
     }
 
     .King_script_active {
         background: <?=Session::get("webcolor")?> !important;
-    }
+    } */
 
     .head h1:after {
         background: <?=Session::get("webcolor")?> !important;
-        border: 2px solid <?=Session::get("webcolor")?> !important;
+        border: 1px solid <?=Session::get("webcolor")?> !important;
     }
 
     .crl {
@@ -41,7 +41,7 @@
 
     .fo-text h1:after {
         background: <?=Session::get("webcolor")?> !important;
-        border: 2px solid <?=Session::get("webcolor")?> !important;
+        border: 1px solid <?=Session::get("webcolor")?> !important;
     }
 
     .detail-background-box {
@@ -111,7 +111,7 @@
     }
 
     .cart a:hover {
-        background-color: <?=Session::get("webcolor")?> !important;
+        /* background-color: <?=Session::get("webcolor")?> !important; */
     }
 
     .detail-product-box .detail-product-head h4 {

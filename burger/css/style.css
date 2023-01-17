@@ -23,7 +23,7 @@
 }
 
 div#addressorder span {
-    color: #af191a;
+    color: #dc3545;
 }
 
 ul.textdata a {
@@ -180,7 +180,7 @@ body {
 
 .accordion.indicator-plus-before.round-indicator .card-header.d-detail.payment:before {
     content: "\f0d6";
-    color: #af191a;
+    color: #dc3545;
     font-size: 20pt;
     float: left;
     line-height: normal;
@@ -311,7 +311,7 @@ div#orderplacestrip .stripe-button-el span {
 .about-history h2 {
     font-family: 'roboto';
     text-align: center;
-    color: #af191a;
+    color: #dc3545;
     font-weight: 400;
     font-size: 35px;
     margin-bottom: 20px;
@@ -326,7 +326,7 @@ div#orderplacestrip .stripe-button-el span {
 }
 
 .about-content-1 p span {
-    color: #af191a;
+    color: #dc3545;
 }
 
 .about-image-1 {
@@ -430,22 +430,20 @@ img#pay3.activepayment {
     margin-top: 46px;
 }
 
-.first-section .img {
-    background-image: url("../images/wfs-img.jpg");
-    height: 600px;
-    background-position: center;
-    background-repeat: no-repeat;
-}
 
-.footer-section {
+/* .footer-section {
     background-image: url(../images/footer.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+} */
+
+.footer-section {
+    border-top: 1px solid #DDD;
 }
 
 .container.kb-footer {
-    padding: 80px 15px;
+    padding: 35px 0px;
 }
 
 .kb-text-box {
@@ -455,9 +453,9 @@ img#pay3.activepayment {
 
 .secound-section {
     background-color: #2e2e2e;
-    padding-top: 115px;
-    padding-bottom: 95px;
-    margin-bottom: 60px;
+    padding-top: 69px;
+    padding-bottom: 44px;
+    /* margin-bottom: 60px; */
 }
 
 .about-text h5 {
@@ -494,6 +492,7 @@ img#pay3.activepayment {
     font-family: "Dancing Script";
     font-weight: 700;
     font-size: 52px;
+    margin:0;
 }
 
 .heading h2 {
@@ -509,7 +508,7 @@ img#pay3.activepayment {
 }
 
 .active-work {
-    background-color: #af191a !important;
+    background-color: #dc3545 !important;
 }
 
 .active-work:after {
@@ -519,10 +518,10 @@ img#pay3.activepayment {
     height: 0px;
     top: 104px;
     left: 35%;
-    border-top: 10px solid #af191a;
+    border-top: 10px solid #dc3545;
     border-left: 25px solid transparent;
     border-right: 25px solid transparent;
-    border-top: 23px solid #af191a;
+    border-top: 23px solid #dc3545;
 }
 
 .tab-b:focus {
@@ -578,10 +577,10 @@ img#pay3.activepayment {
     height: 0px;
     top: 104px;
     left: 35%;
-    border-top: 10px solid #af191a;
+    border-top: 10px solid #dc3545;
     border-left: 25px solid transparent;
     border-right: 25px solid transparent;
-    border-top: 23px solid #af191a;
+    border-top: 23px solid #dc3545;
 }
 
 .tab-b i {
@@ -656,7 +655,7 @@ img#pay3.activepayment {
     color: #dc3545;
     font-weight: 500;
     padding: 9px 11px;
-    background-color: #dc354514;
+    background-color: #dc35451f;
     transition: all 0.5s;
     border-radius: 4px;
     width: 100%;
@@ -664,7 +663,7 @@ img#pay3.activepayment {
 }
 
 .cart a:hover {
-    background-color: #af191a;
+    background-color: #dc3545;
     text-decoration: none;
     color: #fff;
 }
@@ -672,11 +671,11 @@ img#pay3.activepayment {
 .items {
     margin-bottom: 25px;
     width: 100%;
-    border: 1px solid #ededed;
+    border: 1px solid #ebebeb;
     vertical-align: middle;
     align-items: center;
-    padding: 9px 13px 26px 13px;
-    border-radius: 5px;
+    padding: 15px 13px 27px 13px;
+    border-radius: 12px;
     background: #fff;
     box-shadow: rgb(149 157 165 / 20%) 0px 8px 24px;
 }
@@ -706,7 +705,8 @@ img#pay3.activepayment {
 
 .play {
     background-color: #f7f7f7;
-    margin-top: 50px;
+    /* margin-top: 50px; */
+    padding-top:50px;
 }
 
 .kb-menu {
@@ -732,7 +732,7 @@ main.main {
 
 .head h1:after {
     content: "";
-    border: 2px solid #af191a;
+    border: 2px solid #dc3545;
     position: absolute;
     bottom: 0;
     left: 0;
@@ -774,7 +774,7 @@ main.main {
 .crl {
     width: 10px;
     height: 10px;
-    background-color: #af191a;
+    background-color: #dc3545;
     border-radius: 50%;
     float: left;
     margin-top: 5px;
@@ -804,25 +804,25 @@ main.main {
 
 .footer-social a {
     padding: 0px 12px;
-    color: #fff;
+    color: #464343;
     font-size: 20px;
 }
 
 .fo-text h1 {
     font-family: "Roboto";
-    font-size: 25px;
-    color: #fff;
+    font-size: 18px;
+    color: #505050;
     position: relative;
 }
 
 .fo-text h1:after {
     content: "";
-    border: 2px solid #af191a;
+    border: 1px solid #dc3545;
     position: absolute;
     bottom: 0;
     left: 0;
     width: 36%;
-    top: 55px;
+    top: 38px;
 }
 
 .info ul li {
@@ -841,10 +841,11 @@ main.main {
 .info span {
     font-family: "Montserrat";
     font-size: 14px;
-    color: #fff;
+    color: #212121;
     width: 87%;
     float: left;
-    margin-bottom: 16px;
+    padding-left: 12px;
+    margin-bottom: 23px;
 }
 
 .f-location {
@@ -856,6 +857,10 @@ main.main {
 
 .f-location img {
     width: auto;
+    background: #313030;
+    padding: 9px 10px;
+    display: flex;
+    border-radius: 3px;
 }
 
 .fo-text {
@@ -870,7 +875,7 @@ main.main {
 .right h1 {
     font-family: "Montserrat";
     font-size: 14px;
-    color: #fff;
+    color: #212121;
     margin-bottom: 0px;
 }
 
@@ -937,19 +942,19 @@ main.main {
 }
 
 #content-slider li .active {
-    background: #af191a;
+    background: #dc3545;
     color: #fff;
 }
 
 .slick-slide .active {
-    color: #af191a;
+    color: #dc3545;
     height: 80px;
     width: 160px;
     background-color: transparent;
 }
 
 .category_wrapper .slick-slide .active {
-    color: #af191a;
+    color: #dc3545;
     width: 100% !important;
     background-color: transparent;
 }
@@ -1320,7 +1325,7 @@ span#login_error_msg {
 }
 
 .detail-background-box {
-    background-color: #af191a;
+    background-color: #dc3545;
     width: 100%;
     /* padding-bottom: 15px; */
 }
@@ -1408,7 +1413,7 @@ button.detail-navbar-2.tab-b {
 }
 
 .detail-product-box .detail-product-head h4 {
-    color: #af191a;
+    color: #dc3545;
     font-size: 35px;
     font-family: roboto;
     font-weight: 400;
@@ -1500,7 +1505,7 @@ button.detail-navbar-2.tab-b {
 
 .detail-ingredients .detail-ingredients-heading:after {
     content: '';
-    border-top: 3px solid #af191a;
+    border-top: 3px solid #dc3545;
     width: 15%;
     position: absolute;
 }
@@ -1587,7 +1592,7 @@ button.detail-navbar-2.tab-b {
 
 .detail-product-box .detail-plus-add-cart {
     padding: 10px 60px;
-    background-color: #af191a;
+    background-color: #dc3545;
     border-radius: 1000px;
     display: inline-block;
 }
@@ -1638,7 +1643,7 @@ button.detail-navbar-2.tab-b {
 
 .detail-related-head:after {
     content: '';
-    border-top: 3px solid #af191a;
+    border-top: 3px solid #dc3545;
     width: 10%;
     position: absolute;
     right: 46%;
@@ -1833,7 +1838,7 @@ div#forgotbody {
     font-family: 'roboto';
     padding: 0px 0px 10px 0px;
     font-weight: 400;
-    color: #af191a;
+    color: #dc3545;
 }
 
 .cart-category .cart-category-name {
@@ -1895,7 +1900,7 @@ div#forgotbody {
 .cart-category i.fa.fa-trash-o {
     font-size: 22px;
     padding-right: 20px;
-    color: #af191a;
+    color: #dc3545;
 }
 
 .cart-category .cart-box-items {
@@ -1970,7 +1975,7 @@ div#forgotbody {
 }
 
 .contact-head .submit {
-    background-color: #af191a;
+    background-color: #dc3545;
     border-radius: 1000px;
     margin-right: 15px;
     color: white;
@@ -2396,7 +2401,7 @@ span.modal-forgot {
 .por-1 .b-text p {
     font-size: 18px;
     font-weight: 500;
-    color: #af191a;
+    color: #dc3545;
     font-family: "Montserrat";
 }
 
@@ -2445,7 +2450,7 @@ span.modal-forgot {
 
 .por-1 .price i {
     font-size: 25px;
-    color: #af191a;
+    color: #dc3545;
     cursor: pointer;
     margin-bottom: 10px;
 }
@@ -2487,7 +2492,7 @@ span.modal-forgot {
 }
 
 .viewcart h1 a {
-    background-color: #af191a;
+    background-color: #dc3545;
     ;
     padding: 12px 26px;
     border-radius: 22px;
@@ -2611,7 +2616,7 @@ span.modal-forgot {
 
 .accordion .card-header {
     cursor: pointer;
-    border-top: 6px solid #af191a;
+    border-top: 6px solid #dc3545;
     border-bottom: none;
     border-radius: 0px !important;
     padding: 15px 10px;
@@ -2642,7 +2647,7 @@ td.cart-product-image img {
 
 .accordion.indicator-plus-before.round-indicator .card-header:before {
     content: "\f007";
-    color: #af191a;
+    color: #dc3545;
     font-size: 20pt;
     float: left;
     line-height: normal;
@@ -2652,7 +2657,7 @@ td.cart-product-image img {
 
 .accordion.indicator-plus-before.round-indicator .card-header.d-detail:before {
     content: "\f041";
-    color: #af191a;
+    color: #dc3545;
     font-size: 20pt;
     float: left;
     line-height: normal;
@@ -2688,7 +2693,7 @@ td.cart-product-image img {
 .checkbox-acco1 a.card-title {
     font-size: 20px;
     font-family: 'roboto';
-    color: #af191a !important;
+    color: #dc3545 !important;
     padding: 0px 4px;
 }
 
@@ -2744,7 +2749,7 @@ td.cart-product-image img {
 }
 
 .card-body form span {
-    color: #af191a;
+    color: #dc3545;
     font-size: 14px;
     font-weight: 700;
     padding: 0px 2px;
@@ -2766,7 +2771,7 @@ img#pay1.activepayment {
 }
 
 .card-body .sub input {
-    background-color: #af191a;
+    background-color: #dc3545;
     color: #fff;
     padding: 3px 60px;
     font-family: 'Montserrat';
@@ -2787,7 +2792,7 @@ img#pay1.activepayment {
 .forgot a {
     font-family: 'Montserrat';
     font-size: 15px;
-    color: #af191a;
+    color: #dc3545;
     cursor: pointer;
 }
 
@@ -2850,7 +2855,7 @@ img#pay1.activepayment {
 }
 
 .billing span {
-    color: #af191a;
+    color: #dc3545;
     font-size: 14px;
     font-weight: 700;
     padding: 0px 3px
@@ -2919,7 +2924,7 @@ img#pay1.activepayment {
 }
 
 .Location span {
-    color: #af191a;
+    color: #dc3545;
     font-size: 14px;
     font-weight: 700;
     padding: 0px 3px;
@@ -3063,7 +3068,7 @@ img#pay1.activepayment {
 }
 
 .account-page-head h1 {
-    color: #af191a;
+    color: #dc3545;
     margin: 50px 0px;
     font-family: 'Roboto';
 }
@@ -3128,7 +3133,7 @@ img#pay1.activepayment {
 }
 
 .nav-pills .nav-link.active {
-    background-color: #af191a !important;
+    background-color: #dc3545 !important;
 }
 
 .acc-pro1-box .nav-link:before {
@@ -3158,7 +3163,7 @@ img#pay1.activepayment {
 }
 
 .account-pro-tab .nav-item .nav-link.active:hover {
-    background-color: #af191a;
+    background-color: #dc3545;
 }
 
 .account-pro-tab .nav-pills>li+li {
@@ -3193,7 +3198,7 @@ img#pay1.activepayment {
 }
 
 .acco-tab-content label span {
-    color: #af191a;
+    color: #dc3545;
     padding-left: 3px;
 }
 
@@ -3297,7 +3302,7 @@ input#acco-tab-fo {
 }
 
 .pending-btn a {
-    background-color: #af191a;
+    background-color: #dc3545;
     color: #fff;
     font-family: 'Montserrat';
     font-size: 15px;
@@ -3383,7 +3388,7 @@ input#acco-tab-fo {
 .logout-but .btn {
     padding: 6px 40px;
     border-radius: 30px;
-    background-color: #af191a;
+    background-color: #dc3545;
 }
 
 .logout-but .btn-1 {
@@ -3449,7 +3454,7 @@ input#acco-tab-fo {
 
 .contact-head h1:after {
     content: "";
-    border: 2px solid #af191a;
+    border: 2px solid #dc3545;
     position: absolute;
     bottom: 0;
     left: 0;
@@ -3474,7 +3479,7 @@ input#acco-tab-fo {
 
 .contact-head-1 h1:after {
     content: "";
-    border: 2px solid #af191a;
+    border: 2px solid #dc3545;
     position: absolute;
     bottom: 0;
     left: 0;
@@ -3494,7 +3499,7 @@ input#acco-tab-fo {
 }
 
 .info ul li a {
-    color: #fff;
+    color: #212121;
 }
 
 .b-text h1 a {
@@ -3530,7 +3535,7 @@ input#acco-tab-fo {
 
 .order-d h1:after {
     content: "";
-    border: 3px solid #af191a;
+    border: 3px solid #dc3545;
     position: absolute;
     bottom: 0;
     left: 28%;
@@ -3553,7 +3558,7 @@ input#acco-tab-fo {
 .order-status ul .round-d {
     height: 55px;
     width: 55px;
-    background-color: #af191a;
+    background-color: #dc3545;
     border-radius: 50%;
     color: #fff;
     margin: 0 auto;
@@ -3584,7 +3589,7 @@ input#acco-tab-fo {
 
 .order-status ul .process-1:after {
     content: "";
-    border: 3px solid #af191a;
+    border: 3px solid #dc3545;
     position: absolute;
     top: 26px;
     left: 165px;
@@ -3618,7 +3623,7 @@ input#acco-tab-fo {
     font-family: "Montserrat";
     font-weight: 600;
     font-size: 16px;
-    color: #af191a;
+    color: #dc3545;
     margin: 0;
 }
 
@@ -4467,7 +4472,7 @@ input#acco-tab-fo {
     }
 
     .order-status ul .process-1:after {
-        border: 3px solid #af191a;
+        border: 3px solid #dc3545;
         top: 22px;
         left: 88px;
         width: 78%;
@@ -4506,11 +4511,16 @@ input#acco-tab-fo {
         background-size: 44%;
     }
 
-    .footer-section {
+    /* .footer-section {
         background-image: url(../images/footer.jpg);
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
+    } */
+
+
+    .footer-section {
+        border-top: 1px solid #EEE;
     }
 
     .acc-pro-content p {
@@ -5528,9 +5538,8 @@ div.dataTables_info {
 }
 
 .main-pizza-sb {
-    background-color: #f6f6f6;
+    background-color: #fafafa;
     height: 111px;
-    margin-top: 50px;
 }
 
 button.slick-arrow {
@@ -5577,12 +5586,14 @@ button.slick-arrow {
 }
 
 .pizza-content-box {
-    border-right: 1px solid #f0eded;
+    border-right: 1px solid #f0eded !important;
     height: 88px;
+    vertical-align: middle;
+    display: grid;
 }
 
 /*.box.slick-slide.slick-current.slick-active{
-    background: #af191a;
+    background: #dc3545;
     color: #fff;
     outline: none;
 }
@@ -5605,24 +5616,25 @@ button.slick-arrow {
     left: -106px;
     border-left: 25px solid transparent;
     border-right: 25px solid transparent;
-    border-top: 23px solid #af191a;
+    border-top: 23px solid #dc3545;
 }*/
 
-.King_script_active {
-    background: #af191a;
+/* .King_script_active {
+    background: #dc3545;
     color: #fff;
     outline: none;
-}
+} */
 
-.King_script_active img {
+/* .King_script_active img {
     filter: opacity(1) drop-shadow(0 0 0 white);
-}
+} */
 
 .King_script_active h3 {
     font-size: 14px;
-    color: white;
+    color: #dc3545;
+    font-weight: bold;
 }
-
+/*
 .King_script_active:after {
     content: "";
     position: relative;
@@ -5632,8 +5644,8 @@ button.slick-arrow {
     left: -106px;
     border-left: 25px solid transparent;
     border-right: 25px solid transparent;
-    border-top: 23px solid #af191a;
-}
+    border-top: 23px solid #dc3545;
+} */
 
 .slick-initialized .slick-slide {
     outline: none !important;
@@ -5659,9 +5671,11 @@ button:focus {
     text-align: left;
 }
 
+
 .main-pizza-sb-2 {
-    /* background-color: #af191a; */
+    background-color: #fafafa !important;
     height: 111px;
+    padding: 11px 0px;
 }
 
 .King_script_active .pizza-content-box {
@@ -5690,4 +5704,165 @@ button:focus {
     text-align: center;
     padding: 15px;
     z-index: 15;
+}
+
+
+
+
+/* Custome css */
+.header_section {
+    background: #fff;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    border-bottom: 1px solid #EEE;
+    z-index: 1;
+}
+
+.header_section .nav-link {
+    color: #212121 !important;
+    font-family: 'Dancing Script';
+    font-size: 26px;
+    font-weight: bold;
+    padding: 0px 23px !important;
+    transition: all 0.2s ease-out;
+    -webkit-transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease-out;
+    -ms-transition: all 0.2s ease-out;
+    -o-transition: all 0.2s ease-out;
+}
+
+.header_section .nav-link:hover {
+    color: #dc3545 !important;
+}
+
+.header_right_nav a {
+    color: #dc3545;
+    font-size: 17px;
+    display: inline-block;
+    margin: 0px 14px 0px 0px;
+}
+
+
+.header_right_nav a:hover{
+    color: #212121;
+}
+
+
+.banner_section {
+    background-image: url('../../public/upload/web/banner.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 260px 0px;
+}
+.banner_content h1 {
+    color: #fff;
+    font-size: 66px;
+    font-family: 'Dancing Script', sans-serif;
+    font-weight: 700;
+}
+
+.banner_content h2 {
+    color: #fff;
+    font-size: 40px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    margin-bottom: 14px;
+}
+
+.banner_content p {
+    color: #ffffff;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+}
+.shop_product {
+    border-radius: 6px;
+    padding: 10px;
+    height: 100%;
+    box-shadow: rgb(100 100 111 / 10%) 0px 7px 29px 0px;
+}
+
+.shop_product img {
+    border-radius: 6px;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    text-align: center;
+    display: block;
+}
+.shop_product {
+    border-radius: 6px;
+    padding: 10px;
+    height: 100%;
+    box-shadow: rgb(100 100 111 / 10%) 0px 7px 29px 0px;
+}
+
+.shop_product img {
+    border-radius: 6px;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    text-align: center;
+    display: block;
+}
+
+.card_body h1 a {
+    color: #212121;
+    font-size: 20px;
+    font-family: "Roboto", sans-serif;
+    margin: 0;
+}
+
+.card_body h1 {
+    margin: 0;
+    margin-bottom: 4px;
+}
+
+.card_body p {
+    margin: 0;
+    font-size: 15px;
+    color: #555;
+    margin-bottom: 15px;
+}
+.shop_price p {
+    font-size: 15px;
+    font-weight: 600;
+    color: #212121;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.shop_price p a {
+    float: right;
+    font-size: 12px;
+    border: 1px solid #dc354529;
+    background: #dc35451f;
+    padding: 4px 11px;
+    border-radius: 2px;
+    color: #212529;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.shop_price p a:hover {
+    background: #dc3545;
+    color: #fff;
+}
+
+.pagination .page-link {
+    padding: 10px 17px;
+    border: 1px solid #EEE;
+    background: #fff;
+    font-size: 13px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    color: #222;
+    outline: none !important;
+    box-shadow: none !important;
+}
+.pagination .page-item.active .page-link {
+    background-color: #dc3545 !important;
+    border-color: #dc3545 !important;
 }
