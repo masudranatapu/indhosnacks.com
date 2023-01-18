@@ -659,7 +659,7 @@ img#pay3.activepayment {
     background-color: #dc35451f;
     transition: all 0.5s;
     border-radius: 4px;
-    width: 100%;
+    /* width: 100%; */
     text-align: center;
 }
 

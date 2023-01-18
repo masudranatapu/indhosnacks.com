@@ -90,6 +90,10 @@
     .header_section .navbar-nav {
         padding: 10px 0px;
     }
+
+    .items {
+        padding: 15px 13px 0px 13px;
+    }
 }
 
 @media(max-width: 767px) {
@@ -130,11 +134,13 @@
     .cart-b-shipping .cart-bs-heading .cart-bs-content {
         width: 50%;
     }
-    .banner_content h2{
+
+    .banner_content h2 {
         font-size: 33px;
     }
-    .banner_section{
-        padding:150px 0px !important;
+
+    .banner_section {
+        padding: 150px 0px !important;
     }
 }
 
@@ -265,8 +271,8 @@
     .cart-b-button a {
         font-size: 14px;
     }
+
     .banner_content h2 {
         font-size: 27px;
     }
 }
-
