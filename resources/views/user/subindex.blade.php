@@ -422,7 +422,7 @@
                             <ul>
                                 <li><a href="{{url('/')}}">{{__('messages.home')}}</a></li>
                                 <li><a href="{{url('aboutus')}}">{{__('messages.aboutus')}}</a></li>
-                                <li><a href="{{url('service')}}">{{__('messages.service')}}</a></li>
+                                <li><a href="{{url('shop')}}">{{__('messages.service')}}</a></li>
                                 <li><a href="{{url('contactus')}}">{{__('messages.contact')}}</a></li>
                             </ul>
                         </div>
