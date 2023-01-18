@@ -727,12 +727,14 @@
                                         aria-hidden="true"></i></a>
                                 <a href="{{ Session::get('twitter')}}" target="_blank"><i class="fab fa-twitter"
                                         aria-hidden="true"></i></a>
-                                <a href="{{ Session::get('linkedin')}}" target="_blank"><i class="fab fa-linkedin"
-                                        aria-hidden="true"></i></a>
-                                <a href="{{ Session::get('google_plus_id')}}" target="_blank"><i
-                                        class="fab fa-google-plus" aria-hidden="true"></i></a>
+                                {{-- <a href="{{ Session::get('linkedin')}}" target="_blank"><i class="fab fa-linkedin"
+                                        aria-hidden="true"></i></a> --}}
+                                {{-- <a href="{{ Session::get('google_plus_id')}}" target="_blank"><i
+                                        class="fab fa-google-plus" aria-hidden="true"></i></a> --}}
                                 <a href="{{ Session::get('whatsapp')}}" target="_blank"><i class="fab fa-whatsapp"
                                         aria-hidden="true"></i></a>
+                                        <a href="{{ Session::get('tiktok_id')}}" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+                                        <a href="{{ Session::get('instragram_id')}}" target="_blank"><i class="fab fa-instagram"></i></a>
                             </div>
                         </div>
                         <div class="col-md-6 col-lg-3 info">
