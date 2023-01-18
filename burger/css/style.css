@@ -5751,21 +5751,21 @@ button:focus {
 
 
 .banner_section {
-    background-image: url('../../public/upload/web/banner.jpg?v-1');
+    background-image: url('../../public/upload/web/banner.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     padding: 260px 0px;
 }
 .banner_content h1 {
-    color: #fff;
+    color: #000;
     font-size: 66px;
     font-family: 'Dancing Script', sans-serif;
     font-weight: 700;
 }
 
 .banner_content h2 {
-    color: #fff;
+    color: #000;
     font-size: 40px;
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
@@ -5773,7 +5773,7 @@ button:focus {
 }
 
 .banner_content p {
-    color: #ffffff;
+    color: #000;
     font-size: 16px;
     font-family: 'Roboto', sans-serif;
     margin: 0;
