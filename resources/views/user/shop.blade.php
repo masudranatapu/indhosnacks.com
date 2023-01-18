@@ -14,8 +14,9 @@
                                         class="card-img-top" alt="{{$it->menu_name}}">
                                 </a>
                                 <div class="card_body">
-                                    <h1><a href="{{url('detailitem/'.$it->id)}}">{{$it->menu_name}}</a></h1>
-                                    <p>
+                                    <h1 class="text-center"><a
+                                            href="{{url('detailitem/'.$it->id)}}">{{$it->menu_name}}</a></h1>
+                                    <p class="text-center">
                                         {{substr($it->description,0,75)}}
                                     </p>
                                     <div class="shop_price">

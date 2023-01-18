@@ -28,14 +28,14 @@
             </div>
         </div>
         @endif
-        <div class="col-lg-5 col-md-5 col-sm-6 col-12">
+        <div class="col-lg-5 col-md-5  col-12">
             <div class="single_img text-center">
                 <img src="{{ asset('public/upload/images/menu_item_icon/' . $itemdetails->menu_image) }}"
                     class="img-fluid detail-product-img" alt="{{ __('messages.res_image') }}">
             </div>
         </div>
         <input type="hidden" name="item_id" id="item_id" value="{{ $itemdetails->id }}" />
-        <div class="col-lg-7 col-md-7 col-sm-6 col-12">
+        <div class="col-lg-7 col-md-7 col-12">
             <div class="detail-product-box">
                 <div class="detail-descri">
                     <div class="detail-product-head">
@@ -200,6 +200,5 @@
     @endfor
 
 </div>
-</div>
-</div>
+
 @stop

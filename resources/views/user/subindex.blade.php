@@ -23,8 +23,7 @@
     @endif
     <link rel="stylesheet" type="text/css" href="{{asset('burger/css/bootstrap.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('burger/css/app.css')}}" />
-    <link rel="stylesheet" type="text/css"
-        href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
     <link rel="stylesheet" href="{{asset('burger/css/font.css')}}">
 
 
@@ -231,7 +230,7 @@
                                         </div>
                                         <span class="price">
                                             <?php $totalamount=(float)$item->quantity*(float)$item->price;?>
-                                            <a href="{{url('deletecartitem/'.$item->id)}}"><i class="fa fa-trash-o"
+                                            <a href="{{url('deletecartitem/'.$item->id)}}"><i class="fab fa-trash-o"
                                                     aria-hidden="true"></i></a>
                                             <h1>{{Session::get("usercurrency")}}{{number_format($totalamount, 2, '.',
                                                 '')}}</h1>
@@ -336,11 +335,11 @@
                                 </a>
                                 <span class="mr-2">|</span>
 
-                                <a href="{{ Session::get('facebook')}}" target="_blank"><i class="fa fa-facebook"
+                                <a href="{{ Session::get('facebook')}}" target="_blank"><i class="fab fa-facebook"
                                         aria-hidden="true"></i></a>
-                                <a href="{{ Session::get('twitter')}}" target="_blank"><i class="fa fa-twitter"
+                                <a href="{{ Session::get('twitter')}}" target="_blank"><i class="fab fa-twitter"
                                         aria-hidden="true"></i></a>
-                                <a href="{{ Session::get('whatsapp')}}" target="_blank"><i class="fa fa-whatsapp"
+                                <a href="{{ Session::get('whatsapp')}}" target="_blank"><i class="fab fa-whatsapp"
                                         aria-hidden="true"></i></a>
                             </div>
                         </ul>
@@ -397,21 +396,21 @@
         </div>
         <div class="footer-section">
             <div class="footer">
-                <div class="container kb-footer">
+                <div class="container">
                     <div class="row">
                         <div class="col-md-3 about mt-4">
                             <img src="{{Session::get('logo')}}">
                             <p>{{__('messages.footer_text')}}</p>
                             <div class="footer-social">
-                                <a href="{{ Session::get('facebook')}}" target="_blank"><i class="fa fa-facebook"
+                                <a href="{{ Session::get('facebook')}}" target="_blank"><i class="fab fa-facebook"
                                         aria-hidden="true"></i></a>
-                                <a href="{{ Session::get('twitter')}}" target="_blank"><i class="fa fa-twitter"
+                                <a href="{{ Session::get('twitter')}}" target="_blank"><i class="fab fa-twitter"
                                         aria-hidden="true"></i></a>
-                                <a href="{{ Session::get('linkedin')}}" target="_blank"><i class="fa fa-linkedin"
+                                <a href="{{ Session::get('linkedin')}}" target="_blank"><i class="fab fa-linkedin"
                                         aria-hidden="true"></i></a>
                                 <a href="{{ Session::get('google_plus_id')}}" target="_blank"><i
-                                        class="fa fa-google-plus" aria-hidden="true"></i></a>
-                                <a href="{{ Session::get('whatsapp')}}" target="_blank"><i class="fa fa-whatsapp"
+                                        class="fab fa-google-plus" aria-hidden="true"></i></a>
+                                <a href="{{ Session::get('whatsapp')}}" target="_blank"><i class="fab fa-whatsapp"
                                         aria-hidden="true"></i></a>
                             </div>
                         </div>
@@ -455,23 +454,29 @@
                                 <h1>{{__('messages.contact_us')}}</h1>
                             </div>
                             <div class="f-location">
-                                <img src="{{asset('burger/images/location.png')}}">
+                                <div class="media position-relative">
+                                    <i class="fa fa-location-dot"></i>
+                                    <div class="media-body">
+                                        <p> {{Session::get('address')}}</p>
+                                    </div>
+                                </div>
                             </div>
-                            <span>
-                                {{Session::get('address')}}
-                            </span>
                             <div class="f-location">
-                                <img src="{{asset('burger/images/phone.png')}}">
+                                <div class="media position-relative">
+                                    <i class="fa fa-phone"></i>
+                                    <div class="media-body">
+                                        <p> {{Session::get('phone')}}</p>
+                                    </div>
+                                </div>
                             </div>
-                            <span>
-                                {{Session::get('phone')}}
-                            </span>
                             <div class="f-location">
-                                <img src="{{asset('burger/images/email.png')}}">
+                                <div class="media position-relative">
+                                    <i class="fa fa-envelope"></i>
+                                    <div class="media-body">
+                                        <p> {{Session::get('email')}}</p>
+                                    </div>
+                                </div>
                             </div>
-                            <span>
-                                {{Session::get('email')}}
-                            </span>
                         </div>
                     </div>
                 </div>

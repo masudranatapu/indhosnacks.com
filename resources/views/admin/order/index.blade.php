@@ -4,7 +4,7 @@
     <div class="col-sm-4">
         <div class="page-header float-left">
             <div class="page-title">
-                <h1>{{__('messages.dashboard')}}</h1>
+                <h1>Orders</h1>
             </div>
         </div>
     </div>
@@ -12,83 +12,39 @@
         <div class="page-header float-right">
             <div class="page-title">
                 <ol class="breadcrumb text-right">
-                    <li class="active">{{__('messages.dashboard')}}</li>
+                    <li class="active">Orders</li>
                 </ol>
             </div>
         </div>
     </div>
 </div>
-<div class="content mt-3">
-    <div class="col-sm-4 ">
-        <div class="card text-white bg-flat-color-1 dashbox1">
-            <div class="card-body pb-0">
-                <div class="col-md-12">
-                    <h4 class="mb-0">
-                        <span class="count dashbozsi">{{$today_order}}</span>
-                    </h4>
-                </div>
-                <div class="col-md-12">
-                    <p class="text-light">{{__('messages.today_order')}}</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-sm-4 ">
-        <div class="card text-white bg-flat-color-1 dashbox2">
-            <div class="card-body pb-0">
-                <div class="col-md-12">
-                    <h4 class="mb-0">
-                        <span class="count dashbozsi">{{$total_user}}</span>
-                    </h4>
-                </div>
-                <div class="col-md-12">
-                    <p class="text-light">{{__('messages.total_order')}}</p>
+<div class="col-md-12">
+    <div class="card">
+        <div class="card-body">
+            @if(Session::has('message'))
+            <div class="col-sm-12">
+                <div class="alert  {{ Session::get('alert-class', 'alert-info') }} alert-dismissible fade show"
+                    role="alert">{{ Session::get('message') }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="col-sm-4 ">
-        <div class="card text-white bg-flat-color-1 dashbox3">
-            <div class="card-body pb-0">
-                <div class="col-md-12">
-                    <h4 class="mb-0">
-                        <span class="count dashbozsi">{{$total_accept}}</span>
-                    </h4>
-                </div>
-                <div class="col-md-12">
-                    <p class="text-light">{{__('messages.total_accept_order')}}</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-12">
-        <div class="card">
-            <div class="card-body">
-                @if(Session::has('message'))
-                <div class="col-sm-12">
-                    <div class="alert  {{ Session::get('alert-class', 'alert-info') }} alert-dismissible fade show"
-                        role="alert">{{ Session::get('message') }}
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                </div>
-                @endif
-                <div class="table-responsive dtdiv">
-                    <table id="orderTable" class="table table-striped dttablewidth">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>{{__('messages.name')}}</th>
-                                <th>{{__('messages.address')}}</th>
-                                <th>{{__('messages.more_detail')}}</th>
-                                <th>{{__('messages.print')}}</th>
-                                <th>{{__('messages.status')}}</th>
-                                <th>{{__('messages.action')}}</th>
-                            </tr>
-                        </thead>
-                    </table>
-                </div>
+            @endif
+            <div class="table-responsive dtdiv">
+                <table id="orderTable" class="table table-striped dttablewidth">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>{{__('messages.name')}}</th>
+                            <th>{{__('messages.address')}}</th>
+                            <th>{{__('messages.more_detail')}}</th>
+                            <th>{{__('messages.print')}}</th>
+                            <th>{{__('messages.status')}}</th>
+                            <th>{{__('messages.action')}}</th>
+                        </tr>
+                    </thead>
+                </table>
             </div>
         </div>
     </div>
@@ -185,4 +141,4 @@
 <input type="hidden" id="ordermsg_delivery_charges" value="{{__('messages.delivery_charges')}}">
 <input type="hidden" id="ordermsg_total" value="{{__('messages.total')}}">
 <input type="hidden" id="ordermsg_confirm" value="{{__('successerr.order_con_msg')}}">
-@stop
+@endsection

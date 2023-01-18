@@ -133,6 +133,9 @@
     .banner_content h2{
         font-size: 33px;
     }
+    .banner_section{
+        padding:150px 0px !important;
+    }
 }
 
 @media(max-width: 576px) {

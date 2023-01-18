@@ -143,6 +143,7 @@ body {
     height: 100%;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
 }
 
 #description {
@@ -838,7 +839,7 @@ main.main {
     margin-top: 52px;
 }
 
-.info span {
+/* .info span {
     font-family: "Montserrat";
     font-size: 14px;
     color: #212121;
@@ -846,13 +847,47 @@ main.main {
     float: left;
     padding-left: 12px;
     margin-bottom: 23px;
-}
+} */
 
 .f-location {
+    vertical-align: middle;
+    align-items: center;
+    display: flex;
+    margin-bottom: 13px;
+}
+
+.f-location i {
+    margin-top: 5px;
+    width: 30px;
+    height: 30px;
+    display: block;
+    background: #242424;
+    text-align: center;
+    line-height: 28px;
+    color: #fff;
+    border-radius: 2px;
+}
+
+.f-location span {
+    display: block;
+    margin-left: 23px;
+    color: #888;
+}
+.f-location {
+    vertical-align: middle;
+    align-items: center;
+    display: flex;
+}
+/* .f-location {
     display: inline-block;
     margin-top: 0px;
     width: 13%;
     float: left;
+}
+
+.f-location img {
+    display: inline-block;
+    margin-right: 3px;
 }
 
 .f-location img {
@@ -861,7 +896,7 @@ main.main {
     padding: 9px 10px;
     display: flex;
     border-radius: 3px;
-}
+} */
 
 .fo-text {
     margin-bottom: 50px;
@@ -948,7 +983,7 @@ main.main {
 
 .slick-slide .active {
     color: #dc3545;
-    height: 80px;
+    /* height: 80px; */
     width: 160px;
     background-color: transparent;
 }
@@ -960,7 +995,7 @@ main.main {
 }
 
 .category_wrapper .pizza-category-menu {
-    height: auto;
+    /* height: 107px; */
     width: 100%;
 }
 
@@ -1527,7 +1562,8 @@ button.detail-navbar-2.tab-b {
     top: -15px;
     left: 53px;
     padding: 0px 5px;
-    font-family: "Roboto"
+    font-family: "Roboto";
+    font-size: 17px;
 }
 
 .detail-ingredients .detail-ingredients-head form p {
@@ -1642,13 +1678,13 @@ button.detail-navbar-2.tab-b {
     margin-bottom: 80px;
 }
 
-.detail-related-head:after {
+/* .detail-related-head:after {
     content: '';
     border-top: 3px solid #dc3545;
     width: 10%;
     position: absolute;
     right: 46%;
-}
+} */
 
 .row.bor.bor-1.detail-related-tab {
     width: 100%;
@@ -1991,7 +2027,7 @@ div#forgotbody {
     height: 150px;
     border: none;
     background: #f7fafa;
-    padding: 5px;
+    padding: 17px 15px;
 }
 
 #orderplacepaypal {
@@ -2669,6 +2705,7 @@ td.cart-product-image img {
     line-height: normal;
     font-family: 'FontAwesome';
     margin-right: 30px;
+    margin-top:15px;
 }
 
 .accordion.indicator-chevron .card-header:after {
@@ -2775,14 +2812,14 @@ img#pay1.activepayment {
     font-family: 'Montserrat';
     font-size: 15px;
 }
-
 .card-body .sub input {
     background-color: #dc3545;
     color: #fff;
-    padding: 3px 60px;
+    padding: 12px 60px;
     font-family: 'Montserrat';
     font-size: 15px;
     margin-bottom: 0;
+    border-radius: 1px;
 }
 
 .card-body form .check input {
@@ -3499,9 +3536,10 @@ input#acco-tab-fo {
     color: #848484;
     margin-top: 50px;
 }
-
 .f-location p {
     margin-top: 0;
+    padding-left: 9px;
+    margin:0;
 }
 
 .info ul li a {
@@ -4257,9 +4295,9 @@ input#acco-tab-fo {
         padding-left: 23px;
     }
 
-    .f-location {
+    /* .f-location {
         width: 5%;
-    }
+    } */
 
     .footer-section .img img {
         height: 435px;
@@ -5536,6 +5574,7 @@ div.dataTables_info {
     height: 111px;
     width: 160px;
     border-radius: 4px;
+    padding-top:19px;
 }
 
 .main-pizza-sb {
@@ -5573,12 +5612,17 @@ button.slick-arrow {
 }
 
 .pizza-category-menu {
-    height: 111px;
+    /* height: 128px; */
     width: 160px;
     background-color: transparent;
     border: none;
     cursor: pointer;
     padding: 0;
+}
+
+.shop_price {
+    border-top: 1px solid #f0f0f0;
+    padding-top: 14px;
 }
 
 .pizza-content-imgb img {
@@ -5588,7 +5632,7 @@ button.slick-arrow {
 
 .pizza-content-box {
     border-right: 1px solid #f0eded !important;
-    height: 88px;
+    /* height: 88px; */
     vertical-align: middle;
     display: grid;
 }
@@ -5669,7 +5713,7 @@ button:focus {
 .b-text {
     width: 62%;
     float: left;
-    padding-left: 25px;
+    padding-left: 42px;
     text-align: left;
 }
 
@@ -5677,7 +5721,7 @@ button:focus {
 .main-pizza-sb-2 {
     background-color: #fafafa !important;
     height: 111px;
-    padding: 11px 0px;
+    /* padding: 11px 0px; */
 }
 
 .King_script_active .pizza-content-box {
@@ -5719,15 +5763,15 @@ button:focus {
     top: 0;
     width: 100%;
     border-bottom: 1px solid #EEE;
-    z-index: 1;
+    z-index: 99;
 }
 
 .header_section .nav-link {
     color: #212121 !important;
-    font-family: 'Dancing Script';
-    font-size: 26px;
+    font-family: 'Roboto';
+    font-size: 17px;
     font-weight: bold;
-    padding: 0px 23px !important;
+    padding: 0px 27px !important;
     transition: all 0.2s ease-out;
     -webkit-transition: all 0.2s ease-out;
     -moz-transition: all 0.2s ease-out;
@@ -5761,14 +5805,14 @@ button:focus {
 }
 
 .banner_content h1 {
-    color: #000;
+    color: #212121;
     font-size: 66px;
     font-family: 'Dancing Script', sans-serif;
     font-weight: 700;
 }
 
 .banner_content h2 {
-    color: #000;
+    color: #212121;
     font-size: 40px;
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
@@ -5776,7 +5820,7 @@ button:focus {
 }
 
 .banner_content p {
-    color: #000;
+    color: #212121;
     font-size: 16px;
     font-family: 'Roboto', sans-serif;
     margin: 0;
@@ -5881,4 +5925,9 @@ button.navbar-toggler {
     color: #4b4b4b !important;
     opacity: 1;
     border: 1px solid #a1a1a1;
+}
+.footer_widget p {
+    margin: 0;
+    color: #666;
+    padding: 7px 0px;
 }

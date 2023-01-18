@@ -41,12 +41,8 @@
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.7.1/slick.css'>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script type="text/javascript" src="{{asset('burger/js/bootstrap.min.js')}}"></script>
-    {{--
-    <link rel="stylesheet" type="text/css"
-        href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> --}}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 
     <link rel="stylesheet" type="text/css" href="{{asset('burger/css/app.css')}}" />
     <link rel="stylesheet" href="{{asset('burger/css/font.css')}}">
@@ -439,7 +435,7 @@
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <i class="fab fa-bars"></i>
+                    <i class="fa fa-bars"></i>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ml-auto">
@@ -625,8 +621,9 @@
                                         class="card-img-top" alt="{{$it->menu_name}}">
                                 </a>
                                 <div class="card_body">
-                                    <h1><a href="{{url('detailitem/'.$it->id)}}">{{$it->menu_name}}</a></h1>
-                                    <p>
+                                    <h1 class="text-center"><a
+                                            href="{{url('detailitem/'.$it->id)}}">{{$it->menu_name}}</a></h1>
+                                    <p class="text-center">
                                         {{substr($it->description,0,75)}}
                                     </p>
                                     <div class="shop_price">
@@ -712,11 +709,17 @@
         </div>
         <div class="footer-section">
             <div class="footer">
-                <div class="container kb-footer">
+                <div class="container">
                     <div class="row">
-                        <div class="col-md-3 about mt-4">
+                        <div class="col-md-6 col-lg-3 about mt-4">
                             <img src="{{Session::get('logo')}}" width="200">
-                            <p>Jigjigyar:   Zaad:50779 <br/> Idaacada: Zaad:509919 <br/> Berbera: Zaad: 509228</p>
+
+                            <div class="footer_widget mb-4 mt-3">
+                                <p><strong>Jigjigyar:</strong> Zaad:50779</p>
+                                <p><strong>Idaacada:</strong> Zaad:509919</p>
+                                <p><strong>Berbera:</strong> Zaad: 509228</p>
+                            </div>
+
                             <div class="footer-social">
                                 <a href="{{ Session::get('facebook')}}" target="_blank"><i class="fab fa-facebook"
                                         aria-hidden="true"></i></a>
@@ -730,7 +733,7 @@
                                         aria-hidden="true"></i></a>
                             </div>
                         </div>
-                        <div class="col-md-3 info">
+                        <div class="col-md-6 col-lg-3 info">
                             <div class="fo-text">
                                 <h1>{{__('messages.information')}}</h1>
                             </div>
@@ -741,7 +744,7 @@
                                 <li><a href="{{url('contactus')}}">{{__('messages.contact')}}</a></li>
                             </ul>
                         </div>
-                        <div class="col-md-3 info">
+                        <div class="col-md-6 col-lg-3 info">
                             <div class="fo-text">
                                 <h1>{{__('messages.myaccount')}}</h1>
                             </div>
@@ -766,30 +769,35 @@
                                 <li><a href="{{url('termofuse')}}">{{__('messages.terms')}}</a></li>
                             </ul>
                         </div>
-                        <div class="col-md-3 info">
+                        <div class="col-md-6 col-lg-3 info">
                             <div class="fo-text">
                                 <h1>{{__('messages.contact_us')}}</h1>
                             </div>
-                            <p>
                             <div class="f-location">
-                                <img src="{{asset('burger/images/location.png')}}">
+                                <div class="media position-relative">
+                                    <i class="fa fa-location-dot"></i>
+                                    <div class="media-body">
+                                        <p> {{Session::get('address')}}</p>
+                                    </div>
+                                </div>
                             </div>
-                            {{Session::get('address')}}
-                            </p>
+                            <div class="f-location">
+                                <div class="media position-relative">
+                                    <i class="fa fa-phone"></i>
+                                    <div class="media-body">
+                                        <p> {{Session::get('phone')}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="f-location">
+                                <div class="media position-relative">
+                                    <i class="fa fa-envelope"></i>
+                                    <div class="media-body">
+                                        <p> {{Session::get('email')}}</p>
+                                    </div>
+                                </div>
+                            </div>
 
-                            <p>
-                            <div class="f-location">
-                                <img src="{{asset('burger/images/phone.png')}}">
-                            </div>
-                            {{Session::get('phone')}}
-                            </p>
-
-                            <p>
-                            <div class="f-location">
-                                <img src="{{asset('burger/images/email.png')}}">
-                            </div>
-                            {{Session::get('email')}}
-                            </p>
                         </div>
                     </div>
                 </div>

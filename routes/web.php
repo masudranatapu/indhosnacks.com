@@ -93,6 +93,9 @@ Route::group(['middleware' => ['admincheckexiste']], function () {
 	Route::post("updatecategory","CategoryController@updatecategory")->name("updatecategory");
 	Route::get("changesettingorderstatus/{status}","AuthenticationController@changesettingorderstatus");
 
+
+    Route::get("orders","AuthenticationController@AllOrder");
+
 	//menu item
 
 	Route::get("menuitem","ItemController@index")->middleware('admincheckexiste');
