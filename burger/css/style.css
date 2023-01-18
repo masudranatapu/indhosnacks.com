@@ -793,7 +793,7 @@ main.main {
 .about p {
     font-family: "Montserrat";
     font-size: 13px;
-    color: #fff;
+    color: #000;
     text-align: justify;
     margin-top: 30px;
 }
@@ -2023,6 +2023,7 @@ div#orderplace1 button {
     width: 100%;
     border-radius: 1000px;
     margin-top: 40px;
+    cursor: pointer;
 }
 
 .cart-shipping-box {
@@ -2167,7 +2168,7 @@ div#orderplace1 button {
 .cric {
     width: 18px;
     height: 18px;
-    background-color: #af191b;
+    background-color: #000;
     border-radius: 50%;
     font-size: 15px;
     text-align: center;
@@ -2175,6 +2176,7 @@ div#orderplace1 button {
     position: absolute;
     top: -8px;
     left: 12px;
+    color: #fff;
 }
 
 .cric-1 {
@@ -2309,8 +2311,9 @@ div#orderplace1 button {
 
 .modal-login-button button {
     padding: 10px 25px;
-    background-color: #ae191a;
     border-radius: 1000px;
+    border: none;
+    cursor: pointer;
     display: inline-block;
     text-align: center;
     margin-top: 10px;
@@ -5342,11 +5345,6 @@ input#acco-tab-fo {
         font-size: 14px;
     }
 
-    .cric {
-        width: 15px;
-        height: 15px;
-        font-size: 13px;
-    }
 
     .cric-1 {
         width: 15px;

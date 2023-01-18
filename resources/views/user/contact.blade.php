@@ -1,10 +1,6 @@
 @extends('user.subindex')
 @section('content')
 <div class="container">
-   <div class="contact-h">
-      <h1>{{__('messages.contact_us')}}</h1>
-      <p>{{__('messages.service_sugg')}}</p>
-   </div>
    <div class="contact-add">
       <div class="row">
          <div class="col-md-8">

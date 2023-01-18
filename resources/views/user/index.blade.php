@@ -709,7 +709,7 @@
                     <div class="row">
                         <div class="col-md-3 about mt-4">
                             <img src="{{Session::get('logo')}}" width="200">
-                            <p>{{__('messages.footer_text')}}</p>
+                            <p>Jigjigyar:   Zaad:50779 <br/> Idaacada: Zaad:509919 <br/> Berbera: Zaad: 509228</p>
                             <div class="footer-social">
                                 <a href="{{ Session::get('facebook')}}" target="_blank"><i class="fa fa-facebook"
                                         aria-hidden="true"></i></a>

@@ -143,10 +143,6 @@
         background-color: <?=Session::get("webcolor")?> !important;
     }
 
-    .cric {
-        background-color: <?=Session::get("webcolor")?> !important;
-    }
-
     .por-1 .price i {
         color: <?=Session::get("webcolor")?> !important;
     }
