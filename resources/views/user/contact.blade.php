@@ -33,9 +33,9 @@
          <div class="col-md-4">
             <div class="contact-head-1">
                <h1>{{__('messages.our_add')}}</h1>
-               <p> 
+               <p>
                <div class="f-location col-md-12 p-0">
-                  <div class="col-md-1 col-1 icons"> 
+                  <div class="col-md-1 col-1 icons">
                      <i class="fa fa-address-book" aria-hidden="true"></i>
                   </div>
                   <div class="col-md-10 col-10 co-add">
@@ -43,7 +43,7 @@
                   </div>
                </div>
                <div class="f-location col-md-12 p-0">
-                  <div class="col-md-1 col-1 icons"> 
+                  <div class="col-md-1 col-1 icons">
                      <i class="fa fa-envelope" aria-hidden="true"></i>
                   </div>
                   <div class="col-md-10 col-10 co-add">
@@ -51,11 +51,11 @@
                   </div>
                </div>
                <div class="f-location col-md-12 p-0">
-                  <div class="col-md-1 col-1 icons"> 
+                  <div class="col-md-1 col-1 icons">
                      <i class="fa fa-phone" aria-hidden="true"></i>
                   </div>
                   <div class="col-md-10 col-10 co-add">
-                     
+
                       <p>{{Session::get('phone')}}</p>
                   </div>
                </div>

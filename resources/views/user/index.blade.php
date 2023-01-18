@@ -11,6 +11,8 @@
        $story_desc = $story_desc;
        return $story_desc;
    }
+
+   $settings = DB::table('setting')->where('id', 1)->first();
    ?>
 <!DOCTYPE html>
 <html>
@@ -486,8 +488,8 @@
                                     aria-hidden="true"></i></a>
                             <a href="{{ Session::get('whatsapp')}}" target="_blank"><i class="fab fa-whatsapp"
                                     aria-hidden="true"></i></a>
-                            <a href="#" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
-                            <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                            <a href="{{ Session::get('tiktok_id')}}" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+                            <a href="{{ Session::get('instragram_id')}}" target="_blank"><i class="fab fa-instagram"></i></a>
                         </div>
                     </ul>
                 </div>
@@ -715,9 +717,9 @@
                             <img src="{{Session::get('logo')}}" width="200">
 
                             <div class="footer_widget mb-4 mt-3">
-                                <p><strong>Jigjigyar:</strong> Zaad:50779</p>
-                                <p><strong>Idaacada:</strong> Zaad:509919</p>
-                                <p><strong>Berbera:</strong> Zaad: 509228</p>
+                                @if($settings->footer_section)
+                                    {!! $settings->footer_section !!}
+                                @endif
                             </div>
 
                             <div class="footer-social">

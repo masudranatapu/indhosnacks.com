@@ -15,6 +15,8 @@ use Hash;
 use DateTimeZone;
 use Artisan;
 use DateTime;
+use DB;
+
 class AuthenticationController extends Controller {
 
 
@@ -28,7 +30,9 @@ class AuthenticationController extends Controller {
     public function editsetting($tab){
       $data=Setting::find(1);
       $timezone=$this->generate_timezone_list();
-      return view("admin.setting")->with("data",$data)->with("timezone",$timezone)->with("tab",$tab);
+      $aboutpage = DB::table('pages')->where('id', 1)->first();
+      $privacy = DB::table('pages')->where('id', 2)->first();
+      return view("admin.setting")->with("data",$data)->with("timezone",$timezone)->with("tab",$tab)->with('aboutpage', $aboutpage)->with('privacy', $privacy);
     }
     public function generate_timezone_list(){
             static $regions = array(
@@ -115,6 +119,7 @@ class AuthenticationController extends Controller {
          $store->phone=$request->get("phone_no");
          $store->delivery_charges=$request->get("delivery");
          $store->timezone=$request->get("timezone");
+         $store->footer_section=$request->footer_section;
          $store->save();
          Session::flash("message",__('successerr.data_save'));
          Session::flash('alert-class', 'alert-success');
@@ -452,7 +457,7 @@ class AuthenticationController extends Controller {
         $totalnew=count(Order::where("order_status","6")->get());
         $totalcancel=count(Order::where("order_status","0")->get());
         $totalaccept=count($total_order)-($totalnew+$totalcancel);
-        $delivery_boy=Delivery::where("is_deleted",'0')->where("attendance",'yes')->get();
+        $delivery_boy=Delivery::where("is_deleted",'0')->where("attendance", 'Yes')->get();
         return view("admin.order.index")->with("total_user",count($total_order))->with("total_accept",$totalaccept)->with("delivery",$delivery_boy);
       }
       return redirect("admin");

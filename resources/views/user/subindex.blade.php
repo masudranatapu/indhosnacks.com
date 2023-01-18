@@ -341,6 +341,8 @@
                                         aria-hidden="true"></i></a>
                                 <a href="{{ Session::get('whatsapp')}}" target="_blank"><i class="fab fa-whatsapp"
                                         aria-hidden="true"></i></a>
+                                <a href="{{ Session::get('tiktok_id')}}" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+                                <a href="{{ Session::get('instragram_id')}}" target="_blank"><i class="fab fa-instagram"></i></a>
                             </div>
                         </ul>
                     </div>
@@ -412,6 +414,8 @@
                                         class="fab fa-google-plus" aria-hidden="true"></i></a>
                                 <a href="{{ Session::get('whatsapp')}}" target="_blank"><i class="fab fa-whatsapp"
                                         aria-hidden="true"></i></a>
+                                {{-- <a href="{{ Session::get('tiktok_id')}}" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+                                <a href="{{ Session::get('instragram_id')}}" target="_blank"><i class="fab fa-instagram"></i></a> --}}
                             </div>
                         </div>
                         <div class="col-md-3 info">

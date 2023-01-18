@@ -12,41 +12,42 @@ class PagesController extends Controller
 {
     public function index(){
 
-       
+
         $data=Page::latest()->get();
         return view('admin.page',compact('data'));
     }
-    public function savewebpage(Request $request){
- 
-        $pages=new Page();
-    
+    public function savewebpage(Request $request, $id){
+
+        $pages= Page::where('id', $id)->first();
+
         $pages->page_title=$request->page_title;
         $pages->page_desc=$request->page_desc;
 
-        if(!is_null($request->file('page_img')))
-        {
-          $icon_ = $request->file('page_img');
-          $base_name = preg_replace('/\..+$/', '', $icon_->getClientOriginalName());
-          $base_name = explode(' ', $base_name);
-          $base_name = implode('-', $base_name);
-          $base_name = Str::lower($base_name);
-          $image_name = $base_name."-".uniqid().".".$icon_->getClientOriginalExtension();
-          $file_path = 'upload/pages/';
-          if (!File::exists($file_path)) {
-            File::makeDirectory($file_path, 777, true);
-          }
-         $icon_->move($file_path, $image_name);
-         $pages->page_img  = $image_name;
-        //  $icon->icon_image = $file_path.$image_name;
-        }
-     
+        $pageimage = $request->file('page_img');
+        $slug = "pagesimage";
 
-        $pages->save();
-       
+        if(isset($pageimage)) {
+            $page_image_name = $slug.'-'.uniqid().'.'.$pageimage->getClientOriginalExtension();
+            $upload_path = 'media/pagesimage/';
+            $pageimage->move($upload_path, $page_image_name);
+
+            $oldImage= Page::where('id', $id)->first();
+            if(file_exists($oldImage->page_img)) {
+                unlink($oldImage->page_img);
+            }
+
+            $pages->page_img  = $upload_path.$page_image_name;
+
+        }else {
+            $oldImage= Page::where('id', $id)->first();
+            $pages->page_img  = $oldImage->page_img;
+        }
+
+        $pages->update();
+
         Session::flash("message",__('successerr.data_save'));
         Session::flash('alert-class', 'alert-success');
-       return redirect("setting/5");
-  
-  
+        return redirect()->back();
+
       }
 }

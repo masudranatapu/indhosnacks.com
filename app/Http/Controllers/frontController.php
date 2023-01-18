@@ -20,6 +20,8 @@ use App\Contact;
 use App\City;
 use App\OrderResponse;
 use Share;
+use DB;
+
 class frontController extends Controller {
 
     public function __construct(){
@@ -192,7 +194,8 @@ class frontController extends Controller {
       $allmenu=Item::all();
        $inter=Ingredient::all();
          $item=Item::with('categoryitem')->where("is_deleted",'0')->get();
-      return view("user.about")->with("category",$category)->with("allmenu",$allmenu)->with("menu_interdient",$inter)->with("items",$item);
+         $aboutpage = DB::table('pages')->where('id', 1)->first();
+      return view("user.about")->with("category",$category)->with("allmenu",$allmenu)->with("menu_interdient",$inter)->with("items",$item)->with('aboutpage', $aboutpage);
 
    }
 
@@ -262,7 +265,8 @@ class frontController extends Controller {
      $allmenu=Item::all();
        $inter=Ingredient::all();
          $item=Item::with('categoryitem')->where("is_deleted",'0')->get();
-     return view("user.term")->with("category",$category)->with("allmenu",$allmenu)->with("menu_interdient",$inter)->with("items",$item);
+         $termofuse = DB::table('pages')->where('id', 2)->first();
+     return view("user.term")->with("category",$category)->with("allmenu",$allmenu)->with("menu_interdient", $inter)->with("items",$item)->with('termofuse', $termofuse);
    }
 
     public function myaccount(){
