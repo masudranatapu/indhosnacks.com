@@ -41,8 +41,13 @@
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.7.1/slick.css'>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script type="text/javascript" src="{{asset('burger/js/bootstrap.min.js')}}"></script>
+    {{--
     <link rel="stylesheet" type="text/css"
-        href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <link rel="stylesheet" type="text/css" href="{{asset('burger/css/app.css')}}" />
     <link rel="stylesheet" href="{{asset('burger/css/font.css')}}">
 
@@ -287,7 +292,7 @@
                                     <span class="price">
                                         <?php $totalamount=(float)$item->quantity*(float)$item->price;?>
                                         <a href="{{url('deletecartitem/'.$item->id)}}">
-                                            <i class="fa fa-trash-o" aria-hidden="true">
+                                            <i class="fab fa-trash-o" aria-hidden="true">
                                             </i>
                                         </a>
                                         <h1>
@@ -369,15 +374,15 @@
                     <div class="login">
                         <?php if(empty(Session::get('login_user'))){?>
                         <a href="#" data-toggle="modal" data-target="#myModal1">
-                            <i class="fa fa-user" aria-hidden="true"></i>
+                            <i class="fab fa-user" aria-hidden="true"></i>
                         </a>
                         <?php }else{?>
                         <a href="{{url('myaccount')}}">
-                            <i class="fa fa-user" aria-hidden="true"></i>
+                            <i class="fab fa-user" aria-hidden="true"></i>
                         </a>
                         <?php }?>
                         <a href="#" data-toggle="modal" data-target="#myModal">
-                            <i class="fa fa-shopping-cart" aria-hidden="true">
+                            <i class="fab fa-shopping-cart" aria-hidden="true">
                                 <span id="totalcart">
                                     <?php $cartCollection = Cart::getContent();
                         $carttotal=0;
@@ -391,11 +396,11 @@
                                 <input type="hidden" id="carttotal" value="{{$carttotal}}">
                             </i></a>
                     </div>
-                    <a href="{{ Session::get('facebook')}}" target="_blank"><i class="fa fa-facebook"
+                    <a href="{{ Session::get('facebook')}}" target="_blank"><i class="fab fa-facebook"
                             aria-hidden="true"></i></a>
-                    <a href="{{ Session::get('twitter')}}" target="_blank"><i class="fa fa-twitter"
+                    <a href="{{ Session::get('twitter')}}" target="_blank"><i class="fab fa-twitter"
                             aria-hidden="true"></i></a>
-                    <a href="{{ Session::get('whatsapp')}}" target="_blank"><i class="fa fa-whatsapp"
+                    <a href="{{ Session::get('whatsapp')}}" target="_blank"><i class="fab fa-whatsapp"
                             aria-hidden="true"></i></a>
                 </div>
                 <div class="tm">
@@ -434,7 +439,7 @@
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                    <i class="fab fa-bars"></i>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ml-auto">
@@ -479,12 +484,14 @@
                             </a>
                             <span class="mr-2">|</span>
 
-                            <a href="{{ Session::get('facebook')}}" target="_blank"><i class="fa fa-facebook"
+                            <a href="{{ Session::get('facebook')}}" target="_blank"><i class="fab fa-facebook"
                                     aria-hidden="true"></i></a>
-                            <a href="{{ Session::get('twitter')}}" target="_blank"><i class="fa fa-twitter"
+                            <a href="{{ Session::get('twitter')}}" target="_blank"><i class="fab fa-twitter"
                                     aria-hidden="true"></i></a>
-                            <a href="{{ Session::get('whatsapp')}}" target="_blank"><i class="fa fa-whatsapp"
+                            <a href="{{ Session::get('whatsapp')}}" target="_blank"><i class="fab fa-whatsapp"
                                     aria-hidden="true"></i></a>
+                            <a href="#" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+                            <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
                         </div>
                     </ul>
                 </div>
@@ -711,15 +718,15 @@
                             <img src="{{Session::get('logo')}}" width="200">
                             <p>{{__('messages.footer_text')}}</p>
                             <div class="footer-social">
-                                <a href="{{ Session::get('facebook')}}" target="_blank"><i class="fa fa-facebook"
+                                <a href="{{ Session::get('facebook')}}" target="_blank"><i class="fab fa-facebook"
                                         aria-hidden="true"></i></a>
-                                <a href="{{ Session::get('twitter')}}" target="_blank"><i class="fa fa-twitter"
+                                <a href="{{ Session::get('twitter')}}" target="_blank"><i class="fab fa-twitter"
                                         aria-hidden="true"></i></a>
-                                <a href="{{ Session::get('linkedin')}}" target="_blank"><i class="fa fa-linkedin"
+                                <a href="{{ Session::get('linkedin')}}" target="_blank"><i class="fab fa-linkedin"
                                         aria-hidden="true"></i></a>
                                 <a href="{{ Session::get('google_plus_id')}}" target="_blank"><i
-                                        class="fa fa-google-plus" aria-hidden="true"></i></a>
-                                <a href="{{ Session::get('whatsapp')}}" target="_blank"><i class="fa fa-whatsapp"
+                                        class="fab fa-google-plus" aria-hidden="true"></i></a>
+                                <a href="{{ Session::get('whatsapp')}}" target="_blank"><i class="fab fa-whatsapp"
                                         aria-hidden="true"></i></a>
                             </div>
                         </div>
@@ -831,7 +838,7 @@
                         <button type="button" class="btn btn-danger"
                             data-dismiss="modal">{{__('messages.cancel')}}</button>
                         <button type="button" class="btn-1" data-dismiss="modal" onclick="logout()"><i
-                                class="fa fa-sign-out" aria-hidden="true"></i>{{__('messages.logout')}}
+                                class="fab fa-sign-out" aria-hidden="true"></i>{{__('messages.logout')}}
                         </button>
                     </div>
                 </div>

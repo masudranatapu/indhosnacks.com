@@ -492,7 +492,7 @@ img#pay3.activepayment {
     font-family: "Dancing Script";
     font-weight: 700;
     font-size: 52px;
-    margin:0;
+    margin: 0;
 }
 
 .heading h2 {
@@ -706,7 +706,7 @@ img#pay3.activepayment {
 .play {
     background-color: #f7f7f7;
     /* margin-top: 50px; */
-    padding-top:50px;
+    padding-top: 50px;
 }
 
 .kb-menu {
@@ -959,7 +959,7 @@ main.main {
     background-color: transparent;
 }
 
-.category_wrapper .pizza-category-menu{
+.category_wrapper .pizza-category-menu {
     height: auto;
     width: 100%;
 }
@@ -1333,6 +1333,7 @@ span#login_error_msg {
 .detail-nav {
     position: relative;
 }
+
 /*
 .detail-nav .first-section {
     border-bottom: 1px solid #c37878;
@@ -2030,7 +2031,7 @@ div#orderplace1 button {
     border-radius: 5px;
     background: #ffffff;
     box-shadow: rgb(99 99 99 / 20%) 0px 2px 8px 0px;
-    margin-top:20px;
+    margin-top: 20px;
 }
 
 .cart-b-shipping {
@@ -2294,9 +2295,11 @@ div#orderplace1 button {
     width: 14px !important;
     height: 13px !important;
 }
-.cart-modal .b-img{
-    padding:0px !important;
+
+.cart-modal .b-img {
+    padding: 0px !important;
 }
+
 .cart-modal .b-img img {
     width: 95px !important;
     height: 95px !important;
@@ -5539,7 +5542,7 @@ div.dataTables_info {
 
 .main-pizza-sb {
     background-color: #fafafa;
-    height: 111px;
+    height: 122px;
 }
 
 button.slick-arrow {
@@ -5634,6 +5637,7 @@ button.slick-arrow {
     color: #dc3545;
     font-weight: bold;
 }
+
 /*
 .King_script_active:after {
     content: "";
@@ -5745,7 +5749,7 @@ button:focus {
 }
 
 
-.header_right_nav a:hover{
+.header_right_nav a:hover {
     color: #212121;
 }
 
@@ -5757,6 +5761,7 @@ button:focus {
     background-repeat: no-repeat;
     padding: 260px 0px;
 }
+
 .banner_content h1 {
     color: #fff;
     font-size: 66px;
@@ -5778,6 +5783,7 @@ button:focus {
     font-family: 'Roboto', sans-serif;
     margin: 0;
 }
+
 .shop_product {
     border-radius: 6px;
     padding: 10px;
@@ -5793,6 +5799,7 @@ button:focus {
     text-align: center;
     display: block;
 }
+
 .shop_product {
     border-radius: 6px;
     padding: 10px;
@@ -5827,6 +5834,7 @@ button:focus {
     color: #555;
     margin-bottom: 15px;
 }
+
 .shop_price p {
     font-size: 15px;
     font-weight: 600;
@@ -5862,7 +5870,17 @@ button:focus {
     outline: none !important;
     box-shadow: none !important;
 }
+
 .pagination .page-item.active .page-link {
     background-color: #dc3545 !important;
     border-color: #dc3545 !important;
+}
+
+
+button.navbar-toggler {
+    width: 50px;
+    height: 41px;
+    color: #4b4b4b !important;
+    opacity: 1;
+    border: 1px solid #a1a1a1;
 }
