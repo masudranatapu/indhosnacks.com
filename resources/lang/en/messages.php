@@ -1,6 +1,6 @@
 <?php return [
     'welcome'=> 'Welcome to our application',
-    'site_name'=>'Indho Snacks - Come snack with us',
+    'site_name'=>'Indho Snacks',
     'home'=>'Home',
     "metadesc"=>"Indho Snacks Admin",
     "metadescweb"=>"Indho Snacks - Come snack with us",
