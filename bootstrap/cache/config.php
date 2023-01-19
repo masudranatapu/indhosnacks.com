@@ -607,17 +607,17 @@
   ),
   'mail' => 
   array (
-    'driver' => 'smtp',
-    'host' => 'smtp.gmail.com',
-    'port' => '465',
+    'driver' => 'mail',
+    'host' => 'smtp.mailtrap.io',
+    'port' => '2525',
     'from' => 
     array (
-      'address' => 'hello@example.com',
-      'name' => 'Example',
+      'address' => 'everisamtinginfo@gmail.com',
+      'name' => 'Supper Admin',
     ),
-    'encryption' => 'ssl',
-    'username' => '',
-    'password' => '',
+    'encryption' => 'tls',
+    'username' => '38ff195e9efd70',
+    'password' => '1a065759ea4629',
     'sendmail' => '/usr/sbin/sendmail -bs',
     'markdown' => 
     array (

@@ -24,7 +24,7 @@ use DateTimeZone;
 use DateTime;
 use Cart;
 class AppuserController extends Controller {
-  
+
    private $_api_context;
    public function register(Request $request){
        $checkemail=AppUser::where("email",$request->get("email"))->first();
@@ -45,17 +45,17 @@ class AppuserController extends Controller {
            	   }
            	   else{
            	   	   return 0;
-           	   } 
+           	   }
        }
-   	          
-   } 
+
+   }
    public function updateuserprofile(Request $request){
-      
+
        if(!Session::get("login_user")){
           return redirect("/");
-       } 
+       }
        else{
-           if ($request->hasFile('image')) 
+           if ($request->hasFile('image'))
               {
                  $file = $request->file('image');
                  $filename = $file->getClientOriginalName();
@@ -81,8 +81,8 @@ class AppuserController extends Controller {
              Session::put("user_email",$email);
              Session::put("user_photo",$img_url);
              return redirect()->back();
-       }     
-      
+       }
+
    }
    public function login(Request $request){
 
@@ -136,7 +136,7 @@ class AppuserController extends Controller {
                     });
               } catch (\Exception $e) {
               }
-            
+
             return 1;
          }
          else{
@@ -153,7 +153,7 @@ class AppuserController extends Controller {
           return view('user.resetpwd')->with("msg",__('messages.code_ex'));
        }
    }
-   
+
    public function resetpassword(Request $request){
       if($request->get('id')==""){
           return view('user.resetpwd')->with("msg",__('messages.pwd_success'));
@@ -165,17 +165,17 @@ class AppuserController extends Controller {
        $codedel=Resetpassword::where('user_id',$request->get("id"))->delete();
        return view('user.resetpwd')->with("msg",__('messages.pwd_success'));
       }
-       
+
    }
    function get_lat_long($address){
 
     $address = str_replace(" ", "+", $address);
-    $url = "https://maps.googleapis.com/maps/api/geocode/json?address=$address&key=AIzaSyBiVfFZRtrGy8AmV5UH7WZEou_3Hpbc_xg"; 
-    $ch = curl_init();  
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
-    curl_setopt($ch, CURLOPT_URL, $url); 
-    $result = curl_exec($ch); 
-    
+    $url = "https://maps.googleapis.com/maps/api/geocode/json?address=$address&key=AIzaSyBiVfFZRtrGy8AmV5UH7WZEou_3Hpbc_xg";
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($ch, CURLOPT_URL, $url);
+    $result = curl_exec($ch);
+
     $json = json_decode($result);
    // return $json;
     $lat="";
@@ -184,7 +184,7 @@ class AppuserController extends Controller {
         $lat = $json->{'results'}[0]->{'geometry'}->{'location'}->{'lat'};
         $long = $json->{'results'}[0]->{'geometry'}->{'location'}->{'lng'};
     }
-    
+
     return $lat.','.$long;
 }
   static public function generate_timezone_list(){
@@ -211,7 +211,7 @@ class AppuserController extends Controller {
                   }
                  asort($timezone_offsets);
                  $timezone_list = array();
-    
+
                  foreach($timezone_offsets as $timezone=>$offset){
                           $offset_prefix = $offset < 0 ? '-' : '+';
                           $offset_formatted = gmdate('H:i', abs($offset));
@@ -300,7 +300,7 @@ class AppuserController extends Controller {
       $addresponse->desc=json_encode($data);
       $addresponse->save();
       Cart::clear();
-      Session::flash('message', __('messages.order_success')); 
+      Session::flash('message', __('messages.order_success'));
       Session::flash('alert-class', 'alert-success');
       return $store->id;
    }
@@ -318,16 +318,16 @@ class AppuserController extends Controller {
    public function changeuserpwd(Request $request){
        if(!Session::get("login_user")){
           return redirect("/");
-       } 
+       }
        else{
            $user=AppUser::find(Session::get("login_user"));
            $user->password=md5($request->get("npwd"));
            $user->save();
-           Session::flash('message', __("messages.pwd_chd")); 
+           Session::flash('message', __("messages.pwd_chd"));
            Session::flash('alert-class', 'alert-success');
            return 1;
        }
-   } 
+   }
 }
 
 
