@@ -24,7 +24,7 @@
     <meta charset="UTF-8">
     <meta property="og:url" content="{{__('messages.site_name')}}" />
     <meta property="og:title" content="{{__('messages.site_name')}}" />
-    <meta property="og:image" content="{{asset('public/favicon.png')}}" />
+    <meta property="og:image" content="{{asset('public/fav.png')}}" />
     <meta property="og:image:width" content="250px" />
     <meta property="og:image:height" content="250px" />
     <meta property="og:site_name" content="{{__('messages.site_name')}}" />
@@ -32,7 +32,7 @@
     <meta property="og:keyword" content="{{__('messages.metakeyboard')}}" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="shortcut icon" href="{{asset('public/favicon.png')}}">
+    <link rel="shortcut icon" href="{{asset('public/fav.png')}}">
     @if(__('messages.rtl')=='0')
 
     <link rel="stylesheet" type="text/css" href="{{asset('burger/css/style.css').'?version=232132'}}">
@@ -670,7 +670,7 @@
                             <img src="{{Session::get('logo')}}" width="200">
                         </div> --}}
                         <div class="play-b">
-                            <img src="{{Session::get('footer_up_img')}}">
+                            <img src="{{Session::get('footer_up_img')}}" width="400">
                         </div>
                     </div>
                     <div class="col-md-6 text-box">

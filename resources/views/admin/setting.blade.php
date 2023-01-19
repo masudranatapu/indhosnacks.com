@@ -32,6 +32,7 @@
             </div>
         </div>
     </div>
+
     <div class="content mt-3">
         <div class="row rowkey">
             <div class="col-md-9">
@@ -516,7 +517,7 @@
                             </div>
                         </div>
                         <div class="tab-pane fade" id="privacy_page" role="tabpanel" aria-labelledby="privacy_page-tab">
-
+                            @if($privacy)
                             <div class="tabdiv">
                                 <form action="{{ route('savewebpage', $privacy->id) }}" method="post"
                                     enctype="multipart/form-data">
@@ -550,6 +551,7 @@
                                     </div>
 
                             </div>
+                            @endif
                         </div>
                     </div>
                 </div>
