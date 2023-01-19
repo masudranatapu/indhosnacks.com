@@ -5,7 +5,7 @@
     "metadesc"=>"Indho Snacks Admin",
     "metadescweb"=>"Indho Snacks - Come snack with us",
     'sort_name'=>"KB",
-    "metakeyboard"=>'burger,category',
+    "metakeyboard"=>'snacks,category',
     'aboutus'=>'About Us',
     'contact'=>'Contact',
     'service'=>'Shop',
