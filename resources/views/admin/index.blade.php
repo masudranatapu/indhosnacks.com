@@ -9,14 +9,14 @@
     <meta property="og:type" content="website" />
     <meta property="og:url" content="{{__('messages.site_name')}}" />
     <meta property="og:title" content="{{__('messages.site_name')}}" />
-    <meta property="og:image" content="{{asset('public/favicon.png')}}" />
+    <meta property="og:image" content="{{asset('public/fav.png')}}" />
     <meta property="og:image:width" content="250px" />
     <meta property="og:image:height" content="250px" />
     <meta property="og:site_name" content="{{__('messages.site_name')}}" />
     <meta property="og:description" content="{{__('messages.metadescweb')}}" />
     <meta property="og:keyword" content="{{__('messages.metakeyboard')}}" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="{{asset('public/favicon.png')}}">
+    <link rel="shortcut icon" href="{{asset('public/fav.png')}}">
     <link rel="stylesheet" href="{{asset('admin_panel/vendors/bootstrap/dist/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('admin_panel/vendors/font-awesome/css/font-awesome.min.css')}}">
     <link rel="stylesheet" href="{{asset('admin_panel/vendors/themify-icons/css/themify-icons.css')}}">
@@ -136,7 +136,6 @@
                     </div>
 
                 </div>
-
 
                 <div class="col-sm-1">
 

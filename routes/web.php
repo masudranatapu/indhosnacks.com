@@ -11,6 +11,15 @@
 |
 */
 
+Route::get('/cc', function() {
+    \Artisan::call('cache:clear');
+    \Artisan::call('view:clear');
+    \Artisan::call('route:clear');
+    \Artisan::call('config:clear');
+    \Artisan::call('config:cache');
+	return 'DONE';
+});
+
 use App\Http\Controllers\PagesController;
 
 Route::group(['middleware' => ['XSS']], function () {
