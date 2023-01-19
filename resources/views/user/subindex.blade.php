@@ -417,8 +417,17 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-3 about mt-4">
-                            <img src="{{Session::get('logo')}}">
+                            
+                            <img src="{{Session::get('logo')}}" width="200">
+
+                            <div class="footer_widget mb-4 mt-3">
+                                @if($settings->footer_section)
+                                    {!! $settings->footer_section !!}
+                                @endif
+                            </div>
+
                             <p>{{__('messages.footer_text')}}</p>
+
                             <div class="footer-social">
                                 @if($settings->facebook_id)
                                 <a href={{ $settings->facebook_id }}" target="_blank"><i class="fab fa-facebook"

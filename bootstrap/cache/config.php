@@ -607,13 +607,13 @@
   ),
   'mail' => 
   array (
-    'driver' => 'mail',
+    'driver' => 'smtp',
     'host' => 'smtp.mailtrap.io',
     'port' => '2525',
     'from' => 
     array (
-      'address' => 'everisamtinginfo@gmail.com',
-      'name' => 'Supper Admin',
+      'address' => 'info@indhosnacks.com',
+      'name' => 'Admin',
     ),
     'encryption' => 'tls',
     'username' => '38ff195e9efd70',

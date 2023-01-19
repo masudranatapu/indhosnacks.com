@@ -69,7 +69,7 @@
                         <h2>{{ __('messages.ingredients') }}</h2>
                     </div>
                     <div class="row">
-                        <div class="col-lg-6 col-md-6">
+                        <div class="col-lg-5 col-md-6">
                             <div class="detail-ingredients-head detail-ingredients-head-1">
                                 <h3>{{ __('messages.FI') }}</h3>
                                 <form>
@@ -89,7 +89,7 @@
                                 </form>
                             </div>
                         </div>
-                        <div class="col-lg-6 col-md-6">
+                        <div class="col-lg-7 col-md-6">
                             <div class="detail-ingredients-head">
                                 <h3>{{ __('messages.PI') }}</h3>
                                 <form>
@@ -100,7 +100,7 @@
                                             name="interdient" value="{{ $mi->id }}"
                                             onclick="addprice('{{ $mi->price }}','{{ $i }}')">
                                         <label for="checkbox-{{ $i }}" class="checkbox-custom-label">
-                                            {{ $mi->item_name }}
+                                            {{ $mi->item_name }} - {{ $mi->price }}
                                         </label>
                                     </p>
                                     <?php $i++; ?>
