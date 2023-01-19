@@ -100,8 +100,8 @@
                                             name="interdient" value="{{ $mi->id }}"
                                             onclick="addprice('{{ $mi->price }}','{{ $i }}')">
                                         <label for="checkbox-{{ $i }}" class="checkbox-custom-label">
-                                            {{ $mi->item_name }} - {{ $mi->price }}
-                                        </label>
+                                            {{ $mi->item_name }} - {{ round($mi->price, 0) }} 
+                                        </label> 
                                     </p>
                                     <?php $i++; ?>
                                     @endif
