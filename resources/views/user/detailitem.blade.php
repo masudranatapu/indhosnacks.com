@@ -64,53 +64,55 @@
                         </div>
                     </div>
                 </div>
-                <div class="detail-ingredients">
-                    <div class="detail-ingredients-heading">
-                        <h2>{{ __('messages.ingredients') }}</h2>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-5 col-md-6">
-                            <div class="detail-ingredients-head detail-ingredients-head-1">
-                                <h3>{{ __('messages.FI') }}</h3>
-                                <form>
-                                    <?php $i = 0; ?>
-                                    @foreach ($menu_interdient1 as $mi)
-                                    @if ($mi->type == 0)
-                                    <p>
-                                        <input type="checkbox" id="checkbox-{{ $i }}" class="checkbox-custom"
-                                            name="interdient" value="{{ $mi->id }}">
-                                        <label for="checkbox-{{ $i }}" class="checkbox-custom-label">
-                                            {{ $mi->item_name }}
-                                        </label>
-                                    </p>
-                                    <?php $i++; ?>
-                                    @endif
-                                    @endforeach
-                                </form>
-                            </div>
+                @if($menu_interdientfi->count() > 0 || $menu_interdientpi->count() > 0)
+                    <div class="detail-ingredients">
+                        <div class="detail-ingredients-heading">
+                            <h2>{{ __('messages.ingredients') }}</h2>
                         </div>
-                        <div class="col-lg-7 col-md-6">
-                            <div class="detail-ingredients-head">
-                                <h3>{{ __('messages.PI') }}</h3>
-                                <form>
-                                    @foreach ($menu_interdient1 as $mi)
-                                    @if ($mi->type == 1)
-                                    <p>
-                                        <input type="checkbox" id="checkbox-{{ $i }}" class="checkbox-custom"
-                                            name="interdient" value="{{ $mi->id }}"
-                                            onclick="addprice('{{ $mi->price }}','{{ $i }}')">
-                                        <label for="checkbox-{{ $i }}" class="checkbox-custom-label">
-                                            {{ $mi->item_name }} - ( $ {{ round($mi->price, 0) }} )
-                                        </label> 
-                                    </p>
-                                    <?php $i++; ?>
-                                    @endif
-                                    @endforeach
-                                </form>
-                            </div>
+                        <div class="row">
+                            @if($menu_interdientfi->count() > 0)
+                                <div class="col-lg-5 col-md-6">
+                                    <div class="detail-ingredients-head detail-ingredients-head-1">
+                                        <h3>{{ __('messages.FI') }}</h3>
+                                        <form>
+                                            <?php $i = 0; ?>
+                                            @foreach ($menu_interdientfi as $mifi)
+                                                <p>
+                                                    <input type="checkbox" id="checkbox-{{ $i }}" class="checkbox-custom"
+                                                        name="interdient" value="{{ $mifi->id }}">
+                                                    <label for="checkbox-{{ $i }}" class="checkbox-custom-label">
+                                                        {{ $mifi->item_name }}
+                                                    </label>
+                                                </p>
+                                            <?php $i++; ?>
+                                            @endforeach
+                                        </form>
+                                    </div>
+                                </div>
+                            @endif
+                            @if($menu_interdientpi->count() > 0)
+                                <div class="col-lg-7 col-md-6">
+                                    <div class="detail-ingredients-head">
+                                        <h3>{{ __('messages.PI') }}</h3>
+                                        <form>
+                                            @foreach ($menu_interdientpi as $mipi)
+                                                <p>
+                                                    <input type="checkbox" id="checkbox-{{ $i }}" class="checkbox-custom"
+                                                        name="interdient" value="{{ $mipi->id }}"
+                                                        onclick="addprice('{{ $mipi->price }}','{{ $i }}')">
+                                                    <label for="checkbox-{{ $i }}" class="checkbox-custom-label">
+                                                        {{ $mipi->item_name }} - ( $ {{ round($mipi->price, 0) }} )
+                                                    </label>
+                                                </p>
+                                                <?php $i++; ?>
+                                            @endforeach
+                                        </form>
+                                    </div>
+                                </div>
+                            @endif
                         </div>
                     </div>
-                </div>
+                @endif
                 <div class="detail-plus-button min-add-button">
                     <div class="input-group">
                         <a data-decrease>

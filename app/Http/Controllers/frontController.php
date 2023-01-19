@@ -113,11 +113,12 @@ class frontController extends Controller {
       $category=Category::where("is_deleted",'0')->get();
       $itemdetails=Item::find($item_id);
       $item=Item::with('categoryitem')->where("category",$itemdetails->category)->where("is_deleted",'0')->get();
-      $inter=Ingredient::where("menu_id",$item_id)->where("is_deleted",'0')->get();
+      $interfi=Ingredient::where("menu_id",$item_id)->where("is_deleted",'0')->where('type', 0)->get();
+      $interpi=Ingredient::where("menu_id",$item_id)->where("is_deleted",'0')->where('type', 1)->get();
       $allmenu=Item::all();
       $inter1=Ingredient::all();
        $itemdata=Item::with('categoryitem')->where("is_deleted",'0')->get();
-      return view("user.detailitem")->with("category",$category)->with("itemdetails",$itemdetails)->with("related_item",$item)->with("menu_interdient1",$inter)->with("allmenu",$allmenu)->with("items",$itemdata)->with("menu_interdient",$inter1);
+      return view("user.detailitem")->with("category",$category)->with("itemdetails",$itemdetails)->with("related_item",$item)->with("menu_interdientfi",$interfi)->with("menu_interdientpi",$interpi)->with("allmenu",$allmenu)->with("items",$itemdata)->with("menu_interdient",$inter1);
    }
 
    public function savecontact(Request $request){
