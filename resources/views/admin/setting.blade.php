@@ -282,68 +282,60 @@
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                         <div class="form-group">
                                             <label for="email"
-                                                class=" form-control-label">{{ __('messages.google_play_store') }}:-<span
-                                                    class="reqfield">*</span></label>
+                                                class=" form-control-label">{{ __('messages.google_play_store') }}</label>
                                             <input type="text" id="playstore" name="playstore"
                                                 placeholder="{{ __('messages.google_play_store') }}" class="form-control"
-                                                value="{{ $data->play_store_url }}" required>
+                                                value="{{ $data->play_store_url }}">
                                         </div>
                                         <div class="form-group">
                                             <label for="email"
-                                                class=" form-control-label">{{ __('messages.app_store') }}:-<span
-                                                    class="reqfield">*</span></label>
+                                                class=" form-control-label">{{ __('messages.app_store') }}</label>
                                             <input type="text" id="appstore" name="appstore"
                                                 placeholder="{{ __('messages.app_store') }}" class="form-control"
-                                                value="{{ $data->app_store_url }}" required>
+                                                value="{{ $data->app_store_url }}">
                                         </div>
                                         <div class="form-group">
                                             <label for="email"
-                                                class=" form-control-label">{{ __('messages.facebook_url') }}:-<span
-                                                    class="reqfield">*</span></label>
+                                                class=" form-control-label">{{ __('messages.facebook_url') }}</label>
                                             <input type="text" id="facebook_id" name="facebook_id"
                                                 placeholder="{{ __('messages.facebook_url') }} " class="form-control"
-                                                value="{{ $data->facebook_id }}" required>
+                                                value="{{ $data->facebook_id }}">
                                         </div>
                                         <div class="form-group">
                                             <label for="email"
-                                                class=" form-control-label">{{ __('messages.twitter_url') }}:-<span
-                                                    class="reqfield">*</span></label>
+                                                class=" form-control-label">{{ __('messages.twitter_url') }}</label>
                                             <input type="text" id="twitter_id" name="twitter_id"
                                                 placeholder="{{ __('messages.twitter_url') }}" class="form-control"
-                                                value="{{ $data->twitter_id }}" required>
+                                                value="{{ $data->twitter_id }}">
                                         </div>
                                         <div class="form-group">
                                             <label for="email"
-                                                class=" form-control-label">{{ __('messages.linkedin_id') }}<span
-                                                    class="reqfield">*</span></label>
+                                                class=" form-control-label">{{ __('messages.linkedin_id') }}</label>
                                             <input type="text" id="linkedin_id" name="linkedin_id"
                                                 placeholder="{{ __('messages.linkedin_id') }}" class="form-control"
-                                                value="{{ $data->linkedin_id }}" required>
+                                                value="{{ $data->linkedin_id }}">
                                         </div>
                                         <div class="form-group">
                                             <label for="email"
-                                                class=" form-control-label">{{ __('messages.instragram_id') }}<span
-                                                    class="reqfield">*</span></label>
+                                                class=" form-control-label">{{ __('messages.instragram_id') }}</label>
                                             <input type="text" id="instragram_id" name="instragram_id"
                                                 placeholder="{{ __('messages.instragram_id') }}" class="form-control"
-                                                value="{{ $data->instragram_id }}" required>
+                                                value="{{ $data->instragram_id }}">
                                         </div>
                                         <div class="form-group">
                                             <label for="email"
-                                                class=" form-control-label">{{ __('messages.tiktok_id') }}<span
-                                                    class="reqfield">*</span></label>
+                                                class=" form-control-label">{{ __('messages.tiktok_id') }}</label>
                                             <input type="text" id="tiktok_id" name="tiktok_id"
                                                 placeholder="{{ __('messages.tiktok_id') }}" class="form-control"
-                                                value="{{ $data->tiktok_id }}" required>
+                                                value="{{ $data->tiktok_id }}">
                                         </div>
 
                                         <div class="form-group">
                                             <label for="email"
-                                                class=" form-control-label">{{ __('messages.whatsapp') }}<span
-                                                    class="reqfield">*</span></label>
+                                                class=" form-control-label">{{ __('messages.whatsapp') }}</label>
                                             <input type="text" id="whatsapp" name="whatsapp"
                                                 placeholder="{{ __('messages.whatsapp') }}" class="form-control"
-                                                value="{{ $data->whatsapp }}" required>
+                                                value="{{ $data->whatsapp }}">
                                         </div>
                                         <div class="form-group paycheckbox">
                                             <div class="col col-md-12">

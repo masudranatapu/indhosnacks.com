@@ -4,7 +4,7 @@
 
 <div class="container">
     <div class="about-heading">
-        <h2>{{__('messages.aboutus')}}</h2>
+        <h2>{{ $aboutpage->page_title }}</h2>
     </div>
     <div class="about-history-1">
         <div class="row">

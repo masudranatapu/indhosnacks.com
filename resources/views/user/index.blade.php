@@ -71,9 +71,11 @@
         src='https://maps.google.com/maps/api/js?key=AIzaSyATgI95Rp6YpYchbA6c8rD-3tC9xRIc96c&sensor=false&libraries=places'>
     </script>
     <script src="{{url('public/js/locationpicker.js')}}"></script>
-
-
-
+    <style>
+        .banner_section {
+            background-image : url('{{ asset('public/upload/web') . '/' . $settings->main_banner }}') !important;
+        }
+    </style>
 </head>
 
 <body>
@@ -481,15 +483,28 @@
                                 </i>
                             </a>
                             <span class="mr-2">|</span>
-
-                            <a href="{{ Session::get('facebook')}}" target="_blank"><i class="fab fa-facebook"
+                            @if($settings->facebook_id)
+                            <a href={{ $settings->facebook_id }}" target="_blank"><i class="fab fa-facebook"
                                     aria-hidden="true"></i></a>
-                            <a href="{{ Session::get('twitter')}}" target="_blank"><i class="fab fa-twitter"
+                            @endif
+                            @if($settings->twitter_id)
+                            <a href="{{ $settings->twitter_id }}" target="_blank"><i class="fab fa-twitter"
                                     aria-hidden="true"></i></a>
-                            <a href="{{ Session::get('whatsapp')}}" target="_blank"><i class="fab fa-whatsapp"
+                            @endif
+                            @if($settings->linkedin_id)
+                                <a href="{{ $settings->linkedin_id }}" target="_blank"><i class="fab fa-linkedin"
                                     aria-hidden="true"></i></a>
-                            <a href="{{ Session::get('tiktok_id')}}" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
-                            <a href="{{ Session::get('instragram_id')}}" target="_blank"><i class="fab fa-instagram"></i></a>
+                            @endif
+                            @if($settings->whatsapp)
+                            <a href="{{ $settings->whatsapp }}" target="_blank"><i class="fab fa-whatsapp"
+                                    aria-hidden="true"></i></a>
+                            @endif
+                            @if($settings->instragram_id)
+                                <a href="{{ $settings->instragram_id }}" target="_blank"><i class="fab fa-instagram"></i></a>
+                            @endif
+                            @if($settings->tiktok_id)
+                                <a href="{{ $settings->tiktok_id }}" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+                            @endif
                         </div>
                     </ul>
                 </div>
@@ -721,20 +736,29 @@
                                     {!! $settings->footer_section !!}
                                 @endif
                             </div>
-
                             <div class="footer-social">
-                                <a href="{{ Session::get('facebook')}}" target="_blank"><i class="fab fa-facebook"
+                                @if($settings->facebook_id)
+                                    <a href={{ $settings->facebook_id }}" target="_blank"><i class="fab fa-facebook"
+                                            aria-hidden="true"></i></a>
+                                @endif
+                                @if($settings->twitter_id)
+                                    <a href="{{ $settings->twitter_id }}" target="_blank"><i class="fab fa-twitter"
+                                            aria-hidden="true"></i></a>
+                                @endif
+                                @if($settings->linkedin_id)
+                                    <a href="{{ $settings->linkedin_id }}" target="_blank"><i class="fab fa-linkedin"
                                         aria-hidden="true"></i></a>
-                                <a href="{{ Session::get('twitter')}}" target="_blank"><i class="fab fa-twitter"
-                                        aria-hidden="true"></i></a>
-                                {{-- <a href="{{ Session::get('linkedin')}}" target="_blank"><i class="fab fa-linkedin"
-                                        aria-hidden="true"></i></a> --}}
-                                {{-- <a href="{{ Session::get('google_plus_id')}}" target="_blank"><i
-                                        class="fab fa-google-plus" aria-hidden="true"></i></a> --}}
-                                <a href="{{ Session::get('whatsapp')}}" target="_blank"><i class="fab fa-whatsapp"
-                                        aria-hidden="true"></i></a>
-                                        <a href="{{ Session::get('tiktok_id')}}" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
-                                        <a href="{{ Session::get('instragram_id')}}" target="_blank"><i class="fab fa-instagram"></i></a>
+                                @endif
+                                @if($settings->whatsapp)
+                                    <a href="{{ $settings->whatsapp }}" target="_blank"><i class="fab fa-whatsapp"
+                                            aria-hidden="true"></i></a>
+                                @endif
+                                @if($settings->instragram_id)
+                                    <a href="{{ $settings->instragram_id }}" target="_blank"><i class="fab fa-instagram"></i></a>
+                                @endif
+                                @if($settings->tiktok_id)
+                                    <a href="{{ $settings->tiktok_id }}" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+                                @endif
                             </div>
                         </div>
                         <div class="col-md-6 col-lg-3 info">

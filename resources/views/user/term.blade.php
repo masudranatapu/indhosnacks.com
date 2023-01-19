@@ -3,8 +3,7 @@
     <div class="container a-con">
         <div class="pizzaro-about-features">
             <div class="feature-head">
-                <h2 class="section-title">{{ __('messages.termsandcon') }}</h2>
-                <p> {{ __('messages.aboutush') }}</p>
+                <h2 class="section-title">{{ $termofuse->page_title }}</h2>
             </div>
         </div>
     </div>
