@@ -235,7 +235,7 @@
     "googleplus_id"=>"Google Plus Id",
     "whatsapp"=>"Whatsapp",
     "stripe_key"=>"Stripe Key",
-    "stripe_secert"=>"Stripe Secert",
+    "stripe_secert"=>"Stripe Secret",
     "paypal_client_id"=>"Paypal Client ID",
     "paypal_client_secert"=>"Paypal Client Secert",
     "paypal_test_pay"=>" Use Paypal sandbox for test payments",

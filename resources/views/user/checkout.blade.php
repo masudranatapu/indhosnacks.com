@@ -261,7 +261,7 @@
                         data-name="{{__('messages.site_name')}}"
                         data-label="{{__('messages.place_order')}}"
                         data-description=""
-                        data-image="{{asset('burger/images/web-nav-logo.jpg')}}"
+                        data-image="{{asset('burger/images/stripe.png')}}"
                         data-locale="auto"></script>
                   </form>
                </div>
