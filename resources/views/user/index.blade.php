@@ -75,6 +75,12 @@
         .banner_section {
             background-image : url('{{ asset('public/upload/web') . '/' . $settings->main_banner }}') !important;
         }
+
+        @media screen and (max-width:575px) {
+            .banner_section {
+                background-image: inherit !important;
+            }
+        }
     </style>
 </head>
 
