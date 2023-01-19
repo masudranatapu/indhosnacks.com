@@ -79,7 +79,8 @@
         @media screen and (max-width:575px) {
             .banner_section {
                 background-image: inherit !important;
-                background-color: yellow;
+                background-color: #FDCB00;
+                text-align: center;
             }
         }
     </style>
