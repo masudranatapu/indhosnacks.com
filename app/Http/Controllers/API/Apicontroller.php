@@ -38,7 +38,7 @@ class ApiController extends Controller {
          if($request->input('type')=='2'){
                            $rules['email'] = 'required';
                     }
-       
+
          $messages = array(
                   'mobile_no.required' => "Mobile No is required",
                   'password.required' => "password is required",
@@ -46,7 +46,7 @@ class ApiController extends Controller {
                   'type.required'=>'type is required',
                   'mobile_no.unique'=>"Mobile Number Already Register"
             );
-       
+
         $validator = Validator::make($request->all(), $rules,$messages);
 
         if ($validator->fails()) {
@@ -58,7 +58,7 @@ class ApiController extends Controller {
                 $response['register'] = $message;
         } else {
            $getuser=AppUser::where("mob_number",$request->get("mobile_no"))->where("password",md5($request->get("password")))->first();
-          
+
            if($getuser){//update token
                if($request->get("type")==2){
                    $response['success']="0";
@@ -69,7 +69,7 @@ class ApiController extends Controller {
                    $response['success']="1";
                    $response['register']=array("user_id"=>$getuser->id,"name"=>$getuser->name,"phone"=>$getuser->mob_number,"email"=>$getuser->email);
                }
-             
+
            }
            else{//insert user ,token
             if($request->get("name")==""){
@@ -82,7 +82,7 @@ class ApiController extends Controller {
                     $response['register']="Mobile Number Already Register";
                 }
                 else{
-                    
+
                       if($request->get("type")==2){
                           $getemail=AppUser::where("email",$request->get("email"))->first();
                           if($getemail){
@@ -106,18 +106,18 @@ class ApiController extends Controller {
                               $response['register']="Mobile Number Already Register";
                            }
                        }
-                       
+
                 }
-              
-                 
+
+
             }
-            
+
            }
         }
         return Response::json(array("data"=>$response));
    }
 
-  
+
 
    public function savetoken(Request $request){
        $response = array("success" => "0", "register" => "Validation error");
@@ -137,7 +137,7 @@ class ApiController extends Controller {
               $store->save();
               $response['success']="1";
               $response['register']="Registered";
-          
+
         }
         return Response::json(array("data"=>$response));
    }
@@ -147,7 +147,7 @@ class ApiController extends Controller {
        $response=array("success"=>"1","city"=>$getcitydata);
        return Response::json($data=array("data"=>$response));
    }
-  
+
   public function getsetting(){
        $getcitydata=Setting::find(1);
        $response=array("success"=>"1","data"=>$getcitydata);
@@ -166,7 +166,7 @@ class ApiController extends Controller {
 
         if ($validator->fails()) {
             $response['login'] = "Something went wrong";
-        } else {          
+        } else {
               $getdata=Delivery::where("email",$request->get("email"))->where("password",$request->get("password"))->select("id","name","mobile_no","email","vehicle_no","vehicle_type")->get();
               if(count($getdata)!=0){
                  $gettoken=TokenData::where("token",$request->get("token"))->get();
@@ -182,13 +182,13 @@ class ApiController extends Controller {
                     $add->save();
                  }
                  $response['success']="1";
-                 $response['login'] = $getdata;  
+                 $response['login'] = $getdata;
               }
               else{
                  $response['success']="0";
-                 $response['login'] = "Invallid Email and Password";  
+                 $response['login'] = "Invallid Email and Password";
               }
-                     
+
         }
         return Response::json(array("data"=>$response));
    }
@@ -227,25 +227,25 @@ class ApiController extends Controller {
                              "date" => $k->order_placed_date,
                              "status" => $status
                       );
-                    } 
+                    }
                }
                if(isset($result)){
                     if(!empty($result)){
                         $response['success']="1";
                         $response['order']=$result;
-                    } 
+                    }
                     else{
                         $response['success']="0";
                         $response['order']="Something went wrong";
-                    } 
+                    }
                }
                else{
                     $response['success']="0";
                     $response['order']="Today You have no any new order";
                }
 
-              
-          
+
+
         }
         return Response::json($response);
    }
@@ -271,8 +271,8 @@ class ApiController extends Controller {
                 $response['success']="0";
                 $response['presence']="Something went wrong";
               }
-              
-          
+
+
         }
         return Response::json(array("data"=>$response));
    }
@@ -301,7 +301,7 @@ class ApiController extends Controller {
         return Response::json($response);
    }
 
-   public function ingredients(Request $request){        
+   public function ingredients(Request $request){
         $rules = [
             'menu_id' => 'required'
         ];
@@ -334,7 +334,7 @@ class ApiController extends Controller {
         }
         return Response::json($response);
    }
-   
+
    public function menucategory(){
       $getsetting=Setting::find(1);
       $getdata=Category::where("is_deleted",'0')->get();
@@ -376,11 +376,11 @@ class ApiController extends Controller {
         return Response::json($response);
    }
    function headreadMoreHelper($story_desc, $chars =75) {
-    $story_desc = substr($story_desc,0,$chars);  
-    $story_desc = substr($story_desc,0,strrpos($story_desc,' '));  
-    $story_desc = $story_desc;  
-    return $story_desc;  
-}  
+    $story_desc = substr($story_desc,0,$chars);
+    $story_desc = substr($story_desc,0,strrpos($story_desc,' '));
+    $story_desc = $story_desc;
+    return $story_desc;
+}
    public function orderdetails(Request $request){
       $response = array("success" => "0", "order" => "Validation error");
         $rules = [
@@ -439,7 +439,7 @@ class ApiController extends Controller {
    }
 
    public function subcategory(Request $request){
-     
+
       $response = array("success" => "0", "subcategory" => "Validation error");
         $rules = [
             'category' => 'required'
@@ -498,7 +498,7 @@ class ApiController extends Controller {
 
                      $ls[]=$dt;
 
-                     
+
                  }
                  $response['success']="1";
                  $response['order']=$ls;
@@ -545,12 +545,12 @@ class ApiController extends Controller {
 
      public function send_notification_android($key,$user_id,$msg){
         $getuser=TokenData::where("type","android")->where("user_id",$user_id)->get();
-        if(count($getuser)!=0){               
+        if(count($getuser)!=0){
                $reg_id = array();
                foreach($getuser as $gt){
                    $reg_id[]=$gt->token;
                }
-               $registrationIds =  $reg_id;    
+               $registrationIds =  $reg_id;
                $message = array(
                     'message' => $msg,
                     'title' => 'Order Status');
@@ -564,7 +564,7 @@ class ApiController extends Controller {
                  'Authorization: key='.$key,// . $api_key,
                  'Content-Type: application/json'
                );
-              $json =  json_encode($fields);   
+              $json =  json_encode($fields);
               $ch = curl_init();
               curl_setopt($ch, CURLOPT_URL, $url);
               curl_setopt($ch, CURLOPT_POST, true);
@@ -572,10 +572,10 @@ class ApiController extends Controller {
               curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
               curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
               curl_setopt($ch, CURLOPT_POSTFIELDS,$json);
-              $result = curl_exec($ch);   
+              $result = curl_exec($ch);
               if ($result === FALSE){
                  die('Curl failed: ' . curl_error($ch));
-              }     
+              }
              curl_close($ch);
              $response=json_decode($result,true);
              if($response['success']>0)
@@ -591,12 +591,12 @@ class ApiController extends Controller {
    }
    public function send_notification_IOS($key,$user_id,$msg){
       $getuser=TokenData::where("type","Iphone")->where("user_id",$user_id)->get();
-         if(count($getuser)!=0){               
+         if(count($getuser)!=0){
                $reg_id = array();
                foreach($getuser as $gt){
                    $reg_id[]=$gt->token;
                }
-                $registrationIds =  $reg_id;    
+                $registrationIds =  $reg_id;
                 $msg = array(
                    'body'  => $msg,
                    'title'     => "Notification",
@@ -613,7 +613,7 @@ class ApiController extends Controller {
                  'Authorization: key='.$key,// . $api_key,
                  'Content-Type: application/json'
                );
-              $json =  json_encode($fields);   
+              $json =  json_encode($fields);
               $ch = curl_init();
               curl_setopt($ch, CURLOPT_URL, $url);
               curl_setopt($ch, CURLOPT_POST, true);
@@ -621,10 +621,10 @@ class ApiController extends Controller {
               curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
               curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
               curl_setopt($ch, CURLOPT_POSTFIELDS,$json);
-              $result = curl_exec($ch);   
+              $result = curl_exec($ch);
               if ($result === FALSE){
                  die('Curl failed: ' . curl_error($ch));
-              }     
+              }
              curl_close($ch);
              $response=json_decode($result,true);
              if($response['success']>0)
@@ -729,7 +729,7 @@ class ApiController extends Controller {
                date_default_timezone_set($gettimezone);
                $date = date('d-m-Y H:i');
                $update=Order::with("userdata")->find($request->get("order_id"));
-              if($update){   
+              if($update){
                   $itemls=OrderResponse::with("itemdata")->where("set_order_id",$update->id)->get();
                  foreach ($itemls as $key) {
                     $ls=array();
@@ -740,10 +740,10 @@ class ApiController extends Controller {
                       if($st){
                         $ls[]=$st->item_name;
                       }
-                      
+
                    }
                    }
-                   
+
                    $arrName[] = array(
                        "name" => $key->itemdata->menu_name,
                        "description" => $key->itemdata->description,
@@ -752,7 +752,7 @@ class ApiController extends Controller {
                        "ingredients_id" =>implode(",",$ls)
                     );
                  }
-                 
+
                   $sp_la=explode(",",$update->latlong);
                   $phone="";
                   if(isset($update->userdata->mob_number)){
@@ -770,7 +770,7 @@ class ApiController extends Controller {
                     "delivery_charges"=>$phone,
                     "tax"=>$update->tax,
                     "item_name"=>$arrName
-                 );   
+                 );
 
                  $response['success']="1";
                  $response['order']=$result;
@@ -806,7 +806,7 @@ static public function generate_timezone_list(){
                   }
                  asort($timezone_offsets);
                  $timezone_list = array();
-    
+
                  foreach($timezone_offsets as $timezone=>$offset){
                           $offset_prefix = $offset < 0 ? '-' : '+';
                           $offset_formatted = gmdate('H:i', abs($offset));
@@ -831,7 +831,7 @@ static public function generate_timezone_list(){
         $rules = [
             'user_id' => 'required',
             'name' => 'required',
-            'email' => 'required',            
+            'email' => 'required',
             'payment_type' => 'required',
             'notes' => 'required',
             'city' => 'required',
@@ -868,7 +868,7 @@ static public function generate_timezone_list(){
             "pay_pal_PayerID.required"=>"pay_pal_PayerID are required",
             "pay_pal_token.required"=>"pay_pal_token are required",
             "stripeToken.required"=>"stripeToken are required"
-         
+
         );
         $validator = Validator::make($request->all(), $rules,$messages);
 
@@ -879,7 +879,7 @@ static public function generate_timezone_list(){
                 $message .= $msg[0] . ", ";
             }
             $response['msg'] = $message;
-        } else {     
+        } else {
                 if($request->get('delivery_mode')== '0'&& $request->get("address")==""){
                      $response['msg']="Address is Required";
                       return Response::json($response);
@@ -934,11 +934,11 @@ static public function generate_timezone_list(){
                              if($request->get("payment_type")=="Stripe"){
                                 if($request->get("stripeToken")!=""){
                                     \Stripe\Stripe::setApiKey($setting->stripe_secret);
-                                    $unique_id = uniqid(); 
+                                    $unique_id = uniqid();
                                     $charge = \Stripe\Charge::create(array(
                                        'description' => "Amount: ".$request->get("total_price").' - '. $unique_id,
-                                       'source' => $request->get("stripeToken"),                    
-                                       'amount' => (int)($request->get("total_price") * 100), 
+                                       'source' => $request->get("stripeToken"),
+                                       'amount' => (int)($request->get("total_price") * 100),
                                        'currency' => 'USD'
                                     ));
                                     $data=Order::find($store->id);
@@ -977,10 +977,10 @@ static public function generate_timezone_list(){
 
         if ($validator->fails()) {
             $response['order_details'] = "enter your data perfectly";
-        } else {     
-                
-                 $orderdata=Order::with('userdata')->find($request->get("order_id"));             
-               if($orderdata){ 
+        } else {
+
+                 $orderdata=Order::with('userdata')->find($request->get("order_id"));
+               if($orderdata){
                  if($orderdata->order_status == '0'){
                         $order_status = 'Activate';
                  }
@@ -1002,7 +1002,7 @@ static public function generate_timezone_list(){
                 elseif ($orderdata->order_status=='6') {
                       $order_status='Cancelled';
                 }
-             
+
             if($orderdata->order_placed_date != ''){
                 $order_placed_date='Activate';
             }
@@ -1023,7 +1023,7 @@ static public function generate_timezone_list(){
                 $delivered_status = 'Activate';
            } else {
             $delivered_status = 'Deactivate';
-           }  
+           }
              $Order="";
              $getjs=FoodOrder::where("order_id",$request->get("order_id"))->get();
              if(count($getjs)!=0){
@@ -1045,7 +1045,7 @@ static public function generate_timezone_list(){
                     "order_placed_date" =>$orderdata->order_placed_date,
                     "preparing_status" => $preparing_status,
                     "preparing_date_time" =>$orderdata->preparing_date_time,
-                    "dispatched_status" => $dispatched_status, 
+                    "dispatched_status" => $dispatched_status,
                     "dispatched_date_time" =>$orderdata->dispatched_date_time,
                     "delivered_date_time" =>$orderdata->delivered_date_time,
                     "delivered_status" => $delivered_status,
@@ -1076,7 +1076,7 @@ static public function generate_timezone_list(){
 
         if ($validator->fails()) {
             $response['data'] = "Email/phone Is Required";
-        } else {  
+        } else {
             $checkmobile=AppUser::where("mob_number",$request->get("phone"))->orwhere("email",$request->get("phone"))->get();
            if(count($checkmobile)!=0){
             if($checkmobile[0]->email==""){
@@ -1098,19 +1098,19 @@ static public function generate_timezone_list(){
             $response["success"]=1;
            $response['data']="Mail Send Successfully";
             }
-             
+
          }
          else{
             $response["success"]=0;
            $response['data']="Data not found";
          }
-         
-           
+
+
         }
         return Response::json($response);
    }
-   
-   
+
+
 }
 
 ?>
