@@ -19,10 +19,11 @@ use App\FoodOrder;
 use App\OrderResponse;
 use App\Ingredient;
 use Hash;
-use Mail;
 use DateTimeZone;
 use DateTime;
 use Cart;
+use Illuminate\Support\Facades\Mail;
+
 class AppuserController extends Controller {
 
    private $_api_context;
@@ -41,6 +42,14 @@ class AppuserController extends Controller {
                		$store->email=$request->get("email");
                		$store->create_at=date('Y-m-d');
                		$store->save();
+
+                    // $details = [
+                    //     'customer' => $request->get("name"),
+                    // ];
+
+                    // $mail = Mail::to($request->get("email"))->send(new \App\Mail\RegisterMail($details));
+                    // dd($mail);
+
                		return 1;
            	   }
            	   else{
