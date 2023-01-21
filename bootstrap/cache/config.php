@@ -4,7 +4,11 @@
     'name' => 'indhosnacks',
     'env' => 'local',
     'debug' => true,
+<<<<<<< HEAD
     'url' => 'http://localhost/indhosnacks.com/',
+=======
+    'url' => 'http://localhost/webdevs/indhosnacks.com',
+>>>>>>> b2639204158a3a475aab39416c7cfed15e59f486
     'asset_url' => NULL,
     'timezone' => 'UTC',
     'locale' => 'en',
@@ -189,7 +193,11 @@
       'file' => 
       array (
         'driver' => 'file',
+<<<<<<< HEAD
         'path' => 'D:\\xampp\\htdocs\\indhosnacks.com\\storage\\framework/cache/data',
+=======
+        'path' => 'C:\\xampp\\htdocs\\webdevs\\indhosnacks.com\\storage\\framework/cache/data',
+>>>>>>> b2639204158a3a475aab39416c7cfed15e59f486
       ),
       'memcached' => 
       array (
@@ -457,13 +465,22 @@
       'local' => 
       array (
         'driver' => 'local',
+<<<<<<< HEAD
         'root' => 'D:\\xampp\\htdocs\\indhosnacks.com\\storage\\app',
+=======
+        'root' => 'C:\\xampp\\htdocs\\webdevs\\indhosnacks.com\\storage\\app',
+>>>>>>> b2639204158a3a475aab39416c7cfed15e59f486
       ),
       'public' => 
       array (
         'driver' => 'local',
+<<<<<<< HEAD
         'root' => 'D:\\xampp\\htdocs\\indhosnacks.com\\storage\\app/public',
         'url' => 'http://localhost/indhosnacks.com//storage',
+=======
+        'root' => 'C:\\xampp\\htdocs\\webdevs\\indhosnacks.com\\storage\\app/public',
+        'url' => 'http://localhost/webdevs/indhosnacks.com/storage',
+>>>>>>> b2639204158a3a475aab39416c7cfed15e59f486
         'visibility' => 'public',
       ),
       's3' => 
@@ -554,13 +571,21 @@
       'single' => 
       array (
         'driver' => 'single',
+<<<<<<< HEAD
         'path' => 'D:\\xampp\\htdocs\\indhosnacks.com\\storage\\logs/laravel.log',
+=======
+        'path' => 'C:\\xampp\\htdocs\\webdevs\\indhosnacks.com\\storage\\logs/laravel.log',
+>>>>>>> b2639204158a3a475aab39416c7cfed15e59f486
         'level' => 'debug',
       ),
       'daily' => 
       array (
         'driver' => 'daily',
+<<<<<<< HEAD
         'path' => 'D:\\xampp\\htdocs\\indhosnacks.com\\storage\\logs/laravel.log',
+=======
+        'path' => 'C:\\xampp\\htdocs\\webdevs\\indhosnacks.com\\storage\\logs/laravel.log',
+>>>>>>> b2639204158a3a475aab39416c7cfed15e59f486
         'level' => 'debug',
         'days' => 14,
       ),
@@ -607,31 +632,51 @@
   ),
   'mail' => 
   array (
+<<<<<<< HEAD
     'driver' => 'smtp',
+=======
+    'driver' => 'mail',
+>>>>>>> b2639204158a3a475aab39416c7cfed15e59f486
     'host' => 'smtp.mailtrap.io',
     'port' => '2525',
     'from' => 
     array (
       'address' => 'info@indhosnacks.com',
+<<<<<<< HEAD
       'name' => 'Admin',
     ),
     'encryption' => 'tls',
     'username' => '38ff195e9efd70',
     'password' => '1a065759ea4629',
+=======
+      'name' => 'indhosnacks',
+    ),
+    'encryption' => 'tls',
+    'username' => '6652a40848972d',
+    'password' => '2adca561246b85',
+>>>>>>> b2639204158a3a475aab39416c7cfed15e59f486
     'sendmail' => '/usr/sbin/sendmail -bs',
     'markdown' => 
     array (
       'theme' => 'default',
       'paths' => 
       array (
+<<<<<<< HEAD
         0 => 'D:\\xampp\\htdocs\\indhosnacks.com\\resources\\views/vendor/mail',
+=======
+        0 => 'C:\\xampp\\htdocs\\webdevs\\indhosnacks.com\\resources\\views/vendor/mail',
+>>>>>>> b2639204158a3a475aab39416c7cfed15e59f486
       ),
     ),
     'log_channel' => NULL,
   ),
   'mapdetail' => 
   array (
+<<<<<<< HEAD
     'key' => 'AIzaSyC1JUHjsnQZtKx5eBOpG42E_CLoJ1s39AU',
+=======
+    'key' => 'AIzaSyATgI95Rp6YpYchbA6c8rD-3tC9xRIc96c',
+>>>>>>> b2639204158a3a475aab39416c7cfed15e59f486
     'lat' => '21.2284231',
     'long' => '72.896816',
     'web_color' => NULL,
@@ -645,7 +690,11 @@
       'mode' => 'sandbox',
       'http.ConnectionTimeOut' => 1000,
       'log.LogEnabled' => true,
+<<<<<<< HEAD
       'log.FileName' => 'D:\\xampp\\htdocs\\indhosnacks.com\\storage/logs/paypal.log',
+=======
+      'log.FileName' => 'C:\\xampp\\htdocs\\webdevs\\indhosnacks.com\\storage/logs/paypal.log',
+>>>>>>> b2639204158a3a475aab39416c7cfed15e59f486
       'log.LogLevel' => 'FINE',
     ),
   ),
@@ -737,7 +786,11 @@
     'lifetime' => '120',
     'expire_on_close' => false,
     'encrypt' => false,
+<<<<<<< HEAD
     'files' => 'D:\\xampp\\htdocs\\indhosnacks.com\\storage\\framework/sessions',
+=======
+    'files' => 'C:\\xampp\\htdocs\\webdevs\\indhosnacks.com\\storage\\framework/sessions',
+>>>>>>> b2639204158a3a475aab39416c7cfed15e59f486
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -766,9 +819,15 @@
   array (
     'paths' => 
     array (
+<<<<<<< HEAD
       0 => 'D:\\xampp\\htdocs\\indhosnacks.com\\resources\\views',
     ),
     'compiled' => 'D:\\xampp\\htdocs\\indhosnacks.com\\storage\\framework\\views',
+=======
+      0 => 'C:\\xampp\\htdocs\\webdevs\\indhosnacks.com\\resources\\views',
+    ),
+    'compiled' => 'C:\\xampp\\htdocs\\webdevs\\indhosnacks.com\\storage\\framework\\views',
+>>>>>>> b2639204158a3a475aab39416c7cfed15e59f486
   ),
   'xss-filter' => 
   array (

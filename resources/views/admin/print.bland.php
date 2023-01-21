@@ -8,7 +8,7 @@
     <body style="margin-top:25px">
         <div class="col-md-12" style="float:left;width:100%">
              <div class="col-md-6" style="float:left;">
-                 <img src="{{asset('burger/images/web-nav-logo.jpg')}}" style="width:100px;height:100px;" />
+                 <img src="{{asset('burger/images/logo.png')}}" style="width:100px;height:100px;" />
              </div>
              <div class="col-md-6" style="float:right">
                  <div><?=__('messages.site_name')?></div>
