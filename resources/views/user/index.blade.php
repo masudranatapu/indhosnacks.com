@@ -270,120 +270,131 @@ $settings = DB::table('setting')
                                     </div>
                                 @endforeach
                             </div>
-                            @endforeach
-                        </div>
-                        <div class="total">
-                            <h1>{{__('messages.subtotal')}} :</h1>
-                            <span>
-                                {{Session::get("usercurrency").number_format(Cart::getTotal(), 2, '.', '')}}
-                            </span>
-                        </div>
-                        <?php if(Session::get("orderstatus")==1){ ?>
-                        <div class="viewcart">
-                            <h1>
-                                <a href="{{url('cartdetails')}}" class="viewcarta">
-                                    {{__('messages.view_cart')}}
-                                </a>
-                            </h1>
-                        </div>
-                        <?php }?>
-                        <?php if(Session::get("orderstatus")==0){ ?>
-                        <div class="last-box">
-                            <div class="Delivery">
-                                <img src="{{asset('burger/images/delivery.png')}}" style="width:50px">
+                            <div class="total">
+                                <h1>{{ __('messages.subtotal') }}:</h1>
+                                <?php $cartCollection = Cart::getContent();
+                                $totalamountarr = [];
+                                foreach ($cartCollection as $car) {
+                                    $totalamount = '';
+                                    $totalamount = (float) $car->quantity * (float) $car->price;
+                                    $totalamountarr[] = round($totalamount, 2);
+                                }
+
+                                ?>
+                                <span>{{ Session::get('usercurrency') . number_format(Cart::getTotal(), 2, '.', '') }}
+                                </span>
                             </div>
-                            <div class="last-text">
-                                <h1>{{__('messages.offline_order')}}</h1>
-                                <p>{{__('messages.off_time')}}</p>
+                            <?php if(Session::get("orderstatus")==1){ ?>
+                            <div class="viewcart">
+                                <h1>
+                                    <a href="{{ url('cartdetails') }}" class="viewcarta">
+                                        {{ __('messages.view_cart') }}
+                                    </a>
+                                </h1>
                             </div>
+                            <?php }?>
+                            <?php if(Session::get("orderstatus")==0){ ?>
+                            <div class="last-box">
+                                <div class="Delivery">
+                                    <img src="{{ asset('burger/images/delivery.png') }}" style="width:50px">
+                                </div>
+                                <div class="last-text">
+                                    <h1>{{ __('messages.offline_order') }}</h1>
+                                    <p>{{ __('messages.off_time') }}</p>
+                                </div>
+                            </div>
+                            <?php }?>
                         </div>
-                        <?php }?>
                     </div>
                 </div>
+                <?php }?>
             </div>
-            <?php }?>
         </div>
-    </div>
-    <!-- ============================ Header start ================================= -->
-    <div class="header_section pt-3 pb-3">
-        <div class="container">
-            <nav class="navbar navbar-expand-lg navbar-light p-0">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    <img src="{{Session::get('logo')}}" width="200" class="img-fluid">
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <i class="fa fa-bars"></i>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{url('/')}}">{{ __('messages.home') }}</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{url('aboutus')}}">{{__('messages.aboutus')}}</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{url('shop')}}">Shop</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{url('contactus')}}">{{__('messages.contact')}}</a>
-                        </li>
-                    </ul>
-                    <ul class="navbar-nav ml-auto header_right_nav">
-                        <div class="login">
-                            <?php if(empty(Session::get('login_user'))){?>
-                            <a href="javascript:void(0)" data-toggle="modal" data-target="#myModal1">
-                                <i class="fa fa-user" aria-hidden="true"></i>
-                            </a>
-                            <?php }else{?>
-                            <a href="{{url('myaccount')}}">
-                                <i class="fa fa-user" aria-hidden="true"></i>
-                            </a>
-                            <?php }?>
-                            <a href="#" data-toggle="modal" data-target="#myModal">
-                                <i class="fa fa-shopping-cart" aria-hidden="true">
-                                    <span id="totalcart">
-                                        <?php $cartCollection = Cart::getContent();
-                            $carttotal=0;
-                             if($cartCollection->count()!=0)
-                                 {
-                                     $carttotal=$cartCollection->count();
-                                     echo '<div class="cric">'.$cartCollection->count().'</div>';
-                                 }
-                            ?>
-                                    </span>
-                                    <input type="hidden" id="carttotal" value="{{$carttotal}}">
-                                </i>
-                            </a>
-                            <span class="mr-2">|</span>
-                            @if($settings->facebook_id)
-                            <a href={{ $settings->facebook_id }}" target="_blank"><i class="fab fa-facebook"
-                                    aria-hidden="true"></i></a>
-                            @endif
-                            @if($settings->twitter_id)
-                            <a href="{{ $settings->twitter_id }}" target="_blank"><i class="fab fa-twitter"
-                                    aria-hidden="true"></i></a>
-                            @endif
-                            @if($settings->linkedin_id)
-                                <a href="{{ $settings->linkedin_id }}" target="_blank"><i class="fab fa-linkedin"
-                                    aria-hidden="true"></i></a>
-                            @endif
-                            @if($settings->whatsapp)
-                            <a href="{{ $settings->whatsapp }}" target="_blank"><i class="fab fa-whatsapp"
-                                    aria-hidden="true"></i></a>
-                            @endif
-                            @if($settings->instragram_id)
-                                <a href="{{ $settings->instragram_id }}" target="_blank"><i class="fab fa-instagram"></i></a>
-                            @endif
-                            @if($settings->tiktok_id)
-                                <a href="{{ $settings->tiktok_id }}" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
-                            @endif
-                        </div>
-                    </ul>
-                </div>
-            </nav>
+
+        <!-- ============================ Header start ================================= -->
+        <div class="header_section pt-3 pb-3">
+            <div class="container">
+                <nav class="navbar navbar-expand-lg navbar-light p-0">
+                    <a class="navbar-brand" href="{{ url('/') }}">
+                        <img src="{{ Session::get('logo') }}" width="200" class="img-fluid">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url('/') }}">{{ __('messages.home') }}</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url('aboutus') }}">{{ __('messages.aboutus') }}</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url('shop') }}">Shop</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url('contactus') }}">{{ __('messages.contact') }}</a>
+                            </li>
+                        </ul>
+                        <ul class="navbar-nav ml-auto header_right_nav">
+                            <div class="login">
+                                <?php if(empty(Session::get('login_user'))){?>
+                                <a href="#" data-toggle="modal" data-target="#myModal1">
+                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                </a>
+                                <?php }else{?>
+                                <a href="{{ url('myaccount') }}">
+                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                </a>
+                                <?php }?>
+                                <a href="#" data-toggle="modal" data-target="#myModal">
+                                    <i class="fa fa-shopping-cart" aria-hidden="true">
+                                        <span id="totalcart">
+                                            <?php $cartCollection = Cart::getContent();
+                                            $carttotal = 0;
+                                            if ($cartCollection->count() != 0) {
+                                                $carttotal = $cartCollection->count();
+                                                echo '<div class="cric">' . $cartCollection->count() . '</div>';
+                                            }
+                                            ?>
+                                        </span>
+                                        <input type="hidden" id="carttotal" value="{{ $carttotal }}">
+                                    </i>
+                                </a>
+                                <span class="mr-2">|</span>
+                                @if ($settings->facebook_id)
+                                    <a href={{ $settings->facebook_id }}" target="_blank"><i class="fab fa-facebook"
+                                            aria-hidden="true"></i></a>
+                                @endif
+                                @if ($settings->twitter_id)
+                                    <a href="{{ $settings->twitter_id }}" target="_blank"><i class="fab fa-twitter"
+                                            aria-hidden="true"></i></a>
+                                @endif
+                                @if ($settings->linkedin_id)
+                                    <a href="{{ $settings->linkedin_id }}" target="_blank"><i
+                                            class="fab fa-linkedin" aria-hidden="true"></i></a>
+                                @endif
+                                @if ($settings->whatsapp)
+                                    <a href="{{ $settings->whatsapp }}" target="_blank"><i class="fab fa-whatsapp"
+                                            aria-hidden="true"></i></a>
+                                @endif
+                                @if ($settings->instragram_id)
+                                    <a href="{{ $settings->instragram_id }}" target="_blank"><i
+                                            class="fab fa-instagram"></i></a>
+                                @endif
+                                @if ($settings->tiktok_id)
+                                    <a href="{{ $settings->tiktok_id }}" target="_blank"><i
+                                            class="fa-brands fa-tiktok"></i></a>
+                                @endif
+                            </div>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
         </div>
+
+        <!-- ============================ Header end ================================= -->
     </div>
 
     <!-- ============================ Banner start ================================= -->
@@ -478,14 +489,34 @@ $settings = DB::table('setting')
     </div>
     </div>
 
-        <!-- ============================ Popular item start ================================= -->
-        <div class="popular_section pt-5 pb-5">
+    {{-- <div class="secound-section">
             <div class="container">
-                <div class="heading mb-5 text-center">
-                    <h1>{{__('Popular Items')}}</h1>
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-6 about-img">
+                            <img src="{{Session::get('second_sec_img')}}" class="img-fluid">
+                        </div>
+                        <div class="col-md-6 about-text">
+                            <img src="{{Session::get('secong_icon_img')}}" class="img-fluid">
+                            <h5>{{__('messages.silder23')}}
+                            </h5>
+                            <p>
+                                {{__('messages.psilder23')}}
+                            </p>
+                        </div>
+                    </div>
                 </div>
-                <div class="row">
-                    @foreach($popular_item as $it)
+            </div>
+        </div> --}}
+
+    <!-- ============================ Popular item start ================================= -->
+    <div class="popular_section pt-5 pb-5">
+        <div class="container">
+            <div class="heading mb-5 text-center">
+                <h1>{{ __('Popular Items') }}</h1>
+            </div>
+            <div class="row">
+                @foreach ($popular_item as $it)
                     <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
                         <div class="shop_product">
                             <div class="card_product">
