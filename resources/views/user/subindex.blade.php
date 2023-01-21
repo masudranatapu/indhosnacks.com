@@ -10,13 +10,13 @@
     <title>{{__('messages.site_name')}}</title>
     <meta property="og:url" content="{{__('messages.site_name')}}" />
     <meta property="og:title" content="{{__('messages.site_name')}}" />
-    <meta property="og:image" content="{{asset('public/fav.png')}}" />
+    <meta property="og:image" content="{{asset('public/favicon.png')}}" />
     <meta property="og:image:width" content="250px" />
     <meta property="og:image:height" content="250px" />
     <meta property="og:site_name" content="{{__('messages.site_name')}}" />
     <meta property="og:description" content="{{__('messages.metadescweb')}}" />
     <meta property="og:keyword" content="{{__('messages.metakeyboard')}}" />
-    <link rel="shortcut icon" href="{{asset('public/fav.png')}}">
+    <link rel="shortcut icon" href="{{asset('public/favicon.png')}}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     @if(__('messages.rtl')=='0')
@@ -417,17 +417,8 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-3 about mt-4">
-                            
-                            <img src="{{Session::get('logo')}}" width="200">
-
-                            <div class="footer_widget mb-4 mt-3">
-                                @if($settings->footer_section)
-                                    {!! $settings->footer_section !!}
-                                @endif
-                            </div>
-
+                            <img src="{{Session::get('logo')}}">
                             <p>{{__('messages.footer_text')}}</p>
-
                             <div class="footer-social">
                                 @if($settings->facebook_id)
                                 <a href={{ $settings->facebook_id }}" target="_blank"><i class="fab fa-facebook"

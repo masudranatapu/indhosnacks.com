@@ -343,101 +343,6 @@
             <?php }?>
         </div>
     </div>
-    <!--
-     <div class="first-section">
-        <div class="img">
-        </div>
-        <div class="container kb-nav">
-            <div class="kb-nav-logo mt-2 text-center">
-                <a href="{{url('/')}}">
-                    <img src="{{Session::get('logo')}}" width="300" class="img-fluid">
-                </a>
-            </div>
-            <div class="row">
-                <div class="kb-menu">
-                    <ul class="p-0">
-                        <li>
-                            <a href="{{url('/')}}" class="for_button_value">
-                                {{ __('messages.home') }}
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{url('aboutus')}}" class="for_button_value">
-                                {{__('messages.aboutus')}}
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{url('service')}}" class="for_button_value">
-                                {{__('messages.service')}}
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{url('contactus')}}" class="for_button_value">
-                                {{__('messages.contact')}}
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="kd-social">
-                    <div class="login">
-                        <?php if(empty(Session::get('login_user'))){?>
-                        <a href="#" data-toggle="modal" data-target="#myModal1">
-                            <i class="fab fa-user" aria-hidden="true"></i>
-                        </a>
-                        <?php }else{?>
-                        <a href="{{url('myaccount')}}">
-                            <i class="fab fa-user" aria-hidden="true"></i>
-                        </a>
-                        <?php }?>
-                        <a href="#" data-toggle="modal" data-target="#myModal">
-                            <i class="fab fa-shopping-cart" aria-hidden="true">
-                                <span id="totalcart">
-                                    <?php $cartCollection = Cart::getContent();
-                        $carttotal=0;
-                         if($cartCollection->count()!=0)
-                             {
-                                 $carttotal=$cartCollection->count();
-                                 echo '<div class="cric">'.$cartCollection->count().'</div>';
-                             }
-                        ?>
-                                </span>
-                                <input type="hidden" id="carttotal" value="{{$carttotal}}">
-                            </i></a>
-                    </div>
-                    <a href="{{ Session::get('facebook')}}" target="_blank"><i class="fab fa-facebook"
-                            aria-hidden="true"></i></a>
-                    <a href="{{ Session::get('twitter')}}" target="_blank"><i class="fab fa-twitter"
-                            aria-hidden="true"></i></a>
-                    <a href="{{ Session::get('whatsapp')}}" target="_blank"><i class="fab fa-whatsapp"
-                            aria-hidden="true"></i></a>
-                </div>
-                <div class="tm">
-                    <div id="toggle" onclick="changetab()">
-                        <div class="one"></div>
-                        <div class="two"></div>
-                        <div class="three"></div>
-                    </div>
-                </div>
-                <div class="col-12">
-                    <div id="menu">
-                        <ul class="p-0">
-                            <li><a href="{{url('/')}}">{{ __('messages.home') }}</a></li>
-                            <li><a href="{{url('aboutus')}}">{{__('messages.aboutus')}}</a></li>
-                            <li><a href="{{url('service')}}">{{__('messages.service')}}</a></li>
-                            <li><a href="{{url('contactus')}}">{{__('messages.contact')}}</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="kb-text-box">
-                    <h1>{{__('messages.silder1h')}}</h1>
-                    <h2>{{__('messages.silderh2')}}</h2>
-                    <p>{{__('messages.silderp')}}.</p>
-                </div>
-            </div>
-        </div>
-        </div>
-    -->
-
     <!-- ============================ Header start ================================= -->
     <div class="header_section pt-3 pb-3">
         <div class="container">
@@ -467,7 +372,7 @@
                     <ul class="navbar-nav ml-auto header_right_nav">
                         <div class="login">
                             <?php if(empty(Session::get('login_user'))){?>
-                            <a href="#" data-toggle="modal" data-target="#myModal1">
+                            <a href="javascript:void(0)" data-toggle="modal" data-target="#myModal1">
                                 <i class="fa fa-user" aria-hidden="true"></i>
                             </a>
                             <?php }else{?>
@@ -609,26 +514,6 @@
                 </div>
             </div>
         </div>
-
-        {{-- <div class="secound-section">
-            <div class="container">
-                <div class="col-md-12">
-                    <div class="row">
-                        <div class="col-md-6 about-img">
-                            <img src="{{Session::get('second_sec_img')}}" class="img-fluid">
-                        </div>
-                        <div class="col-md-6 about-text">
-                            <img src="{{Session::get('secong_icon_img')}}" class="img-fluid">
-                            <h5>{{__('messages.silder23')}}
-                            </h5>
-                            <p>
-                                {{__('messages.psilder23')}}
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> --}}
 
         <!-- ============================ Popular item start ================================= -->
         <div class="popular_section pt-5 pb-5">
