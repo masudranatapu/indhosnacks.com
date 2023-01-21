@@ -43,12 +43,11 @@ class AppuserController extends Controller {
                		$store->create_at=date('Y-m-d');
                		$store->save();
 
-                    // $details = [
-                    //     'customer' => $request->get("name"),
-                    // ];
+                    $details = [
+                        'customer' => $request->get("name"),
+                    ];
 
-                    // $mail = Mail::to($request->get("email"))->send(new \App\Mail\RegisterMail($details));
-                    // dd($mail);
+                    $mail = Mail::to($request->get("email"))->send(new \App\Mail\RegisterMail($details));
 
                		return 1;
            	   }

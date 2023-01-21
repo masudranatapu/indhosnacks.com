@@ -201,3 +201,4 @@ Route::group(['prefix' => 'deliveryboy'], function () {
         Route::get("ordercomplete/{id}", "DeliveryController@ordercomplete");
     });
 });
+
