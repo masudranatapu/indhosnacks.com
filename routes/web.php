@@ -93,7 +93,7 @@ Route::group(['middleware' => ['admincheckexiste']], function () {
 
 
     // slider
-    // Route::get("sliders", "SliderController@index")->name("slider.index");
+     Route::get("sliders", "SliderController@index")->name("slider.index");
 
 
     //menu category

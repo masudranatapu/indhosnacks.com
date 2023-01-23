@@ -90,7 +90,8 @@
                     </li>
 
                     <li class="active">
-                        <a href="#"> <i class="menu-icon fa fa-image"></i>{{__('Sliders')}} </a>
+                        <a href="{{ route('slider.index') }}"> <i class="menu-icon fa fa-image"></i>{{__('Sliders')}}
+                        </a>
                     </li>
                     <li class="active">
                         <a href="#"> <i class="menu-icon fa fa-percent"></i>{{__('Discount Banner')}} </a>
