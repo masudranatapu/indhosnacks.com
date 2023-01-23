@@ -34,6 +34,10 @@ ul.textdata a {
     color: black;
 }
 
+a {
+    text-decoration: none !important;
+}
+
 .b-text h1 a:hover {
     color: black;
 }
@@ -441,6 +445,8 @@ img#pay3.activepayment {
 
 .footer-section {
     border-top: 1px solid #DDD;
+    padding-top: 20px;
+    padding-bottom: 10px;
 }
 
 .container.kb-footer {
@@ -492,7 +498,7 @@ img#pay3.activepayment {
     color: #ff0000;
     font-family: "Dancing Script";
     font-weight: 700;
-    font-size: 52px;
+    font-size: 43px;
     margin: 0;
 }
 
@@ -705,8 +711,7 @@ img#pay3.activepayment {
 }
 
 .play {
-    background-color: #f7f7f7;
-    /* margin-top: 50px; */
+    background-color: #dc35452b;
     padding-top: 50px;
 }
 
@@ -873,11 +878,13 @@ main.main {
     margin-left: 23px;
     color: #888;
 }
+
 .f-location {
     vertical-align: middle;
     align-items: center;
     display: flex;
 }
+
 /* .f-location {
     display: inline-block;
     margin-top: 0px;
@@ -2705,7 +2712,7 @@ td.cart-product-image img {
     line-height: normal;
     font-family: 'FontAwesome';
     margin-right: 30px;
-    margin-top:15px;
+    margin-top: 15px;
 }
 
 .accordion.indicator-chevron .card-header:after {
@@ -2812,6 +2819,7 @@ img#pay1.activepayment {
     font-family: 'Montserrat';
     font-size: 15px;
 }
+
 .card-body .sub input {
     background-color: #dc3545;
     color: #fff;
@@ -3536,10 +3544,11 @@ input#acco-tab-fo {
     color: #848484;
     margin-top: 50px;
 }
+
 .f-location p {
     margin-top: 0;
     padding-left: 9px;
-    margin:0;
+    margin: 0;
 }
 
 .info ul li a {
@@ -5574,7 +5583,7 @@ div.dataTables_info {
     height: 111px;
     width: 160px;
     border-radius: 4px;
-    padding-top:19px;
+    padding-top: 19px;
 }
 
 .main-pizza-sb {
@@ -5795,13 +5804,8 @@ button:focus {
     color: #212121;
 }
 
-
-.banner_section {
-    background-image: url('../../public/upload/web/banner2.jpg?v=1');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    padding: 260px 0px;
+.banner_carousel {
+    margin-top: 77px;
 }
 
 .banner_content h1 {
@@ -5826,11 +5830,24 @@ button:focus {
     margin: 0;
 }
 
+.banner_carousel .owl-dots {
+    display: block !important;
+    text-align: center;
+    z-index: 99;
+    position: relative;
+    transform: translate(0px, -42px);
+}
+
+.banner_item img{
+    border-radius: 6px;
+}
+
 .shop_product {
     border-radius: 6px;
     padding: 10px;
     height: 100%;
     box-shadow: rgb(100 100 111 / 10%) 0px 7px 29px 0px;
+    max-height: 423px !important;
 }
 
 .shop_product img {
@@ -5842,21 +5859,6 @@ button:focus {
     display: block;
 }
 
-.shop_product {
-    border-radius: 6px;
-    padding: 10px;
-    height: 100%;
-    box-shadow: rgb(100 100 111 / 10%) 0px 7px 29px 0px;
-}
-
-.shop_product img {
-    border-radius: 6px;
-    width: 200px;
-    height: 200px;
-    margin: 0 auto;
-    text-align: center;
-    display: block;
-}
 
 .card_body h1 a {
     color: #212121;
@@ -5875,6 +5877,7 @@ button:focus {
     font-size: 15px;
     color: #555;
     margin-bottom: 15px;
+    min-height: 87px;
 }
 
 .shop_price p {
@@ -5889,8 +5892,8 @@ button:focus {
     font-size: 12px;
     border: 1px solid #dc354529;
     background: #dc35451f;
-    padding: 4px 11px;
-    border-radius: 2px;
+    padding: 6px 17px;
+    border-radius: 50px;
     color: #212529;
     text-decoration: none;
     transition: all 0.3s ease;
@@ -5926,8 +5929,169 @@ button.navbar-toggler {
     opacity: 1;
     border: 1px solid #a1a1a1;
 }
+
 .footer_widget p {
     margin: 0;
     color: #666;
     padding: 7px 0px;
+}
+
+
+/* category */
+
+.category_item {
+    position: relative;
+    border-radius: 10px;
+    padding: 15px 10px;
+    transition: .2s;
+}
+
+.category_name h3 a {
+    text-decoration: none !important;
+    font-size: 20px;
+    font-weight: 600;
+    font-family: 'Roboto', sans-serif;
+    transition: .2s;
+}
+
+.category_name h3 a:hover {
+    color: red;
+}
+
+.category_name h3 {
+    margin-bottom: 7px;
+}
+
+.category_btn a {
+    color: #FD0103;
+    font-size: 16px;
+    font-family: "Roboto";
+    font-weight: 600;
+    transition: .2s;
+}
+
+.category_btn a:hover {
+    color: #000000;
+}
+
+.category_btn a i {
+    font-size: 12px;
+}
+
+.category_img img {
+    width: 150px !important;
+    height: 150px !important;
+    margin: 0 auto;
+}
+
+.special_offer_banner img {
+    border: 1px solid #eaeaea;
+    border-radius: 8px;
+}
+
+
+.discount_section {
+    background: #dc354505;
+    padding: 50px 0px;
+    border-top: 1px solid #dc35451f;
+    border-bottom: 1px solid #dc35451f;
+}
+
+.see_more_btn .btn-primary {
+    background: orange;
+    border: none;
+    padding: 12px 14px;
+    width: 13%;
+    font-size: 15px;
+    border-radius: 50px;
+    font-family: "Roboto";
+    font-weight: 600;
+}
+
+.see_more_btn .btn-primary:hover {
+    background: #dc3545;
+}
+
+.snacks_products {
+    background: #dc35450f;
+    border: 1px solid #dc354505;
+    border-radius: 20px;
+}
+
+.snacks_products img {
+    max-height: 300px;
+}
+
+.snacks_products .card_body {
+    padding: 0px 14px;
+}
+
+.snacks_products .shop_price {
+    border-top: 1px solid #dc354512;
+    padding-top: 14px;
+}
+
+
+.client_review_item {
+    background: #fff;
+    padding: 0px 20px 20px 20px;
+    margin: 43px 16px 17px 14px;
+    border: 1px solid #e0e0e0;
+    border-radius: 11px;
+    box-shadow: 2px 2px 14px 1px #00000021;
+    position: relative;
+}
+
+.client_review_item .client_img img {
+    width: 80px !important;
+    border-radius: 50px;
+    border: 1px solid #efefef;
+    padding: 2px;
+    background: #fff;
+    margin: 0 auto;
+    margin-top: -39px;
+}
+
+.client_name h3 {
+    font-size: 28px;
+    font-family: 'Dancing Script';
+    font-weight: bold;
+}
+
+.client_review p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 27px;
+    color: #666;
+    font-family: 'Roboto', s;
+}
+
+.owl-dots {
+    display: block !important;
+    text-align: center;
+}
+
+.owl-dots button {
+    width: 10px;
+    height: 10px;
+    background: #000 !important;
+    margin: 4px !important;
+    border-radius: 100px;
+    border: none !important;
+}
+
+.owl-dot.active {
+    background: #dc3545 !important;
+    width:12px;
+    height: 12px;
+}
+
+
+.quote_icon {
+    position: absolute;
+    top: 5%;
+    right: 13px;
+    font-size: 98px;
+    opacity: 0.09;
+    color: #dc3545;
 }

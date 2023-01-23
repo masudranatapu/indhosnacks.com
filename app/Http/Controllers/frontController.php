@@ -103,10 +103,10 @@ class frontController extends Controller {
       $setting=Setting::find(1);
       Session::put("orderstatus",$setting->order_status);
 
-
       $popular_item=Item::inRandomOrder()->with('categoryitem')->where("is_deleted",'0')->take(16)->get();
+      $popular_snacks_item=Item::latest()->with('categoryitem')->where('category', 8)->where("is_deleted",'0')->take(3)->get();
 
-      return view("user.index")->with("category",$category)->with("items",$item)->with("ingredient",$inter)->with("allmenu",$allmenu)->with("setting",$setting)->with('popular_item',$popular_item);
+      return view("user.index")->with("category",$category)->with("items",$item)->with("ingredient",$inter)->with("allmenu",$allmenu)->with("setting",$setting)->with('popular_item',$popular_item)->with('popular_snacks_item', $popular_snacks_item);
    }
 
    public function detailitem($item_id){

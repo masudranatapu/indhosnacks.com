@@ -92,6 +92,9 @@ Route::group(['middleware' => ['admincheckexiste']], function () {
     Route::post("savewebpage/{id}", "PagesController@savewebpage")->name('savewebpage');
 
 
+    // slider
+    // Route::get("sliders", "SliderController@index")->name("slider.index");
+
 
     //menu category
     Route::get("category", "CategoryController@showcategory")->name("showcategory");

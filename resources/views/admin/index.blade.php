@@ -88,6 +88,20 @@
                         <a href="{{url('contactusls')}}"> <i
                                 class="menu-icon fa fa-address-book"></i>{{__('messages.contact_us')}} </a>
                     </li>
+
+                    <li class="active">
+                        <a href="#"> <i class="menu-icon fa fa-image"></i>{{__('Sliders')}} </a>
+                    </li>
+                    <li class="active">
+                        <a href="#"> <i class="menu-icon fa fa-percent"></i>{{__('Discount Banner')}} </a>
+                    </li>
+                    <li class="active">
+                        <a href="#"> <i class="menu-icon fa fa-address-book"></i>{{__('Testimonials')}} </a>
+                    </li>
+
+
+
+
                     @if(Session::get("is_web")==0||Session::get("is_web")==2)
                     <h3 class="menu-title">{{__('messages.notification')}}</h3>
                     <li class="menu-item-has-children dropdown">
