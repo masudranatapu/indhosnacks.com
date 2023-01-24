@@ -6044,6 +6044,7 @@ button.navbar-toggler {
 
 .client_review_item .client_img img {
     width: 80px !important;
+    height: 80px;
     border-radius: 50px;
     border: 1px solid #efefef;
     padding: 2px;

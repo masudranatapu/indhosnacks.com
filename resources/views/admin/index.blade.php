@@ -94,10 +94,12 @@
                         </a>
                     </li>
                     <li class="active">
-                        <a href="#"> <i class="menu-icon fa fa-percent"></i>{{__('Discount Banner')}} </a>
+                        <a href="{{ route('banner.index') }}"> <i class="menu-icon fa fa-percent"></i>{{__('Discount
+                            Banner')}} </a>
                     </li>
                     <li class="active">
-                        <a href="#"> <i class="menu-icon fa fa-address-book"></i>{{__('Testimonials')}} </a>
+                        <a href="{{ route('review.index') }}"> <i
+                                class="menu-icon fa fa-address-book"></i>{{__('Testimonials')}} </a>
                     </li>
 
 

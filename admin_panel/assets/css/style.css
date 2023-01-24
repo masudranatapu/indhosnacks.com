@@ -2479,3 +2479,9 @@ i.fa.fa-bell {
 	height: 100px;
     width: 100px;
 }
+
+.form-control {
+    height: 46px;
+    outline: none !important;
+    box-shadow: none !important;
+}

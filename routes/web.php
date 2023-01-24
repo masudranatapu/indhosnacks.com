@@ -95,6 +95,12 @@ Route::group(['middleware' => ['admincheckexiste']], function () {
     // slider
      Route::get("sliders", "SliderController@index")->name("slider.index");
 
+    // discount Banner
+    Route::get("banners", "BannerController@index")->name("banner.index");
+
+    // testimonial
+    Route::get("testimonials", "TestimonialController@index")->name("review.index");
+
 
     //menu category
     Route::get("category", "CategoryController@showcategory")->name("showcategory");
