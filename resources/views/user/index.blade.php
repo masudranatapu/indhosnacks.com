@@ -419,7 +419,7 @@ $settings = DB::table('setting')
 
 
     <!-- ============================ Category end ================================= -->
-    <div class="category_section mt-5 mb-5">
+    <div class="category_section mt-4 mb-5">
         <div class="container">
             <div class="heading mb-5 text-center">
                 <h1>{{ __('Categories') }}</h1>
@@ -493,7 +493,7 @@ $settings = DB::table('setting')
             <div class="row">
                 @foreach ($popular_snacks_item as $it)
                 <div class="col-sm-6 col-md-4 mb-4">
-                    <div class="snacks_products">
+                    <div class="shop_product snacks_products">
                         <div class="card_product">
                             <a href="{{ url('detailitem/' . $it->id) }}">
                                 <img src="{{ asset('public/upload/images/menu_item_icon/' . $it->menu_image) }}"
@@ -515,6 +515,7 @@ $settings = DB::table('setting')
                             </div>
                         </div>
                     </div>
+
                 </div>
                 @endforeach
 
@@ -652,7 +653,7 @@ $settings = DB::table('setting')
 
 
     <!-- ============================ Testimonial start ================================= -->
-    <div class="testimonial_section pt-5 pb-5">
+    <div class="testimonial_section  pb-5">
         <div class="container">
             <div class="heading mb-5 text-center">
                 <h1>{{ __('What Our Clients Say About Us') }}</h1>

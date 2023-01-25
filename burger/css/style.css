@@ -5838,7 +5838,7 @@ button:focus {
     transform: translate(0px, -42px);
 }
 
-.banner_item img{
+.banner_item img {
     border-radius: 6px;
 }
 
@@ -6000,8 +6000,8 @@ button.navbar-toggler {
 .see_more_btn .btn-primary {
     background: orange;
     border: none;
-    padding: 12px 14px;
-    width: 13%;
+    padding: 10px 41px;
+    display: inline-block;
     font-size: 15px;
     border-radius: 50px;
     font-family: "Roboto";
@@ -6083,7 +6083,7 @@ button.navbar-toggler {
 
 .owl-dot.active {
     background: #dc3545 !important;
-    width:12px;
+    width: 12px;
     height: 12px;
 }
 
@@ -6095,4 +6095,11 @@ button.navbar-toggler {
     font-size: 98px;
     opacity: 0.09;
     color: #dc3545;
+}
+
+@media screen and (max-width:450px) {
+    .heading h1 {
+        font-size: 32px;
+
+    }
 }
