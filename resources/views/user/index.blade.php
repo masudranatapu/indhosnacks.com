@@ -418,7 +418,7 @@ $settings = DB::table('setting')
     <!-- ============================ Banner Carousel end ================================= -->
 
 
-    <!-- ============================ Category end ================================= -->
+    <!-- ============================ Category start ================================= -->
     <div class="category_section mt-4 mb-5">
         <div class="container">
             <div class="heading mb-5 text-center">

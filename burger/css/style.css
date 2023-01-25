@@ -5952,6 +5952,7 @@ button.navbar-toggler {
     font-weight: 600;
     font-family: 'Roboto', sans-serif;
     transition: .2s;
+    color: #212121 !important;
 }
 
 .category_name h3 a:hover {
