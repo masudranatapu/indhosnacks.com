@@ -182,6 +182,8 @@
         </header>
         @yield('content')
     </div>
+
+
     <input type="hidden" id="soundnotify" value="{{asset('public/sound/notification/notification.mp3')}}">
     <input type="hidden" id="delete_recored" value="{{__('successerr.delete_record')}}">
     <input type="hidden" id="change_currency" value="{{__('successerr.change_currency')}}" />
@@ -211,6 +213,7 @@
     <script src="{{asset('admin_panel/vendors/datatables.net-buttons/js/buttons.colVis.min.js')}}"></script>
     <script src="{{asset('admin_panel/assets/js/init-scripts/data-table/datatables-init.js')}}"></script>
     <script type="text/javascript" src="{{asset('public/js/admin.js').'?v=1365'}}"></script>
+    {{-- footer --}}
     @yield('footer')
 </body>
 
