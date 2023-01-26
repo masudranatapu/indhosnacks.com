@@ -523,7 +523,7 @@ $settings = DB::table('setting')
                 @endforeach
 
                 {{-- button --}}
-                <div class="col-12 see_more_btn text-center">
+                <div class="col-12 see_more_btn text-center mt-5">
                     <a href="#" class="btn btn-primary">See More</a>
                 </div>
 
