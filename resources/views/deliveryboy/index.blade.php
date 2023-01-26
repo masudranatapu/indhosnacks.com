@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="{{asset('admin_panel/vendors/flag-icon-css/css/flag-icon.min.css')}}">
     <link rel="stylesheet" href="{{asset('admin_panel/vendors/selectFX/css/cs-skin-elastic.css')}}">
     <link rel="stylesheet" href="{{asset('admin_panel/vendors/jqvmap/dist/jqvmap.min.css')}}">
-    <link rel="stylesheet" href="{{asset('admin_panel/assets/css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('admin_panel/assets/css/style.css?v=1')}}">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.8/js/jquery.dataTables.min.js"></script>

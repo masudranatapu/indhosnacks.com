@@ -6120,6 +6120,8 @@ button.navbar-toggler {
 .product_content h1 a {
     text-align: left;
     display: inline-block;
+    color: #212121;
+    transition: all 0.3s ease;
 }
 
 .product_content span {
@@ -6163,7 +6165,9 @@ button.navbar-toggler {
 
 
 
-
+#main_content {
+    margin-top: 120px;
+}
 
 
 @media screen and (max-width:450px) {

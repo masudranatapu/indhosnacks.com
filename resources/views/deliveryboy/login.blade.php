@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="{{url('admin_panel/vendors/themify-icons/css/themify-icons.css')}}">
     <link rel="stylesheet" href="{{url('admin_panel/vendors/flag-icon-css/css/flag-icon.min.css')}}">
     <link rel="stylesheet" href="{{url('admin_panel/vendors/selectFX/css/cs-skin-elastic.css')}}">
-    <link rel="stylesheet" href="{{url('admin_panel/assets/css/style.css')}}">
+    <link rel="stylesheet" href="{{url('admin_panel/assets/css/style.css?v=1')}}">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="{{asset('public/css/code.css').'?version=1'}}">
 </head>

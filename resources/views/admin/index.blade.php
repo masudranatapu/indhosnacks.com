@@ -24,9 +24,9 @@
     <link rel="stylesheet" href="{{asset('admin_panel/vendors/selectFX/css/cs-skin-elastic.css')}}">
     <link rel="stylesheet" href="{{asset('admin_panel/vendors/jqvmap/dist/jqvmap.min.css')}}">
     @if(__('messages.rtl')=='0')
-    <link rel="stylesheet" href="{{asset('admin_panel/assets/css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('admin_panel/assets/css/style.css?v=1')}}">
     @else
-    <link rel="stylesheet" href="{{asset('admin_panel/assets/css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('admin_panel/assets/css/style.css?v=1')}}">
     <link rel="stylesheet" href="{{asset('admin_panel/assets/css/rtl.css?v=159623')}}">
     @endif
 

@@ -22,7 +22,7 @@ $settings = DB::table('setting')
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     @if (__('messages.rtl') == '0')
-    <link rel="stylesheet" type="text/css" href="{{ asset('burger/css/style.css') . '?version=232132' }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('burger/css/style.css?v=1') . '?version=232132' }}">
     @else
     <link rel="stylesheet" type="text/css" href="{{ asset('burger/css/rtl.css') . '?version=56565' }}">
     @endif
