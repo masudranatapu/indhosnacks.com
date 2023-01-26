@@ -485,37 +485,40 @@ $settings = DB::table('setting')
 
 
     <!-- ============================ Must Popular item end ================================= -->
-    <div class="popular_item_section">
+    <div class="popular_item_section mb-5">
         <div class="container">
             <div class="heading mb-5 text-center">
                 <h1>{{ __('Our Most Popular Snacks') }}</h1>
             </div>
             <div class="row">
                 @foreach ($popular_snacks_item as $it)
-                <div class="col-sm-6 col-md-4 mb-4">
-                    <div class="shop_product snacks_products">
-                        <div class="card_product">
+                <div class="col-md-6 col-lg-4 mb-4">
+
+                    <div class="product_wrapper">
+                        <div class="product_img">
                             <a href="{{ url('detailitem/' . $it->id) }}">
                                 <img src="{{ asset('public/upload/images/menu_item_icon/' . $it->menu_image) }}"
                                     class="card-img-top" alt="{{ $it->menu_name }}">
                             </a>
-                            <div class="card_body">
-                                <h1 class="text-center"><a href="{{ url('detailitem/' . $it->id) }}">{{
-                                        $it->menu_name }}</a></h1>
-                                <p class="text-center">
-                                    {{ substr($it->description, 0, 75) }}
+                        </div>
+                        <div class="product_content">
+                            <h1>
+                                <a href="{{ url('detailitem/' . $it->id) }}">{{
+                                    $it->menu_name }}</a>
+                                <span>
+                                    <i class="fa fa-star"></i>
+                                    4.5
+                                </span>
+                            </h1>
+                            <div class="shop_price">
+                                <p>
+                                    <strong>{{ Session::get('usercurrency') }} {{ $it->price }}</strong>
+                                    <a href="{{ url('detailitem/' . $it->id) }}">{{ __('messages.addcart')
+                                        }}</a>
                                 </p>
-                                <div class="shop_price">
-                                    <p>
-                                        {{ Session::get('usercurrency') }} {{ $it->price }}
-                                        <a href="{{ url('detailitem/' . $it->id) }}">{{ __('messages.addcart')
-                                            }}</a>
-                                    </p>
-                                </div>
                             </div>
                         </div>
                     </div>
-
                 </div>
                 @endforeach
 
@@ -613,7 +616,7 @@ $settings = DB::table('setting')
     -->
 
     <!-- ============================ Popular item start ================================= -->
-    <div class="popular_section pt-5 pb-5">
+    {{-- <div class="popular_section pt-5 pb-5">
         <div class="container">
             <div class="heading mb-5 text-center">
                 <h1>{{ __('Popular Items') }}</h1>
@@ -647,7 +650,7 @@ $settings = DB::table('setting')
                 @endforeach
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- ============================ Popular item end ================================= -->
 
 
@@ -1021,7 +1024,7 @@ $settings = DB::table('setting')
     <script type="text/javascript" src="{{ URL::to('public/demo/button.js') . '?version=1' }}"></script>
     <script src="{{ URL::to('public/demo/script.js') . '?version=1111' }}"></script>
     <script>
-        // Testimonial carousel
+        // Banner
         $('.banner_item').owlCarousel({
             autoplay:true,
             autoplayTimeout:5000,

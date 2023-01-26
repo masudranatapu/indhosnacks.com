@@ -378,6 +378,7 @@ $settings = DB::table('setting')
 
 
         <!-- ============================ Category start ================================= -->
+        <!--
         <div class="category_section mt-4 mb-5">
             <div class="container">
                 <div class="heading mb-5 text-center">
@@ -406,6 +407,7 @@ $settings = DB::table('setting')
                 </div>
             </div>
         </div>
+         -->
         <!-- ============================ Category end ================================= -->
         <!--
         <div class="main-pizza-sb-2 mt-5 category_wrapper" style="margin-top:72px !important;">

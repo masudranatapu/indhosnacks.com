@@ -5630,7 +5630,6 @@ button.slick-arrow {
 }
 
 .shop_price {
-    border-top: 1px solid #f0f0f0;
     padding-top: 14px;
 }
 
@@ -5777,8 +5776,8 @@ button:focus {
 
 .header_section .nav-link {
     color: #212121 !important;
-    font-family: 'Roboto';
-    font-size: 17px;
+    font-family: 'Dancing Script', sans-serif;
+    font-size: 27px;
     font-weight: bold;
     padding: 0px 27px !important;
     transition: all 0.2s ease-out;
@@ -5889,10 +5888,9 @@ button:focus {
 
 .shop_price p a {
     float: right;
-    font-size: 12px;
-    border: 1px solid #dc354529;
-    background: #dc35451f;
-    padding: 6px 17px;
+    font-size: 13px;
+    border: 2px solid #212529;
+    padding: 8px 21px;
     border-radius: 50px;
     color: #212529;
     text-decoration: none;
@@ -5900,7 +5898,7 @@ button:focus {
 }
 
 .shop_price p a:hover {
-    background: #dc3545;
+    background: #212529;
     color: #fff;
 }
 
@@ -5999,14 +5997,17 @@ button.navbar-toggler {
 }
 
 .see_more_btn .btn-primary {
-    background: orange;
+    background: #FDCB00;
+    color: #212121;
     border: none;
-    padding: 10px 41px;
+    padding: 13px 49px;
     display: inline-block;
-    font-size: 15px;
+    font-size: 16px;
     border-radius: 50px;
     font-family: "Roboto";
     font-weight: 600;
+    outline: none !important;
+    box-shadow: none !important;
 }
 
 .see_more_btn .btn-primary:hover {
@@ -6074,8 +6075,8 @@ button.navbar-toggler {
 }
 
 .owl-dots button {
-    width: 10px;
-    height: 10px;
+    width: 8px;
+    height: 8px;
     background: #000 !important;
     margin: 4px !important;
     border-radius: 100px;
@@ -6097,6 +6098,71 @@ button.navbar-toggler {
     opacity: 0.09;
     color: #dc3545;
 }
+
+.product_wrapper {
+    height: 100%;
+    border-radius: 20px;
+    box-shadow: rgb(50 50 93 / 25%) 0px 50px 100px -20px, rgb(0 0 0 / 30%) 0px 30px 60px -30px;
+}
+
+
+.product_img img {
+    height: 349px;
+    border-radius: 20px 30px 0px 0px;
+}
+
+
+
+.product_content {
+    padding: 15px 15px;
+}
+
+.product_content h1 a {
+    text-align: left;
+    display: inline-block;
+}
+
+.product_content span {
+    color: #FDCB00;
+    font-size: 18px;
+}
+
+.product_content h1 {
+    vertical-align: middle;
+}
+
+
+.product_content h1 {
+    font-size: 20px;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    vertical-align: middle;
+}
+
+.product_content span {
+    float: right;
+    font-size: 16px;
+    vertical-align: middle;
+}
+
+.shop_price p strong {
+    color: #FDCB00;
+    padding-top: 9px !important;
+    display: inline-block;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @media screen and (max-width:450px) {
     .heading h1 {
