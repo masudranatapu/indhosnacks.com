@@ -1,28 +1,28 @@
-<?php
-function readMoreHelper($story_desc, $chars = 75)
-{
-    $story_desc = substr($story_desc, 0, $chars);
-    $story_desc = substr($story_desc, 0, strrpos($story_desc, ' '));
-    $story_desc = $story_desc . '...';
-    return $story_desc;
-}
-function headreadMoreHelper($story_desc, $chars = 75)
-{
-    $story_desc = substr($story_desc, 0, $chars);
-    $story_desc = substr($story_desc, 0, strrpos($story_desc, ' '));
-    $story_desc = $story_desc;
-    return $story_desc;
-}
+@php
+    function readMoreHelper($story_desc, $chars = 75)
+    {
+        $story_desc = substr($story_desc, 0, $chars);
+        $story_desc = substr($story_desc, 0, strrpos($story_desc, ' '));
+        $story_desc = $story_desc . '...';
+        return $story_desc;
+    }
+    function headreadMoreHelper($story_desc, $chars = 75)
+    {
+        $story_desc = substr($story_desc, 0, $chars);
+        $story_desc = substr($story_desc, 0, strrpos($story_desc, ' '));
+        $story_desc = $story_desc;
+        return $story_desc;
+    }
 
-$settings = DB::table('setting')
-    ->where('id', 1)
-    ->first();
-?>
+    $settings = DB::table('setting')
+        ->where('id', 1)
+        ->first();
+@endphp
+
 <!DOCTYPE html>
 <html>
 
 <head>
-
     <title>{{ __('messages.site_name') }}</title>
 
     <meta charset="UTF-8">
@@ -38,9 +38,9 @@ $settings = DB::table('setting')
 
     <link rel="shortcut icon" href="{{ asset('public/fav.png') }}">
     @if (__('messages.rtl') == '0')
-    <link rel="stylesheet" type="text/css" href="{{ asset('burger/css/style.css?v=1') . '?version=232132' }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('burger/css/style.css?v=1') . '?version=232132' }}">
     @else
-    <link rel="stylesheet" type="text/css" href="{{ asset('burger/css/rtl.css') . '?version=88888' }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('burger/css/rtl.css') . '?version=88888' }}">
     @endif
     <script type="text/javascript" src="{{ asset('burger/js/bootstrap.min.js') }}"></script>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.7.1/slick.css'>
@@ -63,8 +63,7 @@ $settings = DB::table('setting')
 
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script type="text/javascript" src="{{ asset('burger/js/dropdown.js') }}"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.5/slick.min.js">
-    </script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.5/slick.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lightslider/1.1.6/js/lightslider.js">
     </script>
 
@@ -77,6 +76,7 @@ $settings = DB::table('setting')
 </head>
 
 <body>
+
     @include('cookieConsent::index')
     @include('user.cssclass')
 
@@ -112,12 +112,12 @@ $settings = DB::table('setting')
                         <div class="login-modal" id="loginmodel">
                             <ul class="nav nav-tabs" role="tablist">
                                 <li class="nav-item">
-                                    <a href="#tab1" id="logintab" class="nav-link active" data-toggle="tab">{{
-                                        __('messages.login') }}</a>
+                                    <a href="#tab1" id="logintab" class="nav-link active"
+                                        data-toggle="tab">{{ __('messages.login') }}</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#tab2" id="regtab" class="nav-link" data-toggle="tab">{{
-                                        __('messages.register') }}</a>
+                                    <a href="#tab2" id="regtab" class="nav-link"
+                                        data-toggle="tab">{{ __('messages.register') }}</a>
                                 </li>
                             </ul>
                             <div class="tab-content">
@@ -135,8 +135,7 @@ $settings = DB::table('setting')
                                             value="{{ isset($_COOKIE['password']) ? $_COOKIE['password'] : '' }}">
                                     </form>
                                     <div class="modal-re">
-                                        <input type="checkbox" name="rem_me" value="1" <?php echo
-                                            isset($_COOKIE['rem_me']) ? 'checked' : '' ; ?>>
+                                        <input type="checkbox" name="rem_me" value="1" <?php echo isset($_COOKIE['rem_me']) ? 'checked' : ''; ?>>
                                         <p>{{ __('messages.rem_me') }}</p>
                                     </div>
                                     <span class="modal-forgot">
@@ -191,25 +190,25 @@ $settings = DB::table('setting')
         <div class="modal" id="myModal">
             <div class="modal-dialog modal-1">
                 <?php $cartCollection = Cart::getContent();
-               if($cartCollection->count()==0){
+                if($cartCollection->count()==0){
 
-                     echo '
-                     <div class="empty-box">
-                     <div class="modal-header cart-h">
-                      <button type="button" class="close" data-dismiss="modal">
-                      <img src="'.asset("burger/images/close.png").'">
-                      </button>
-                      </div>
-                      <div class="container">
-                      <div class="cart-modal-empty col-md-8">
-                      <img src="'.asset("burger/images/empty-cart.png").'">
-                      <h1>'.__("messages.nocart").'</h1>
+                        echo '
+                        <div class="empty-box">
+                        <div class="modal-header cart-h">
+                        <button type="button" class="close" data-dismiss="modal">
+                        <img src="'.asset("burger/images/close.png").'">
+                        </button>
                         </div>
-                         </div>
-                         </div>';
-                        }
-               else{
-                ?>
+                        <div class="container">
+                        <div class="cart-modal-empty col-md-8">
+                        <img src="'.asset("burger/images/empty-cart.png").'">
+                        <h1>'.__("messages.nocart").'</h1>
+                            </div>
+                            </div>
+                            </div>';
+                            }
+                else{
+                    ?>
                 <div class="modal-content">
                     <div class="modal-header cart-h">
                         <button type="button" class="close" data-dismiss="modal">
@@ -222,44 +221,43 @@ $settings = DB::table('setting')
                                 <?php $cartCollection = Cart::getContent();
                                 $i = 0; ?>
                                 @foreach ($cartCollection as $item)
-                                <div class="portfolio por-1 col-md-12 row">
-                                    <div class="por-img">
-                                        <div class="b-img">
-                                            @foreach ($allmenu as $ai)
-                                            @if ($item->name == $ai->menu_name)
-                                            <img src="{{ asset('public/upload/images/menu_item_icon/' . $ai->menu_image) }}"
-                                                width="85px">
-                                            @endif
-                                            @endforeach
+                                    <div class="portfolio por-1 col-md-12 row">
+                                        <div class="por-img">
+                                            <div class="b-img">
+                                                @foreach ($allmenu as $ai)
+                                                    @if ($item->name == $ai->menu_name)
+                                                        <img src="{{ asset('public/upload/images/menu_item_icon/' . $ai->menu_image) }}"
+                                                            width="85px">
+                                                    @endif
+                                                @endforeach
+                                            </div>
+                                        </div>
+                                        <div class="b-text">
+                                            <div class="box-spa">
+                                                <h1>{{ $item->name }}</h1>
+                                                <h2>
+                                                    @foreach ($item->attributes[0] as $cartinter)
+                                                        @foreach ($menu_interdient as $me)
+                                                            @if ($cartinter == $me->id)
+                                                                <span>{{ $me->item_name }},</span>
+                                                            @endif
+                                                        @endforeach
+                                                    @endforeach
+                                                </h2>
+                                                <p>{{ $item->quantity }} <img
+                                                        src="{{ asset('burger/images/cross.png') }}">
+                                                    {{ Session::get('usercurrency') . number_format($item->price, 2, '.', '') }}
+                                                </p>
+                                            </div>
+                                            <span class="price">
+                                                <?php $totalamount = (float) $item->quantity * (float) $item->price; ?>
+                                                <a href="{{ url('deletecartitem/' . $item->id) }}"><i
+                                                        class="fab fa-trash-o" aria-hidden="true"></i></a>
+                                                <h1>{{ Session::get('usercurrency') }}{{ number_format($totalamount, 2, '.', '') }}
+                                                </h1>
+                                            </span>
                                         </div>
                                     </div>
-                                    <div class="b-text">
-                                        <div class="box-spa">
-                                            <h1>{{ $item->name }}</h1>
-                                            <h2>
-                                                @foreach ($item->attributes[0] as $cartinter)
-                                                @foreach ($menu_interdient as $me)
-                                                @if ($cartinter == $me->id)
-                                                <span>{{ $me->item_name }},</span>
-                                                @endif
-                                                @endforeach
-                                                @endforeach
-                                            </h2>
-                                            <p>{{ $item->quantity }} <img src="{{ asset('burger/images/cross.png') }}">
-                                                {{ Session::get('usercurrency') . number_format($item->price, 2, '.',
-                                                '') }}
-                                            </p>
-                                        </div>
-                                        <span class="price">
-                                            <?php $totalamount = (float) $item->quantity * (float) $item->price; ?>
-                                            <a href="{{ url('deletecartitem/' . $item->id) }}"><i class="fab fa-trash-o"
-                                                    aria-hidden="true"></i></a>
-                                            <h1>{{ Session::get('usercurrency') }}{{ number_format($totalamount, 2, '.',
-                                                '') }}
-                                            </h1>
-                                        </span>
-                                    </div>
-                                </div>
                                 @endforeach
                             </div>
                             <div class="total">
@@ -303,7 +301,6 @@ $settings = DB::table('setting')
             </div>
         </div>
 
-        <!-- ============================ Header start ================================= -->
         <div class="header_section pt-3 pb-3">
             <div class="container">
                 <nav class="navbar navbar-expand-lg navbar-light p-0">
@@ -356,28 +353,28 @@ $settings = DB::table('setting')
                                 </a>
                                 <span class="mr-2">|</span>
                                 @if ($settings->facebook_id)
-                                <a href={{ $settings->facebook_id }}" target="_blank"><i class="fab fa-facebook"
-                                        aria-hidden="true"></i></a>
+                                    <a href={{ $settings->facebook_id }}" target="_blank"><i class="fab fa-facebook"
+                                            aria-hidden="true"></i></a>
                                 @endif
                                 @if ($settings->twitter_id)
-                                <a href="{{ $settings->twitter_id }}" target="_blank"><i class="fab fa-twitter"
-                                        aria-hidden="true"></i></a>
+                                    <a href="{{ $settings->twitter_id }}" target="_blank"><i class="fab fa-twitter"
+                                            aria-hidden="true"></i></a>
                                 @endif
                                 @if ($settings->linkedin_id)
-                                <a href="{{ $settings->linkedin_id }}" target="_blank"><i class="fab fa-linkedin"
-                                        aria-hidden="true"></i></a>
+                                    <a href="{{ $settings->linkedin_id }}" target="_blank"><i
+                                            class="fab fa-linkedin" aria-hidden="true"></i></a>
                                 @endif
                                 @if ($settings->whatsapp)
-                                <a href="{{ $settings->whatsapp }}" target="_blank"><i class="fab fa-whatsapp"
-                                        aria-hidden="true"></i></a>
+                                    <a href="{{ $settings->whatsapp }}" target="_blank"><i class="fab fa-whatsapp"
+                                            aria-hidden="true"></i></a>
                                 @endif
                                 @if ($settings->instragram_id)
-                                <a href="{{ $settings->instragram_id }}" target="_blank"><i
-                                        class="fab fa-instagram"></i></a>
+                                    <a href="{{ $settings->instragram_id }}" target="_blank"><i
+                                            class="fab fa-instagram"></i></a>
                                 @endif
                                 @if ($settings->tiktok_id)
-                                <a href="{{ $settings->tiktok_id }}" target="_blank"><i
-                                        class="fa-brands fa-tiktok"></i></a>
+                                    <a href="{{ $settings->tiktok_id }}" target="_blank"><i
+                                            class="fa-brands fa-tiktok"></i></a>
                                 @endif
                             </div>
                         </ul>
@@ -385,40 +382,23 @@ $settings = DB::table('setting')
                 </nav>
             </div>
         </div>
-        <!-- ============================ Header end ================================= -->
     </div>
-
-
-
-    <!-- ============================ Banner Carousel start ================================= -->
-
-    <div class="banner_carousel">
-        {{-- <div class="banner_content">
-            <h1>{{ __('messages.silder1h') }}</h1>
-            <h2>{{ __('messages.silderh2') }}</h2>
-            <p>{{ __('messages.silderp') }}.</p>
-        </div> --}}
+    @if ($sliders->count() > 0)
         <div class="banner_carousel">
-            <div class="banner_item owl-carousel">
-                {{-- slider item --}}
-                <div class="item">
-                    <img src="{{ asset('public/upload/web/banner.webp') }}" alt="">
-                </div>
-                {{-- slider item --}}
-                <div class="item">
-                    <img src="{{ asset('public/upload/web/banner.webp') }}" alt="">
-                </div>
-                {{-- slider item --}}
-                <div class="item">
-                    <img src="{{ asset('public/upload/web/banner.webp') }}" alt="">
+            <div class="banner_carousel">
+                <div class="banner_item owl-carousel">
+                    {{-- slider item --}}
+                    @foreach ($sliders as $slider)
+                        <div class="item">
+                            <img src=" @if ($slider->image) {{ asset($slider->image) }} @else {{ asset('public/upload/web/banner.webp') }} @endif"
+                                alt="">
+                        </div>
+                    @endforeach
                 </div>
             </div>
         </div>
-    </div>
-    <!-- ============================ Banner Carousel end ================================= -->
+    @endif
 
-
-    <!-- ============================ Category start ================================= -->
     <div class="category_section mt-4 mb-5">
         <div class="container">
             <div class="heading mb-5 text-center">
@@ -428,29 +408,29 @@ $settings = DB::table('setting')
                 <div class="category_carousel owl-carousel text-center">
                     {{-- category item --}}
                     @foreach ($category as $ca)
-                    <div class="item category_item">
-                        <div class="category_img">
-                            <a href="#">
-                                <?php $img = asset('public/upload/images/menu_cat_icon/') . '/' . $ca->cat_icon; ?>
-                                <img src="{{ asset($img) }}" alt="{{ $ca->cat_name }}">
-                            </a>
+                        <div class="item category_item">
+                            <div class="category_img">
+                                <a href="{{ route('shop.category', ['id' => $ca->id, 'name' => $ca->cat_name]) }}">
+                                    <?php $img = asset('public/upload/images/menu_cat_icon/') . '/' . $ca->cat_icon; ?>
+                                    <img src="{{ asset($img) }}" alt="{{ $ca->cat_name }}">
+                                </a>
+                            </div>
+                            <div class="category_name">
+                                <h3><a
+                                        href="{{ route('shop.category', ['id' => $ca->id, 'name' => $ca->cat_name]) }}">{{ $ca->cat_name }}</a>
+                                </h3>
+                            </div>
+                            <div class="category_btn">
+                                <a href="{{ route('shop.category', ['id' => $ca->id, 'name' => $ca->cat_name]) }}">Shop
+                                    <i class="fa fa-angle-right"></i></a>
+                            </div>
                         </div>
-                        <div class="category_name">
-                            <h3><a href="#">{{ $ca->cat_name }}</a></h3>
-                        </div>
-                        <div class="category_btn">
-                            <a href="#">Shop <i class="fa fa-angle-right"></i></a>
-                        </div>
-                    </div>
                     @endforeach
                 </div>
             </div>
         </div>
     </div>
-    <!-- ============================ Category end ================================= -->
 
-
-    <!-- ============================ special offer end ================================= -->
     <div class="discount_section mb-5">
         <div class="container">
             <div class="heading mb-5 text-center">
@@ -468,12 +448,14 @@ $settings = DB::table('setting')
                     <div class="special_offer_banner">
                         <div class="mb-3">
                             <a href="#">
-                                <img src="{{ asset('public/upload/web/banner/1.png') }}" class="w-100" alt="image">
+                                <img src="{{ asset('public/upload/web/banner/1.png') }}" class="w-100"
+                                    alt="image">
                             </a>
                         </div>
                         <div class="mb-3">
                             <a href="#">
-                                <img src="{{ asset('public/upload/web/banner/2.png') }}" class="w-100" alt="image">
+                                <img src="{{ asset('public/upload/web/banner/2.png') }}" class="w-100"
+                                    alt="image">
                             </a>
                         </div>
                     </div>
@@ -481,10 +463,7 @@ $settings = DB::table('setting')
             </div>
         </div>
     </div>
-    <!-- ============================ special offer end ================================= -->
 
-
-    <!-- ============================ Must Popular item end ================================= -->
     <div class="popular_item_section mb-5">
         <div class="container">
             <div class="heading mb-5 text-center">
@@ -492,170 +471,41 @@ $settings = DB::table('setting')
             </div>
             <div class="row">
                 @foreach ($popular_snacks_item as $it)
-                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="col-md-6 col-lg-4 mb-4">
 
-                    <div class="product_wrapper">
-                        <div class="product_img">
-                            <a href="{{ url('detailitem/' . $it->id) }}">
-                                <img src="{{ asset('public/upload/images/menu_item_icon/' . $it->menu_image) }}"
-                                    class="card-img-top" alt="{{ $it->menu_name }}">
-                            </a>
-                        </div>
-                        <div class="product_content">
-                            <h1>
-                                <a href="{{ url('detailitem/' . $it->id) }}">{{
-                                    $it->menu_name }}</a>
-                                <span>
-                                    <i class="fa fa-star"></i>
-                                    4.5
-                                </span>
-                            </h1>
-                            <div class="shop_price">
-                                <p>
-                                    <strong>{{ Session::get('usercurrency') }} {{ $it->price }}</strong>
-                                    <a href="{{ url('detailitem/' . $it->id) }}">{{ __('messages.addcart')
-                                        }}</a>
-                                </p>
+                        <div class="product_wrapper">
+                            <div class="product_img">
+                                <a href="{{ url('detailitem/' . $it->id) }}">
+                                    <img src="{{ asset('public/upload/images/menu_item_icon/' . $it->menu_image) }}"
+                                        class="card-img-top" alt="{{ $it->menu_name }}">
+                                </a>
                             </div>
-                        </div>
-                    </div>
-                </div>
-                @endforeach
-
-                {{-- button --}}
-                <div class="col-12 see_more_btn text-center mt-5">
-                    <a href="#" class="btn btn-primary">See More</a>
-                </div>
-
-            </div>
-        </div>
-    </div>
-    <!-- ============================ Must Popular item end ================================= -->
-
-
-
-    <!--
-    <div class="main-pizza-sb">
-        <div class="container">
-            <div class="carousel">
-                <?php $i = 0; ?>
-                @foreach ($category as $ca)
-                @if ($i == 0)
-                <div class="box King_script_active" id="box{{ $i }}"
-                    onclick="changecategory('{{ $ca->id }}','{{ $i }}')">
-                    @else
-                    <div class="box" id="box{{ $i }}" onclick="changecategory('{{ $ca->id }}','{{ $i }}')">
-                        @endif
-                        <button class="pizza-category-menu">
-                            <?php $img = asset('public/upload/images/menu_cat_icon/') . '/' . $ca->cat_icon; ?>
-                            <div class="pizza-content-box">
-                                <div class="pizza-content-imgb">
-                                    <img src="{{ asset($img) }}" alt="img">
-                                </div>
-                                <div class="pizza-content-textb">
-                                    <h3>{{ $ca->cat_name }}</h3>
-                                </div>
-                            </div>
-                        </button>
-                    </div>
-                    <?php $i++; ?>
-                    @endforeach
-                </div>
-            </div>
-        </div>
-        <input type="hidden" id="totalcategory" value="{{ $i }}">
-    </div>
-    -->
-    <!--
-    <div class="container">
-        <div class="portfolist_sb_b" id="portfoliolist">
-            <div class="row">
-                <?php $i = 0; ?>
-                @foreach ($category as $ca)
-                @if ($i == 0)
-                <div id="category{{ $i }}" class="mtcat">
-                    @else
-                    <div id="category{{ $i }}" style="display: none" class="mtcat">
-                        @endif
-                        @foreach ($items as $it)
-                        @if ($it->category == $ca->id)
-                        <div class="portfolio {{ $it->categoryitem->id }} col-md-6 burger w3-container  w3-animate-zoom portfoliocat"
-                            data-cat="{{ $it->categoryitem->id }}" data-bound>
-                            <div class="items">
-                                <div class="b-img">
-                                    <a href="{{ url('detailitem/' . $it->id) }}"><img
-                                            src="{{ asset('public/upload/images/menu_item_icon/' . $it->menu_image) }}"></a>
-                                </div>
-                                <div class="bor">
-                                    <div class="b-text">
-                                        <h1><a href="{{ url('detailitem/' . $it->id) }}">{{ $it->menu_name }}</a>
-                                        </h1>
-                                        <p>
-                                            {{ substr($it->description, 0, 75) }}
-                                        </p>
-                                    </div>
-                                    <div class="price">
-                                        <h1>{{ Session::get('usercurrency') }} {{ $it->price }}</h1>
-                                        <div class="cart">
-                                            <a href="{{ url('detailitem/' . $it->id) }}">{{ __('messages.addcart')
-                                                }}</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        @endif
-                        @endforeach
-                        <?php $i++; ?>
-                    </div>
-                    @endforeach
-                </div>
-            </div>
-        </div>
-    </div>
-    -->
-
-    <!-- ============================ Popular item start ================================= -->
-    {{-- <div class="popular_section pt-5 pb-5">
-        <div class="container">
-            <div class="heading mb-5 text-center">
-                <h1>{{ __('Popular Items') }}</h1>
-            </div>
-            <div class="row">
-                @foreach ($popular_item as $it)
-                <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
-                    <div class="shop_product">
-                        <div class="card_product">
-                            <a href="{{ url('detailitem/' . $it->id) }}">
-                                <img src="{{ asset('public/upload/images/menu_item_icon/' . $it->menu_image) }}"
-                                    class="card-img-top" alt="{{ $it->menu_name }}">
-                            </a>
-                            <div class="card_body">
-                                <h1 class="text-center"><a href="{{ url('detailitem/' . $it->id) }}">{{
-                                        $it->menu_name }}</a></h1>
-                                <p class="text-center">
-                                    {{ substr($it->description, 0, 75) }}
-                                </p>
+                            <div class="product_content">
+                                <h1>
+                                    <a href="{{ url('detailitem/' . $it->id) }}">{{ $it->menu_name }}</a>
+                                    <span>
+                                        <i class="fa fa-star"></i>
+                                        4.5
+                                    </span>
+                                </h1>
                                 <div class="shop_price">
                                     <p>
-                                        {{ Session::get('usercurrency') }} {{ $it->price }}
-                                        <a href="{{ url('detailitem/' . $it->id) }}">{{ __('messages.addcart')
-                                            }}</a>
+                                        <strong>{{ Session::get('usercurrency') }} {{ $it->price }}</strong>
+                                        <a
+                                            href="{{ url('detailitem/' . $it->id) }}">{{ __('messages.addcart') }}</a>
                                     </p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
                 @endforeach
+
+                <div class="col-12 see_more_btn text-center mt-5">
+                    <a href="#" class="btn btn-primary">See More</a>
+                </div>
             </div>
         </div>
-    </div> --}}
-    <!-- ============================ Popular item end ================================= -->
-
-
-
-    <!-- ============================ Testimonial start ================================= -->
+    </div>
     <div class="testimonial_section  pb-5">
         <div class="container">
             <div class="heading mb-5 text-center">
@@ -779,8 +629,8 @@ $settings = DB::table('setting')
             <div class="row align-items-center">
                 <div class="col-md-6">
                     {{-- <div class="play-logo">
-                        <img src="{{Session::get('logo')}}" width="200">
-                    </div> --}}
+                            <img src="{{Session::get('logo')}}" width="200">
+                        </div> --}}
                     <div class="play-b">
                         <img src="{{ Session::get('footer_up_img') }}" width="400">
                     </div>
@@ -819,16 +669,17 @@ $settings = DB::table('setting')
                     </ul>
                     <div class="row">
                         @if ($setting->have_playstore == '1')
-                        <div class="col-md-5 col-sm-5 col-5 google">
-                            <a href="{{ Session::get('playstore') }}" target="_blank"><img
-                                    src="{{ asset('burger/images/Google-Play-icon.png') }}" class="img-fluid"></a>
-                        </div>
+                            <div class="col-md-5 col-sm-5 col-5 google">
+                                <a href="{{ Session::get('playstore') }}" target="_blank"><img
+                                        src="{{ asset('burger/images/Google-Play-icon.png') }}"
+                                        class="img-fluid"></a>
+                            </div>
                         @endif
                         @if ($setting->have_appstore == '1')
-                        <div class="col-md-5 col-sm-5 col-5 apple">
-                            <a href="{{ Session::get('appstore') }}" target="_blank"><img
-                                    src="{{ asset('burger/images/App-Store-icon.png') }}" class="img-fluid"></a>
-                        </div>
+                            <div class="col-md-5 col-sm-5 col-5 apple">
+                                <a href="{{ Session::get('appstore') }}" target="_blank"><img
+                                        src="{{ asset('burger/images/App-Store-icon.png') }}" class="img-fluid"></a>
+                            </div>
                         @endif
                     </div>
 
@@ -845,32 +696,33 @@ $settings = DB::table('setting')
 
                         <div class="footer_widget mb-4 mt-3">
                             @if ($settings->footer_section)
-                            {!! $settings->footer_section !!}
+                                {!! $settings->footer_section !!}
                             @endif
                         </div>
                         <div class="footer-social">
                             @if ($settings->facebook_id)
-                            <a href={{ $settings->facebook_id }}" target="_blank"><i class="fab fa-facebook"
-                                    aria-hidden="true"></i></a>
+                                <a href={{ $settings->facebook_id }}" target="_blank"><i class="fab fa-facebook"
+                                        aria-hidden="true"></i></a>
                             @endif
                             @if ($settings->twitter_id)
-                            <a href="{{ $settings->twitter_id }}" target="_blank"><i class="fab fa-twitter"
-                                    aria-hidden="true"></i></a>
+                                <a href="{{ $settings->twitter_id }}" target="_blank"><i class="fab fa-twitter"
+                                        aria-hidden="true"></i></a>
                             @endif
                             @if ($settings->linkedin_id)
-                            <a href="{{ $settings->linkedin_id }}" target="_blank"><i class="fab fa-linkedin"
-                                    aria-hidden="true"></i></a>
+                                <a href="{{ $settings->linkedin_id }}" target="_blank"><i class="fab fa-linkedin"
+                                        aria-hidden="true"></i></a>
                             @endif
                             @if ($settings->whatsapp)
-                            <a href="{{ $settings->whatsapp }}" target="_blank"><i class="fab fa-whatsapp"
-                                    aria-hidden="true"></i></a>
+                                <a href="{{ $settings->whatsapp }}" target="_blank"><i class="fab fa-whatsapp"
+                                        aria-hidden="true"></i></a>
                             @endif
                             @if ($settings->instragram_id)
-                            <a href="{{ $settings->instragram_id }}" target="_blank"><i
-                                    class="fab fa-instagram"></i></a>
+                                <a href="{{ $settings->instragram_id }}" target="_blank"><i
+                                        class="fab fa-instagram"></i></a>
                             @endif
                             @if ($settings->tiktok_id)
-                            <a href="{{ $settings->tiktok_id }}" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+                                <a href="{{ $settings->tiktok_id }}" target="_blank"><i
+                                        class="fa-brands fa-tiktok"></i></a>
                             @endif
                         </div>
                     </div>
@@ -891,24 +743,22 @@ $settings = DB::table('setting')
                         </div>
                         <ul class="textdata">
                             @if (empty(Session::get('login_user')))
-                            <li><a href="#" data-toggle="modal" data-target="#myModal1">{{
-                                    __('messages.myorder')
-                                    }}</a></li>
+                                <li><a href="#" data-toggle="modal"
+                                        data-target="#myModal1">{{ __('messages.myorder') }}</a></li>
                             @endif
                             @if (!empty(Session::get('login_user')))
-                            <li><a href="{{ url('myaccount') }}">{{ __('messages.myorder') }}</a></li>
+                                <li><a href="{{ url('myaccount') }}">{{ __('messages.myorder') }}</a></li>
                             @endif
                             <?php $cartCollection = Cart::getContent(); ?>
                             @if (count($cartCollection) != 0)
-                            <li><a href="{{ url('cartdetails') }}">{{ __('messages.checkout') }}</a></li>
+                                <li><a href="{{ url('cartdetails') }}">{{ __('messages.checkout') }}</a></li>
                             @endif
                             @if (count($cartCollection) == 0)
-                            <li><a href="#" data-toggle="modal" data-target="#myModal">{{
-                                    __('messages.checkout')
-                                    }}</a></li>
+                                <li><a href="#" data-toggle="modal"
+                                        data-target="#myModal">{{ __('messages.checkout') }}</a></li>
                             @endif
-                            <li><a href="#" data-toggle="modal" data-target="#myModal">{{ __('messages.cart')
-                                    }}</a>
+                            <li><a href="#" data-toggle="modal"
+                                    data-target="#myModal">{{ __('messages.cart') }}</a>
                             </li>
                             <li><a href="{{ url('termofuse') }}">{{ __('messages.terms') }}</a></li>
                         </ul>
@@ -987,8 +837,8 @@ $settings = DB::table('setting')
                     <p>{{ Session::get('user_phone') }}</p>
                     <h1>{{ __('messages.logout_msg') }}</h1>
                     <div class="logout-but">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">{{ __('messages.cancel')
-                            }}</button>
+                        <button type="button" class="btn btn-danger"
+                            data-dismiss="modal">{{ __('messages.cancel') }}</button>
                         <button type="button" class="btn-1" data-dismiss="modal" onclick="logout()"><i
                                 class="fab fa-sign-out" aria-hidden="true"></i>{{ __('messages.logout') }}
                         </button>
@@ -1026,13 +876,13 @@ $settings = DB::table('setting')
     <script>
         // Banner
         $('.banner_item').owlCarousel({
-            autoplay:true,
-            autoplayTimeout:5000,
-            autoplayHoverPause:false,
+            autoplay: true,
+            autoplayTimeout: 5000,
+            autoplayHoverPause: false,
             center: true,
             center: true,
             loop: true,
-            items:1,
+            items: 1,
             responsive: {
                 0: {
                     items: 1
@@ -1046,7 +896,7 @@ $settings = DB::table('setting')
             autoplayTimeout: 5000,
             autoplayHoverPause: false,
             loop: true,
-            items:5,
+            items: 5,
             margin: 15,
             nav: false,
             dots: false,
@@ -1071,12 +921,12 @@ $settings = DB::table('setting')
 
         // Testimonial carousel
         $('.testimonial_carousel').owlCarousel({
-            autoplay:true,
-            autoplayTimeout:5000,
-            autoplayHoverPause:true,
+            autoplay: true,
+            autoplayTimeout: 5000,
+            autoplayHoverPause: true,
             loop: true,
-            dots:true,
-            items:3,
+            dots: true,
+            items: 3,
             responsive: {
                 0: {
                     items: 1,

@@ -16,6 +16,7 @@ class PagesController extends Controller
         $data=Page::latest()->get();
         return view('admin.page',compact('data'));
     }
+
     public function savewebpage(Request $request, $id){
 
         $pages= Page::where('id', $id)->first();
@@ -28,7 +29,7 @@ class PagesController extends Controller
 
         if(isset($pageimage)) {
             $page_image_name = $slug.'-'.uniqid().'.'.$pageimage->getClientOriginalExtension();
-            $upload_path = 'media/pagesimage/';
+            $upload_path = 'public/media/pagesimage/';
             $pageimage->move($upload_path, $page_image_name);
 
             $oldImage= Page::where('id', $id)->first();

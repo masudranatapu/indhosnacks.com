@@ -1,26 +1,18 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
-Route::get('/cc', function() {
-    \Artisan::call('cache:clear');
-    \Artisan::call('view:clear');
-    \Artisan::call('route:clear');
-    \Artisan::call('config:clear');
-    \Artisan::call('config:cache');
-	return 'DONE';
-});
+use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\PagesController;
+use Illuminate\Support\Facades\Artisan;
+
+Route::get('/cc', function() {
+    Artisan::call('cache:clear');
+    Artisan::call('view:clear');
+    Artisan::call('route:clear');
+    Artisan::call('config:clear');
+    Artisan::call('config:cache');
+	return 'DONE';
+});
 
 Route::group(['middleware' => ['XSS']], function () {
 
@@ -34,12 +26,13 @@ Route::group(['middleware' => ['XSS']], function () {
         Artisan::call('route:clear');
         return "config is cleared";
     });
+
     Route::get("/admin", "AuthenticationController@showlogin")->name("showlogin");
     Route::post("postlogin", "AuthenticationController@postlogin")->name("postlogin");
     Route::get("logout", "AuthenticationController@logout")->name("logout");
 
     //website
-    Route::get("/", "frontController@index");
+    Route::get("/", "frontController@index")->name('website.home');
     Route::get("addcart/{item_id}", "Cartcontroller@addcart");
     Route::get("detailitem/{id}", "frontController@detailitem");
     Route::get("addcartitem", "Cartcontroller@addcartitem");
@@ -53,6 +46,7 @@ Route::group(['middleware' => ['XSS']], function () {
     Route::get("user_logout", "AppuserController@logout");
     Route::get("forgotpassword", "AppuserController@forgotpassword");
     route::get("aboutus", "frontController@showaboutus");
+    route::get("shop/category/{id}/{name}", "frontController@shopCategory")->name('shop.category');
     route::get("shop", "frontController@shop");
     route::get("service", "frontController@showservice");
     route::get("contactus", "frontController@showcontactus");
@@ -74,6 +68,7 @@ Route::group(['middleware' => ['XSS']], function () {
     Route::post('paypal', array('as' => 'paypal', 'uses' => 'PaypalController@postPaymentWithpaypal',));
     Route::get('paypal', array('as' => 'status', 'uses' => 'PaypalController@getPaymentStatus',));
 });
+
 //admin
 
 Route::group(['middleware' => ['admincheckexiste']], function () {
@@ -91,17 +86,20 @@ Route::group(['middleware' => ['admincheckexiste']], function () {
     Route::get("index", "PagesController@index");
     Route::post("savewebpage/{id}", "PagesController@savewebpage")->name('savewebpage');
 
-
     // slider
      Route::get("sliders", "SliderController@index")->name("slider.index");
+     Route::post("sliders/store", "SliderController@store")->name("slider.store");
+     Route::post("sliders/update/{id}", "SliderController@update")->name("slider.update");
+     Route::get("sliders/delete/{id}", "SliderController@delete")->name("slider.delete");
 
     // discount Banner
     Route::get("banners", "BannerController@index")->name("banner.index");
+    Route::post("banner/store", "BannerController@store")->name("banner.store");
+    Route::post("banner/update/{id}", "BannerController@update")->name("banner.update");
+    Route::get("banner/delete/{id}", "BannerController@delete")->name("banner.delete");
 
     // testimonial
     Route::get("testimonials", "TestimonialController@index")->name("review.index");
-
-
     //menu category
     Route::get("category", "CategoryController@showcategory")->name("showcategory");
     Route::get("categorydatatable", "CategoryController@categorydatatable")->name("categorydatatable");
@@ -110,12 +108,8 @@ Route::group(['middleware' => ['admincheckexiste']], function () {
     Route::get("editmenu/{id}", "CategoryController@editmenu")->name("editmenu");
     Route::post("updatecategory", "CategoryController@updatecategory")->name("updatecategory");
     Route::get("changesettingorderstatus/{status}", "AuthenticationController@changesettingorderstatus");
-
-
     Route::get("orders", "AuthenticationController@AllOrder");
-
     //menu item
-
     Route::get("menuitem", "ItemController@index")->middleware('admincheckexiste');
     Route::get("itemdatatable", "ItemController@itemdatatable")->name('itemdatatable');
     Route::post("add_menu_item", "ItemController@add_menu_item")->name("add_menu_item");
@@ -123,10 +117,8 @@ Route::group(['middleware' => ['admincheckexiste']], function () {
     Route::post("update_menu_item", "ItemController@update_menu_item")->name("update_menu_item");
     Route::get("getitem/{id}", "ItemController@getitem")->name("getitem");
     Route::get("deleteitem/{id}", "ItemController@delete");
-
     Route::get("contactusls", "CityController@contactusls");
     Route::get("contactdatatable", "CityController@contactdatatable");
-
     //menu ingredients
     Route::get("menuingredients", "IngredientsController@index");
     Route::get("ingredientsdatatable", "IngredientsController@ingredientsdatatable")->name('ingredientsdatatable');
@@ -134,13 +126,10 @@ Route::group(['middleware' => ['admincheckexiste']], function () {
     Route::get("editing/{id}", "IngredientsController@editing")->name("editing");
     route::post("update_menu_ingre", "IngredientsController@update_menu_ingre")->name("update_menu_ingre");
     Route::get("deleteinge/{id}", "IngredientsController@delete");
-
-
     //user
     Route::get("users", "AuthenticationController@showuser");
     Route::get("userdatatable", "AuthenticationController@userdatatable")->name("userdatatable");
     Route::get("deleteuser/{id}", "AuthenticationController@deleteuser");
-
     //deliveryboy
     Route::get("deliveryboys", "DeliveryController@index");
     Route::get("deliverydatatable", "DeliveryController@deliverydatatable")->name("deliverydatatable");
@@ -148,7 +137,6 @@ Route::group(['middleware' => ['admincheckexiste']], function () {
     Route::get("deleteboy/{id}", "DeliveryController@delete");
     Route::get("editdeliveryboys/{id}", "DeliveryController@editdeliveryboys");
     Route::post("update_delivery_boy", "DeliveryController@update_delivery_boy");
-
     //city
     Route::get("city", "CityController@showcity");
     Route::get("citydatatable", "CityController@citydatatable");
@@ -156,7 +144,6 @@ Route::group(['middleware' => ['admincheckexiste']], function () {
     Route::get("editcity/{id}", "CityController@editcity");
     Route::post("update_city", "CityController@update_city");
     Route::get("deletecity/{id}", "CityController@delete");
-
     //notification
     Route::get("sendnotification", "NotificationController@index");
     Route::get("notificationdatatable", "NotificationController@notificationdatatable")->name("notificationdatatable");
@@ -182,10 +169,10 @@ Route::group(['middleware' => ['admincheckexiste']], function () {
     Route::get("readyforpickup/{id}/{status}", "OrderController@readyforpickup");
     Route::get("waitingforpickup/{id}", "OrderController@waitingforpickup");
     Route::get("notification/{id}", "OrderController@notification");
+
 });
 
 Route::group(['prefix' => 'deliveryboy'], function () {
-
     Route::get("/", "DeliveryController@login");
     Route::post("postlogin", "DeliveryController@postlogin");
 
@@ -209,5 +196,6 @@ Route::group(['prefix' => 'deliveryboy'], function () {
         Route::get("outofdelivery/{id}", "DeliveryController@outofdelivery");
         Route::get("ordercomplete/{id}", "DeliveryController@ordercomplete");
     });
+
 });
 

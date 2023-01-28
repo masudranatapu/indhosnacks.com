@@ -151,11 +151,12 @@
                             <p class="red" id="notificationmsg"></p>
                         </div>
                     </div>
-
                 </div>
 
                 <div class="col-sm-1">
-
+                    <a href="{{ route('website.home') }}" target="__blank" title="View Website">
+                        <i class="fa fa-globe mt-2"></i>
+                    </a>
                     <div class="user-area dropdown float-right">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false">
