@@ -94,12 +94,15 @@ Route::group(['middleware' => ['admincheckexiste']], function () {
 
     // discount Banner
     Route::get("banners", "BannerController@index")->name("banner.index");
-    Route::post("banner/store", "BannerController@store")->name("banner.store");
+    // Route::post("banner/store", "BannerController@store")->name("banner.store");
     Route::post("banner/update/{id}", "BannerController@update")->name("banner.update");
-    Route::get("banner/delete/{id}", "BannerController@delete")->name("banner.delete");
+    // Route::get("banner/delete/{id}", "BannerController@delete")->name("banner.delete");
 
     // testimonial
     Route::get("testimonials", "TestimonialController@index")->name("review.index");
+    Route::post("testimonials/store", "TestimonialController@store")->name("review.storte");
+    Route::post("testimonials/update/{id}", "TestimonialController@update")->name("review.update");
+    Route::get("testimonials/delete/{id}", "TestimonialController@delete")->name("review.delete");
     //menu category
     Route::get("category", "CategoryController@showcategory")->name("showcategory");
     Route::get("categorydatatable", "CategoryController@categorydatatable")->name("categorydatatable");

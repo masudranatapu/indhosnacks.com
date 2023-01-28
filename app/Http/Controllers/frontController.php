@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Banner;
 use App\Http\Controllers\Controller as Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\LoginRequest;
@@ -21,6 +22,7 @@ use App\Contact;
 use App\City;
 use App\OrderResponse;
 use App\Slider;
+use App\Testimonial;
 use Share;
 use DB;
 
@@ -111,8 +113,12 @@ class frontController extends Controller
         $popular_snacks_item = Item::latest()->with('categoryitem')->where('category', 8)->where("is_deleted", '0')->take(3)->get();
 
         $sliders = Slider::where('status', 1)->orderBy('order_id', 'DESC')->get();
-
-        return view("user.index")->with('sliders', $sliders)->with("category", $category)->with("items", $item)->with("ingredient", $inter)->with("allmenu", $allmenu)->with("setting", $setting)->with('popular_item', $popular_item)->with('popular_snacks_item', $popular_snacks_item);
+        $banners = Banner::where('status', 1)->get();
+        $bannersone = Banner::where('id', 1)->where('status', 1)->first();
+        $bannerstwo = Banner::where('id', 2)->where('status', 1)->first();
+        $bannersthree = Banner::where('id', 3)->where('status', 1)->first();
+        $testimonials = Testimonial::where('status', 1)->get();
+        return view("user.index")->with('testimonials', $testimonials)->with('bannersone', $bannersone)->with('bannerstwo', $bannerstwo)->with('bannersthree', $bannersthree)->with('banners', $banners)->with('sliders', $sliders)->with("category", $category)->with("items", $item)->with("ingredient", $inter)->with("allmenu", $allmenu)->with("setting", $setting)->with('popular_item', $popular_item)->with('popular_snacks_item', $popular_snacks_item);
     }
 
     public function detailitem($item_id)

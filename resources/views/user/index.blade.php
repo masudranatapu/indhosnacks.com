@@ -430,40 +430,46 @@
             </div>
         </div>
     </div>
-
-    <div class="discount_section mb-5">
-        <div class="container">
-            <div class="heading mb-5 text-center">
-                <h1>{{ __('Special Offers & Discounts') }}</h1>
-            </div>
-            <div class="row">
-                <div class="col-lg-6 mb-3">
-                    <div class="special_offer_banner">
-                        <a href="#">
-                            <img src="{{ asset('public/upload/web/banner/3.png') }}" class="w-100" alt="image">
-                        </a>
-                    </div>
+    @if($banners->count()> 0)
+        <div class="discount_section mb-5">
+            <div class="container">
+                <div class="heading mb-5 text-center">
+                    <h1>{{ __('Special Offers & Discounts') }}</h1>
                 </div>
-                <div class="col-lg-6">
-                    <div class="special_offer_banner">
-                        <div class="mb-3">
-                            <a href="#">
-                                <img src="{{ asset('public/upload/web/banner/1.png') }}" class="w-100"
-                                    alt="image">
-                            </a>
-                        </div>
-                        <div class="mb-3">
-                            <a href="#">
-                                <img src="{{ asset('public/upload/web/banner/2.png') }}" class="w-100"
-                                    alt="image">
-                            </a>
+                <div class="row">
+                    <div class="col-lg-6 mb-3">
+                        @if($bannersone)
+                            <div class="special_offer_banner">
+                                <a href="{{ $bannersone->link ?? '#'}}">
+                                    <img src="@if($bannersone->image) {{ asset($bannersone->image) }} @else {{ asset('public/upload/web/banner/3.png') }} @endif" class="w-100" alt="image">
+                                </a>
+                            </div>
+                        @endif
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="special_offer_banner">
+                            @if($bannerstwo)
+                                <div class="mb-3">
+                                    <a href="{{ $bannerstwo->link ?? '#'}}">
+                                        <img src="@if($bannerstwo->image) {{ asset($bannerstwo->image) }} @else{{ asset('public/upload/web/banner/1.png') }} @endif" class="w-100"
+                                            alt="image">
+                                    </a>
+                                </div>
+                            @endif
+                            @if($bannersthree)
+                                <div class="mb-3">
+                                    <a href="{{ $bannersthree->link ?? '#' }}">
+                                        <img src="@if($bannersthree->image) {{ asset($bannersthree->image) }} @else {{ asset('public/upload/web/banner/2.png') }} @endif" class="w-100"
+                                            alt="image">
+                                    </a>
+                                </div>
+                            @endif
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-
+    @endif
     <div class="popular_item_section mb-5">
         <div class="container">
             <div class="heading mb-5 text-center">
@@ -506,120 +512,40 @@
             </div>
         </div>
     </div>
-    <div class="testimonial_section  pb-5">
-        <div class="container">
-            <div class="heading mb-5 text-center">
-                <h1>{{ __('What Our Clients Say About Us') }}</h1>
-            </div>
-            <div class="row">
-                <div class="testimonial_carousel owl-carousel">
-                    {{-- review item --}}
-                    <div class="item text-center">
-                        <div class="client_review_item">
-                            <div class="client_img">
-                                <img src="{{ asset('public/upload/web/user/1.jpg') }}" alt="John Doe">
+    @if($testimonials->count() > 0)
+        <div class="testimonial_section  pb-5">
+            <div class="container">
+                <div class="heading mb-5 text-center">
+                    <h1>{{ __('What Our Clients Say About Us') }}</h1>
+                </div>
+                <div class="row">
+                    <div class="testimonial_carousel owl-carousel">
+                        {{-- review item --}}
+                        @foreach($testimonials as $data)
+                            <div class="item text-center">
+                                <div class="client_review_item">
+                                    <div class="client_img">
+                                        <img src="{{ asset($data->image) }}" alt="John Doe">
+                                    </div>
+                                    <div class="client_name">
+                                        <h3>{{ $data->name }}</h3>
+                                    </div>
+                                    <div class="quote_icon">
+                                        <i class="fa-solid fa-quote-left"></i>
+                                    </div>
+                                    <div class="client_review" style="min-height: 110px;">
+                                        <p>
+                                            {!! $data->details !!}
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="client_name">
-                                <h3>John Doe</h3>
-                            </div>
-                            <div class="quote_icon">
-                                <i class="fa-solid fa-quote-left"></i>
-                            </div>
-                            <div class="client_review">
-                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dicta libero voluptate et
-                                    molestias magnam culpa rerum quos placeat natus voluptatibus consectetur ab
-                                    repellendus
-                                    dolorum, totam error accusantium impedit non iste?</p>
-                            </div>
-                        </div>
-                    </div>
-                    {{-- review item --}}
-                    <div class="item text-center">
-                        <div class="client_review_item">
-                            <div class="client_img">
-                                <img src="{{ asset('public/upload/web/user/2.jpg') }}" alt="John Doe">
-                            </div>
-                            <div class="client_name">
-                                <h3>John Doe</h3>
-                            </div>
-                            <div class="quote_icon">
-                                <i class="fa-solid fa-quote-left"></i>
-                            </div>
-                            <div class="client_review">
-                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dicta libero voluptate et
-                                    molestias magnam culpa rerum quos placeat natus voluptatibus consectetur ab
-                                    repellendus
-                                    dolorum, totam error accusantium impedit non iste?</p>
-                            </div>
-                        </div>
-                    </div>
-                    {{-- review item --}}
-                    <div class="item text-center">
-                        <div class="client_review_item">
-                            <div class="client_img">
-                                <img src="{{ asset('public/upload/web/user/3.jpg') }}" alt="John Doe">
-                            </div>
-                            <div class="client_name">
-                                <h3>John Doe</h3>
-                            </div>
-                            <div class="quote_icon">
-                                <i class="fa-solid fa-quote-left"></i>
-                            </div>
-                            <div class="client_review">
-                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dicta libero voluptate et
-                                    molestias magnam culpa rerum quos placeat natus voluptatibus consectetur ab
-                                    repellendus
-                                    dolorum, totam error accusantium impedit non iste?</p>
-                            </div>
-                        </div>
-                    </div>
-                    {{-- review item --}}
-                    <div class="item text-center">
-                        <div class="client_review_item">
-                            <div class="client_img">
-                                <img src="{{ asset('public/upload/web/user/1.jpg') }}" alt="John Doe">
-                            </div>
-                            <div class="client_name">
-                                <h3>John Doe</h3>
-                            </div>
-                            <div class="quote_icon">
-                                <i class="fa-solid fa-quote-left"></i>
-                            </div>
-                            <div class="client_review">
-                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dicta libero voluptate et
-                                    molestias magnam culpa rerum quos placeat natus voluptatibus consectetur ab
-                                    repellendus
-                                    dolorum, totam error accusantium impedit non iste?</p>
-                            </div>
-                        </div>
-                    </div>
-                    {{-- review item --}}
-                    <div class="item text-center">
-                        <div class="client_review_item">
-                            <div class="client_img">
-                                <img src="{{ asset('public/upload/web/user/3.jpg') }}" alt="John Doe">
-                            </div>
-                            <div class="client_name">
-                                <h3>John Doe</h3>
-                            </div>
-                            <div class="quote_icon">
-                                <i class="fa-solid fa-quote-left"></i>
-                            </div>
-                            <div class="client_review">
-                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dicta libero voluptate et
-                                    molestias magnam culpa rerum quos placeat natus voluptatibus consectetur ab
-                                    repellendus
-                                    dolorum, totam error accusantium impedit non iste?</p>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- ============================ Testimonial end ================================= -->
-
-
+    @endif
 
     <div class="play">
         <div class="container">
