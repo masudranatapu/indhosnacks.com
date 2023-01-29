@@ -9,20 +9,20 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-    <title>{{__('messages.site_name')}}</title>
-    <meta property="og:url" content="{{__('messages.site_name')}}" />
-    <meta property="og:title" content="{{__('messages.site_name')}}" />
-    <meta property="og:image" content="{{asset('public/favicon.png')}}" />
+    <title>{{ __('messages.site_name') }}</title>
+    <meta property="og:url" content="{{ __('messages.site_name') }}" />
+    <meta property="og:title" content="{{ __('messages.site_name') }}" />
+    <meta property="og:image" content="{{ asset('public/favicon.png') }}" />
     <meta property="og:image:width" content="250px" />
     <meta property="og:image:height" content="250px" />
-    <meta property="og:site_name" content="{{__('messages.site_name')}}" />
-    <meta property="og:description" content="{{__('messages.metadescweb')}}" />
-    <meta property="og:keyword" content="{{__('messages.metakeyboard')}}" />
-    <link rel="shortcut icon" href="{{asset('public/favicon.png')}}">
+    <meta property="og:site_name" content="{{ __('messages.site_name') }}" />
+    <meta property="og:description" content="{{ __('messages.metadescweb') }}" />
+    <meta property="og:keyword" content="{{ __('messages.metakeyboard') }}" />
+    <link rel="shortcut icon" href="{{ asset('public/favicon.png') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     @if (__('messages.rtl') == '0')
-        <link rel="stylesheet" type="text/css" href="{{ asset('burger/css/style.css') . '?version=232132' }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('burger/css/style.css?v=1') . '?version=232132' }}">
     @else
         <link rel="stylesheet" type="text/css" href="{{ asset('burger/css/rtl.css') . '?version=56565' }}">
     @endif
@@ -35,6 +35,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.7.1/slick.css'>
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
@@ -50,8 +53,9 @@
     <script type="text/javascript" src="{{ asset('burger/js/jquery.mixitup.min.js') }}"></script>
     <script type="text/javascript" src="{{ URL::to('public/js/code.js') }}"></script>
     <script type="text/javascript" src="{{ asset('burger/js/bootstrap.min.js') }}"></script>
+
     <script type="text/javascript"
-        src='https://maps.google.com/maps/api/js?key={{ Config::get('mapdetail.key') }}&sensor=false&libraries=places'>
+        src='https://maps.google.com/maps/api/js?key={{ Config::get(' mapdetail.key') }}&sensor=false&libraries=places'>
     </script>
     <script src="{{ url('public/js/locationpicker.js') }}"></script>
 </head>
@@ -371,45 +375,81 @@
         <!-- ============================ Header end ================================= -->
 
 
+
+        <!-- ============================ Category start ================================= -->
+        <!--
+        <div class="category_section mt-4 mb-5">
+            <div class="container">
+                <div class="heading mb-5 text-center">
+                    <h1>{{ __('Categories') }}</h1>
+                </div>
+                <div class="category_wrapper">
+                    <div class="category_carousel owl-carousel text-center">
+                        {{-- category item --}}
+                        @foreach ($category as $ca)
+<div class="item category_item">
+                            <div class="category_img">
+                                <a href="#">
+                                    <?php $img = asset('public/upload/images/menu_cat_icon/') . '/' . $ca->cat_icon; ?>
+                                    <img src="{{ asset($img) }}" alt="{{ $ca->cat_name }}">
+                                </a>
+                            </div>
+                            <div class="category_name">
+                                <h3><a href="#">{{ $ca->cat_name }}</a></h3>
+                            </div>
+                            <div class="category_btn">
+                                <a href="#">Shop <i class="fa fa-angle-right"></i></a>
+                            </div>
+                        </div>
+@endforeach
+                    </div>
+                </div>
+            </div>
+        </div>
+         -->
+        <!-- ============================ Category end ================================= -->
+        <!--
         <div class="main-pizza-sb-2 mt-5 category_wrapper" style="margin-top:72px !important;">
             <div class="container">
                 <div class="carousel">
-                    <?php $i=0;?>
-                    @foreach($category as $ca)
-                    <div class="box" id="box{{$i}}" onclick="changecategory('{{$ca->id}}','{{$i}}')">
+                    <?php $i = 0; ?>
+                    @foreach ($category as $ca)
+<div class="box" id="box{{ $i }}" onclick="changecategory('{{ $ca->id }}','{{ $i }}')">
                         <button class="pizza-category-menu">
-                            <?php $img=asset('public/upload/images/menu_cat_icon/').'/'.$ca->cat_icon; ?>
-                            @if(isset($itemdetails->category)&&$itemdetails->category==$ca->id)
-                            <div class="pizza-content-box slick-slide active" id="catdiv{{$i}}">
-                                @else
-                                <div class="pizza-content-box" id="catdiv{{$i}}">
-                                    @endif
+                            <?php $img = asset('public/upload/images/menu_cat_icon/') . '/' . $ca->cat_icon; ?>
+                            @if (isset($itemdetails->category) && $itemdetails->category == $ca->id)
+<div class="pizza-content-box slick-slide active" id="catdiv{{ $i }}">
+@else
+<div class="pizza-content-box" id="catdiv{{ $i }}">
+@endif
                                     <div class="pizza-content-imgb">
-                                        <img src="{{asset($img)}}" alt="img">
+                                        <img src="{{ asset($img) }}" alt="img">
                                     </div>
                                     <div class="pizza-content-textb">
-                                        @if(isset($itemdetails->category)&&$itemdetails->category==$ca->id)
-                                        <h3 id="cat1{{$i}}" class="slick-slide active">{{$ca->cat_name}}</h3>
-                                        @else
-                                        <h3 id="cat1{{$i}}">{{$ca->cat_name}}</h3>
-                                        @endif
+                                        @if (isset($itemdetails->category) && $itemdetails->category == $ca->id)
+<h3 id="cat1{{ $i }}" class="slick-slide active">{{ $ca->cat_name }}</h3>
+@else
+<h3 id="cat1{{ $i }}">{{ $ca->cat_name }}</h3>
+@endif
 
                                     </div>
                                 </div>
                         </button>
                     </div>
-                    <?php $i++;?>
-                    @endforeach
+                    <?php $i++; ?>
+@endforeach
                 </div>
             </div>
         </div>
-        <input type="hidden" id="totalcategory" value="{{$i}}">
+ -->
 
-        <div class="container">
+        {{-- <input type="hidden" id="totalcategory" value="{{$i}}"> --}}
+
+        {{-- <div class="container">
             <div class="portfolist_sb_b" id="category_div">
 
             </div>
-        </div>
+        </div> --}}
 
         <div id="main_content">
             @yield('content')
@@ -419,143 +459,143 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-3 about mt-4">
-                            <img src="{{Session::get('logo')}}">
-                            <p>{{__('messages.footer_text')}}</p>
+                            <img src="{{ Session::get('logo') }}">
+                            <p>{{ __('messages.footer_text') }}</p>
                             <div class="footer-social">
-                                @if($settings->facebook_id)
-                                <a href={{ $settings->facebook_id }}" target="_blank"><i class="fab fa-facebook"
-                                        aria-hidden="true"></i></a>
-                            @endif
-                            @if ($settings->twitter_id)
-                                <a href="{{ $settings->twitter_id }}" target="_blank"><i class="fab fa-twitter"
-                                        aria-hidden="true"></i></a>
-                            @endif
-                            @if ($settings->linkedin_id)
-                                <a href="{{ $settings->linkedin_id }}" target="_blank"><i class="fab fa-linkedin"
-                                        aria-hidden="true"></i></a>
-                            @endif
-                            @if ($settings->whatsapp)
-                                <a href="{{ $settings->whatsapp }}" target="_blank"><i class="fab fa-whatsapp"
-                                        aria-hidden="true"></i></a>
-                            @endif
-                            @if ($settings->instragram_id)
-                                <a href="{{ $settings->instragram_id }}" target="_blank"><i
-                                        class="fab fa-instagram"></i></a>
-                            @endif
-                            @if ($settings->tiktok_id)
-                                <a href="{{ $settings->tiktok_id }}" target="_blank"><i
-                                        class="fa-brands fa-tiktok"></i></a>
-                            @endif
-                        </div>
-                    </div>
-                    <div class="col-md-3 info">
-                        <div class="fo-text">
-                            <h1>{{ __('messages.information') }}</h1>
-                        </div>
-                        <ul>
-                            <li><a href="{{ url('/') }}">{{ __('messages.home') }}</a></li>
-                            <li><a href="{{ url('aboutus') }}">{{ __('messages.aboutus') }}</a></li>
-                            <li><a href="{{ url('shop') }}">{{ __('messages.service') }}</a></li>
-                            <li><a href="{{ url('contactus') }}">{{ __('messages.contact') }}</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-3 info">
-                        <div class="fo-text">
-                            <h1>{{ __('messages.myaccount') }}</h1>
-                        </div>
-                        <ul>
-                            @if (empty(Session::get('login_user')))
-                                <li><a href="#" data-toggle="modal"
-                                        data-target="#myModal1">{{ __('messages.myorder') }}</a></li>
-                            @endif
-                            @if (!empty(Session::get('login_user')))
-                                <li><a href="{{ url('myaccount') }}">{{ __('messages.myorder') }}</a></li>
-                            @endif
-                            @if (count($cartCollection) != 0)
-                                <li><a href="{{ url('cartdetails') }}">{{ __('messages.checkout') }}</a></li>
-                            @endif
-                            @if (count($cartCollection) == 0)
-                                <li><a href="#" data-toggle="modal"
-                                        data-target="#myModal">{{ __('messages.checkout') }}</a></li>
-                            @endif
-                            <li><a href="#" data-toggle="modal"
-                                    data-target="#myModal">{{ __('messages.cart') }}</a>
-                            </li>
-                            <li><a href="{{ url('termofuse') }}">{{ __('messages.terms') }}</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-3 info">
-                        <div class="fo-text">
-                            <h1>{{ __('messages.contact_us') }}</h1>
-                        </div>
-                        <div class="f-location">
-                            <div class="media position-relative">
-                                <i class="fa fa-location-dot"></i>
-                                <div class="media-body">
-                                    <p> {{ Session::get('address') }}</p>
-                                </div>
+                                @if ($settings->facebook_id)
+                                    <a href={{ $settings->facebook_id }}" target="_blank"><i class="fab fa-facebook"
+                                            aria-hidden="true"></i></a>
+                                @endif
+                                @if ($settings->twitter_id)
+                                    <a href="{{ $settings->twitter_id }}" target="_blank"><i class="fab fa-twitter"
+                                            aria-hidden="true"></i></a>
+                                @endif
+                                @if ($settings->linkedin_id)
+                                    <a href="{{ $settings->linkedin_id }}" target="_blank"><i
+                                            class="fab fa-linkedin" aria-hidden="true"></i></a>
+                                @endif
+                                @if ($settings->whatsapp)
+                                    <a href="{{ $settings->whatsapp }}" target="_blank"><i class="fab fa-whatsapp"
+                                            aria-hidden="true"></i></a>
+                                @endif
+                                @if ($settings->instragram_id)
+                                    <a href="{{ $settings->instragram_id }}" target="_blank"><i
+                                            class="fab fa-instagram"></i></a>
+                                @endif
+                                @if ($settings->tiktok_id)
+                                    <a href="{{ $settings->tiktok_id }}" target="_blank"><i
+                                            class="fa-brands fa-tiktok"></i></a>
+                                @endif
                             </div>
                         </div>
-                        <div class="f-location">
-                            <div class="media position-relative">
-                                <i class="fa fa-phone"></i>
-                                <div class="media-body">
-                                    <p> {{ Session::get('phone') }}</p>
+                        <div class="col-md-3 info">
+                            <div class="fo-text">
+                                <h1>{{ __('messages.information') }}</h1>
+                            </div>
+                            <ul>
+                                <li><a href="{{ url('/') }}">{{ __('messages.home') }}</a></li>
+                                <li><a href="{{ url('aboutus') }}">{{ __('messages.aboutus') }}</a></li>
+                                <li><a href="{{ url('shop') }}">{{ __('messages.service') }}</a></li>
+                                <li><a href="{{ url('contactus') }}">{{ __('messages.contact') }}</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-3 info">
+                            <div class="fo-text">
+                                <h1>{{ __('messages.myaccount') }}</h1>
+                            </div>
+                            <ul>
+                                @if (empty(Session::get('login_user')))
+                                    <li><a href="#" data-toggle="modal"
+                                            data-target="#myModal1">{{ __('messages.myorder') }}</a></li>
+                                @endif
+                                @if (!empty(Session::get('login_user')))
+                                    <li><a href="{{ url('myaccount') }}">{{ __('messages.myorder') }}</a></li>
+                                @endif
+                                @if (count($cartCollection) != 0)
+                                    <li><a href="{{ url('cartdetails') }}">{{ __('messages.checkout') }}</a></li>
+                                @endif
+                                @if (count($cartCollection) == 0)
+                                    <li><a href="#" data-toggle="modal"
+                                            data-target="#myModal">{{ __('messages.checkout') }}</a></li>
+                                @endif
+                                <li><a href="#" data-toggle="modal"
+                                        data-target="#myModal">{{ __('messages.cart') }}</a>
+                                </li>
+                                <li><a href="{{ url('termofuse') }}">{{ __('messages.terms') }}</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-3 info">
+                            <div class="fo-text">
+                                <h1>{{ __('messages.contact_us') }}</h1>
+                            </div>
+                            <div class="f-location">
+                                <div class="media position-relative">
+                                    <i class="fa fa-location-dot"></i>
+                                    <div class="media-body">
+                                        <p> {{ Session::get('address') }}</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="f-location">
-                            <div class="media position-relative">
-                                <i class="fa fa-envelope"></i>
-                                <div class="media-body">
-                                    <p> {{ Session::get('email') }}</p>
+                            <div class="f-location">
+                                <div class="media position-relative">
+                                    <i class="fa fa-phone"></i>
+                                    <div class="media-body">
+                                        <p> {{ Session::get('phone') }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="f-location">
+                                <div class="media position-relative">
+                                    <i class="fa fa-envelope"></i>
+                                    <div class="media-body">
+                                        <p> {{ Session::get('email') }}</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="right">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <h1>{{ __('messages.copyright') }} © {{ Session::get('current_year') }}
-                                {{ __('messages.site_name') }}. {{ __('messages.f1') }}.</h1>
-                        </div>
-                        <div class="col-md-6 v-box">
-                            <div class="v-img">
-                                <a><img src="{{ asset('burger/images/v-1.png') }}"></a>
+                <div class="right">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h1>{{ __('messages.copyright') }} © {{ Session::get('current_year') }}
+                                    {{ __('messages.site_name') }}. {{ __('messages.f1') }}.</h1>
                             </div>
-                            <div class="v-img">
-                                <a><img src="{{ asset('burger/images/v-2.png') }}"></a>
-                            </div>
-                            <div class="v-img">
-                                <a><img src="{{ asset('burger/images/v-3.png') }}"></a>
-                            </div>
-                            <div class="v-img">
-                                <a><img src="{{ asset('burger/images/v-4.png') }}"></a>
-                            </div>
-                            <div class="v-img">
-                                <a><img src="{{ asset('burger/images/v-5.png') }}"></a>
+                            <div class="col-md-6 v-box">
+                                <div class="v-img">
+                                    <a><img src="{{ asset('burger/images/v-1.png') }}"></a>
+                                </div>
+                                <div class="v-img">
+                                    <a><img src="{{ asset('burger/images/v-2.png') }}"></a>
+                                </div>
+                                <div class="v-img">
+                                    <a><img src="{{ asset('burger/images/v-3.png') }}"></a>
+                                </div>
+                                <div class="v-img">
+                                    <a><img src="{{ asset('burger/images/v-4.png') }}"></a>
+                                </div>
+                                <div class="v-img">
+                                    <a><img src="{{ asset('burger/images/v-5.png') }}"></a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <input type="hidden" id="currency" value='{{ Session::get('usercurrency') }}' />
-    <input type="hidden" id="addcart" value='{{ __('messages.addcart') }}' />
-    <input type="hidden" id="path_site" value="{{ url('/') }}" />
-    <input type="hidden" id="forgot_error" value="{{ __('messages.forgot_error') }}" />
-    <input type="hidden" id="reg_error" value="{{ __('messages.reg_error') }}" />
-    <input type="hidden" id="pwdmatch" value="{{ __('messages.pwdmatch') }}" />
-    <input type="hidden" id="login_error" value="{{ __('messages.login_error') }}" />
-    <input type="hidden" id="required_field" value="{{ __('messages.required_field') }}" />
-    <input type="hidden" id="login_error" value="{{ __('messages.login_error') }}" />
-    <input type="hidden" id="forgot_error_2" value="{{ __('messages.forgot_error_2') }}">
-    <input type="hidden" id="lat_env" value="{{ Config::get('mapdetail.lat') }}">
-    <input type="hidden" id="long_env" value="{{ Config::get('mapdetail.long') }}">
+        <input type="hidden" id="currency" value='{{ Session::get(' usercurrency') }}' />
+        <input type="hidden" id="addcart" value='{{ __(' messages.addcart') }}' />
+        <input type="hidden" id="path_site" value="{{ url('/') }}" />
+        <input type="hidden" id="forgot_error" value="{{ __('messages.forgot_error') }}" />
+        <input type="hidden" id="reg_error" value="{{ __('messages.reg_error') }}" />
+        <input type="hidden" id="pwdmatch" value="{{ __('messages.pwdmatch') }}" />
+        <input type="hidden" id="login_error" value="{{ __('messages.login_error') }}" />
+        <input type="hidden" id="required_field" value="{{ __('messages.required_field') }}" />
+        <input type="hidden" id="login_error" value="{{ __('messages.login_error') }}" />
+        <input type="hidden" id="forgot_error_2" value="{{ __('messages.forgot_error_2') }}">
+        <input type="hidden" id="lat_env" value="{{ Config::get('mapdetail.lat') }}">
+        <input type="hidden" id="long_env" value="{{ Config::get('mapdetail.long') }}">
 </body>
 <div class="modal modal-2" id="myModal2">
     <div class="modal-dialog">
@@ -580,6 +620,76 @@
 
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
 <script type="text/javascript" src="{{ URL::to('public/demo/button.js') . '?version=1' }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 <script src="{{ URL::to('public/demo/script.js') . '?version=133' }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.js"></script>
+
+<script>
+    // Category carousel
+    $('.category_carousel').owlCarousel({
+        autoplay: true,
+        autoplayTimeout: 5000,
+        autoplayHoverPause: false,
+        loop: true,
+        items: 5,
+        margin: 15,
+        nav: false,
+        dots: false,
+        responsive: {
+            0: {
+                items: 2
+            },
+            576: {
+                items: 2
+            },
+            768: {
+                items: 3
+            },
+            992: {
+                items: 4
+            },
+            1200: {
+                items: 5
+            }
+        }
+    })
+</script>
+<script>
+    //rateYo star icon
+    $(function() {
+        $("#rateYo").rateYo({
+            starWidth: '30px',
+            fullStar: true,
+            mormalFill: 'yellow',
+            ratedFill: 'orange',
+            rating: 3,
+            onSet: function(rating, rateYoInstance) {
+                $('#rating').val(rating);
+            }
+        });
+    });
+    // onclick go to review form
+    $("#clickReview").click(function() {
+        $('html, body').animate({
+            scrollTop: $("#review_form").offset().top
+        }, 1000);
+    });
+</script>
+
+<script>
+    function countChars(obj) {
+        var maxLength = 250;
+        var strLength = obj.value.length;
+
+        if (strLength > maxLength) {
+            document.getElementById("charNum").innerHTML = '<span style="color: red;">' + strLength + ' out of ' +
+                maxLength + ' characters</span>';
+        } else {
+            document.getElementById("charNum").innerHTML = '<span style="color: green;">' + strLength + ' out of ' +
+                maxLength + ' characters</span>';
+        }
+
+    }
+</script>
 
 </html>

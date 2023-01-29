@@ -189,7 +189,11 @@
       'file' => 
       array (
         'driver' => 'file',
+<<<<<<< HEAD
         'path' => 'C:\\xampp\\htdocs\\webdevs\\indhosnacks.com\\storage\\framework/cache/data',
+=======
+        'path' => 'D:\\xampp\\htdocs\\indhosnacks.com\\storage\\framework/cache/data',
+>>>>>>> 5c2ece20f5d21e6328fd8adcc5551b10df934485
       ),
       'memcached' => 
       array (
@@ -457,13 +461,22 @@
       'local' => 
       array (
         'driver' => 'local',
+<<<<<<< HEAD
         'root' => 'C:\\xampp\\htdocs\\webdevs\\indhosnacks.com\\storage\\app',
+=======
+        'root' => 'D:\\xampp\\htdocs\\indhosnacks.com\\storage\\app',
+>>>>>>> 5c2ece20f5d21e6328fd8adcc5551b10df934485
       ),
       'public' => 
       array (
         'driver' => 'local',
+<<<<<<< HEAD
         'root' => 'C:\\xampp\\htdocs\\webdevs\\indhosnacks.com\\storage\\app/public',
         'url' => 'http://localhost/webdevs/indhosnacks.com/storage',
+=======
+        'root' => 'D:\\xampp\\htdocs\\indhosnacks.com\\storage\\app/public',
+        'url' => 'http://localhost/indhosnacks.com//storage',
+>>>>>>> 5c2ece20f5d21e6328fd8adcc5551b10df934485
         'visibility' => 'public',
       ),
       's3' => 
@@ -554,13 +567,21 @@
       'single' => 
       array (
         'driver' => 'single',
+<<<<<<< HEAD
         'path' => 'C:\\xampp\\htdocs\\webdevs\\indhosnacks.com\\storage\\logs/laravel.log',
+=======
+        'path' => 'D:\\xampp\\htdocs\\indhosnacks.com\\storage\\logs/laravel.log',
+>>>>>>> 5c2ece20f5d21e6328fd8adcc5551b10df934485
         'level' => 'debug',
       ),
       'daily' => 
       array (
         'driver' => 'daily',
+<<<<<<< HEAD
         'path' => 'C:\\xampp\\htdocs\\webdevs\\indhosnacks.com\\storage\\logs/laravel.log',
+=======
+        'path' => 'D:\\xampp\\htdocs\\indhosnacks.com\\storage\\logs/laravel.log',
+>>>>>>> 5c2ece20f5d21e6328fd8adcc5551b10df934485
         'level' => 'debug',
         'days' => 14,
       ),
@@ -613,18 +634,30 @@
     'from' => 
     array (
       'address' => 'info@indhosnacks.com',
+<<<<<<< HEAD
       'name' => 'indhosnacks',
     ),
     'encryption' => 'tls',
     'username' => '6652a40848972d',
     'password' => '2adca561246b85',
+=======
+      'name' => 'Admin',
+    ),
+    'encryption' => 'tls',
+    'username' => '7be8c3d967bf69',
+    'password' => '4a850a3c24b9e6',
+>>>>>>> 5c2ece20f5d21e6328fd8adcc5551b10df934485
     'sendmail' => '/usr/sbin/sendmail -bs',
     'markdown' => 
     array (
       'theme' => 'default',
       'paths' => 
       array (
+<<<<<<< HEAD
         0 => 'C:\\xampp\\htdocs\\webdevs\\indhosnacks.com\\resources\\views/vendor/mail',
+=======
+        0 => 'D:\\xampp\\htdocs\\indhosnacks.com\\resources\\views/vendor/mail',
+>>>>>>> 5c2ece20f5d21e6328fd8adcc5551b10df934485
       ),
     ),
     'log_channel' => NULL,
@@ -645,7 +678,11 @@
       'mode' => 'sandbox',
       'http.ConnectionTimeOut' => 1000,
       'log.LogEnabled' => true,
+<<<<<<< HEAD
       'log.FileName' => 'C:\\xampp\\htdocs\\webdevs\\indhosnacks.com\\storage/logs/paypal.log',
+=======
+      'log.FileName' => 'D:\\xampp\\htdocs\\indhosnacks.com\\storage/logs/paypal.log',
+>>>>>>> 5c2ece20f5d21e6328fd8adcc5551b10df934485
       'log.LogLevel' => 'FINE',
     ),
   ),
@@ -737,7 +774,11 @@
     'lifetime' => '120',
     'expire_on_close' => false,
     'encrypt' => false,
+<<<<<<< HEAD
     'files' => 'C:\\xampp\\htdocs\\webdevs\\indhosnacks.com\\storage\\framework/sessions',
+=======
+    'files' => 'D:\\xampp\\htdocs\\indhosnacks.com\\storage\\framework/sessions',
+>>>>>>> 5c2ece20f5d21e6328fd8adcc5551b10df934485
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -766,9 +807,15 @@
   array (
     'paths' => 
     array (
+<<<<<<< HEAD
       0 => 'C:\\xampp\\htdocs\\webdevs\\indhosnacks.com\\resources\\views',
     ),
     'compiled' => 'C:\\xampp\\htdocs\\webdevs\\indhosnacks.com\\storage\\framework\\views',
+=======
+      0 => 'D:\\xampp\\htdocs\\indhosnacks.com\\resources\\views',
+    ),
+    'compiled' => 'D:\\xampp\\htdocs\\indhosnacks.com\\storage\\framework\\views',
+>>>>>>> 5c2ece20f5d21e6328fd8adcc5551b10df934485
   ),
   'xss-filter' => 
   array (

@@ -34,6 +34,10 @@ ul.textdata a {
     color: black;
 }
 
+a {
+    text-decoration: none !important;
+}
+
 .b-text h1 a:hover {
     color: black;
 }
@@ -441,6 +445,8 @@ img#pay3.activepayment {
 
 .footer-section {
     border-top: 1px solid #DDD;
+    padding-top: 20px;
+    padding-bottom: 10px;
 }
 
 .container.kb-footer {
@@ -492,7 +498,7 @@ img#pay3.activepayment {
     color: #ff0000;
     font-family: "Dancing Script";
     font-weight: 700;
-    font-size: 52px;
+    font-size: 43px;
     margin: 0;
 }
 
@@ -705,8 +711,7 @@ img#pay3.activepayment {
 }
 
 .play {
-    background-color: #f7f7f7;
-    /* margin-top: 50px; */
+    background-color: #dc35452b;
     padding-top: 50px;
 }
 
@@ -873,11 +878,13 @@ main.main {
     margin-left: 23px;
     color: #888;
 }
+
 .f-location {
     vertical-align: middle;
     align-items: center;
     display: flex;
 }
+
 /* .f-location {
     display: inline-block;
     margin-top: 0px;
@@ -2705,7 +2712,7 @@ td.cart-product-image img {
     line-height: normal;
     font-family: 'FontAwesome';
     margin-right: 30px;
-    margin-top:15px;
+    margin-top: 15px;
 }
 
 .accordion.indicator-chevron .card-header:after {
@@ -2812,6 +2819,7 @@ img#pay1.activepayment {
     font-family: 'Montserrat';
     font-size: 15px;
 }
+
 .card-body .sub input {
     background-color: #dc3545;
     color: #fff;
@@ -3536,10 +3544,11 @@ input#acco-tab-fo {
     color: #848484;
     margin-top: 50px;
 }
+
 .f-location p {
     margin-top: 0;
     padding-left: 9px;
-    margin:0;
+    margin: 0;
 }
 
 .info ul li a {
@@ -5574,7 +5583,7 @@ div.dataTables_info {
     height: 111px;
     width: 160px;
     border-radius: 4px;
-    padding-top:19px;
+    padding-top: 19px;
 }
 
 .main-pizza-sb {
@@ -5621,7 +5630,6 @@ button.slick-arrow {
 }
 
 .shop_price {
-    border-top: 1px solid #f0f0f0;
     padding-top: 14px;
 }
 
@@ -5768,8 +5776,8 @@ button:focus {
 
 .header_section .nav-link {
     color: #212121 !important;
-    font-family: 'Roboto';
-    font-size: 17px;
+    font-family: 'Dancing Script', sans-serif;
+    font-size: 27px;
     font-weight: bold;
     padding: 0px 27px !important;
     transition: all 0.2s ease-out;
@@ -5795,13 +5803,8 @@ button:focus {
     color: #212121;
 }
 
-
-.banner_section {
-    background-image: url('../../public/upload/web/banner2.jpg?v=1');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    padding: 260px 0px;
+.banner_carousel {
+    margin-top: 77px;
 }
 
 .banner_content h1 {
@@ -5826,11 +5829,24 @@ button:focus {
     margin: 0;
 }
 
+.banner_carousel .owl-dots {
+    display: block !important;
+    text-align: center;
+    z-index: 99;
+    position: relative;
+    transform: translate(0px, -42px);
+}
+
+.banner_item img {
+    border-radius: 6px;
+}
+
 .shop_product {
     border-radius: 6px;
     padding: 10px;
     height: 100%;
     box-shadow: rgb(100 100 111 / 10%) 0px 7px 29px 0px;
+    max-height: 423px !important;
 }
 
 .shop_product img {
@@ -5842,21 +5858,6 @@ button:focus {
     display: block;
 }
 
-.shop_product {
-    border-radius: 6px;
-    padding: 10px;
-    height: 100%;
-    box-shadow: rgb(100 100 111 / 10%) 0px 7px 29px 0px;
-}
-
-.shop_product img {
-    border-radius: 6px;
-    width: 200px;
-    height: 200px;
-    margin: 0 auto;
-    text-align: center;
-    display: block;
-}
 
 .card_body h1 a {
     color: #212121;
@@ -5875,6 +5876,7 @@ button:focus {
     font-size: 15px;
     color: #555;
     margin-bottom: 15px;
+    min-height: 87px;
 }
 
 .shop_price p {
@@ -5886,18 +5888,17 @@ button:focus {
 
 .shop_price p a {
     float: right;
-    font-size: 12px;
-    border: 1px solid #dc354529;
-    background: #dc35451f;
-    padding: 4px 11px;
-    border-radius: 2px;
+    font-size: 13px;
+    border: 2px solid #212529;
+    padding: 8px 21px;
+    border-radius: 50px;
     color: #212529;
     text-decoration: none;
     transition: all 0.3s ease;
 }
 
 .shop_price p a:hover {
-    background: #dc3545;
+    background: #212529;
     color: #fff;
 }
 
@@ -5926,8 +5927,368 @@ button.navbar-toggler {
     opacity: 1;
     border: 1px solid #a1a1a1;
 }
+
 .footer_widget p {
     margin: 0;
     color: #666;
     padding: 7px 0px;
+}
+
+
+/* category */
+
+.category_item {
+    position: relative;
+    border-radius: 10px;
+    padding: 15px 10px;
+    transition: .2s;
+}
+
+.category_name h3 a {
+    text-decoration: none !important;
+    font-size: 20px;
+    font-weight: 600;
+    font-family: 'Roboto', sans-serif;
+    transition: .2s;
+    color: #212121 !important;
+}
+
+.category_name h3 a:hover {
+    color: red;
+}
+
+.category_name h3 {
+    margin-bottom: 7px;
+}
+
+.category_btn a {
+    color: #FD0103;
+    font-size: 16px;
+    font-family: "Roboto";
+    font-weight: 600;
+    transition: .2s;
+}
+
+.category_btn a:hover {
+    color: #000000;
+}
+
+.category_btn a i {
+    font-size: 12px;
+}
+
+.category_img img {
+    width: 150px !important;
+    height: 150px !important;
+    margin: 0 auto;
+}
+
+.special_offer_banner img {
+    border-radius: 8px;
+}
+
+
+.discount_section {
+    background: #dc354505;
+    padding: 50px 0px;
+    border-top: 1px solid #dc35451f;
+    border-bottom: 1px solid #dc35451f;
+}
+
+.see_more_btn .btn-primary {
+    background: #FDCB00;
+    color: #212121;
+    border: none;
+    padding: 13px 49px;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 50px;
+    font-family: "Roboto";
+    font-weight: 600;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.see_more_btn .btn-primary:hover {
+    background: #dc3545;
+}
+
+.snacks_products {
+    background: #dc35450f;
+    border: 1px solid #dc354505;
+    border-radius: 20px;
+}
+
+.snacks_products img {
+    max-height: 300px;
+}
+
+.snacks_products .card_body {
+    padding: 0px 14px;
+}
+
+.snacks_products .shop_price {
+    border-top: 1px solid #dc354512;
+    padding-top: 14px;
+}
+
+
+.client_review_item {
+    background: #fff;
+    padding: 0px 20px 20px 20px;
+    margin: 43px 16px 17px 14px;
+    border: 1px solid #e0e0e0;
+    border-radius: 11px;
+    box-shadow: 2px 2px 14px 1px #00000021;
+    position: relative;
+}
+
+.client_review_item .client_img img {
+    width: 80px !important;
+    height: 80px;
+    border-radius: 50px;
+    border: 1px solid #efefef;
+    padding: 2px;
+    background: #fff;
+    margin: 0 auto;
+    margin-top: -39px;
+}
+
+.client_name h3 {
+    font-size: 28px;
+    font-family: 'Dancing Script';
+    font-weight: bold;
+}
+
+.client_review p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 27px;
+    color: #666;
+    font-family: 'Roboto', s;
+}
+
+.owl-dots {
+    display: block !important;
+    text-align: center;
+}
+
+.owl-dots button {
+    width: 8px;
+    height: 8px;
+    background: #000 !important;
+    margin: 4px !important;
+    border-radius: 100px;
+    border: none !important;
+}
+
+.owl-dot.active {
+    background: #dc3545 !important;
+    width: 12px;
+    height: 12px;
+}
+
+
+.quote_icon {
+    position: absolute;
+    top: 5%;
+    right: 13px;
+    font-size: 98px;
+    opacity: 0.09;
+    color: #dc3545;
+}
+
+.product_wrapper {
+    height: 100%;
+    border-radius: 20px;
+    box-shadow: rgb(50 50 93 / 25%) 0px 50px 100px -20px, rgb(0 0 0 / 30%) 0px 30px 60px -30px;
+}
+
+
+.product_img img {
+    height: 349px;
+    border-radius: 20px 30px 0px 0px;
+}
+
+
+
+.product_content {
+    padding: 15px 15px;
+}
+
+.product_content h1 a {
+    text-align: left;
+    display: inline-block;
+    color: #212121;
+    transition: all 0.3s ease;
+}
+
+.product_content span {
+    color: #FDCB00;
+    font-size: 18px;
+}
+
+.product_content h1 {
+    vertical-align: middle;
+}
+
+
+.product_content h1 {
+    font-size: 20px;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    vertical-align: middle;
+}
+
+.product_content span {
+    float: right;
+    font-size: 16px;
+    vertical-align: middle;
+}
+
+.shop_price p strong {
+    color: #FDCB00;
+    padding-top: 9px !important;
+    display: inline-block;
+}
+
+.product_content h1 a:hover {
+    color: #fd0103;
+}
+
+#main_content {
+    margin-top: 120px;
+}
+
+
+@media screen and (max-width:450px) {
+    .heading h1 {
+        font-size: 32px;
+
+    }
+}
+
+
+
+.review_section .user_reviews .header h3 {
+    margin: 0;
+    font-size: 17px;
+    color: #212121;
+    font-weight: 500;
+}
+
+.review_section .user_reviews .header {
+    box-shadow: none;
+    border-bottom: 1px solid #212121;
+}
+
+.review_section .user_reviews .header a {
+    padding: 11px 22px;
+    display: inline-block;
+    background: #212121;
+    border-radius: 2px;
+    color: #fff;
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+.review_section .total_review h5 {
+    color: #212121;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.review_section .review_item .user_img img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    border: 1px solid #EEE;
+}
+
+.review_section .review_item .review_article h3 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #212121;
+    margin-bottom: 8px;
+}
+
+.review_section .review_item .review_article h3 span {
+    color: #888;
+    font-weight: 500;
+}
+
+.review_section .star .star_icon {
+    color: orange;
+    font-size: 14px;
+}
+
+.review_section .review_article h4 {
+    color: #211221;
+    font-size: 15px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+}
+
+.review_section .review_article p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 400;
+    color: #666;
+    text-align: justify;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.review_section .review_item .review_article h3 span {
+    color: #888;
+    font-weight: 500;
+}
+
+.review_section .review_item {
+    border-bottom: 1px solid #EEE;
+    margin-bottom: 20px;
+    background: #fafafa;
+    padding: 20px 19px;
+}
+
+.review_section .review_form .title h3 {
+    color: #000;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+    border-bottom: 1px solid #f8f8f8;
+    padding-bottom: 11px;
+    margin-bottom: 30px !important;
+}
+
+.review_section .review_form .form-control {
+    height: 50px;
+    border: 1px solid #DDD;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.review_section .review_form .btn-primary {
+    padding: 10px 48px !important;
+    font-size: 16px;
+    font-weight: 600;
+    background: #212121;
+    border: none !important;
+}
+
+
+.review_section .review_form .btn-primary:hover {
+    background-color: #fd0103;
+
+}
+
+@media screen and (max-width:450px) {
+    .review_item .d-flex {
+        display: block !important;
+    }
+
+    .user_img {
+        text-align: center;
+        margin-bottom: 21px;
+    }
 }

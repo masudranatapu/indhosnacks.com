@@ -1,28 +1,28 @@
-<?php
-function readMoreHelper($story_desc, $chars = 75)
-{
-    $story_desc = substr($story_desc, 0, $chars);
-    $story_desc = substr($story_desc, 0, strrpos($story_desc, ' '));
-    $story_desc = $story_desc . '...';
-    return $story_desc;
-}
-function headreadMoreHelper($story_desc, $chars = 75)
-{
-    $story_desc = substr($story_desc, 0, $chars);
-    $story_desc = substr($story_desc, 0, strrpos($story_desc, ' '));
-    $story_desc = $story_desc;
-    return $story_desc;
-}
+@php
+    function readMoreHelper($story_desc, $chars = 75)
+    {
+        $story_desc = substr($story_desc, 0, $chars);
+        $story_desc = substr($story_desc, 0, strrpos($story_desc, ' '));
+        $story_desc = $story_desc . '...';
+        return $story_desc;
+    }
+    function headreadMoreHelper($story_desc, $chars = 75)
+    {
+        $story_desc = substr($story_desc, 0, $chars);
+        $story_desc = substr($story_desc, 0, strrpos($story_desc, ' '));
+        $story_desc = $story_desc;
+        return $story_desc;
+    }
 
-$settings = DB::table('setting')
-    ->where('id', 1)
-    ->first();
-?>
+    $settings = DB::table('setting')
+        ->where('id', 1)
+        ->first();
+@endphp
+
 <!DOCTYPE html>
 <html>
 
 <head>
-
     <title>{{ __('messages.site_name') }}</title>
 
     <meta charset="UTF-8">
@@ -38,7 +38,7 @@ $settings = DB::table('setting')
 
     <link rel="shortcut icon" href="{{ asset('public/fav.png') }}">
     @if (__('messages.rtl') == '0')
-        <link rel="stylesheet" type="text/css" href="{{ asset('burger/css/style.css') . '?version=232132' }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('burger/css/style.css?v=1') . '?version=232132' }}">
     @else
         <link rel="stylesheet" type="text/css" href="{{ asset('burger/css/rtl.css') . '?version=88888' }}">
     @endif
@@ -59,38 +59,28 @@ $settings = DB::table('setting')
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <link rel="stylesheet" type="text/css" href="{{ asset('burger/css/responsive-custom.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
 
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script type="text/javascript" src="{{ asset('burger/js/dropdown.js') }}"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.5/slick.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lightslider/1.1.6/js/lightslider.js">
     </script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.js"></script>
+
+
     <script type="text/javascript" src="{{ asset('burger/js/jquery.mixitup.min.js') }}"></script>
     <script type="text/javascript"
         src='https://maps.google.com/maps/api/js?key=AIzaSyATgI95Rp6YpYchbA6c8rD-3tC9xRIc96c&sensor=false&libraries=places'>
     </script>
     <script src="{{ url('public/js/locationpicker.js') }}"></script>
-    <style>
-        .banner_section {
-            background-image: url('{{ asset('public/upload/web') . '/' . $settings->main_banner }}') !important;
-        }
-
-        @media screen and (max-width:575px) {
-            .banner_section {
-                background-image: inherit !important;
-                background-color: #FDCB00;
-                text-align: center;
-            }
-        }
-    </style>
 </head>
 
 <body>
+
     @include('cookieConsent::index')
     @include('user.cssclass')
 
-<div class="login-re-modal">
+    <div class="login-re-modal">
         <div class="modal" id="myModal1">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -200,25 +190,25 @@ $settings = DB::table('setting')
         <div class="modal" id="myModal">
             <div class="modal-dialog modal-1">
                 <?php $cartCollection = Cart::getContent();
-               if($cartCollection->count()==0){
+                if($cartCollection->count()==0){
 
-                     echo '
-                     <div class="empty-box">
-                     <div class="modal-header cart-h">
-                      <button type="button" class="close" data-dismiss="modal">
-                      <img src="'.asset("burger/images/close.png").'">
-                      </button>
-                      </div>
-                      <div class="container">
-                      <div class="cart-modal-empty col-md-8">
-                      <img src="'.asset("burger/images/empty-cart.png").'">
-                      <h1>'.__("messages.nocart").'</h1>
+                        echo '
+                        <div class="empty-box">
+                        <div class="modal-header cart-h">
+                        <button type="button" class="close" data-dismiss="modal">
+                        <img src="'.asset("burger/images/close.png").'">
+                        </button>
                         </div>
-                         </div>
-                         </div>';
-                        }
-               else{
-                ?>
+                        <div class="container">
+                        <div class="cart-modal-empty col-md-8">
+                        <img src="'.asset("burger/images/empty-cart.png").'">
+                        <h1>'.__("messages.nocart").'</h1>
+                            </div>
+                            </div>
+                            </div>';
+                            }
+                else{
+                    ?>
                 <div class="modal-content">
                     <div class="modal-header cart-h">
                         <button type="button" class="close" data-dismiss="modal">
@@ -311,7 +301,6 @@ $settings = DB::table('setting')
             </div>
         </div>
 
-        <!-- ============================ Header start ================================= -->
         <div class="header_section pt-3 pb-3">
             <div class="container">
                 <nav class="navbar navbar-expand-lg navbar-light p-0">
@@ -393,159 +382,171 @@ $settings = DB::table('setting')
                 </nav>
             </div>
         </div>
-
-        <!-- ============================ Header end ================================= -->
     </div>
-
-    <!-- ============================ Banner start ================================= -->
-    <div class="banner_section">
-        <div class="container">
-            <div class="banner_content">
-                <h1>{{ __('messages.silder1h') }}</h1>
-                <h2>{{ __('messages.silderh2') }}</h2>
-                <p>{{ __('messages.silderp') }}.</p>
+    @if ($sliders->count() > 0)
+        <div class="banner_carousel">
+            <div class="banner_carousel">
+                <div class="banner_item owl-carousel">
+                    {{-- slider item --}}
+                    @foreach ($sliders as $slider)
+                        <div class="item">
+                            <img src=" @if ($slider->image) {{ asset($slider->image) }} @else {{ asset('public/upload/web/banner.webp') }} @endif"
+                                alt="">
+                        </div>
+                    @endforeach
+                </div>
             </div>
         </div>
-    </div>
-    <!-- ============================ Banner end ================================= -->
+    @endif
 
-
-
-    <div class="main-pizza-sb">
+    <div class="category_section mt-4 mb-5">
         <div class="container">
-            <div class="carousel">
-                <?php $i = 0; ?>
-                @foreach ($category as $ca)
-                    @if ($i == 0)
-                        <div class="box King_script_active" id="box{{ $i }}"
-                            onclick="changecategory('{{ $ca->id }}','{{ $i }}')">
-                        @else
-                            <div class="box" id="box{{ $i }}"
-                                onclick="changecategory('{{ $ca->id }}','{{ $i }}')">
-                    @endif
-                    <button class="pizza-category-menu">
-                        <?php $img = asset('public/upload/images/menu_cat_icon/') . '/' . $ca->cat_icon; ?>
-                        <div class="pizza-content-box">
-                            <div class="pizza-content-imgb">
-                                <img src="{{ asset($img) }}" alt="img">
+            <div class="heading mb-5 text-center">
+                <h1>{{ __('Categories') }}</h1>
+            </div>
+            <div class="category_wrapper">
+                <div class="category_carousel owl-carousel text-center">
+                    {{-- category item --}}
+                    @foreach ($category as $ca)
+                        <div class="item category_item">
+                            <div class="category_img">
+                                <a href="{{ route('shop.category', ['id' => $ca->id, 'name' => $ca->cat_name]) }}">
+                                    <?php $img = asset('public/upload/images/menu_cat_icon/') . '/' . $ca->cat_icon; ?>
+                                    <img src="{{ asset($img) }}" alt="{{ $ca->cat_name }}">
+                                </a>
                             </div>
-                            <div class="pizza-content-textb">
-                                <h3>{{ $ca->cat_name }}</h3>
+                            <div class="category_name">
+                                <h3><a
+                                        href="{{ route('shop.category', ['id' => $ca->id, 'name' => $ca->cat_name]) }}">{{ $ca->cat_name }}</a>
+                                </h3>
+                            </div>
+                            <div class="category_btn">
+                                <a href="{{ route('shop.category', ['id' => $ca->id, 'name' => $ca->cat_name]) }}">Shop
+                                    <i class="fa fa-angle-right"></i></a>
                             </div>
                         </div>
-                    </button>
+                    @endforeach
+                </div>
             </div>
-            <?php $i++; ?>
-            @endforeach
         </div>
     </div>
-    </div>
-    <input type="hidden" id="totalcategory" value="{{ $i }}">
-    </div>
-
-    <div class="container">
-        <div class="portfolist_sb_b" id="portfoliolist">
-            <div class="row">
-                <?php $i = 0; ?>
-                @foreach ($category as $ca)
-                    @if ($i == 0)
-                        <div id="category{{ $i }}" class="mtcat">
-                        @else
-                            <div id="category{{ $i }}" style="display: none" class="mtcat">
-                    @endif
-                    @foreach ($items as $it)
-                        @if ($it->category == $ca->id)
-                            <div class="portfolio {{ $it->categoryitem->id }} col-md-6 burger w3-container  w3-animate-zoom portfoliocat"
-                                data-cat="{{ $it->categoryitem->id }}" data-bound>
-                                <div class="items">
-                                    <div class="b-img">
-                                        <a href="{{ url('detailitem/' . $it->id) }}"><img
-                                                src="{{ asset('public/upload/images/menu_item_icon/' . $it->menu_image) }}"></a>
-                                    </div>
-                                    <div class="bor">
-                                        <div class="b-text">
-                                            <h1><a href="{{ url('detailitem/' . $it->id) }}">{{ $it->menu_name }}</a>
-                                            </h1>
-                                            <p>
-                                                {{ substr($it->description, 0, 75) }}
-                                            </p>
-                                        </div>
-                                        <div class="price">
-                                            <h1>{{ Session::get('usercurrency') }} {{ $it->price }}</h1>
-                                            <div class="cart">
-                                                <a
-                                                    href="{{ url('detailitem/' . $it->id) }}">{{ __('messages.addcart') }}</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+    @if($banners->count()> 0)
+        <div class="discount_section mb-5">
+            <div class="container">
+                <div class="heading mb-5 text-center">
+                    <h1>{{ __('Special Offers & Discounts') }}</h1>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 mb-3">
+                        @if($bannersone)
+                            <div class="special_offer_banner">
+                                <a href="{{ $bannersone->link ?? '#'}}">
+                                    <img src="@if($bannersone->image) {{ asset($bannersone->image) }} @else {{ asset('public/upload/web/banner/3.png') }} @endif" class="w-100" alt="image">
+                                </a>
                             </div>
                         @endif
-                    @endforeach
-                    <?php $i++; ?>
-            </div>
-            @endforeach
-        </div>
-    </div>
-    </div>
-
-    {{-- <div class="secound-section">
-            <div class="container">
-                <div class="col-md-12">
-                    <div class="row">
-                        <div class="col-md-6 about-img">
-                            <img src="{{Session::get('second_sec_img')}}" class="img-fluid">
-                        </div>
-                        <div class="col-md-6 about-text">
-                            <img src="{{Session::get('secong_icon_img')}}" class="img-fluid">
-                            <h5>{{__('messages.silder23')}}
-                            </h5>
-                            <p>
-                                {{__('messages.psilder23')}}
-                            </p>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="special_offer_banner">
+                            @if($bannerstwo)
+                                <div class="mb-3">
+                                    <a href="{{ $bannerstwo->link ?? '#'}}">
+                                        <img src="@if($bannerstwo->image) {{ asset($bannerstwo->image) }} @else{{ asset('public/upload/web/banner/1.png') }} @endif" class="w-100"
+                                            alt="image">
+                                    </a>
+                                </div>
+                            @endif
+                            @if($bannersthree)
+                                <div class="mb-3">
+                                    <a href="{{ $bannersthree->link ?? '#' }}">
+                                        <img src="@if($bannersthree->image) {{ asset($bannersthree->image) }} @else {{ asset('public/upload/web/banner/2.png') }} @endif" class="w-100"
+                                            alt="image">
+                                    </a>
+                                </div>
+                            @endif
                         </div>
                     </div>
                 </div>
             </div>
-        </div> --}}
-
-    <!-- ============================ Popular item start ================================= -->
-    <div class="popular_section pt-5 pb-5">
+        </div>
+    @endif
+    <div class="popular_item_section mb-5">
         <div class="container">
             <div class="heading mb-5 text-center">
-                <h1>{{ __('Popular Items') }}</h1>
+                <h1>{{ __('Our Most Popular Snacks') }}</h1>
             </div>
             <div class="row">
-                @foreach ($popular_item as $it)
-                    <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
-                        <div class="shop_product">
-                            <div class="card_product">
+                @foreach ($popular_snacks_item as $it)
+                    @php
+                        $review = App\Review::where('item_id', $it->id)->where('status', 1)->sum('stars');
+                    @endphp
+                    <div class="col-md-6 col-lg-4 mb-4">
+                        <div class="product_wrapper">
+                            <div class="product_img">
                                 <a href="{{ url('detailitem/' . $it->id) }}">
                                     <img src="{{ asset('public/upload/images/menu_item_icon/' . $it->menu_image) }}"
                                         class="card-img-top" alt="{{ $it->menu_name }}">
                                 </a>
-                                <div class="card_body">
-                                    <h1 class="text-center"><a
-                                            href="{{ url('detailitem/' . $it->id) }}">{{ $it->menu_name }}</a></h1>
-                                    <p class="text-center">
-                                        {{ substr($it->description, 0, 75) }}
+                            </div>
+                            <div class="product_content">
+                                <h1>
+                                    <a href="{{ url('detailitem/' . $it->id) }}">{{ $it->menu_name }}</a>
+                                    <span>
+                                        <i class="fa fa-star"></i>
+                                        {{ $review }}
+                                    </span>
+                                </h1>
+                                <div class="shop_price">
+                                    <p>
+                                        <strong>{{ Session::get('usercurrency') }} {{ $it->price }}</strong>
+                                        <a
+                                            href="{{ url('detailitem/' . $it->id) }}">{{ __('messages.addcart') }}</a>
                                     </p>
-                                    <div class="shop_price">
-                                        <p>
-                                            {{ Session::get('usercurrency') }} {{ $it->price }}
-                                            <a
-                                                href="{{ url('detailitem/' . $it->id) }}">{{ __('messages.addcart') }}</a>
-                                        </p>
-                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 @endforeach
+                <div class="col-12 see_more_btn text-center mt-5">
+                    <a href="{{ route('all.item') }}" class="btn btn-primary">See More</a>
+                </div>
             </div>
         </div>
     </div>
-    <!-- ============================ Popular item end ================================= -->
+    @if($testimonials->count() > 0)
+        <div class="testimonial_section  pb-5">
+            <div class="container">
+                <div class="heading mb-5 text-center">
+                    <h1>{{ __('What Our Clients Say About Us') }}</h1>
+                </div>
+                <div class="row">
+                    <div class="testimonial_carousel owl-carousel">
+                        {{-- review item --}}
+                        @foreach($testimonials as $data)
+                            <div class="item text-center">
+                                <div class="client_review_item">
+                                    <div class="client_img">
+                                        <img src="{{ asset($data->image) }}" alt="John Doe">
+                                    </div>
+                                    <div class="client_name">
+                                        <h3>{{ $data->name }}</h3>
+                                    </div>
+                                    <div class="quote_icon">
+                                        <i class="fa-solid fa-quote-left"></i>
+                                    </div>
+                                    <div class="client_review" style="min-height: 110px;">
+                                        <p>
+                                            {!! $data->details !!}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
 
     <div class="play">
         <div class="container">
@@ -774,8 +775,8 @@ $settings = DB::table('setting')
         </div>
     </div>
     <input type="hidden" id="is_rtl" value="{{ __('messages.rtl') }}" />
-    <input type="hidden" id="currency" value='{{ Session::get('usercurrency') }}' />
-    <input type="hidden" id="addcart" value='{{ __('messages.addcart') }}' />
+    <input type="hidden" id="currency" value='{{ Session::get(' usercurrency') }}' />
+    <input type="hidden" id="addcart" value='{{ __(' messages.addcart') }}' />
     <input type="hidden" id="path_site" value="{{ url('/') }}" />
     <input type="hidden" id="forgot_error" value="{{ __('messages.forgot_error') }}" />
     <input type="hidden" id="reg_error" value="{{ __('messages.reg_error') }}" />
@@ -785,12 +786,90 @@ $settings = DB::table('setting')
     <input type="hidden" id="login_error" value="{{ __('messages.login_error') }}" />
     <input type="hidden" id="forgot_error_2" value="{{ __('messages.forgot_error_2') }}">
 
+
+
+
+
+
+
+
+
+    {{-- js file --}}
     <script type="text/javascript" src="{{ URL::to('public/js/code.js') . '?version=965326' }}"></script>
-
-
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     <script type="text/javascript" src="{{ URL::to('public/demo/button.js') . '?version=1' }}"></script>
     <script src="{{ URL::to('public/demo/script.js') . '?version=1111' }}"></script>
+    <script>
+        // Banner
+        $('.banner_item').owlCarousel({
+            autoplay: true,
+            autoplayTimeout: 5000,
+            autoplayHoverPause: false,
+            center: true,
+            center: true,
+            loop: true,
+            items: 1,
+            responsive: {
+                0: {
+                    items: 1
+                }
+            }
+        })
+
+        // Category carousel
+        $('.category_carousel').owlCarousel({
+            autoplay: true,
+            autoplayTimeout: 5000,
+            autoplayHoverPause: false,
+            loop: true,
+            items: 5,
+            margin: 15,
+            nav: false,
+            dots: false,
+            responsive: {
+                0: {
+                    items: 2
+                },
+                576: {
+                    items: 2
+                },
+                768: {
+                    items: 3
+                },
+                992: {
+                    items: 4
+                },
+                1200: {
+                    items: 5
+                }
+            }
+        })
+
+        // Testimonial carousel
+        $('.testimonial_carousel').owlCarousel({
+            autoplay: true,
+            autoplayTimeout: 5000,
+            autoplayHoverPause: true,
+            loop: true,
+            dots: true,
+            items: 3,
+            responsive: {
+                0: {
+                    items: 1,
+                },
+                500: {
+                    items: 1,
+                },
+                768: {
+                    items: 2,
+                },
+                992: {
+                    items: 3,
+                }
+            }
+        })
+    </script>
     <script type="text/javascript">
         function changecategory(cat_id, id) {
             var total = $("#totalcategory").val();
