@@ -84,7 +84,7 @@
                               <h1>{{Session::get("usercurrency")}}{{$order->total_price}}</h1>
                            </div>
                            <div class="order-date My-b">
-                              <h1><?php 
+                              <h1><?php
                                  $date=date_create($order->order_placed_date);
                                  echo date_format($date,"d M Y");?>
                               </h1>
@@ -93,7 +93,7 @@
                         <div class="pending">
                            <div class="row">
                               <div class="col-md-6 col-sm-6 col-6 pending-btn">
-                                 <?php 
+                                 <?php
                                     if($order->order_status==0){
                                     	$status=__('messages.Order_Placed');
                                     }
