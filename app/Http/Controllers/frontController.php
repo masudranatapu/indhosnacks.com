@@ -150,7 +150,7 @@ class frontController extends Controller
 
         if($review->count() > 0) {
 
-            Session::flash('message', __('You allready review this item.'));
+            Session::flash('message', __('You already review this item.'));
             return redirect()->back();
 
         }else {
