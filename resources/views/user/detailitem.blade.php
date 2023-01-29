@@ -133,6 +133,159 @@
         </div>
     </div>
 </div>
+
+
+<div class="review_section">
+    <div class="container">
+        <div class="user_reviews">
+            <div class="header mb-4">
+                <div class="row align-items-center">
+                    <div class="col-6">
+                        <h3>Reviews</h3>
+                    </div>
+                    <div class="col-6">
+                        <a href="javascript:void(0)" id="clickReview" class="float-right">Write a Review</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="review_wrap">
+                <div class="total_review mb-3">
+                    <h5>40 Reviews</h5>
+                </div>
+
+                <div class="review_item">
+                    <div class="d-flex position-relative">
+                        <div class="user_img">
+                            <img src="https://www.mtgpro.me/assets/img/user.jpg" class="flex-shrink-0 mr-3" alt="">
+                        </div>
+                        <div class="review_article">
+                            <h3>Augustin H.
+                                <span>Verified Buyer</span>
+                                <span class="float-right">12/22/23</span>
+                            </h3>
+                            <div class="star mb-3">
+                                <img src="{{ asset('public/upload/web/icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('public/upload/web/icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('public/upload/web/icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('public/upload/web/icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('public/upload/web/icon/star.svg') }}" alt="star">
+                            </div>
+                            <h4>Works great!</h4>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, beatae dolorem
+                                debitis similique, minima cumque qui ex nobis asperiores consectetur, modi
+                                perspiciatis possimus! Nobis maxime eaque velit nisi voluptatum repudiandae?</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review_item">
+                    <div class="d-flex position-relative">
+                        <div class="user_img">
+                            <img src="https://www.mtgpro.me/assets/img/user.jpg" class="flex-shrink-0 mr-3" alt="">
+                        </div>
+                        <div class="review_article">
+                            <h3>Augustin H.
+                                <span>Verified Buyer</span>
+                                <span class="float-right">12/22/23</span>
+                            </h3>
+                            <div class="star mb-3">
+                                <img src="{{ asset('public/upload/web/icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('public/upload/web/icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('public/upload/web/icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('public/upload/web/icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('public/upload/web/icon/star.svg') }}" alt="star">
+                            </div>
+                            <h4>Works great!</h4>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, beatae dolorem
+                                debitis similique, minima cumque qui ex nobis asperiores consectetur, modi
+                                perspiciatis possimus! Nobis maxime eaque velit nisi voluptatum repudiandae?</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review_item">
+                    <div class="d-flex position-relative">
+                        <div class="user_img">
+                            <img src="https://www.mtgpro.me/assets/img/user.jpg" class="flex-shrink-0 mr-3" alt="">
+                        </div>
+                        <div class="review_article">
+                            <h3>Augustin H.
+                                <span>Verified Buyer</span>
+                                <span class="float-right">12/22/23</span>
+                            </h3>
+                            <div class="star mb-3">
+                                <img src="{{ asset('public/upload/web/icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('public/upload/web/icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('public/upload/web/icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('public/upload/web/icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('public/upload/web/icon/star.svg') }}" alt="star">
+                            </div>
+                            <h4>Works great!</h4>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, beatae dolorem
+                                debitis similique, minima cumque qui ex nobis asperiores consectetur, modi
+                                perspiciatis possimus! Nobis maxime eaque velit nisi voluptatum repudiandae?</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review_item">
+                    <div class="d-flex position-relative">
+                        <div class="user_img">
+                            <img src="https://www.mtgpro.me/assets/img/user.jpg" class="flex-shrink-0 mr-3" alt="">
+                        </div>
+                        <div class="review_article">
+                            <h3>Augustin H.
+                                <span>Verified Buyer</span>
+                                <span class="float-right">12/22/23</span>
+                            </h3>
+                            <div class="star mb-3">
+                                <img src="{{ asset('public/upload/web/icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('public/upload/web/icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('public/upload/web/icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('public/upload/web/icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('public/upload/web/icon/star.svg') }}" alt="star">
+                            </div>
+                            <h4>Works great!</h4>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, beatae dolorem
+                                debitis similique, minima cumque qui ex nobis asperiores consectetur, modi
+                                perspiciatis possimus! Nobis maxime eaque velit nisi voluptatum repudiandae?</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="review_form pt-5 mb-5" id="review_form">
+                <form action="#" method="post">
+                    <div class="title mb-3">
+                        <h3>Write a Review</h3>
+                    </div>
+                    <div class="mb-3">
+                        <label for="score" class="form-label">Score</label>
+                        <div id="rateYo" class="jq-ry-container"></div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Title</label>
+                        <input type="text" name="title" id="" class="form-control" required="">
+                    </div>
+                    <div class="mb-3">
+                        <label for="review" class="form-label">Review</label>
+                        <textarea name="review" id="review" cols="30" rows="5" class="form-control"
+                            style="height: 120px !important;" required=""></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <button type="submit" class="btn btn-primary">Post</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
 <div class="detail-related-box">
     <div class="container">
         <div class="detail-related-head">
@@ -202,5 +355,8 @@
     @endfor
 
 </div>
+
+
+
 
 @stop

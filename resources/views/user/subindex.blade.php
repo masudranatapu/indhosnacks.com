@@ -35,6 +35,8 @@ $settings = DB::table('setting')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.7.1/slick.css'>
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.css">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
@@ -53,6 +55,7 @@ $settings = DB::table('setting')
     <script type="text/javascript" src="{{ asset('burger/js/jquery.mixitup.min.js') }}"></script>
     <script type="text/javascript" src="{{ URL::to('public/js/code.js') }}"></script>
     <script type="text/javascript" src="{{ asset('burger/js/bootstrap.min.js') }}"></script>
+
     <script type="text/javascript" src='https://maps.google.com/maps/api/js?key={{ Config::get(' mapdetail.key')
         }}&sensor=false&libraries=places'>
     </script>
@@ -622,6 +625,7 @@ $settings = DB::table('setting')
 <script type="text/javascript" src="{{ URL::to('public/demo/button.js') . '?version=1' }}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 <script src="{{ URL::to('public/demo/script.js') . '?version=133' }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.js"></script>
 
 <script>
     // Category carousel
@@ -653,5 +657,28 @@ $settings = DB::table('setting')
             }
         })
 </script>
+<script>
+    //rateYo star icon
+     $(function () {
+        $("#rateYo").rateYo({
+            starWidth: '30px',
+            fullStar: true,
+            mormalFill: 'yellow',
+            ratedFill: 'orange',
+            rating: 2,
+            onSet: function(rating, rateYoInstance) {
+                // $('#rating').val(rating);
+            }
+        });
+    });
+    // onclick go to review form
+    $("#clickReview").click(function() {
+        $('html, body').animate({
+            scrollTop: $("#review_form").offset().top
+        }, 1000);
+    });
+</script>
+
+
 
 </html>
