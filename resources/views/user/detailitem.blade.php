@@ -158,7 +158,7 @@
                             <div class="review_item">
                                 <div class="d-flex position-relative">
                                     <div class="user_img">
-                                        <img src="@if ($review->user->profile_pic) {{ asset('public/upload/profile'.'/'.$review->user->profile_pic) }} @else {{ asset('public/upload/profile'.'/'.'my-account-pro.png') }} @endif"
+                                        <img style="width: 100px; height: 110px;" src="@if ($review->user->profile_pic) {{ asset('public/upload/profile'.'/'.$review->user->profile_pic) }} @else {{ asset('public/upload/profile'.'/'.'my-account-pro.png') }} @endif"
                                             class="flex-shrink-0 mr-3" alt="">
                                     </div>
                                     <div class="review_article">
