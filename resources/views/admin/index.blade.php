@@ -5,44 +5,45 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>{{__('messages.site_name')}}</title>
+    <title>{{ __('messages.site_name') }}</title>
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="{{__('messages.site_name')}}" />
-    <meta property="og:title" content="{{__('messages.site_name')}}" />
-    <meta property="og:image" content="{{asset('public/fav.png')}}" />
+    <meta property="og:url" content="{{ __('messages.site_name') }}" />
+    <meta property="og:title" content="{{ __('messages.site_name') }}" />
+    <meta property="og:image" content="{{ asset('public/fav.png') }}" />
     <meta property="og:image:width" content="250px" />
     <meta property="og:image:height" content="250px" />
-    <meta property="og:site_name" content="{{__('messages.site_name')}}" />
-    <meta property="og:description" content="{{__('messages.metadescweb')}}" />
-    <meta property="og:keyword" content="{{__('messages.metakeyboard')}}" />
+    <meta property="og:site_name" content="{{ __('messages.site_name') }}" />
+    <meta property="og:description" content="{{ __('messages.metadescweb') }}" />
+    <meta property="og:keyword" content="{{ __('messages.metakeyboard') }}" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="{{asset('public/fav.png')}}">
-    <link rel="stylesheet" href="{{asset('admin_panel/vendors/bootstrap/dist/css/bootstrap.min.css')}}">
-    <link rel="stylesheet" href="{{asset('admin_panel/vendors/font-awesome/css/font-awesome.min.css')}}">
-    <link rel="stylesheet" href="{{asset('admin_panel/vendors/themify-icons/css/themify-icons.css')}}">
-    <link rel="stylesheet" href="{{asset('admin_panel/vendors/flag-icon-css/css/flag-icon.min.css')}}">
-    <link rel="stylesheet" href="{{asset('admin_panel/vendors/selectFX/css/cs-skin-elastic.css')}}">
-    <link rel="stylesheet" href="{{asset('admin_panel/vendors/jqvmap/dist/jqvmap.min.css')}}">
-    @if(__('messages.rtl')=='0')
-    <link rel="stylesheet" href="{{asset('admin_panel/assets/css/style.css?v=1')}}">
+    <link rel="shortcut icon" href="{{ asset('public/fav.png') }}">
+    <link rel="stylesheet" href="{{ asset('admin_panel/vendors/bootstrap/dist/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin_panel/vendors/font-awesome/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin_panel/vendors/themify-icons/css/themify-icons.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin_panel/vendors/flag-icon-css/css/flag-icon.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin_panel/vendors/selectFX/css/cs-skin-elastic.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin_panel/vendors/jqvmap/dist/jqvmap.min.css') }}">
+    @if (__('messages.rtl') == '0')
+        <link rel="stylesheet" href="{{ asset('admin_panel/assets/css/style.css?v=1') }}">
     @else
-    <link rel="stylesheet" href="{{asset('admin_panel/assets/css/style.css?v=1')}}">
-    <link rel="stylesheet" href="{{asset('admin_panel/assets/css/rtl.css?v=159623')}}">
+        <link rel="stylesheet" href="{{ asset('admin_panel/assets/css/style.css?v=1') }}">
+        <link rel="stylesheet" href="{{ asset('admin_panel/assets/css/rtl.css?v=159623') }}">
     @endif
 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.8/js/jquery.dataTables.min.js"></script>
-    <link rel="stylesheet" href="{{asset('admin_panel/vendors/datatables.net-bs4/css/dataTables.bootstrap4.min.css')}}">
     <link rel="stylesheet"
-        href="{{asset('admin_panel/vendors/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css')}}">
+        href="{{ asset('admin_panel/vendors/datatables.net-bs4/css/dataTables.bootstrap4.min.css') }}">
+    <link rel="stylesheet"
+        href="{{ asset('admin_panel/vendors/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css') }}">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="{{asset('public/css/code.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('public/css/code.css') }}">
 
 </head>
 
 <body class="rtl">
-    <input type="hidden" id="path_admin" value="{{url('/')}}">
+    <input type="hidden" id="path_admin" value="{{ url('/') }}">
     <aside id="left-panel" class="left-panel">
         <nav class="navbar navbar-expand-sm navbar-default">
             <div class="navbar-header">
@@ -50,79 +51,90 @@
                     aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="{{url('dashboard')}}">{{__('messages.site_name')}}</a>
-                <a class="navbar-brand hidden" href="{{url('dashboard')}}">{{__('messages.sort_name')}}</a>
+                <a class="navbar-brand" href="{{ url('dashboard') }}">{{ __('messages.site_name') }}</a>
+                <a class="navbar-brand hidden" href="{{ url('dashboard') }}">{{ __('messages.sort_name') }}</a>
             </div>
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li class="active">
-                        <a href="{{url('dashboard')}}"> <i
-                                class="menu-icon fa fa-dashboard"></i>{{__('messages.dashboard')}} </a>
+                        <a href="{{ url('dashboard') }}"> <i
+                                class="menu-icon fa fa-dashboard"></i>{{ __('messages.dashboard') }} </a>
                     </li>
                     <li class="active">
-                        <a href="{{url('category')}}"> <i
-                                class="menu-icon fa fa-list-alt"></i>{{__('messages.menu_category')}} </a>
+                        <a href="{{ url('category') }}"> <i
+                                class="menu-icon fa fa-list-alt"></i>{{ __('messages.menu_category') }} </a>
                     </li>
                     <li class="active">
-                        <a href="{{url('menuitem')}}"> <i
-                                class="menu-icon fa fa-file-text-o"></i>{{__('messages.menu_item')}} </a>
+                        <a href="{{ url('menuitem') }}"> <i
+                                class="menu-icon fa fa-file-text-o"></i>{{ __('messages.menu_item') }} </a>
                     </li>
                     <li class="active">
-                        <a href="{{url('menuingredients')}}"> <i
-                                class="menu-icon fa fa-file-text-o"></i>{{__('messages.menu_inter')}}</a>
+                        <a href="{{ url('menuingredients') }}"> <i
+                                class="menu-icon fa fa-file-text-o"></i>{{ __('messages.menu_inter') }}</a>
                     </li>
                     <li class="active">
-                        <a href="{{url('orders')}}"> <i class="menu-icon fa fa-shopping-cart"></i>{{__('Orders')}}</a>
+                        <a href="{{ url('orders') }}"> <i
+                                class="menu-icon fa fa-shopping-cart"></i>{{ __('Orders') }}</a>
                     </li>
                     <li class="active">
-                        <a href="{{url('users')}}"> <i class="menu-icon fa fa-user"></i>{{__('messages.app_user')}} </a>
+                        <a href="{{ url('users') }}"> <i
+                                class="menu-icon fa fa-user"></i>{{ __('messages.app_user') }} </a>
                     </li>
                     <li class="active">
-                        <a href="{{url('deliveryboys')}}"> <i
-                                class="menu-icon fa fa-user"></i>{{__('messages.delivery_boy')}}</a>
+                        <a href="{{ url('deliveryboys') }}"> <i
+                                class="menu-icon fa fa-user"></i>{{ __('messages.delivery_boy') }}</a>
                     </li>
                     <li class="active">
-                        <a href="{{url('city')}}"> <i class="menu-icon fa fa-user"></i>{{__('messages.city')}} </a>
-                    </li>
-                    <li class="active">
-                        <a href="{{url('contactusls')}}"> <i
-                                class="menu-icon fa fa-address-book"></i>{{__('messages.contact_us')}} </a>
-                    </li>
-
-                    <li class="active">
-                        <a href="{{ route('slider.index') }}"> <i class="menu-icon fa fa-image"></i>{{__('Sliders')}}
+                        <a href="{{ url('city') }}"> <i class="menu-icon fa fa-user"></i>{{ __('messages.city') }}
                         </a>
                     </li>
                     <li class="active">
-                        <a href="{{ route('banner.index') }}"> <i class="menu-icon fa fa-percent"></i>{{__('Discount
-                            Banner')}} </a>
+                        <a href="{{ url('contactusls') }}"> <i
+                                class="menu-icon fa fa-address-book"></i>{{ __('messages.contact_us') }} </a>
+                    </li>
+
+                    <li class="active">
+                        <a href="{{ route('slider.index') }}"> <i
+                                class="menu-icon fa fa-image"></i>{{ __('Sliders') }}
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="{{ route('banner.index') }}"> <i
+                                class="menu-icon fa fa-percent"></i>{{ __('Discount
+                                                            Banner') }}
+                        </a>
                     </li>
                     <li class="active">
                         <a href="{{ route('review.index') }}"> <i
-                                class="menu-icon fa fa-address-book"></i>{{__('Testimonials')}} </a>
+                                class="menu-icon fa fa-address-book"></i>{{ __('Testimonials') }} </a>
                     </li>
 
-
-
-
-                    @if(Session::get("is_web")==0||Session::get("is_web")==2)
-                    <h3 class="menu-title">{{__('messages.notification')}}</h3>
-                    <li class="menu-item-has-children dropdown">
-                    <li class="active">
-                        <a href="{{url('sendnotification')}}"> <i
-                                class="menu-icon fa fa-bell"></i>{{__('messages.send_notfi')}}</a>
+                    <li class="">
+                        <a href="{{ route('item.review') }}">
+                            <i class="menu-icon fa fa-address-book"></i>
+                            {{ __('Item Review') }}
+                        </a>
                     </li>
-                    <li class="active">
-                        <a href="{{url('updatekey/1')}}"> <i
-                                class="menu-icon fa fa-check"></i>{{__('messages.android')}}
-                            {{__('messages.notification')}} </a>
-                    </li>
-                    <li class="active">
-                        <a href="{{url('updatekey/2')}}"> <i class="menu-icon fa fa-check"></i>{{__('messages.ios')}}
-                            {{__('messages.notification')}} </a>
-                    </li>
+
+                    @if (Session::get('is_web') == 0 || Session::get('is_web') == 2)
+                        <h3 class="menu-title">{{ __('messages.notification') }}</h3>
+                        <li class="menu-item-has-children dropdown">
+                        <li class="active">
+                            <a href="{{ url('sendnotification') }}"> <i
+                                    class="menu-icon fa fa-bell"></i>{{ __('messages.send_notfi') }}</a>
+                        </li>
+                        <li class="active">
+                            <a href="{{ url('updatekey/1') }}"> <i
+                                    class="menu-icon fa fa-check"></i>{{ __('messages.android') }}
+                                {{ __('messages.notification') }} </a>
+                        </li>
+                        <li class="active">
+                            <a href="{{ url('updatekey/2') }}"> <i
+                                    class="menu-icon fa fa-check"></i>{{ __('messages.ios') }}
+                                {{ __('messages.notification') }} </a>
+                        </li>
                     @endif
-                    <h3 class="menu-title">{{__('messages.currency')}}</h3>
+                    <h3 class="menu-title">{{ __('messages.currency') }}</h3>
                     <li class="active">
                         @include('admin.currency')
                     </li>
@@ -160,22 +172,22 @@
                     <div class="user-area dropdown float-right">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false">
-                            <img class="user-avatar rounded-circle" src="{{Session::get('profile_pic')}}"
-                                alt="{{__('messages.user_avtar')}}">
+                            <img class="user-avatar rounded-circle" src="{{ Session::get('profile_pic') }}"
+                                alt="{{ __('messages.user_avtar') }}">
                         </a>
                         <div class="user-menu dropdown-menu">
-                            <a class="nav-link" href="{{url('editprofile')}}"><i
-                                    class="fa fa-user"></i>{{__('messages.my_pro')}}</a>
-                            <a class="nav-link" href="{{url('changepassword')}}"><i
-                                    class="fa fa-user"></i>{{__('messages.change_password')}}</a>
-                            @if(Session::get("is_web")=='0'||Session::get("is_web")=='2')
-                            <a class="nav-link" href="{{url('sendnotification')}}"><i
-                                    class="fa fa-bell"></i>{{__('messages.notification')}}</a>
+                            <a class="nav-link" href="{{ url('editprofile') }}"><i
+                                    class="fa fa-user"></i>{{ __('messages.my_pro') }}</a>
+                            <a class="nav-link" href="{{ url('changepassword') }}"><i
+                                    class="fa fa-user"></i>{{ __('messages.change_password') }}</a>
+                            @if (Session::get('is_web') == '0' || Session::get('is_web') == '2')
+                                <a class="nav-link" href="{{ url('sendnotification') }}"><i
+                                        class="fa fa-bell"></i>{{ __('messages.notification') }}</a>
                             @endif
-                            <a class="nav-link" href="{{url('setting/1')}}"><i
-                                    class="fa fa-cog"></i>{{__('messages.setting')}}</a>
-                            <a class="nav-link" href="{{url('logout')}}"><i
-                                    class="fa fa-power-off"></i>{{__('messages.logout')}}</a>
+                            <a class="nav-link" href="{{ url('setting/1') }}"><i
+                                    class="fa fa-cog"></i>{{ __('messages.setting') }}</a>
+                            <a class="nav-link" href="{{ url('logout') }}"><i
+                                    class="fa fa-power-off"></i>{{ __('messages.logout') }}</a>
                         </div>
                     </div>
                 </div>
@@ -185,37 +197,53 @@
     </div>
 
 
-    <input type="hidden" id="soundnotify" value="{{asset('public/sound/notification/notification.mp3')}}">
-    <input type="hidden" id="delete_recored" value="{{__('successerr.delete_record')}}">
-    <input type="hidden" id="change_currency" value="{{__('successerr.change_currency')}}" />
-    <input type="hidden" id="change_currency_alert" value="{{__('successerr.change_currency_alert')}}">
-    <input type="hidden" id="demo" value='{{Session::get("demo")}}'>
-    <input type="hidden" id="small_price_lang" value="{{__('messages.Small Price')}}">
-    <input type="hidden" id="medium_price_lang" value="{{__('messages.Medium Price')}}">
-    <input type="hidden" id="large_price_lang" value="{{__('messages.Large Price')}}">
-    <input type="hidden" id="item_size_lang" value="{{__('messages.item_size')}}">
-    <input type="hidden" id="print_lang" value='{{__("messages.print")}}'>
-    <input type="hidden" id="more_lang" value="{{__('messages.more_detail')}}">
+    <input type="hidden" id="soundnotify" value="{{ asset('public/sound/notification/notification.mp3') }}">
+    <input type="hidden" id="delete_recored" value="{{ __('successerr.delete_record') }}">
+    <input type="hidden" id="change_currency" value="{{ __('successerr.change_currency') }}" />
+    <input type="hidden" id="change_currency_alert" value="{{ __('successerr.change_currency_alert') }}">
+    <input type="hidden" id="demo" value='{{ Session::get('demo') }}'>
+    <input type="hidden" id="small_price_lang" value="{{ __('messages.Small Price') }}">
+    <input type="hidden" id="medium_price_lang" value="{{ __('messages.Medium Price') }}">
+    <input type="hidden" id="large_price_lang" value="{{ __('messages.Large Price') }}">
+    <input type="hidden" id="item_size_lang" value="{{ __('messages.item_size') }}">
+    <input type="hidden" id="print_lang" value='{{ __('messages.print') }}'>
+    <input type="hidden" id="more_lang" value="{{ __('messages.more_detail') }}">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
-    <script src="{{asset('admin_panel/vendors/jquery/dist/jquery.min.js')}}"></script>
-    <script src="{{asset('admin_panel/vendors/popper.js/dist/umd/popper.min.js')}}"></script>
-    <script src="{{asset('admin_panel/vendors/bootstrap/dist/js/bootstrap.min.js')}}"></script>
-    <script src="{{asset('admin_panel/assets/js/main.js')}}"></script>
-    <script src="{{asset('admin_panel/vendors/datatables.net/js/jquery.dataTables.min.js')}}"></script>
-    <script src="{{asset('admin_panel/vendors/datatables.net-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
-    <script src="{{asset('admin_panel/vendors/datatables.net-buttons/js/dataTables.buttons.min.js')}}"></script>
-    <script src="{{asset('admin_panel/vendors/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js')}}"></script>
-    <script src="{{asset('admin_panel/vendors/jszip/dist/jszip.min.js')}}"></script>
-    <script src="{{asset('admin_panel/vendors/pdfmake/build/pdfmake.min.js')}}"></script>
-    <script src="{{asset('admin_panel/vendors/pdfmake/build/vfs_fonts.js')}}"></script>
-    <script src="{{asset('admin_panel/vendors/datatables.net-buttons/js/buttons.html5.min.js')}}"></script>
-    <script src="{{asset('admin_panel/vendors/datatables.net-buttons/js/buttons.print.min.js')}}"></script>
-    <script src="{{asset('admin_panel/vendors/datatables.net-buttons/js/buttons.colVis.min.js')}}"></script>
-    <script src="{{asset('admin_panel/assets/js/init-scripts/data-table/datatables-init.js')}}"></script>
-    <script type="text/javascript" src="{{asset('public/js/admin.js').'?v=1365'}}"></script>
+    <script src="{{ asset('admin_panel/vendors/jquery/dist/jquery.min.js') }}"></script>
+    <script src="{{ asset('admin_panel/vendors/popper.js/dist/umd/popper.min.js') }}"></script>
+    <script src="{{ asset('admin_panel/vendors/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('admin_panel/assets/js/main.js') }}"></script>
+    <script src="{{ asset('admin_panel/vendors/datatables.net/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('admin_panel/vendors/datatables.net-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('admin_panel/vendors/datatables.net-buttons/js/dataTables.buttons.min.js') }}"></script>
+    <script src="{{ asset('admin_panel/vendors/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('admin_panel/vendors/jszip/dist/jszip.min.js') }}"></script>
+    <script src="{{ asset('admin_panel/vendors/pdfmake/build/pdfmake.min.js') }}"></script>
+    <script src="{{ asset('admin_panel/vendors/pdfmake/build/vfs_fonts.js') }}"></script>
+    <script src="{{ asset('admin_panel/vendors/datatables.net-buttons/js/buttons.html5.min.js') }}"></script>
+    <script src="{{ asset('admin_panel/vendors/datatables.net-buttons/js/buttons.print.min.js') }}"></script>
+    <script src="{{ asset('admin_panel/vendors/datatables.net-buttons/js/buttons.colVis.min.js') }}"></script>
+    <script src="{{ asset('admin_panel/assets/js/init-scripts/data-table/datatables-init.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('public/js/admin.js') . '?v=1365' }}"></script>
     {{-- footer --}}
     @yield('footer')
+
+    <script>
+        function countChars(obj) {
+            var maxLength = 250;
+            var strLength = obj.value.length;
+
+            if (strLength > maxLength) {
+                document.getElementById("charNum").innerHTML = '<span style="color: red;">' + strLength + ' out of ' +
+                    maxLength + ' characters</span>';
+            } else {
+                document.getElementById("charNum").innerHTML = '<span style="color: green;">' + strLength + ' out of ' +
+                    maxLength + ' characters</span>';
+            }
+
+        }
+    </script>
 </body>
 
 </html>

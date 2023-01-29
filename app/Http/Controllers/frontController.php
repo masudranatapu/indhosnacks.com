@@ -25,6 +25,7 @@ use App\Slider;
 use App\Testimonial;
 use Share;
 use DB;
+use App\Review;
 
 class frontController extends Controller
 {
@@ -125,13 +126,49 @@ class frontController extends Controller
     {
         $category = Category::where("is_deleted", '0')->get();
         $itemdetails = Item::find($item_id);
+        // dd($itemdetails);
         $item = Item::with('categoryitem')->where("category", $itemdetails->category)->where("is_deleted", '0')->get();
         $interfi = Ingredient::where("menu_id", $item_id)->where("is_deleted", '0')->where('type', 0)->get();
         $interpi = Ingredient::where("menu_id", $item_id)->where("is_deleted", '0')->where('type', 1)->get();
         $allmenu = Item::all();
         $inter1 = Ingredient::all();
         $itemdata = Item::with('categoryitem')->where("is_deleted", '0')->get();
-        return view("user.detailitem")->with("category", $category)->with("itemdetails", $itemdetails)->with("related_item", $item)->with("menu_interdientfi", $interfi)->with("menu_interdientpi", $interpi)->with("allmenu", $allmenu)->with("items", $itemdata)->with("menu_interdient", $inter1);
+        $reviews = Review::where('item_id', $item_id)->where('status', 1)->get();
+        return view("user.detailitem")->with('reviews', $reviews)->with("category", $category)->with("itemdetails", $itemdetails)->with("related_item", $item)->with("menu_interdientfi", $interfi)->with("menu_interdientpi", $interpi)->with("allmenu", $allmenu)->with("items", $itemdata)->with("menu_interdient", $inter1);
+    }
+
+    public function itemReview(Request $request)
+    {
+        $this->validate($request, [
+            'item_id' =>  'required',
+            'stars' =>  'required',
+            'title' =>  'required',
+            'comment' =>  'required',
+        ]);
+
+        $review = Review::where('item_id', $request->item_id)->where('user_id', Session::get('login_user'))->get();
+
+        if($review->count() > 0) {
+
+            Session::flash('message', __('You allready review this item.'));
+            return redirect()->back();
+
+        }else {
+
+            Review::insert([
+                'user_id' => Session::get('login_user'),
+                'item_id' => $request->item_id,
+                'stars' => $request->stars,
+                'title' => $request->title,
+                'status' => 0,
+                'comment' => $request->comment,
+            ]);
+
+            Session::flash('message', __('Your review successfully done. Please wait for admin approved.'));
+            return redirect()->back();
+
+        }
+
     }
 
     public function savecontact(Request $request)

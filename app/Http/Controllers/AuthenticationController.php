@@ -10,12 +10,14 @@ use App\User;
 use App\Order;
 use App\AppUser;
 use App\Delivery;
+use App\Item;
 use App\Setting;
 use Hash;
 use DateTimeZone;
 use Artisan;
 use DateTime;
 use DB;
+use App\Review;
 
 class AuthenticationController extends Controller {
 
@@ -463,8 +465,51 @@ class AuthenticationController extends Controller {
       return redirect("admin");
    }
 
+   public function itemReview()
+   {
+        $reviews = Review::latest()->get();
+        return view("admin.review.index", compact('reviews'));
+   }
 
+   public function itemReviewEdit($id)
+   {
+        $reviews = Review::findOrFail($id);
+        $itemdetails = Item::find($reviews->item_id);
+        return view("admin.review.edit", compact('reviews', 'itemdetails'));
+   }
 
+   public function itemReviewUpdate(Request $request, $id)
+   {
+
+        $this->validate($request, [
+            'stars' =>  'required',
+            'title' =>  'required',
+            'status' => 'required',
+            'comment' =>  'required',
+        ]);
+
+        Review::findOrFail($id)->update([
+            'stars' => $request->stars,
+            'title' => $request->title,
+            'status' => $request->status,
+            'comment' => $request->comment,
+        ]);
+
+        Session::flash('message',__('Item review successfully update'));
+
+        return redirect()->route('item.review');
+
+   }
+
+   public function itemReviewDelete($id)
+   {
+        $reviews = Review::findOrFail($id);
+        $reviews->delete();
+
+        Session::flash('message',__('Item review successfully delete'));
+
+        return redirect()->back();
+   }
 
 }
 

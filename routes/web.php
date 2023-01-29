@@ -35,6 +35,7 @@ Route::group(['middleware' => ['XSS']], function () {
     Route::get("/", "frontController@index")->name('website.home');
     Route::get("addcart/{item_id}", "Cartcontroller@addcart");
     Route::get("detailitem/{id}", "frontController@detailitem");
+    Route::post("item-review", "frontController@itemReview")->name('item.review');
     Route::get("addcartitem", "Cartcontroller@addcartitem");
     Route::get("sharesoicalmedia/{media_id}/{item_id}", "frontController@sharesoicalmedia");
     Route::get("managecart", "Cartcontroller@managecart");
@@ -47,7 +48,7 @@ Route::group(['middleware' => ['XSS']], function () {
     Route::get("forgotpassword", "AppuserController@forgotpassword");
     route::get("aboutus", "frontController@showaboutus");
     route::get("shop/category/{id}/{name}", "frontController@shopCategory")->name('shop.category');
-    route::get("shop", "frontController@shop");
+    route::get("shop", "frontController@shop")->name('all.item');
     route::get("service", "frontController@showservice");
     route::get("contactus", "frontController@showcontactus");
     Route::get("termofuse", "frontController@termofuse");
@@ -82,6 +83,11 @@ Route::group(['middleware' => ['admincheckexiste']], function () {
     Route::any("savesoicalsetting", "AuthenticationController@savesoicalsetting")->name("savesoicalsetting");
     Route::any("savepaymentdata", "AuthenticationController@savepaymentdata");
     Route::any("savewebimage", "AuthenticationController@savewebimage");
+
+    Route::get('item-review', 'AuthenticationController@itemReview')->name('item.review');
+    Route::get('item-review-edit/{id}', 'AuthenticationController@itemReviewEdit')->name('item.review.edit');
+    Route::post('item-review-update/{id}', 'AuthenticationController@itemReviewUpdate')->name('item.review.update');
+    Route::get('item-review-delete/{id}', 'AuthenticationController@itemReviewDelete')->name('item.review.delete');
 
     Route::get("index", "PagesController@index");
     Route::post("savewebpage/{id}", "PagesController@savewebpage")->name('savewebpage');

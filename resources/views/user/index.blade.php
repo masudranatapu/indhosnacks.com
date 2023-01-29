@@ -477,8 +477,10 @@
             </div>
             <div class="row">
                 @foreach ($popular_snacks_item as $it)
+                    @php
+                        $review = App\Review::where('item_id', $it->id)->where('status', 1)->sum('stars');
+                    @endphp
                     <div class="col-md-6 col-lg-4 mb-4">
-
                         <div class="product_wrapper">
                             <div class="product_img">
                                 <a href="{{ url('detailitem/' . $it->id) }}">
@@ -491,7 +493,7 @@
                                     <a href="{{ url('detailitem/' . $it->id) }}">{{ $it->menu_name }}</a>
                                     <span>
                                         <i class="fa fa-star"></i>
-                                        4.5
+                                        {{ $review }}
                                     </span>
                                 </h1>
                                 <div class="shop_price">
@@ -505,9 +507,8 @@
                         </div>
                     </div>
                 @endforeach
-
                 <div class="col-12 see_more_btn text-center mt-5">
-                    <a href="#" class="btn btn-primary">See More</a>
+                    <a href="{{ route('all.item') }}" class="btn btn-primary">See More</a>
                 </div>
             </div>
         </div>
