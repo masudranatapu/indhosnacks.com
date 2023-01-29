@@ -4,7 +4,7 @@
     'name' => 'indhosnacks',
     'env' => 'local',
     'debug' => true,
-    'url' => 'http://localhost/indhosnacks.com/',
+    'url' => 'http://localhost/webdevs/indhosnacks.com',
     'asset_url' => NULL,
     'timezone' => 'UTC',
     'locale' => 'en',
@@ -189,7 +189,7 @@
       'file' => 
       array (
         'driver' => 'file',
-        'path' => 'D:\\htdocs\\mkds\\indhosnacks.com\\storage\\framework/cache/data',
+        'path' => 'C:\\xampp\\htdocs\\webdevs\\indhosnacks.com\\storage\\framework/cache/data',
       ),
       'memcached' => 
       array (
@@ -457,13 +457,13 @@
       'local' => 
       array (
         'driver' => 'local',
-        'root' => 'D:\\htdocs\\mkds\\indhosnacks.com\\storage\\app',
+        'root' => 'C:\\xampp\\htdocs\\webdevs\\indhosnacks.com\\storage\\app',
       ),
       'public' => 
       array (
         'driver' => 'local',
-        'root' => 'D:\\htdocs\\mkds\\indhosnacks.com\\storage\\app/public',
-        'url' => 'http://localhost/indhosnacks.com//storage',
+        'root' => 'C:\\xampp\\htdocs\\webdevs\\indhosnacks.com\\storage\\app/public',
+        'url' => 'http://localhost/webdevs/indhosnacks.com/storage',
         'visibility' => 'public',
       ),
       's3' => 
@@ -554,13 +554,13 @@
       'single' => 
       array (
         'driver' => 'single',
-        'path' => 'D:\\htdocs\\mkds\\indhosnacks.com\\storage\\logs/laravel.log',
+        'path' => 'C:\\xampp\\htdocs\\webdevs\\indhosnacks.com\\storage\\logs/laravel.log',
         'level' => 'debug',
       ),
       'daily' => 
       array (
         'driver' => 'daily',
-        'path' => 'D:\\htdocs\\mkds\\indhosnacks.com\\storage\\logs/laravel.log',
+        'path' => 'C:\\xampp\\htdocs\\webdevs\\indhosnacks.com\\storage\\logs/laravel.log',
         'level' => 'debug',
         'days' => 14,
       ),
@@ -612,26 +612,26 @@
     'port' => '2525',
     'from' => 
     array (
-      'address' => 'mr.mokaddes@gmail.com',
+      'address' => 'info@indhosnacks.com',
       'name' => 'indhosnacks',
     ),
     'encryption' => 'tls',
-    'username' => 'c0e3de0d6d43b8',
-    'password' => 'f0d1518676b79d',
+    'username' => '6652a40848972d',
+    'password' => '2adca561246b85',
     'sendmail' => '/usr/sbin/sendmail -bs',
     'markdown' => 
     array (
       'theme' => 'default',
       'paths' => 
       array (
-        0 => 'D:\\htdocs\\mkds\\indhosnacks.com\\resources\\views/vendor/mail',
+        0 => 'C:\\xampp\\htdocs\\webdevs\\indhosnacks.com\\resources\\views/vendor/mail',
       ),
     ),
     'log_channel' => NULL,
   ),
   'mapdetail' => 
   array (
-    'key' => 'AIzaSyC1JUHjsnQZtKx5eBOpG42E_CLoJ1s39AU',
+    'key' => 'AIzaSyATgI95Rp6YpYchbA6c8rD-3tC9xRIc96c',
     'lat' => '21.2284231',
     'long' => '72.896816',
     'web_color' => NULL,
@@ -645,7 +645,7 @@
       'mode' => 'sandbox',
       'http.ConnectionTimeOut' => 1000,
       'log.LogEnabled' => true,
-      'log.FileName' => 'D:\\htdocs\\mkds\\indhosnacks.com\\storage/logs/paypal.log',
+      'log.FileName' => 'C:\\xampp\\htdocs\\webdevs\\indhosnacks.com\\storage/logs/paypal.log',
       'log.LogLevel' => 'FINE',
     ),
   ),
@@ -737,7 +737,7 @@
     'lifetime' => '120',
     'expire_on_close' => false,
     'encrypt' => false,
-    'files' => 'D:\\htdocs\\mkds\\indhosnacks.com\\storage\\framework/sessions',
+    'files' => 'C:\\xampp\\htdocs\\webdevs\\indhosnacks.com\\storage\\framework/sessions',
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -766,9 +766,9 @@
   array (
     'paths' => 
     array (
-      0 => 'D:\\htdocs\\mkds\\indhosnacks.com\\resources\\views',
+      0 => 'C:\\xampp\\htdocs\\webdevs\\indhosnacks.com\\resources\\views',
     ),
-    'compiled' => 'D:\\htdocs\\mkds\\indhosnacks.com\\storage\\framework\\views',
+    'compiled' => 'C:\\xampp\\htdocs\\webdevs\\indhosnacks.com\\storage\\framework\\views',
   ),
   'xss-filter' => 
   array (
@@ -777,7 +777,6 @@
       0 => 'password',
       1 => 'password_confirmation',
     ),
-    'escape_inline_listeners' => false,
   ),
   'debug-server' => 
   array (
