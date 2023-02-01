@@ -31,7 +31,7 @@ class RegisterMail extends Mailable
      */
     public function build()
     {
-        return $this->subject('You have a new query from Indhosnacks.com')
+        return $this->subject($this->details['subject'])
                     ->view('email.registermailview');
     }
 }
