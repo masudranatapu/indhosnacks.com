@@ -194,7 +194,7 @@ function changecategory(val,id) {
     var total=$("#totalcategory").val();
     document.getElementById("category_div").style.display = "block";
     document.getElementById("main_content").style.display = "none";
-    
+
     $.ajax({
         url: $("#path_site").val() + "/category" + "/" + val,
         method: "GET",
@@ -216,7 +216,7 @@ function changecategory(val,id) {
               }
             txt=txt+'</div>';
             var cat = res.category;
-           
+
             document.getElementById("category_div").innerHTML = txt;
         }
     });
@@ -384,7 +384,7 @@ function registeruser() {
                                             } else {
                                                 window.location.reload();
                                             }
-                        
+
                                         } else {
                                             document.getElementById("login_error_msg").innerHTML = $("#login_error").val();
                                             document.getElementById("login_error_msg").style.display = "block";
@@ -742,7 +742,7 @@ function orderplace() {
         var shipping_type = 1;
         var address ="";
         var latlong ="";
-    } 
+    }
 
     if (phone != "" && city != "" && payment_type != "") {
         $.ajax({
