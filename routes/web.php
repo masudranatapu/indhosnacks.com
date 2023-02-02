@@ -53,7 +53,7 @@ Route::group(['middleware' => ['XSS']], function () {
     route::get("contactus", "frontController@showcontactus");
     Route::get("termofuse", "frontController@termofuse");
     Route::get("category/{id}", "frontController@category_list");
-    Route::get("resetpassword/{code}", "AppuserController@resetpwd");
+    Route::get("resetpassword/{code}", "AppuserController@resetpwd")->name('resetpassword.code');
     Route::any("checkout", "frontController@checkout");
     Route::any("resetnewpwd", "AppuserController@resetpassword");
     Route::any("placeorder", "AppuserController@placeorder");
@@ -182,7 +182,7 @@ Route::group(['middleware' => ['admincheckexiste']], function () {
 });
 
 Route::group(['prefix' => 'deliveryboy'], function () {
-    Route::get("/", "DeliveryController@login");
+    Route::get("/", "DeliveryController@login")->name('deliveryboy.login');
     Route::post("postlogin", "DeliveryController@postlogin");
 
     Route::group(['middleware' => ['deliveryboy']], function () {

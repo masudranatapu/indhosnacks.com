@@ -430,7 +430,7 @@
             </div>
         </div>
     </div>
-    @if($banners->count()> 0)
+    @if ($banners->count() > 0)
         <div class="discount_section mb-5">
             <div class="container">
                 <div class="heading mb-5 text-center">
@@ -438,29 +438,30 @@
                 </div>
                 <div class="row">
                     <div class="col-lg-6 mb-3">
-                        @if($bannersone)
+                        @if ($bannersone)
                             <div class="special_offer_banner">
-                                <a href="{{ $bannersone->link ?? '#'}}">
-                                    <img src="@if($bannersone->image) {{ asset($bannersone->image) }} @else {{ asset('public/upload/web/banner/3.png') }} @endif" class="w-100" alt="image">
+                                <a href="{{ $bannersone->link ?? '#' }}">
+                                    <img src="@if ($bannersone->image) {{ asset($bannersone->image) }} @else {{ asset('public/upload/web/banner/3.png') }} @endif"
+                                        class="w-100" alt="image">
                                 </a>
                             </div>
                         @endif
                     </div>
                     <div class="col-lg-6">
                         <div class="special_offer_banner">
-                            @if($bannerstwo)
+                            @if ($bannerstwo)
                                 <div class="mb-3">
-                                    <a href="{{ $bannerstwo->link ?? '#'}}">
-                                        <img src="@if($bannerstwo->image) {{ asset($bannerstwo->image) }} @else{{ asset('public/upload/web/banner/1.png') }} @endif" class="w-100"
-                                            alt="image">
+                                    <a href="{{ $bannerstwo->link ?? '#' }}">
+                                        <img src="@if ($bannerstwo->image) {{ asset($bannerstwo->image) }} @else{{ asset('public/upload/web/banner/1.png') }} @endif"
+                                            class="w-100" alt="image">
                                     </a>
                                 </div>
                             @endif
-                            @if($bannersthree)
+                            @if ($bannersthree)
                                 <div class="mb-3">
                                     <a href="{{ $bannersthree->link ?? '#' }}">
-                                        <img src="@if($bannersthree->image) {{ asset($bannersthree->image) }} @else {{ asset('public/upload/web/banner/2.png') }} @endif" class="w-100"
-                                            alt="image">
+                                        <img src="@if ($bannersthree->image) {{ asset($bannersthree->image) }} @else {{ asset('public/upload/web/banner/2.png') }} @endif"
+                                            class="w-100" alt="image">
                                     </a>
                                 </div>
                             @endif
@@ -478,7 +479,9 @@
             <div class="row">
                 @foreach ($popular_snacks_item as $it)
                     @php
-                        $review = App\Review::where('item_id', $it->id)->where('status', 1)->sum('stars');
+                        $review = App\Review::where('item_id', $it->id)
+                            ->where('status', 1)
+                            ->sum('stars');
                     @endphp
                     <div class="col-md-6 col-lg-4 mb-4">
                         <div class="product_wrapper">
@@ -513,7 +516,7 @@
             </div>
         </div>
     </div>
-    @if($testimonials->count() > 0)
+    @if ($testimonials->count() > 0)
         <div class="testimonial_section  pb-5">
             <div class="container">
                 <div class="heading mb-5 text-center">
@@ -522,7 +525,7 @@
                 <div class="row">
                     <div class="testimonial_carousel owl-carousel">
                         {{-- review item --}}
-                        @foreach($testimonials as $data)
+                        @foreach ($testimonials as $data)
                             <div class="item text-center">
                                 <div class="client_review_item">
                                     <div class="client_img">
@@ -785,15 +788,6 @@
     <input type="hidden" id="required_field" value="{{ __('messages.required_field') }}" />
     <input type="hidden" id="login_error" value="{{ __('messages.login_error') }}" />
     <input type="hidden" id="forgot_error_2" value="{{ __('messages.forgot_error_2') }}">
-
-
-
-
-
-
-
-
-
     {{-- js file --}}
     <script type="text/javascript" src="{{ URL::to('public/js/code.js') . '?version=965326' }}"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>

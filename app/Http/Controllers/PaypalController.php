@@ -24,6 +24,10 @@ use Cookie;
 use App\FoodOrder;
 use App\OrderResponse;
 use App\Ingredient;
+use App\Mail\OrderAdminGetMail;
+use App\Mail\OrderUserMail;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Mail;
 use PayPal\Rest\ApiContext;
 use PayPal\Auth\OAuthTokenCredential;
 use PayPal\Api\Amount;
@@ -295,6 +299,40 @@ class PaypalController extends Controller
             $order->pay_pal_token = $request->get('token');
             $order->pay_pal_PayerID = $request->get('PayerID');
             $order->save();
+
+            $user = AppUser::find(Session::get('login_user'));
+
+            $details = [
+                'subject' => 'Message from Indhosnacks.com',
+                'greeting' => 'Hi ' . $user->name . ', ',
+                'body' => 'You just order a food from Indhosnacks.com. We are happy to let you know that we have received your order. Your payment done by Paypal',
+                'email' => 'Your email is : ' . $user->email,
+                'phone' => 'Your phone number is : ' . $user->mob_number,
+                'thanks' => 'Thank you for using Indhosnacks',
+                'site_url' => route('website.home'),
+                'site_name' => 'Indhosnacks.com',
+                'copyright' => 'Copyright © ' . Carbon::now()->format('Y') . ' ' . 'IndhoSnacks. All rights reserved.',
+            ];
+
+            Mail::to($user->email)->send(new OrderUserMail($details));
+
+            // mail to admin for users order
+            $adminuser = User::latest()->first();
+
+            $admindetails = [
+                'subject' => 'Message from Indhosnacks.com',
+                'greeting' => 'Hi ' . $adminuser->name . ', ',
+                'body' => $user->name . ' ' . 'just ordred a food form Indosnacks.com. His/Her payment done by stripe. Please see what he/she order from Indhosnacks.com.',
+                'email' => 'His email is : ' . $user->email,
+                'phone' => 'His phone number is : ' . $user->mob_number,
+                'thanks' => 'Thank you for using Indhosnacks',
+                'site_url' => route('website.home'),
+                'site_name' => 'Indhosnacks.com',
+                'copyright' => 'Copyright © ' . Carbon::now()->format('Y') . ' ' . 'IndhoSnacks. All rights reserved.',
+            ];
+
+            Mail::to($adminuser->email)->send(new OrderAdminGetMail($admindetails));
+
             Cart::clear();
             Session::flash('message', __('messages.order_success'));
             Session::flash('alert-class', 'alert-success');
@@ -304,6 +342,7 @@ class PaypalController extends Controller
         if (count($order) != 0) {
             $order->delete();
         }
+
         Session::flash('message', __('successerr.payment_fail'));
         Session::flash('alert-class', 'alert-danger');
         return redirect('checkout');

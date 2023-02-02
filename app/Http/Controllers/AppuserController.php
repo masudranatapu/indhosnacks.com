@@ -20,6 +20,10 @@ use Cookie;
 use App\FoodOrder;
 use App\OrderResponse;
 use App\Ingredient;
+use App\Mail\ForgetPassword;
+use App\Mail\ForgetPasswordMail;
+use App\Mail\OrderAdminGetMail;
+use App\Mail\OrderUserMail;
 use App\Mail\RegisterMail;
 use Carbon\Carbon;
 use Hash;
@@ -153,14 +157,27 @@ class AppuserController extends Controller
             $add->user_id = $checkmobile[0]->id;
             $add->code = $code;
             $add->save();
-            try {
-                Mail::send('email.forgotpassword', ['user' => $store], function ($message) use ($store) {
-                    $message->to($store['email'], $store['name'])->subject(__("messages.site_name"));
-                });
-            } catch (\Exception $e) {
-            }
+
+            $user = AppUser::find($checkmobile[0]->id);
+
+            $details = [
+                'subject' => 'Message from Indhosnacks.com',
+                'greeting' => 'Hi ' . $user->name. ', ',
+                'body' => 'Your request to forget password is here. Please click the Reset Password and create a new password now',
+                'email' => 'Your email is : ' . $user->email,
+                'phone' => 'Your phone number is : ' . $user->mob_number,
+                'thanks' => 'Thank you for using Indhosnacks',
+                'action_text' => 'Reset Password',
+                'action_url' =>  route('resetpassword.code', $code),
+                'site_url' => route('website.home'),
+                'site_name' => 'Indhosnacks.com',
+                'copyright' => 'Copyright © '.Carbon::now()->format('Y').' '.'IndhoSnacks. All rights reserved.',
+            ];
+
+            Mail::to($user->email)->send(new ForgetPasswordMail($details));
 
             return 1;
+
         } else {
             return 0;
         }
@@ -324,6 +341,41 @@ class AppuserController extends Controller
         $addresponse->order_id = $store->id;
         $addresponse->desc = json_encode($data);
         $addresponse->save();
+
+
+        $user = AppUser::find(Session::get('login_user'));
+
+        $details = [
+            'subject' => 'Message from Indhosnacks.com',
+            'greeting' => 'Hi ' . $user->name . ', ',
+            'body' => 'You just order a food from Indhosnacks.com. We are happy to let you know that we have received your order.Your payment is cash on delivery',
+            'email' => 'Your email is : ' . $user->email,
+            'phone' => 'Your phone number is : ' . $user->mob_number,
+            'thanks' => 'Thank you for using Indhosnacks',
+            'site_url' => route('website.home'),
+            'site_name' => 'Indhosnacks.com',
+            'copyright' => 'Copyright © ' . Carbon::now()->format('Y') . ' ' . 'IndhoSnacks. All rights reserved.',
+        ];
+
+        Mail::to($user->email)->send(new OrderUserMail($details));
+
+        // mail to admin for users order
+        $adminuser = User::latest()->first();
+
+        $admindetails = [
+            'subject' => 'Message from Indhosnacks.com',
+            'greeting' => 'Hi ' . $adminuser->name . ', ',
+            'body' => $user->name . ' ' . 'just ordred a food form Indosnacks.com. His/Her payment is cash on delivery. Please see what he/she order from Indhosnacks.com.',
+            'email' => 'His email is : ' . $user->email,
+            'phone' => 'His phone number is : ' . $user->mob_number,
+            'thanks' => 'Thank you for using Indhosnacks',
+            'site_url' => route('website.home'),
+            'site_name' => 'Indhosnacks.com',
+            'copyright' => 'Copyright © ' . Carbon::now()->format('Y') . ' ' . 'IndhoSnacks. All rights reserved.',
+        ];
+
+        Mail::to($adminuser->email)->send(new OrderAdminGetMail($admindetails));
+
         Cart::clear();
         Session::flash('message', __('messages.order_success'));
         Session::flash('alert-class', 'alert-success');

@@ -198,7 +198,7 @@ class PaymentController extends Controller
         $details = [
             'subject' => 'Message from Indhosnacks.com',
             'greeting' => 'Hi ' . $user->name. ', ',
-            'body' => 'You just order a food from Indhosnacks.com. We are happy to let you know that we have received your order',
+            'body' => 'You just order a food from Indhosnacks.com. We are happy to let you know that we have received your order. Your payment done by Stripe',
             'email' => 'Your email is : ' . $user->email,
             'phone' => 'Your phone number is : ' . $user->mob_number,
             'thanks' => 'Thank you for using Indhosnacks',
@@ -215,7 +215,7 @@ class PaymentController extends Controller
         $admindetails = [
             'subject' => 'Message from Indhosnacks.com',
             'greeting' => 'Hi ' . $adminuser->name . ', ',
-            'body' => $user->name.' '.'just ordred a food form Indosnacks.com . Please see what he/she order from Indhosnacks.com.',
+            'body' => $user->name.' '.'just ordred a food form Indosnacks.com. His/Her payment done by Stripe. Please see what he/she order from Indhosnacks.com.',
             'email' => 'His email is : '. $user->email,
             'phone' => 'His phone number is : '. $user->mob_number,
             'thanks' => 'Thank you for using Indhosnacks',
