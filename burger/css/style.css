@@ -45,6 +45,7 @@ a {
 .acc-proimg img {
     border-radius: 50%;
     width: 150px;
+    height: 150px;
 }
 
 .for label {
@@ -82,6 +83,7 @@ a {
 .pro-user img {
     border-radius: 50%;
     width: 150px;
+    height: 150px;
 }
 
 .forgotbody {
@@ -105,6 +107,7 @@ a {
     font-size: 18px;
     padding: 15px 40px;
     border: 1px solid;
+    cursor: pointer;
 }
 
 input#us2-address {
