@@ -631,7 +631,7 @@
   ),
   'mapdetail' => 
   array (
-    'key' => 'AIzaSyATgI95Rp6YpYchbA6c8rD-3tC9xRIc96c',
+    'key' => 'AIzaSyCGYnCh2Uusd7iASDhsUCxvbFgkSifkkTM',
     'lat' => '21.2284231',
     'long' => '72.896816',
     'web_color' => NULL,
