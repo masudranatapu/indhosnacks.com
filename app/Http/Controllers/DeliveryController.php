@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\AppUser;
 use App\Http\Controllers\Controller as Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\LoginRequest;
@@ -10,6 +11,8 @@ use Session;
 use DataTables;
 use App\Delivery;
 use App\Mail\FoodDeliveryBoyRegisterMail;
+use App\Mail\OrderAdminGetMail;
+use App\Mail\OrderUserMail;
 use App\Order;
 use App\OrderResponse;
 use App\Notiy_key;
@@ -126,8 +129,8 @@ class DeliveryController extends Controller
             $details = [
                 'subject' => 'Message from Indhosnacks.com',
                 'greeting' => 'Hi ' . $request->get("name") . ', ',
-                'body' => $request->get("name"). ' ' . 'You are assign as a food delivery boy on Indhosnacks.com. Welcom to you Indhosnacks.com family',
-                'email' => 'Your email is : ' .$request->get("email"),
+                'body' => $request->get("name") . ' ' . 'You are assign as a food delivery boy on Indhosnacks.com. Welcom to you Indhosnacks.com family',
+                'email' => 'Your email is : ' . $request->get("email"),
                 'phone' => 'Your phone number is : ' . $request->get("phone"),
                 'password' => 'Your password is : ' . $request->get("password"),
                 'thanks' => 'Thank you for using Indhosnacks',
@@ -143,13 +146,11 @@ class DeliveryController extends Controller
             Session::flash('message', __('successerr.delivery_boy_add_success'));
             Session::flash('alert-class', 'alert-success');
             return redirect("deliveryboys");
-
         } else {
 
             Session::flash('message', __('successerr.email_already_error'));
             Session::flash('alert-class', 'alert-danger');
             return redirect("deliveryboys");
-
         }
     }
 
@@ -390,6 +391,7 @@ class DeliveryController extends Controller
         date_default_timezone_set($gettimezone);
         $date = date('d-m-Y H:i');
         $update = Order::find($id);
+
         if ($update) {
             $msg = __('successerr.order_pick_sucess');
             $noti_key = Notiy_key::find(1);
@@ -399,10 +401,45 @@ class DeliveryController extends Controller
             $update->dispatched_date_time = $date;
             $update->dispatched_status = 1;
             $update->save();
+
+            $user = AppUser::find($update->user_id);
+            $deliveryboy = Delivery::find(Session::get('user_id'));
+
+            $details = [
+                'subject' => 'Message from Indhosnacks.com',
+                'greeting' => 'Hi ' . $user->name . ', ',
+                'body' => 'Delivery boy just pickup your order. Please ready to get your order from indhosnacks delivery boy.',
+                'email' => 'Your email is : ' . $user->email . '. ' . 'Delivery Boy email is :' . ' ' . $deliveryboy->email,
+                'phone' => 'Your phone number is : ' . $user->mob_number . '. ' . 'Delivery Boy phone number is :' . ' ' . $deliveryboy->mobile_no,
+                'thanks' => 'Thank you for using Indhosnacks',
+                'site_url' => route('website.home'),
+                'site_name' => 'Indhosnacks.com',
+                'copyright' => 'Copyright © ' . Carbon::now()->format('Y') . ' ' . 'IndhoSnacks. All rights reserved.',
+            ];
+
+            Mail::to($user->email)->send(new OrderUserMail($details));
+
+            $adminuser = User::latest()->first();
+
+            $admindetails = [
+                'subject' => 'Message from Indhosnacks.com',
+                'greeting' => 'Hi' . ' ' . $adminuser->name . ',',
+                'body' => 'Delivery boy' . ' ' . $deliveryboy->name . ' ' . 'just pickup a food for Indosnacks.com user. User mame is' . ' ' . $user->name,
+                'email' => 'Delivery Boy email is : ' . $deliveryboy->email . '. ' . 'And user email is :' . ' ' . $user->email,
+                'phone' => 'Delivery Boy phone number is : ' . $deliveryboy->mobile_no . '. ' . 'And user phone numbner is :' . ' ' . $user->mob_number,
+                'thanks' => 'Thank you for using Indhosnacks',
+                'site_url' => route('website.home'),
+                'site_name' => 'Indhosnacks.com',
+                'copyright' => 'Copyright © ' . Carbon::now()->format('Y') . ' ' . 'IndhoSnacks. All rights reserved.',
+            ];
+
+            Mail::to($adminuser->email)->send(new OrderAdminGetMail($admindetails));
+
             Session::flash('message', __('successerr.order_pick_sucess'));
             Session::flash('alert-class', 'alert-success');
             return redirect()->back();
         } else {
+
             Session::flash('message', __('successerr.try_msg'));
             Session::flash('alert-class', 'alert-success');
             return redirect()->back();
@@ -424,6 +461,40 @@ class DeliveryController extends Controller
             $update->delivered_date_time = $date;
             $update->delivered_status = 1;
             $update->save();
+
+            $user = AppUser::find($update->user_id);
+            $deliveryboy = Delivery::find(Session::get('user_id'));
+
+            $details = [
+                'subject' => 'Message from Indhosnacks.com',
+                'greeting' => 'Hi ' . $user->name . ', ',
+                'body' => 'Delivery boy just complete your order. Indhosnacks family is very happy that you order food from us. We are waitting for your another order again.',
+                'email' => 'Your email is : ' . $user->email . '. ' . 'Delivery Boy email is :' . ' ' . $deliveryboy->email,
+                'phone' => 'Your phone number is : ' . $user->mob_number . '. ' . 'Delivery Boy phone number is :' . ' ' . $deliveryboy->mobile_no,
+                'thanks' => 'Thank you for using Indhosnacks',
+                'site_url' => route('website.home'),
+                'site_name' => 'Indhosnacks.com',
+                'copyright' => 'Copyright © ' . Carbon::now()->format('Y') . ' ' . 'IndhoSnacks. All rights reserved.',
+            ];
+
+            Mail::to($user->email)->send(new OrderUserMail($details));
+
+            $adminuser = User::latest()->first();
+
+            $admindetails = [
+                'subject' => 'Message from Indhosnacks.com',
+                'greeting' => 'Hi' . ' ' . $adminuser->name . ',',
+                'body' => 'Delivery boy' . ' ' . $deliveryboy->name . ' ' . 'just complete you order of Indosnacks.com user. User mame is' . ' ' . $user->name,
+                'email' => 'Delivery Boy email is : ' . $deliveryboy->email . '. ' . 'And user email is :' . ' ' . $user->email,
+                'phone' => 'Delivery Boy phone number is : ' . $deliveryboy->mobile_no . '. ' . 'And user phone numbner is :' . ' ' . $user->mob_number,
+                'thanks' => 'Thank you for using Indhosnacks',
+                'site_url' => route('website.home'),
+                'site_name' => 'Indhosnacks.com',
+                'copyright' => 'Copyright © ' . Carbon::now()->format('Y') . ' ' . 'IndhoSnacks. All rights reserved.',
+            ];
+
+            Mail::to($adminuser->email)->send(new OrderAdminGetMail($admindetails));
+
             Session::flash('message', __('successerr.order_delivery_success_msg'));
             Session::flash('alert-class', 'alert-success');
             return redirect()->back();
