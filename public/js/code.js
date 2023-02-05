@@ -732,12 +732,10 @@ function orderplace() {
     var charge = document.getElementById("delivery_charges_order").innerHTML;
     var typedata = "";
 
-    // console.log($("#us2-address").val());
-
     document.getElementById('loaderForPlaceOrder').disabled = true;
 
     $("#loaderForPlaceOrder").html(
-        '<div class="spinner" style="width:25px; height: 25px; display: inline-flex;" role="status"></div>'
+        ' <div class="spinner" style="width:25px; height: 25px; display: inline-flex;" role="status"></div> <span style="display:block">Processing...</span>'
     );
 
     if ($("#home1").prop("checked") == true) {

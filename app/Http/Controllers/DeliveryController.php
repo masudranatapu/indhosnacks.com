@@ -424,9 +424,9 @@ class DeliveryController extends Controller
             $admindetails = [
                 'subject' => 'Message from Indhosnacks.com',
                 'greeting' => 'Hi' . ' ' . $adminuser->name . ',',
-                'body' => 'Delivery boy' . ' ' . $deliveryboy->name . ' ' . 'just pickup a food for Indosnacks.com user. User mame is' . ' ' . $user->name,
+                'body' => 'Delivery boy' . ' ' . $deliveryboy->name . ' ' . 'just pickup a food for Indosnacks.com user. User name is' . ' ' . $user->name,
                 'email' => 'Delivery Boy email is : ' . $deliveryboy->email . '. ' . 'And user email is :' . ' ' . $user->email,
-                'phone' => 'Delivery Boy phone number is : ' . $deliveryboy->mobile_no . '. ' . 'And user phone numbner is :' . ' ' . $user->mob_number,
+                'phone' => 'Delivery Boy phone number is : ' . $deliveryboy->mobile_no . '. ' . 'And user phone number is :' . ' ' . $user->mob_number,
                 'thanks' => 'Thank you for using Indhosnacks',
                 'site_url' => route('website.home'),
                 'site_name' => 'Indhosnacks.com',
@@ -484,9 +484,9 @@ class DeliveryController extends Controller
             $admindetails = [
                 'subject' => 'Message from Indhosnacks.com',
                 'greeting' => 'Hi' . ' ' . $adminuser->name . ',',
-                'body' => 'Delivery boy' . ' ' . $deliveryboy->name . ' ' . 'just complete you order of Indosnacks.com user. User mame is' . ' ' . $user->name,
+                'body' => 'Delivery boy' . ' ' . $deliveryboy->name . ' ' . 'just complete you order of Indosnacks.com user. User name is' . ' ' . $user->name,
                 'email' => 'Delivery Boy email is : ' . $deliveryboy->email . '. ' . 'And user email is :' . ' ' . $user->email,
-                'phone' => 'Delivery Boy phone number is : ' . $deliveryboy->mobile_no . '. ' . 'And user phone numbner is :' . ' ' . $user->mob_number,
+                'phone' => 'Delivery Boy phone number is : ' . $deliveryboy->mobile_no . '. ' . 'And user phone number is :' . ' ' . $user->mob_number,
                 'thanks' => 'Thank you for using Indhosnacks',
                 'site_url' => route('website.home'),
                 'site_name' => 'Indhosnacks.com',
