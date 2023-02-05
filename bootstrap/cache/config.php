@@ -4,7 +4,7 @@
     'name' => 'indhosnacks',
     'env' => 'local',
     'debug' => true,
-    'url' => 'http://localhost/webdevs/indhosnacks.com',
+    'url' => 'http://localhost/indhosnacks.com/',
     'asset_url' => NULL,
     'timezone' => 'UTC',
     'locale' => 'en',
@@ -189,7 +189,7 @@
       'file' => 
       array (
         'driver' => 'file',
-        'path' => 'C:\\xampp\\htdocs\\webdevs\\indhosnacks.com\\storage\\framework/cache/data',
+        'path' => 'D:\\xampp\\htdocs\\indhosnacks.com\\storage\\framework/cache/data',
       ),
       'memcached' => 
       array (
@@ -457,13 +457,13 @@
       'local' => 
       array (
         'driver' => 'local',
-        'root' => 'C:\\xampp\\htdocs\\webdevs\\indhosnacks.com\\storage\\app',
+        'root' => 'D:\\xampp\\htdocs\\indhosnacks.com\\storage\\app',
       ),
       'public' => 
       array (
         'driver' => 'local',
-        'root' => 'C:\\xampp\\htdocs\\webdevs\\indhosnacks.com\\storage\\app/public',
-        'url' => 'http://localhost/webdevs/indhosnacks.com/storage',
+        'root' => 'D:\\xampp\\htdocs\\indhosnacks.com\\storage\\app/public',
+        'url' => 'http://localhost/indhosnacks.com//storage',
         'visibility' => 'public',
       ),
       's3' => 
@@ -554,13 +554,13 @@
       'single' => 
       array (
         'driver' => 'single',
-        'path' => 'C:\\xampp\\htdocs\\webdevs\\indhosnacks.com\\storage\\logs/laravel.log',
+        'path' => 'D:\\xampp\\htdocs\\indhosnacks.com\\storage\\logs/laravel.log',
         'level' => 'debug',
       ),
       'daily' => 
       array (
         'driver' => 'daily',
-        'path' => 'C:\\xampp\\htdocs\\webdevs\\indhosnacks.com\\storage\\logs/laravel.log',
+        'path' => 'D:\\xampp\\htdocs\\indhosnacks.com\\storage\\logs/laravel.log',
         'level' => 'debug',
         'days' => 14,
       ),
@@ -608,30 +608,34 @@
   'mail' => 
   array (
     'driver' => 'smtp',
-    'host' => 'smtp.mailtrap.io',
+    'host' => 'sandbox.smtp.mailtrap.io',
     'port' => '2525',
     'from' => 
     array (
       'address' => 'info@indhosnacks.com',
-      'name' => 'indhosnacks',
+      'name' => 'Admin',
     ),
     'encryption' => 'tls',
-    'username' => '6652a40848972d',
-    'password' => '2adca561246b85',
+    'username' => '7be8c3d967bf69',
+    'password' => '4a850a3c24b9e6',
     'sendmail' => '/usr/sbin/sendmail -bs',
     'markdown' => 
     array (
       'theme' => 'default',
       'paths' => 
       array (
-        0 => 'C:\\xampp\\htdocs\\webdevs\\indhosnacks.com\\resources\\views/vendor/mail',
+        0 => 'D:\\xampp\\htdocs\\indhosnacks.com\\resources\\views/vendor/mail',
       ),
     ),
     'log_channel' => NULL,
   ),
   'mapdetail' => 
   array (
+<<<<<<< HEAD
     'key' => 'AIzaSyCGYnCh2Uusd7iASDhsUCxvbFgkSifkkTM',
+=======
+    'key' => 'AIzaSyC1JUHjsnQZtKx5eBOpG42E_CLoJ1s39AU',
+>>>>>>> 7d171e9886899d5cf05f160b0a4c740845c9d1d8
     'lat' => '21.2284231',
     'long' => '72.896816',
     'web_color' => NULL,
@@ -645,7 +649,7 @@
       'mode' => 'sandbox',
       'http.ConnectionTimeOut' => 1000,
       'log.LogEnabled' => true,
-      'log.FileName' => 'C:\\xampp\\htdocs\\webdevs\\indhosnacks.com\\storage/logs/paypal.log',
+      'log.FileName' => 'D:\\xampp\\htdocs\\indhosnacks.com\\storage/logs/paypal.log',
       'log.LogLevel' => 'FINE',
     ),
   ),
@@ -737,7 +741,7 @@
     'lifetime' => '120',
     'expire_on_close' => false,
     'encrypt' => false,
-    'files' => 'C:\\xampp\\htdocs\\webdevs\\indhosnacks.com\\storage\\framework/sessions',
+    'files' => 'D:\\xampp\\htdocs\\indhosnacks.com\\storage\\framework/sessions',
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -766,9 +770,9 @@
   array (
     'paths' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\webdevs\\indhosnacks.com\\resources\\views',
+      0 => 'D:\\xampp\\htdocs\\indhosnacks.com\\resources\\views',
     ),
-    'compiled' => 'C:\\xampp\\htdocs\\webdevs\\indhosnacks.com\\storage\\framework\\views',
+    'compiled' => 'D:\\xampp\\htdocs\\indhosnacks.com\\storage\\framework\\views',
   ),
   'xss-filter' => 
   array (

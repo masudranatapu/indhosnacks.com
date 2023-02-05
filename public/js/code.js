@@ -731,13 +731,21 @@ function orderplace() {
     var subtotal = document.getElementById("subtotal_order").innerHTML;
     var charge = document.getElementById("delivery_charges_order").innerHTML;
     var typedata = "";
- //   console.log($("#us2-address").val());
+
+    // console.log($("#us2-address").val());
+
+    document.getElementById('loaderForPlaceOrder').disabled = true;
+
+    $("#loaderForPlaceOrder").html(
+        '<div class="spinner" style="width:25px; height: 25px; display: inline-flex;" role="status"></div>'
+    );
 
     if ($("#home1").prop("checked") == true) {
         var shipping_type = 0;
         var address = $("#us2-address").val();
         var latlong = $("#us2-lat").val() + "," + $("#us2-lon").val();
     }
+
     if ($("#home2").prop("checked") == true) {
         var shipping_type = 1;
         var address ="";
@@ -763,6 +771,13 @@ function orderplace() {
             success: function (data1) {
                 console.log(data1);
                 if (data1 != 0) {
+
+                    $("#loaderForPlaceOrder").html(
+                        '<span>Order Success</span>'
+                    );
+
+                    document.getElementById('loaderForPlaceOrder').disabled = false;
+
                     window.location.href = $("#path_site").val() + "/viewdetails" + "/" + data1;
                 }
             }

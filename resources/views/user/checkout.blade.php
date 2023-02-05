@@ -273,7 +273,7 @@
                         </div>
                         @if (Session::get('login_user'))
                             <div id="orderplace1">
-                                <button type="button" onclick="orderplace()">
+                                <button type="button" onclick="orderplace()" id="loaderForPlaceOrder" style="text-align:center;">
                                     <span style="">{{ __('messages.place_order') }}</span>
                                 </button>
                             </div>
@@ -312,7 +312,7 @@
                                     <input type="hidden" name="total_price_pal" id="total_price_pal" required="" />
                                     <input type="hidden" name="subtotal_pal" id="subtotal_pal" required="" />
                                     <input type="hidden" name="charage_pal" id="charage_pal" required="" />
-                                    <button type="submit">
+                                    <button type="submit" id="loaderForPlaceOrderPaypal">
                                         <span style="">{{ __('messages.place_order') }}</span>
                                     </button>
                                 </form>
