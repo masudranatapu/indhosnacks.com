@@ -119,6 +119,30 @@ class OrderController extends Controller
             ->make(true);
     }
 
+
+    public function TestMail()
+    {
+
+        try{
+            $details = [
+                'subject' => 'Message from Indhosnacks.com',
+                'greeting' => 'Hi',
+                'body' => 'we are sorry to inform you that, Your order has been delete by Indhosnacks.com',
+                'email' => 'Your email is ',
+                'phone' => 'Your phone number is ',
+                'thanks' => 'Thank you for using Indhosnacks',
+                'site_url' => 'ss',
+                'site_name' => 'Indhosnacks.com',
+                'copyright' => 'Copyright © ' . Carbon::now()->format('Y') . ' ' . 'IndhoSnacks. All rights reserved.',
+            ];
+            $res = Mail::to('rony@gmail.com')->send(new OrderUserMail($details));
+            echo $res." success"; 
+        }catch(Exception $e){
+            dd($e);
+        }
+
+    }
+
     public function deleteorder($id)
     {
         $store = Order::find($id);

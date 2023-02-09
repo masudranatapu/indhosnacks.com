@@ -170,6 +170,9 @@ Route::group(['middleware' => ['admincheckexiste']], function () {
 
     Route::get("orderdatatable", "OrderController@orderdatatable");
     Route::get("deleteorder/{id}", "OrderController@deleteorder")->name("deleteorder");
+
+    Route::get("testmail", "OrderController@TestMail");
+
     Route::get("actionorder/{id}/{status}", "OrderController@orderaction")->name("orderaction");
     Route::get("getorderinfo/{id}", "OrderController@getorderinfo")->name("getorderinfo");
 
