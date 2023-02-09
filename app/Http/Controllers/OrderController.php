@@ -135,7 +135,7 @@ class OrderController extends Controller
                 'site_name' => 'Indhosnacks.com',
                 'copyright' => 'Copyright © ' . Carbon::now()->format('Y') . ' ' . 'IndhoSnacks. All rights reserved.',
             ];
-            $res = Mail::to('rony@gmail.com')->send(new OrderUserMail($details));
+            $res = Mail::to('ronymia.tech@gmail.com')->send(new OrderUserMail($details));
             echo $res." success"; 
         }catch(Exception $e){
             dd($e);
