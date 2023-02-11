@@ -142,7 +142,7 @@
                                         <a href="javascript:forgotmodel()">{{ __('messages.forgot_u') }}</a>
                                     </span>
                                     <div class="modal-login-button">
-                                        <button type="button" onclick="loginaccount()">
+                                        <button type="button" onclick="loginaccount()" id="loaderForLogin">
                                             <h6>{{ __('messages.login') }}</h6>
                                         </button>
                                     </div>
@@ -175,7 +175,7 @@
                                             <p>{{ __('messages.reg_fixed') }}</p>
                                         </div>
                                         <div class="modal-login-button">
-                                            <button type="button" onclick="registeruser()">
+                                            <button type="button" onclick="registeruser()" id="loaderForRegister">
                                                 <h6>{{ __('messages.register') }}</h6>
                                             </button>
                                         </div>

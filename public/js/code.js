@@ -30,7 +30,7 @@ $('.filters-select').on('change', function () {
         filter: filterValue
     });
 });
-function disablebtn(){
+function disablebtn() {
     alert("This action is disabled in demo.");
 }
 $(function () {
@@ -101,34 +101,34 @@ $('.responsive').slick({
     slidesToShow: 7,
     slidesToScroll: 4,
     responsive: [{
-            breakpoint: 1024,
-            settings: {
-                slidesToShow: 7,
-                slidesToScroll: 3,
-                infinite: true,
-                dots: true
-            }
-        }, {
-            breakpoint: 767,
-            settings: {
-                slidesToShow: 3,
-                slidesToScroll: 3,
-                infinite: true,
-                dots: true
-            }
-        }, {
-            breakpoint: 576,
-            settings: {
-                slidesToShow: 2,
-                slidesToScroll: 2
-            }
-        }, {
-            breakpoint: 480,
-            settings: {
-                slidesToShow: 1,
-                slidesToScroll: 1
-            }
+        breakpoint: 1024,
+        settings: {
+            slidesToShow: 7,
+            slidesToScroll: 3,
+            infinite: true,
+            dots: true
         }
+    }, {
+        breakpoint: 767,
+        settings: {
+            slidesToShow: 3,
+            slidesToScroll: 3,
+            infinite: true,
+            dots: true
+        }
+    }, {
+        breakpoint: 576,
+        settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2
+        }
+    }, {
+        breakpoint: 480,
+        settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+        }
+    }
 
     ]
 });
@@ -190,8 +190,8 @@ function changepassword() {
     });
 }
 
-function changecategory(val,id) {
-    var total=$("#totalcategory").val();
+function changecategory(val, id) {
+    var total = $("#totalcategory").val();
     document.getElementById("category_div").style.display = "block";
     document.getElementById("main_content").style.display = "none";
 
@@ -199,22 +199,23 @@ function changecategory(val,id) {
         url: $("#path_site").val() + "/category" + "/" + val,
         method: "GET",
         success: function (result) {
-             for(var i=0;i<total;i++){;
-                $("#cat1"+i).removeClass('slick-slide active');
-                $("#catdiv"+i).removeClass('slick-slide active');
+            for (var i = 0; i < total; i++) {
+                ;
+                $("#cat1" + i).removeClass('slick-slide active');
+                $("#catdiv" + i).removeClass('slick-slide active');
             }
-            $("#cat1"+id).addClass('slick-slide active');
-            $("#catdiv"+id).addClass('slick-slide active');
+            $("#cat1" + id).addClass('slick-slide active');
+            $("#catdiv" + id).addClass('slick-slide active');
             var res = JSON.parse(result);
             var data = res.item;
             var txt = "";
             console.log(data);
-            txt=txt+'<div class="row">';
+            txt = txt + '<div class="row">';
             var path = $("#path_site").val();
-              for (var i = 0; i < data.length; i++) {
-                 txt=txt+'<div class="portfolio 1 col-md-6 burger w3-container  w3-animate-zoom portfoliocat" data-cat="'+data[i]['id']+'" data-bound><div class="items"><div class="b-img"><a href="' + path + '/detailitem' + "/" + data[i]['id'] + '"><img src="' + path + '/public/upload/images/menu_item_icon' + "/" + data[i]['menu_image'] + '"></a></div><div class="bor"><div class="b-text"><h1><a href="' + path + '/detailitem' + "/" + data[i]['id'] + '">' + data[i]['menu_name'] + '</a></h1><p>' + data[i]['description']+ '</p></div><div class="price"><h1>' + $("#currency").val() + data[i]['price'] + '</h1><div class="cart"><a href="' + path + '/detailitem' + "/" + data[i]['id'] + '">' + $("#addcart").val() + '</a></div></div></div></div></div>';
-              }
-            txt=txt+'</div>';
+            for (var i = 0; i < data.length; i++) {
+                txt = txt + '<div class="portfolio 1 col-md-6 burger w3-container  w3-animate-zoom portfoliocat" data-cat="' + data[i]['id'] + '" data-bound><div class="items"><div class="b-img"><a href="' + path + '/detailitem' + "/" + data[i]['id'] + '"><img src="' + path + '/public/upload/images/menu_item_icon' + "/" + data[i]['menu_image'] + '"></a></div><div class="bor"><div class="b-text"><h1><a href="' + path + '/detailitem' + "/" + data[i]['id'] + '">' + data[i]['menu_name'] + '</a></h1><p>' + data[i]['description'] + '</p></div><div class="price"><h1>' + $("#currency").val() + data[i]['price'] + '</h1><div class="cart"><a href="' + path + '/detailitem' + "/" + data[i]['id'] + '">' + $("#addcart").val() + '</a></div></div></div></div></div>';
+            }
+            txt = txt + '</div>';
             var cat = res.category;
 
             document.getElementById("category_div").innerHTML = txt;
@@ -232,7 +233,7 @@ function logout() {
 }
 
 function rtl_slick() {
-    if ($("#is_rtl").val()=='1') {
+    if ($("#is_rtl").val() == '1') {
         return true;
     } else {
         return false;
@@ -241,7 +242,7 @@ function rtl_slick() {
 
 function addtocart() {
     var item_id = $("#menu_name").val();
-    var item=$("#item_id").val();
+    var item = $("#item_id").val();
     var qty = $("#number").val();
     var price = $('#origin_price').val();
     var favorite = [];
@@ -322,11 +323,11 @@ function shareonsoical(val, id) {
         method: "GET",
         success: function (data) {
             if (val == 1) {
-                window.open('https://www.facebook.com/sharer/sharer.php?u='+$("#path_site").val()+'/detailitem/' + id + '', '_blank');
+                window.open('https://www.facebook.com/sharer/sharer.php?u=' + $("#path_site").val() + '/detailitem/' + id + '', '_blank');
                 document.getElementById("facebook_share_id").innerHTML = data;
             }
             if (val == 2) {
-                window.open('https://twitter.com/intent/tweet?text=my share text&amp;url='+$("#path_site").val()+'/detailitem/' + id + '', '_blank');
+                window.open('https://twitter.com/intent/tweet?text=my share text&amp;url=' + $("#path_site").val() + '/detailitem/' + id + '', '_blank');
                 document.getElementById("twitter_share_id").innerHTML = data;
             }
 
@@ -343,17 +344,26 @@ function checkcart() {
 
 
 function registeruser() {
-      document.getElementById("reg_error_msg").style.display = "none";
-        document.getElementById("reg_success_msg").style.display = "none";
-     $(document).ajaxSend(function() {
-           $("#overlaychk").fadeIn(300);　
-     });
+    document.getElementById("reg_error_msg").style.display = "none";
+    document.getElementById("reg_success_msg").style.display = "none";
+    $(document).ajaxSend(function () {
+        $("#overlaychk").fadeIn(300);
+    });
     var name = $("input[name='name']").val();
     var phone = $("input[name='phone_reg']").val();
     var password = $("input[name='password_reg']").val();
     var email = $("input[name='email']").val();
     var conn = $("input[name='con_password_reg']").val();
-    if (name != "" && phone != "" && password != "" && conn != ""&&email!="") {
+    if (name != "" && phone != "" && password != "" && conn != "" && email != "") {
+
+        const buttonlogin = document.getElementById("loaderForRegister");
+
+        $("#loaderForRegister").html(
+            '<div class="spinner" style="width: 18px; height: 18px; display: inline-flex;" role="status"></div> <span style="color: white;"> Register ... </span>'
+        );
+
+        buttonlogin.disabled = true;
+
         $.ajax({
             url: $("#path_site").val() + "/userregister",
             method: "GET",
@@ -361,37 +371,46 @@ function registeruser() {
                 name: name,
                 phone: phone,
                 password: password,
-                email:email
+                email: email
             },
             success: function (data) {
                 if (data == 1) {
-                      $.ajax({
-                                    url: $("#path_site").val() + "/userlogin",
-                                    method: "GET",
-                                    data: {
-                                        phone: phone,
-                                        password: password,
-                                        rem_me: 0
-                                    },
-                                    success: function (data) {
-                                        if (data == 1) {
-                                            var url1 = window.location.href;
-                                            var url2 = $("#path_site").val() + "/home";
-                                            var n = url1.localeCompare(url2);
-                                            console.log(n);
-                                            if (n == 0) {
-                                                window.location.href = $("#path_site").val() + "/myaccount";
-                                            } else {
-                                                window.location.reload();
-                                            }
+                    $.ajax({
+                        url: $("#path_site").val() + "/userlogin",
+                        method: "GET",
+                        data: {
+                            phone: phone,
+                            password: password,
+                            rem_me: 0
+                        },
+                        success: function (data) {
+                            if (data == 1) {
+                                var url1 = window.location.href;
+                                var url2 = $("#path_site").val() + "/home";
+                                var n = url1.localeCompare(url2);
+                                console.log(n);
+                                if (n == 0) {
+                                    window.location.href = $("#path_site").val() + "/myaccount";
+                                } else {
+                                    window.location.reload();
+                                }
 
-                                        } else {
-                                            document.getElementById("login_error_msg").innerHTML = $("#login_error").val();
-                                            document.getElementById("login_error_msg").style.display = "block";
-                                        }
-                                    }
+                            } else {
+                                document.getElementById("login_error_msg").innerHTML = $("#login_error").val();
+                                document.getElementById("login_error_msg").style.display = "block";
+                            }
+                        }
                     });
                 } else {
+
+                    const buttonlogin = document.getElementById("loaderForRegister");
+
+                    $("#loaderForRegister").html(
+                        '<span style="color: white;"> Register </span>'
+                    );
+
+                    buttonlogin.disabled = false;
+
                     document.getElementById("reg_error_msg").innerHTML = $("#reg_error").val();
                     document.getElementById("reg_error_msg").style.display = "block";
                     document.getElementById("reg_success_msg").style.display = "none";
@@ -418,10 +437,10 @@ function checkdata(val) {
 }
 
 function loginaccount() {
-     document.getElementById("login_error_msg").style.display = "none";
-     $(document).ajaxSend(function() {
-    $("#overlaychk").fadeIn(300);　
-  });
+    document.getElementById("login_error_msg").style.display = "none";
+    $(document).ajaxSend(function () {
+        $("#overlaychk").fadeIn(300);
+    });
     var phone = $("input[name='phone']").val();
     var password = $("input[name='password']").val();
     if ($("input[name='rem_me']").prop("checked") == true) {
@@ -431,6 +450,15 @@ function loginaccount() {
     }
 
     if (phone != "" && password != "") {
+
+        const buttonlogin = document.getElementById("loaderForLogin");
+
+        $("#loaderForLogin").html(
+            '<div class="spinner" style="width: 18px; height: 18px; display: inline-flex;" role="status"></div> <span style="color: white;"> Login ... </span>'
+        );
+
+        buttonlogin.disabled = true;
+
         $.ajax({
             url: $("#path_site").val() + "/userlogin",
             method: "GET",
@@ -452,6 +480,12 @@ function loginaccount() {
                     }
 
                 } else {
+                    $("#loaderForLogin").html(
+                        '<span style="color: white;"> Login </span>'
+                    );
+
+                    buttonlogin.disabled = false;
+
                     document.getElementById("login_error_msg").innerHTML = $("#login_error").val();
                     document.getElementById("login_error_msg").style.display = "block";
                 }
@@ -748,8 +782,8 @@ function orderplace() {
 
     if ($("#home2").prop("checked") == true) {
         var shipping_type = 1;
-        var address ="";
-        var latlong ="";
+        var address = "";
+        var latlong = "";
     }
 
     if (phone != "" && city != "" && payment_type != "") {
@@ -760,13 +794,13 @@ function orderplace() {
                 phone: phone,
                 note: note,
                 city: city,
-                address:address,
+                address: address,
                 payment_type: payment_type,
                 shipping_type: shipping_type,
                 totalprice: totalprice,
                 subtotal: subtotal,
                 charge: charge,
-                latlong:latlong
+                latlong: latlong
             },
             success: function (data1) {
                 console.log(data1);
@@ -818,19 +852,19 @@ function addprice(price, iqty) {
 
 
 }
-if($('#us2').length){
-  $('#us2').locationpicker({
-    location: {
-        latitude: $("#lat_env").val(),
-        longitude: $("#long_env").val()
-    },
-    radius: 300,
-    inputBinding: {
-        latitudeInput: $('#us2-lat'),
-        longitudeInput: $('#us2-lon'),
-        radiusInput: $('#us2-radius'),
-        locationNameInput: $('#us2-address')
-    },
-    enableAutocomplete: true
-});
+if ($('#us2').length) {
+    $('#us2').locationpicker({
+        location: {
+            latitude: $("#lat_env").val(),
+            longitude: $("#long_env").val()
+        },
+        radius: 300,
+        inputBinding: {
+            latitudeInput: $('#us2-lat'),
+            longitudeInput: $('#us2-lon'),
+            radiusInput: $('#us2-radius'),
+            locationNameInput: $('#us2-address')
+        },
+        enableAutocomplete: true
+    });
 }

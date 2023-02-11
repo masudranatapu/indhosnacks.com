@@ -15,9 +15,9 @@ $(document).ready(function () {
               render: function(data) {
                     return '<img src="'+data+'" height="50">';
               }
-            }   
-        ]      
-         
+            }
+        ]
+
     });
 });
 function delete_record(url) {
@@ -28,7 +28,7 @@ function delete_record(url) {
         else{
             disablebtn();
         }
-        
+
     } else {
         window.location.reload();
     }
@@ -41,9 +41,9 @@ function editmenu(id){
            $("#id").val(data.id);
            $('#real_image').val(data.cat_icon);
            $('#name').val(data.cat_name);
-           $('#image1').attr("src", $("#path_admin").val()+"/public/upload/images/menu_cat_icon/"+"/"+data.cat_icon);          
+           $('#image1').attr("src", $("#path_admin").val()+"/public/upload/images/menu_cat_icon/"+"/"+data.cat_icon);
          }
-        }); 
+        });
 }
 $(document).ready(function () {
     $('#myCityTable').DataTable({
@@ -55,7 +55,7 @@ $(document).ready(function () {
             {data: 'name'  , name: 'name'},
             {data: 'action', name:'action'}
         ],
-       
+
     });
 });
 function editcity(id){
@@ -66,7 +66,7 @@ function editcity(id){
             $("#id").val(id);
             $('#name').val(data);
           }
-        }); 
+        });
 }
 function disablebtn(){
     alert("This Action Disable In Demo");
@@ -82,7 +82,7 @@ $(document).ready(function () {
             {data: 'email'  , name: 'email'},
             {data: 'phone_no' , name:'phone_no'},
             {data: 'msg' , name:'msg'}
-        ]       
+        ]
     });
 });
 $(document).ready(function () {
@@ -101,7 +101,7 @@ $(document).ready(function () {
             {data:'date',name:'date'},
             {data: 'action', name:'action'}
         ],
-      
+
     });
 });
 function edit_record(id){
@@ -117,7 +117,7 @@ function edit_record(id){
                $("#edit_name").val(data.name);
                $("#edit_id").val(data.id);
          }
-        }); 
+        });
 }
 $(document).ready(function () {
     $('#itemtab').DataTable({
@@ -140,10 +140,10 @@ function yesnoCheck(val,data) {
     if ((document.getElementById('yesCheck').checked||document.getElementById("edittype").checked)&&($("#edittype").val()==data||$("#yesCheck").val()==data)) {
         document.getElementById("price_"+val).style.display="block";
     }
-    else 
-    {     
+    else
+    {
          document.getElementById("price_"+val).style.display="none";
-    }   
+    }
 }
 function updateitem(val){
   $.ajax( {
@@ -156,7 +156,7 @@ function updateitem(val){
             }
             document.getElementById("itemlist").innerHTML=txt;
          }
-        }); 
+        });
 }
 function editing(id){
     $.ajax( {
@@ -179,9 +179,9 @@ function editing(id){
              else{//free
                 document.getElementById("price_edit").style.display="none";
              }
-             $("input[name='edittype'][value='"+data.data.type+"']").prop('checked', true);          
+             $("input[name='edittype'][value='"+data.data.type+"']").prop('checked', true);
           }
-    }); 
+    });
 }
 $(document).ready(function () {
     $('#menutb').DataTable({
@@ -202,9 +202,9 @@ $(document).ready(function () {
               render: function(data) {
                     return '<img src="'+data+'" height="50">';
               }
-            }   
-        ]      
-         
+            }
+        ]
+
     });
 });
 function edititem(id){
@@ -219,9 +219,9 @@ function edititem(id){
            $('#category').val(data.category);
            $('#price').val(data.price);
            $('#image1').attr("src", $("#path_admin").val()+"/public/upload/images/menu_item_icon"+"/"+data.menu_image);
-          
+
          }
-        }); 
+        });
 }
 $(document).ready(function () {
     $('#notifi_tb').DataTable({
@@ -243,9 +243,9 @@ $(document).ready(function () {
             {data: 'id'    , name: 'id'},
             {data: 'name'  , name: 'name'},
             {data: 'email'  , name: 'email'},
-            {data: 'phone_no' , name:'phone_no'},           
+            {data: 'phone_no' , name:'phone_no'},
             {data: 'action', name:'action'}
-        ]       
+        ]
     });
 });
  function checkboth(val){
@@ -297,7 +297,7 @@ $(document).ready(function () {
             }
         ],
          "order": [[ 0, "desc" ]]
-         
+
     });
 });
 
@@ -313,9 +313,9 @@ $(document).ready(function () {
                             success: function( data ) {
                                 alert($("#change_currency_alert").val());
                             }
-                    }); 
+                    });
                 }
-                  
+
               } else {
                    window.location.reload();
             }
@@ -331,7 +331,7 @@ $(document).ready(function () {
                          $.ajax( {
                          url: $("#path_admin").val()+"/saveresdetail",
                          method:"get",
-                         data: { 
+                         data: {
                             email:email,
                             phone:phone,
                             address:address,
@@ -343,9 +343,9 @@ $(document).ready(function () {
                             $('a[href="#general"]').removeClass('active');
                             $('a[href="#login"]').addClass('active');
                             $("#login").addClass('in show active');
-    
+
                          }
-                       });  
+                       });
                   }
                   else{
                         alert($("#req_msg").val());
@@ -359,13 +359,13 @@ $(document).ready(function () {
                  var twitter_id=$("#twitter_id").val();
                  var linkedin_id=$("#linkedin_id").val();
                  var google_plus_id=$("#google_plus_id").val();
-                 var whatsapp=$("#whatsapp").val();                
-               
+                 var whatsapp=$("#whatsapp").val();
+
                   if(playstore!=""&&appstore!=""&&facebook_id!=""&&twitter_id!=""&&linkedin_id!=""&&google_plus_id!=""&&whatsapp!=""){
                          $.ajax( {
                          url:$("#path_admin").val()+"/savesoicalsetting",
                          method:"get",
-                         data: { 
+                         data: {
                             playstore:playstore,
                             appstore:appstore,
                             facebook_id:facebook_id,
@@ -379,9 +379,9 @@ $(document).ready(function () {
                             $('a[href="#login"]').removeClass('active');
                             $('a[href="#shipping"]').addClass('active');
                             $("#shipping").addClass('in show active');
-    
+
                          }
-                       });  
+                       });
                   }
                   else{
                         alert($("#req_msg").val());
@@ -394,7 +394,7 @@ $(document).ready(function () {
                     var stripe_secret=$("#stripe_secret").val();
                     var paypal_client_id=$("#paypal_client_id").val();
                     var paypal_client_secret=$("#paypal_client_secret").val();
-                
+
                     if ($("#paypal_mode").prop("checked")) {
                        var  status=0;
                     }
@@ -413,12 +413,12 @@ $(document).ready(function () {
                     else{
                        var paypal_active=0;
                     }
-                  
+
                     if(stripe_key!=""&&stripe_secret!=""&&paypal_client_id!=""&&paypal_client_secret!=""){
                          $.ajax( {
                                          url: $("#path_admin").val()+"/savepaymentdata",
                                          method:"get",
-                                         data: { 
+                                         data: {
                                             stripe_key:stripe_key,
                                             stripe_secret:stripe_secret,
                                             paypal_client_id:paypal_client_id,
@@ -429,10 +429,10 @@ $(document).ready(function () {
                                          },
                                          success: function( data ) {
                                             alert($("#datasave").val());
-                                            
-                    
+
+
                                          }
-                       });  
+                       });
                   }
                   else{
                         alert($("#req_msg").val());
@@ -446,7 +446,7 @@ function changeordersetting(status){
                        window.location.reload();
                      }
                  });
-            }    
+            }
              function moredata(id){
                  $.ajax({
             url: $("#path_admin").val()+"/getorderinfo"+"/"+id,
@@ -454,8 +454,8 @@ function changeordersetting(status){
                  console.log(data);
                 document.getElementById("orderheader").innerHTML=$("#order_no_msg").val()+":- "+data.orderdata.id;
                 document.getElementById("username").innerHTML=data.orderdata.name;
-           
-               
+
+
                 document.getElementById("ordertime").innerHTML=data.orderdata.order_placed_date;
                 document.getElementById("address").innerHTML=data.orderdata.address;
                 document.getElementById("paymenttype").innerHTML=$("#order_pay_type").val()+":-"+data.orderdata.payment_type;
@@ -470,11 +470,11 @@ function changeordersetting(status){
                 for(var i=0;i<data.itemdata.length;i++){
                      txt=txt+'<tr><td><b>'+data.itemdata[i].itemdata.menu_name+'</b></br>';
                      for(var k=0;k<data.itemdata[i].ingredientdata.length;k++){
-                         
+
                          if(data.itemdata[i].ingredientdata[k]!=null){
                               txt=txt+'<span>'+data.itemdata[i].ingredientdata[k]['item_name']+'</span></br>';
                          }
-                       
+
                      }
                      txt=txt+'</td><td>'+data.itemdata[i].item_qty+'</td><td>'+data.itemdata[i].itemdata.price+" "+data.currency+'<br>';
                      for(var k=0;k<data.itemdata[i].ingredientdata.length;k++){
@@ -484,21 +484,21 @@ function changeordersetting(status){
                         }
                         else{
                             txt=txt+'<span>'+data.itemdata[i].ingredientdata[k]['price']+'</span></br>';
-                        }   
+                        }
                          }
                      }
-                     txt=txt+'</td><td>'+data.itemdata[i].ItemTotalPrice+" "+data.currency+'</td></tr>';                     
+                     txt=txt+'</td><td>'+data.itemdata[i].ItemTotalPrice+" "+data.currency+'</td></tr>';
                      total=parseFloat(total)+parseFloat(data.itemdata[i].ItemTotalPrice);
                 }
                 txt=txt+'<tr><td></td><td></td><th>'+$("#ordermsg_subtotal").val()+'</th><td>'+total+' '+data.currency+'</td></tr>';
                 txt=txt+'<tr><td></td><td></td><th>'+$("#ordermsg_delivery_charges").val()+'</th><td>'+data.orderdata.delivery_charges+' '+data.currency+'</td></tr>';
-               
+
                 txt=txt+'<tr><td></td><td></td><th>'+$("#ordermsg_total").val()+'</th><th>'+data.orderdata.total_price+' '+data.currency+'</th></tr>';
                 txt=txt+'</tbody>';
                  document.getElementById("itemdata").innerHTML=txt;
             }
                    });
-            }    
+            }
 function accept_record(url) {
      $.ajax({
             url: url,
@@ -506,8 +506,8 @@ function accept_record(url) {
                alert($("#ordermsg_confirm").val());
                window.location.reload();
             }
-        });   
-}    
+        });
+}
 function reject_record(url) {
     $.ajax({
             url: url,
@@ -528,23 +528,23 @@ function reject_record(url) {
                              {data: 'action'  , name: 'action'}
                          ],
                         columnDefs: [
-                             { 
+                             {
                                 targets: 3,
                                 render: function(data) {
                                     return '<a onclick="#" rel="tooltip" title="" class="btn btn-md btn-info" data-original-title="Remove">More</a>';
                              }
-                         }   
+                         }
                      ] ,
-                     "order": [[ 0, "desc" ]]     
-         
+                     "order": [[ 0, "desc" ]]
+
                 });
             }
-        }); 
-   
+        });
+
 }
 function assign_order(data){
    $("#order_id").val(data);
-}    
+}
 
 function deliverycheckcurrentpwd(val){
                  $.ajax( {
@@ -579,9 +579,9 @@ $(document).ready(function () {
               render: function(data) {
                     return '<a onclick="deliverymoredata('+data +')" rel="tooltip" title="" class="btn btn-md btn-info" data-toggle="modal" data-target="#moreinfo" data-original-title="Remove">More</a>';
               }
-            }   
+            }
         ] ,
-        "order": [[ 0, "desc" ]]    
+        "order": [[ 0, "desc" ]]
     });
 });
 function deliverymoredata(id){
@@ -592,11 +592,11 @@ function deliverymoredata(id){
                 document.getElementById("orderparpare").innerHTML=data.orderdata.preparing_date_time;
                 document.getElementById("dispatching").innerHTML=data.orderdata.dispatched_date_time;
                 document.getElementById("delivered").innerHTML=data.orderdata.delivered_date_time;
-                
+
                 document.getElementById("orderheader").innerHTML=$("#order_no_msg").val()+":- "+data.orderdata.id;
                 document.getElementById("username").innerHTML=data.orderdata.name;
-           
-               
+
+
                 document.getElementById("ordertime").innerHTML=data.orderdata.order_placed_date;
                 document.getElementById("address").innerHTML=data.orderdata.address;
                 document.getElementById("paymenttype").innerHTML=$("#order_pay_type").val()+":-"+data.orderdata.payment_type;
@@ -620,15 +620,15 @@ function deliverymoredata(id){
                         }
                         else{
                             txt=txt+'<span>'+data.itemdata[i].ingredientdata[k]['price']+'</span></br>';
-                        }   
-                       
+                        }
+
                      }
-                     txt=txt+'</td><td>'+data.itemdata[i].ItemTotalPrice+" "+data.currency+'</td></tr>';                     
+                     txt=txt+'</td><td>'+data.itemdata[i].ItemTotalPrice+" "+data.currency+'</td></tr>';
                      total=parseFloat(total)+parseFloat(data.itemdata[i].ItemTotalPrice);
                 }
                 txt=txt+'<tr><td></td><td></td><th>'+$("#ordermsg_subtotal").val()+'</th><td>'+total+' '+data.currency+'</td></tr>';
                 txt=txt+'<tr><td></td><td></td><th>'+$("#ordermsg_delivery_charges").val()+'</th><td>'+data.orderdata.delivery_charges+' '+data.currency+'</td></tr>';
-               
+
                 txt=txt+'<tr><td></td><td></td><th>'+$("#ordermsg_total").val()+'</th><th>'+data.orderdata.total_price+' '+data.currency+'</th></tr>';
                 txt=txt+'</tbody>';
                  document.getElementById("itemdata").innerHTML=txt;
@@ -654,9 +654,9 @@ $(document).ready(function () {
               render: function(data) {
                     return '<a onclick="deliverymoredata('+data +')" rel="tooltip" title="" class="btn btn-md btn-info" data-toggle="modal" data-target="#moreinfo" data-original-title="Remove">More</a>';
               }
-            }   
+            }
         ] ,
-        "order": [[ 0, "desc" ]]    
+        "order": [[ 0, "desc" ]]
     });
 });
  function play_sound() {
@@ -664,8 +664,8 @@ $(document).ready(function () {
             var audioElement = document.createElement('audio');
             audioElement.autoplay = true;
             audioElement.load();
-            audioElement.addEventListener("load", function() { 
-                audioElement.play(); 
+            audioElement.addEventListener("load", function() {
+                audioElement.play();
             }, true);
             audioElement.src = source;
         }
@@ -686,12 +686,12 @@ $(document).ready(function () {
                                 $('#bell-animation').addClass('icon-anim-pulse');
                                 $('.notification-badge').addClass('badge-danger');
                                 play_sound();
-                               
+
                             } else{
                                 document.getElementById("ordercount").innerHTML=0;
                                 document.getElementById("notificationmsg").innerHTML="You have not any pending orders";
                                    document.getElementById("notificationshow").style.display="none";
-                               
+
                             }
                         } else {
                              document.getElementById("ordercount").innerHTML=0;
@@ -720,7 +720,7 @@ $(document).ready(function () {
                     if(resp.status == 200){
                         $('#notification-data').html(data.data);
                       //  document.getElementById("notify").style.display="none";
-                        
+
                         $('#bell-animation').removeClass('icon-anim-pulse');
                         $('.notification-badge').removeClass('badge-danger');
                     }
@@ -751,9 +751,9 @@ $(document).ready(function () {
                                 document.getElementById(filename).value="";
                                 return false;
                             }
-                            
+
                         };
-         
+
                     }
                 } else {
                     alert("This browser does not support HTML5.");
