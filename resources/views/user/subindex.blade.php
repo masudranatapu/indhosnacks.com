@@ -56,7 +56,7 @@
     <script type="text/javascript" src="{{ asset('burger/js/bootstrap.min.js') }}"></script>
 
     <script type="text/javascript"
-        src='https://maps.google.com/maps/api/js?key={{ Config::get(' mapdetail.key') }}&sensor=false&libraries=places'>
+        src='https://maps.google.com/maps/api/js?key=AIzaSyCGYnCh2Uusd7iASDhsUCxvbFgkSifkkTM&sensor=false&libraries=places'>
     </script>
     <script src="{{ url('public/js/locationpicker.js') }}"></script>
 </head>

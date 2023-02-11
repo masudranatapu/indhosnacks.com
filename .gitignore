@@ -4,6 +4,7 @@
 /public/upload/video
 /storage/*.key
 /vendor
+/bootstrap
 .env
 .env.backup
 .phpunit.result.cache
