@@ -124,6 +124,9 @@
     <script src="{{asset('admin_panel/assets/js/init-scripts/data-table/datatables-init.js')}}"></script>
     <script type="text/javascript" src="{{asset('public/js/admin.js').'?v=2'}}"></script>
     @yield('footer')
+
+    @stack('js')
+
 </body>
 
 </html>

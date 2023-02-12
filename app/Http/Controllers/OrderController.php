@@ -96,7 +96,7 @@ class OrderController extends Controller
                 $done = url("waitingforpickup", array('id' => $user->id));
                 $return = "";
                 if ($user->order_status == 0) { //accept,reject,delete
-                    $return = '<a onclick="accept_record(' . "'" . $accept . "'" . ')" rel="tooltip" title="" class="btn btn-sm btn-success mr-2 text-white" data-original-title="Remove" >' . __('messages.accept') . '</a><a onclick="reject_record(' . "'" . $reject . "'" . ')" rel="tooltip" title="" class="btn btn-sm btn-info text-white" data-original-title mr-2="Remove" style="margin-top: 5px;margin-bottom: 5px;">' . __('messages.reject') . '</a><a onclick="delete_record(' . "'" . $delete . "'" . ')" rel="tooltip" title="" class="btn btn-danger btn-sm mr-2 ml-2 text-white" data-original-title="Remove">' . __('messages.delete') . '</a>';
+                    $return = '<a onclick="accept_record('."'".$accept ."'" .",'".$user->id."'".')" rel="tooltip" title="" id="acceptrecord__'.$user->id.'" class="btn btn-sm btn-success mr-2 text-white" data-original-title="Remove" >' . __('messages.accept') . '</a><a id="rejectrecord__'.$user->id.'" onclick="reject_record('."'".$reject."'".",'".$user->id."'".')" rel="tooltip" title="" class="btn btn-sm btn-info text-white" data-original-title mr-2="Remove" style="margin-top: 5px;margin-bottom: 5px;">' . __('messages.reject') . '</a><a id="deleterecord__'.$user->id.'" onclick="delete_record(' ."'" . $delete . "'" .",'".$user->id."'".')" rel="tooltip" title="" class="btn btn-danger btn-sm mr-2 ml-2 text-white" data-original-title="Remove">' . __('messages.delete') . '</a>';
                 } elseif ($user->order_status == 1 && $user->delivery_mode == '0') { //assign order
                     $return = '<a onclick="assign_order(' . "'" . $user->id . "'" . ')" rel="tooltip" title="" class="btn btn-sm btn-success" data-original-title="Remove" data-toggle="modal" data-target="#assignorder">' . __('messages.assign_order') . '</a>';
                 } elseif ($user->order_status == 1 && $user->delivery_mode == '1') { //assign order
@@ -136,7 +136,7 @@ class OrderController extends Controller
                 'copyright' => 'Copyright © ' . Carbon::now()->format('Y') . ' ' . 'IndhoSnacks. All rights reserved.',
             ];
             $res = Mail::to('ronymia.tech@gmail.com')->send(new OrderUserMail($details));
-            echo $res." success"; 
+            echo $res." success";
         }catch(Exception $e){
             dd($e);
         }

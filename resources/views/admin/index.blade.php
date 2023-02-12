@@ -101,7 +101,7 @@
                     <li class="active">
                         <a href="{{ route('banner.index') }}"> <i
                                 class="menu-icon fa fa-percent"></i>{{ __('Discount
-                                                            Banner') }}
+                                                                                            Banner') }}
                         </a>
                     </li>
                     <li class="active">
@@ -244,6 +244,7 @@
 
         }
     </script>
+    @stack('js')
 </body>
 
 </html>
