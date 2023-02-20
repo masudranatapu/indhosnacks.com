@@ -1,9 +1,10 @@
 <!doctype html>
 <html class="no-js" lang="en">
-
 <head>
+    @php
+        $settings = App\Setting::find(1);
+    @endphp
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>{{ __('messages.site_name') }}</title>
     <meta property="og:type" content="website" />
@@ -16,7 +17,7 @@
     <meta property="og:description" content="{{ __('messages.metadescweb') }}" />
     <meta property="og:keyword" content="{{ __('messages.metakeyboard') }}" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="{{ asset('public/fav.png') }}">
+    <link rel="shortcut icon" href="{{ asset('public/upload/web') . '/' . $settings->favicon }}">
     <link rel="stylesheet" href="{{ asset('admin_panel/vendors/bootstrap/dist/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('admin_panel/vendors/font-awesome/css/font-awesome.min.css') }}">
     <link rel="stylesheet" href="{{ asset('admin_panel/vendors/themify-icons/css/themify-icons.css') }}">

@@ -401,6 +401,17 @@
                                     </div>
                                     <div class="row">
                                         <div class="form-group col-md-3">
+                                            <img src="{{ asset('public/upload/web') . '/' . $data->favicon }}"
+                                                class="webimage" />
+                                        </div>
+                                        <div class="form-group col-md-9">
+                                            <label for="stripe_key" class=" form-control-label">Favicon
+                                                (100X100)<span class="reqfield">*</span></label>
+                                            <input type="file" name="favicon" id="favicon" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-md-3">
                                             <img src="{{ asset('public/upload/web') . '/' . $data->main_banner }}"
                                                 class="webimage" />
                                         </div>
