@@ -181,6 +181,26 @@ class AuthenticationController extends Controller
                 }
             }
         }
+
+        if ($request->hasFile('favicon')) {
+            $favicon_img = $store->favicon;
+            $file = $request->file('favicon');
+            $filename = $file->getClientOriginalName();
+            $extension = $file->getClientOriginalExtension() ?: 'png';
+            $folderName = '/upload/web';
+            $picture = str_random(10) . time() . '.' . $extension;
+            $destinationPath = public_path() . $folderName;
+            $request->file('favicon')->move($destinationPath, $picture);
+            $store->favicon = $picture;
+            $image_path = public_path() . '/upload/web/' . $favicon_img;
+            if (file_exists($image_path)) {
+                try {
+                    unlink($image_path);
+                } catch (\Exception $e) {
+                }
+            }
+        }
+
         if ($request->hasFile('main_banner')) {
             $img = $store->main_banner;
             $file = $request->file('main_banner');
