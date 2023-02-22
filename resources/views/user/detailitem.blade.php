@@ -127,11 +127,18 @@
                             </a>
                         </div>
                     </div>
+                    <div class="d-inline">
                     <a href="javascript:addtocart()">
                         <div class="detail-plus-add-cart">
                             <span>{{ __('messages.addcart') }}</span>
                         </div>
                     </a>
+                    <a href="{{ url('cartdetails') }}" class="ml-2" onclick="addtocart('checkout')">
+                        <div class="detail-plus-add-checkout">
+                            <span>{{ __('messages.checkout') }}</span>
+                        </div>
+                    </a>
+                    </div>
                 </div>
             </div>
         </div>

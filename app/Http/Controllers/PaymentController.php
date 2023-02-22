@@ -275,6 +275,7 @@ class PaymentController extends Controller
         // dd($response);
         // Get the InvoiceId from the API response and store it in your database.
         if($response->ValidationErrors && count($response->ValidationErrors) > 0){
+            dd($response->ValidationErrors[0]);
             Session::flash('message', __('Something is wrong!'));
             Session::flash('alert-class', 'alert-danger');
             return back();

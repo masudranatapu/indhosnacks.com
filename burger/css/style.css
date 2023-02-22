@@ -1638,10 +1638,22 @@ button.detail-navbar-2.tab-b {
 }
 
 .detail-product-box .detail-plus-add-cart {
-    padding: 10px 60px;
+    padding: 10px 40px;
     background-color: #dc3545;
     border-radius: 1000px;
     display: inline-block;
+}
+.detail-product-box .detail-plus-add-checkout {
+    padding: 10px 40px;
+    background-color: #007bff;
+    border-radius: 1000px;
+    display: inline-block;
+}
+.detail-product-box .detail-plus-add-checkout span {
+    font-size: 18px;
+    font-family: roboto;
+    font-weight: bold;
+    color: white;
 }
 
 .detail-product-box input#number {

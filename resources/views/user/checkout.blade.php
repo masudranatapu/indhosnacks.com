@@ -172,10 +172,20 @@
                                     <div class="cashswipe">
                                         <div class="check">
                                             <input type="checkbox" name="order_payment_type"
-                                                id="order_payment_type_eadhab" value="edahab"
+                                                id="order_payment_type_zaad" value="edahab"
                                                 onchange="changebutton(this.value)">
                                             <img id="edahub"
                                                 onclick="changebutton('edahab')"src="{{ asset('burger/images/edahab.png') }}"
+                                                style="width: 86%; height: 65px;" />
+                                        </div>
+                                    </div>
+                                    <div class="cashswipe">
+                                        <div class="check">
+                                            <input type="checkbox" name="order_payment_type"
+                                                id="order_payment_type_eadhab" value="zaad"
+                                                onchange="changebutton(this.value)">
+                                            <img id="edahub"
+                                                onclick="changebutton('zaad')"src="{{ asset('burger/images/zaad.png') }}"
                                                 style="width: 86%; height: 65px;" />
                                         </div>
                                     </div>
@@ -366,3 +376,7 @@
 
 
 @stop
+
+
+
+

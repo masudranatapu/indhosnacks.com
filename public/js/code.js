@@ -240,7 +240,8 @@ function rtl_slick() {
     }
 }
 
-function addtocart() {
+function addtocart(checkout) {
+    // alert(checkout);
     var item_id = $("#menu_name").val();
     var item = $("#item_id").val();
     var qty = $("#number").val();
@@ -260,6 +261,10 @@ function addtocart() {
             price: price
         },
         success: function (data) {
+            // console.log(ch);
+            if (checkout == 'checkout') {
+                window.location.href = '{{route("cartdetails")}}';
+            }
 
             document.getElementById("totalcart").innerHTML = data;
             window.location.href = $("#path_site").val() + "/detailitem" + '/' + item;
@@ -650,6 +655,22 @@ function changebutton(val) {
         $("#pay2").removeClass('activepayment');
         $("#pay3").removeClass('activepayment');
         $("#order_payment_type_1").prop("checked", true);
+        $("#order_payment_type_eadhab").prop("checked", false);
+        $("#order_payment_type_3").prop("checked", false);
+        $("#order_payment_type_4").prop("checked", false);
+    }
+    if (val == "zaad") {
+        // document.getElementById("orderplace1").style.display = "block";
+        // document.getElementById("orderplaceEdahab").style.display = "none";
+        // document.getElementById("orderplacestrip").style.display = "none";
+        // document.getElementById("orderplacepaypal").style.display = "none";
+        // $("#pay1").addClass('activepayment');
+        // $("#edahub").removeClass('activepayment');
+        // $("#pay2").removeClass('activepayment');
+        // $("#pay3").removeClass('activepayment');
+        alert('Coming Soon...')
+        $("#order_payment_type_zaad").prop("checked", false);
+        $("#order_payment_type_1").prop("checked", false);
         $("#order_payment_type_eadhab").prop("checked", false);
         $("#order_payment_type_3").prop("checked", false);
         $("#order_payment_type_4").prop("checked", false);
