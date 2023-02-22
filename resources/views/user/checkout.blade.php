@@ -164,7 +164,19 @@
                                         <div class="check">
                                             <input type="checkbox" name="order_payment_type" id="order_payment_type_1"
                                                 value="Cash" onchange="changebutton(this.value)">
-                                            <img id="pay1" onclick="changebutton('Cash')"src="{{ asset('burger/images/zaad.png') }}" style="width: 86%;"/>
+                                            <img id="pay1"
+                                                onclick="changebutton('Cash')"src="{{ asset('burger/images/cod.jpg') }}"
+                                                style="width: 86%;" />
+                                        </div>
+                                    </div>
+                                    <div class="cashswipe">
+                                        <div class="check">
+                                            <input type="checkbox" name="order_payment_type"
+                                                id="order_payment_type_eadhab" value="edahab"
+                                                onchange="changebutton(this.value)">
+                                            <img id="edahub"
+                                                onclick="changebutton('edahab')"src="{{ asset('burger/images/edahab.png') }}"
+                                                style="width: 86%; height: 65px;" />
                                         </div>
                                     </div>
                                     <div class="cashswipe">
@@ -276,9 +288,34 @@
                         </div>
                         @if (Session::get('login_user'))
                             <div id="orderplace1">
-                                <button type="button" onclick="orderplace()" id="loaderForPlaceOrder" style="text-align:center;">
+                                <button type="button" onclick="orderplace()" id="loaderForPlaceOrder"
+                                    style="text-align:center;">
                                     <span style="">{{ __('messages.place_order') }}</span>
                                 </button>
+                            </div>
+                            <div id="orderplaceEdahab">
+                                <form action="{{ route('edahabPay') }}" method="post" onsubmit="edahabOrder(event)">
+                                    @csrf
+                                    <input type="hidden" name="user_phone" id="user_phone" required="" />
+                                    <input type="hidden" name="edahab_note" id="edahab_note" />
+                                    <input type="hidden" name="edahab_city" id="edahab_city" required="" />
+                                    <input type="hidden" name="edahab_address" id="edahab_address" required="" />
+                                    <input type="hidden" name="payment_type" value="edahab" />
+                                    <input type="hidden" name="edahab_shipping_type" id="edahab_shipping_type"
+                                        required="" />
+                                    <input type="hidden" name="edahab_total" id="edahab_total" required="" />
+                                    <input type="hidden" name="edahab_subtotal" id="edahab_subtotal" required="" />
+                                    <input type="hidden" name="edahab_lat_long" id="edahab_lat_long" required="">
+                                    <input type="hidden" name="eadhab_charage" id="eadhab_charage" required="" />
+                                <div class="">
+                                    <label for="edahab_phone" class="form-label">Edahab Phone</label>
+                                    <input type="number" name="edahab_phone" class="form-control" placeholder="Edhab Phone"
+                                        id="edahab_phone" >
+                                </div>
+                                <button type="submit" id="loaderForPlaceOrder" style="text-align:center;">
+                                    <span style="">{{ __('messages.place_order') }}</span>
+                                </button>
+                                </form>
                             </div>
                             <div id="orderplacestrip">
                                 <form action="{{ url('make-payment') }}" method="POST">
@@ -326,5 +363,6 @@
             </div>
         </div>
     </div>
+
 
 @stop

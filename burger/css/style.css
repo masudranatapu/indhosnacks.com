@@ -2072,6 +2072,22 @@ div#orderplace1 button {
     margin-top: 40px;
     cursor: pointer;
 }
+div#orderplaceEdahab {
+    display: none;
+}
+
+div#orderplaceEdahab button {
+    border: none;
+    background: none;
+    color: white;
+    padding: 10px 0px;
+    text-align: center;
+    background-color: #ae191a;
+    width: 100%;
+    border-radius: 1000px;
+    margin-top: 20px;
+    cursor: pointer;
+}
 
 .cart-shipping-box {
     padding: 29px;
@@ -2809,6 +2825,10 @@ td.cart-product-image img {
 }
 
 img#pay1.activepayment {
+    opacity: 0.5;
+}
+
+img#edahub.activepayment {
     opacity: 0.5;
 }
 

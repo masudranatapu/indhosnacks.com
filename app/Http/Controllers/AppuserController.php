@@ -274,6 +274,7 @@ class AppuserController extends Controller
     }
     public function placeorder(Request $request)
     {
+    //  dd($request->all());
         $data = array();
         $finalresult = array();
         $result = array();

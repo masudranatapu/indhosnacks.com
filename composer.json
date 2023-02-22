@@ -21,6 +21,7 @@
         "paypal/rest-api-sdk-php": "^1.14",
         "spatie/laravel-cookie-consent": "^2.12",
         "stripe/stripe-php": "^7.12",
+        "waafipay/sdk-php": "dev-main",
         "yajra/laravel-datatables-oracle": "~9.0"
     },
     "require-dev": {

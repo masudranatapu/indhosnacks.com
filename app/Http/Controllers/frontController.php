@@ -148,12 +148,11 @@ class frontController extends Controller
 
         $review = Review::where('item_id', $request->item_id)->where('user_id', Session::get('login_user'))->get();
 
-        if($review->count() > 0) {
+        if ($review->count() > 0) {
 
             Session::flash('message', __('You already review this item.'));
             return redirect()->back();
-
-        }else {
+        } else {
 
             Review::insert([
                 'user_id' => Session::get('login_user'),
@@ -166,9 +165,7 @@ class frontController extends Controller
 
             Session::flash('message', __('Your review successfully done. Please wait for admin approved.'));
             return redirect()->back();
-
         }
-
     }
 
     public function savecontact(Request $request)
@@ -291,6 +288,13 @@ class frontController extends Controller
     }
     public function checkout(Request $request)
     {
+        $cartCollection = Cart::getContent();
+
+        if($cartCollection->count() == 0){
+            Session::flash('message', __('messages.shipping_error'));
+            Session::flash('alert-class', 'alert-danger');
+            return redirect()->back();
+        }
 
         if ($request->get("delivery_option") == 0 || $request->get("delivery_option") == 1) {
             $category = Category::where("is_deleted", '0')->get();

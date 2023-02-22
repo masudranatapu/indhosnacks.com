@@ -282,6 +282,7 @@ class AuthenticationController extends Controller
     public function postlogin(Request $request)
     {
         $user = Sentinel::authenticate($request->all());
+        // dd($user);
         if ($user) {
             Session::put("profile_pic", asset("public/upload/images/profile/" . "/" . $user->profile_pic));
             Session::put("currency", $user->currency);

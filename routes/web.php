@@ -54,7 +54,7 @@ Route::group(['middleware' => ['XSS']], function () {
     Route::get("termofuse", "frontController@termofuse");
     Route::get("category/{id}", "frontController@category_list");
     Route::get("resetpassword/{code}", "AppuserController@resetpwd")->name('resetpassword.code');
-    Route::any("checkout", "frontController@checkout");
+    Route::any("checkout", "frontController@checkout")->name('checkout');
     Route::any("resetnewpwd", "AppuserController@resetpassword");
     Route::any("placeorder", "AppuserController@placeorder");
     Route::get("myaccount", "frontController@myaccount");
@@ -64,7 +64,10 @@ Route::group(['middleware' => ['XSS']], function () {
     Route::post("savecontact", "frontController@savecontact");
     Route::get("viewdetails/{id}", "frontController@viewdetails");
     Route::get('stripe', 'PaymentController@stripe');
+    Route::get('confirm', 'PaymentController@confirm')->name('payment.confirm');
+    Route::post('confirm/store', 'PaymentController@confirmSubmit')->name('payment.confirm.submit');
     Route::post('/make-payment', 'PaymentController@pay');
+    Route::post('/edahabPay', 'PaymentController@edahabPay')->name('edahabPay');
     Route::get('paywithpaypal', array('as' => 'paywithpaypal', 'uses' => 'PaypalController@payWithPaypal',));
     Route::post('paypal', array('as' => 'paypal', 'uses' => 'PaypalController@postPaymentWithpaypal',));
     Route::get('paypal', array('as' => 'status', 'uses' => 'PaypalController@getPaymentStatus',));

@@ -642,14 +642,63 @@ function minusqty(id, iqty) {
 function changebutton(val) {
     if (val == "Cash" || val == "by Card") {
         document.getElementById("orderplace1").style.display = "block";
+        document.getElementById("orderplaceEdahab").style.display = "none";
         document.getElementById("orderplacestrip").style.display = "none";
         document.getElementById("orderplacepaypal").style.display = "none";
         $("#pay1").addClass('activepayment');
+        $("#edahub").removeClass('activepayment');
         $("#pay2").removeClass('activepayment');
         $("#pay3").removeClass('activepayment');
         $("#order_payment_type_1").prop("checked", true);
+        $("#order_payment_type_eadhab").prop("checked", false);
         $("#order_payment_type_3").prop("checked", false);
         $("#order_payment_type_4").prop("checked", false);
+    }
+    if (val == "edahab") {
+        console.log($("#order_city").val());
+        $("#user_phone").val($("#order_phone").val());
+        $("#edahab_note").val($("#order_notes").val());
+        $("#edahab_city").val($("#order_city").val());
+        var totalprice = document.getElementById("finaltotal_order").innerHTML;
+        var subtotal = document.getElementById("subtotal_order").innerHTML;
+        var charge = document.getElementById("delivery_charges_order").innerHTML;
+        $("#edahab_total").val(totalprice);
+        $("#edahab_subtotal").val(subtotal);
+        if ($("#user_phone").val() != "" && $("#edahab_city").val() != "") {
+            if ($("#home1").prop("checked") == true) {
+                var shipping_type = 0;
+                $("#edahab_shipping_type").val(0);
+                $("#edahab_address").val($("#us2-address").val());
+                $("#edahab_lat_long").val($("#us2-lat").val() + "," + $("#us2-lon").val());
+                $('#eadhab_charage').val(document.getElementById("delivery_charges_order").innerHTML);
+            } else if ($("#home2").prop("checked") == true) {
+                var shipping_type = 1;
+                $("#edahab_shipping_type").val(1);
+            }
+
+            if (shipping_type == 0 && $("#edahab_address").val() == "") {
+                $("#order_payment_type_4").prop("checked", false);
+                alert("{{__('messages.required_field')}}");
+            } else {
+                document.getElementById("orderplaceEdahab").style.display = "block";
+                document.getElementById("orderplace1").style.display = "none";
+                document.getElementById("orderplacestrip").style.display = "none";
+                document.getElementById("orderplacepaypal").style.display = "none";
+                $("#edahub").addClass('activepayment');
+                $("#pay1").removeClass('activepayment');
+                $("#pay2").removeClass('activepayment');
+                $("#pay3").removeClass('activepayment');
+                $("#order_payment_type_eadhab").prop("checked", true);
+                $("#order_payment_type_3").prop("checked", false);
+                $("#order_payment_type_1").prop("checked", false);
+                $("#order_payment_type_4").prop("checked", false);
+            }
+        } else {
+            $("#order_payment_type_eadhab").prop("checked", false);
+            alert($("#required_field").val());
+
+        }
+
     }
     if (val == "Stripe") {
         var totalprice = document.getElementById("finaltotal_order").innerHTML;
@@ -681,12 +730,15 @@ function changebutton(val) {
                 alert("{{__('messages.required_field')}}");
             } else {
                 document.getElementById("orderplace1").style.display = "none";
+                document.getElementById("orderplaceEdahab").style.display = "none"
                 document.getElementById("orderplacestrip").style.display = "block";
                 document.getElementById("orderplacepaypal").style.display = "none";
                 $("#pay1").removeClass('activepayment');
+                $("#edahub").removeClass('activepayment');
                 $("#pay2").removeClass('activepayment');
                 $("#pay3").addClass('activepayment');
                 $("#order_payment_type_1").prop("checked", false);
+                $("#order_payment_type_eadhab").prop("checked", false);
                 $("#order_payment_type_3").prop("checked", false);
                 $("#order_payment_type_4").prop("checked", true);
             }
@@ -708,12 +760,15 @@ function changebutton(val) {
         if ($("#phone_pal").val() != "" && $("#city_pal").val() != "") {
             document.getElementById("orderplace1").style.display = "none";
             document.getElementById("orderplacestrip").style.display = "none";
+            document.getElementById("orderplaceEdahab").style.display = "none";
             document.getElementById("orderplacepaypal").style.display = "block";
             $("#pay1").removeClass('activepayment');
             $("#pay2").addClass('activepayment');
+            $("#edahub").removeClass('activepayment');
             $("#pay3").removeClass('activepayment');
             $("#order_payment_type_1").prop("checked", false);
             $("#order_payment_type_3").prop("checked", true);
+            $("#order_payment_type_eadhab").prop("checked", false);
             $("#order_payment_type_4").prop("checked", false);
             if ($("#home1").prop("checked") == true) {
                 var shipping_type = 0;
@@ -766,11 +821,6 @@ function orderplace() {
     var charge = document.getElementById("delivery_charges_order").innerHTML;
     var typedata = "";
 
-    document.getElementById('loaderForPlaceOrder').disabled = true;
-
-    $("#loaderForPlaceOrder").html(
-        ' <div class="spinner" style="width:25px; height: 25px; display: inline-flex;" role="status"></div> <span style="display:block">Processing...</span>'
-    );
 
     if ($("#home1").prop("checked") == true) {
         var shipping_type = 0;
@@ -785,6 +835,11 @@ function orderplace() {
     }
 
     if (phone != "" && city != "" && payment_type != "") {
+        document.getElementById('loaderForPlaceOrder').disabled = true;
+
+        $("#loaderForPlaceOrder").html(
+            ' <div class="spinner" style="width:25px; height: 25px; display: inline-flex;" role="status"></div> <span style="display:block">Processing...</span>'
+        );
         $.ajax({
             url: $("#path_site").val() + "/placeorder",
             method: "GET",
@@ -825,6 +880,16 @@ function orderplace() {
         $("#order_payment_type_3").prop("checked", false);
         $("#order_payment_type_4").prop("checked", false);
         alert($("#required_field").val());
+    }
+}
+function edahabOrder(e) {
+
+    var phone = $('#edahab_phone').val();
+    if(phone == ''){
+        alert('Please fill Edahab Phone');
+        e.preventDefault();
+    }else{
+        return true;
     }
 }
 
