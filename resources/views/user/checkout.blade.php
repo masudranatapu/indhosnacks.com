@@ -400,6 +400,25 @@
     </div>
 
 
+{{--    <script>--}}
+{{--        function zaadOrder(e) {--}}
+{{--            e.preventDefault();--}}
+
+{{--            const waafipay = window.waafipay.API("API-1901083745AHX", "1000297", "M0912269", {testMode: true}); // TestMode flag -->  true is production : false is test--}}
+
+{{--            waafipay.preAuthorize({--}}
+{{--                paymentMethod: "MWALLET_ACCOUNT",--}}
+{{--                accountNo: "252619977991",--}}
+{{--                amount: "1",--}}
+{{--                currency: "USD",--}}
+{{--                description: "wan diray"--}}
+{{--            }, function(err, res){--}}
+{{--                console.log("response", res)--}}
+{{--            })--}}
+{{--        }--}}
+{{--    </script>--}}
+
+
 @stop
 
 

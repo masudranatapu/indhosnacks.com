@@ -665,7 +665,7 @@ function changebutton(val) {
     }
     if (val == "zaad") {
         alert('Coming soon.. ');
-        $("#order_payment_type_zaad").prop("checked", true);
+        $("#order_payment_type_zaad").prop("checked", false);
         // console.log($("#order_city").val());
         // $("#zaad_user_phone").val($("#order_phone").val());
         // $("#zaad_note").val($("#order_notes").val());
