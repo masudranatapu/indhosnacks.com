@@ -408,6 +408,9 @@ div#orderplacestrip .stripe-button-el span {
 img#pay2.activepayment {
     opacity: 0.5;
 }
+img#zaad.activepayment {
+    opacity: 0.5;
+}
 
 img#pay3.activepayment {
     opacity: 0.5;
@@ -1182,7 +1185,8 @@ select {
 .element-item .weight {
     position: absolute;
     left: 10px;
-    top: 76px font-size: 12px;
+    top: 76px;
+    font-size: 12px;
 }
 
 .element-item .bor {
@@ -2089,6 +2093,23 @@ div#orderplaceEdahab {
 }
 
 div#orderplaceEdahab button {
+    border: none;
+    background: none;
+    color: white;
+    padding: 10px 0px;
+    text-align: center;
+    background-color: #ae191a;
+    width: 100%;
+    border-radius: 1000px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+div#orderplaceZaad {
+    display: none;
+}
+
+div#orderplaceZaad button {
     border: none;
     background: none;
     color: white;

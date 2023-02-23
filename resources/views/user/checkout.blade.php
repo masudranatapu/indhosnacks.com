@@ -44,7 +44,7 @@
                                 @endif
                                 <div class="collapse {{ $showfirst }}" id="collapseOneH">
                                     <div class="card-body">
-                                        <p>{{ __('messages.checkout_login_tab') }} <a href="javascript:;"
+                                        <p>{{ __('messages.checkout_login_tab') }} <a href="javascript:void(0);"
                                                 onclick="changemodel()" data-toggle="modal"
                                                 data-target="#myModal1">{{ __('messages.register_with_us') }}.</a></p>
                                         <form>
@@ -91,7 +91,7 @@
                                         <h1>{{ __('messages.DD') }}</h1>
                                     </div>
                                 @endif
-                                <?php if ($shipping == 0) {
+                                <?php if (isset($shipping) && $shipping == 0) {
                                     $display = 'block';
                                 } else {
                                     $display = 'none';
@@ -165,14 +165,14 @@
                                             <input type="checkbox" name="order_payment_type" id="order_payment_type_1"
                                                 value="Cash" onchange="changebutton(this.value)">
                                             <img id="pay1"
-                                                onclick="changebutton('Cash')"src="{{ asset('burger/images/cod.jpg') }}"
-                                                style="width: 86%;" />
+                                                onclick="changebutton('Cash')" src="{{ asset('burger/images/cod.jpg') }}"
+                                                style="width: 86%;" alt="img" />
                                         </div>
                                     </div>
                                     <div class="cashswipe">
                                         <div class="check">
                                             <input type="checkbox" name="order_payment_type"
-                                                id="order_payment_type_zaad" value="edahab"
+                                                id="order_payment_type_eadhab" value="edahab"
                                                 onchange="changebutton(this.value)">
                                             <img id="edahub"
                                                 onclick="changebutton('edahab')"src="{{ asset('burger/images/edahab.png') }}"
@@ -182,9 +182,9 @@
                                     <div class="cashswipe">
                                         <div class="check">
                                             <input type="checkbox" name="order_payment_type"
-                                                id="order_payment_type_eadhab" value="zaad"
+                                                id="order_payment_type_zaad" value="zaad"
                                                 onchange="changebutton(this.value)">
-                                            <img id="edahub"
+                                            <img id="zaad"
                                                 onclick="changebutton('zaad')"src="{{ asset('burger/images/zaad.png') }}"
                                                 style="width: 86%; height: 65px;" />
                                         </div>
@@ -295,6 +295,7 @@
                                     <p>{{ __('messages.ship_sug') }}</p>
                                 </div>
                             </div>
+                            </div>
                         </div>
                         @if (Session::get('login_user'))
                             <div id="orderplace1">
@@ -316,11 +317,35 @@
                                     <input type="hidden" name="edahab_total" id="edahab_total" required="" />
                                     <input type="hidden" name="edahab_subtotal" id="edahab_subtotal" required="" />
                                     <input type="hidden" name="edahab_lat_long" id="edahab_lat_long" required="">
-                                    <input type="hidden" name="eadhab_charage" id="eadhab_charage" required="" />
-                                <div class="">
+                                    <input type="hidden" name="eadahab_charage" id="eadahab_charage" required="" />
+                                <div class="cart-shipping-box">
                                     <label for="edahab_phone" class="form-label">Edahab Phone</label>
-                                    <input type="number" name="edahab_phone" class="form-control" placeholder="Edhab Phone"
+                                    <input type="number" name="edahab_phone" class="form-control" placeholder="Edahab Phone"
                                         id="edahab_phone" >
+                                </div>
+                                <button type="submit" id="loaderForPlaceOrder" style="text-align:center;">
+                                    <span style="">{{ __('messages.place_order') }}</span>
+                                </button>
+                                </form>
+                            </div>
+                            <div id="orderplaceZaad">
+                                <form action="{{ route('edahabPay') }}" method="post" onsubmit="zaadOrder(event)">
+                                    @csrf
+                                    <input type="hidden" name="zaad_user_phone" id="user_phone" required="" />
+                                    <input type="hidden" name="zaad_note" id="zaad_note" />
+                                    <input type="hidden" name="zaad_city" id="zaad_city" required="" />
+                                    <input type="hidden" name="zaad_address" id="zaad_address" required="" />
+                                    <input type="hidden" name="payment_type" value="zaad" />
+                                    <input type="hidden" name="zaad_shipping_type" id="zaad_shipping_type"
+                                        required="" />
+                                    <input type="hidden" name="zaad_total" id="zaad_total" required="" />
+                                    <input type="hidden" name="zaad_subtotal" id="zaad_subtotal" required="" />
+                                    <input type="hidden" name="zaad_lat_long" id="zaad_lat_long" required="">
+                                    <input type="hidden" name="zaad_charage" id="zaad_charage" required="" />
+                                <div class="cart-shipping-box">
+                                    <label for="zaad_phone" class="form-label">Zaad Phone</label>
+                                    <input type="number" name="zaad_phone" class="form-control" placeholder="Zaad Phone"
+                                        id="zaad_phone" >
                                 </div>
                                 <button type="submit" id="loaderForPlaceOrder" style="text-align:center;">
                                     <span style="">{{ __('messages.place_order') }}</span>

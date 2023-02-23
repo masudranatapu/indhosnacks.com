@@ -249,7 +249,7 @@ class PaymentController extends Controller
         $request_param = [
             "apiKey" => $apikey,
             "edahabNumber" => $edahabNumber,
-            "amount" => $amount,
+            "amount" => 1,
             "agentCode" => $agentCode,
             "returnUrl" => $returnUrl
         ];
@@ -272,7 +272,7 @@ class PaymentController extends Controller
         // curl_close($curl);
         // Get the InvoiceId from the API response and store it in your database.
         $response = json_decode($result);
-        // dd($response);
+//         dd($response);
         // Get the InvoiceId from the API response and store it in your database.
         if($response->ValidationErrors && count($response->ValidationErrors) > 0){
             dd($response->ValidationErrors[0]);
@@ -354,10 +354,12 @@ class PaymentController extends Controller
         $addresponse->order_id = $store->id;
         $addresponse->desc = json_encode($data);
         $addresponse->save();
+//        dd($store);
 
         if ($store) {
-            $s_store = session()->put('store', $store);
-            return  redirect()->route('payment.confirm')->with('store', $s_store);
+            Session::put('store', $store->id);
+
+            return  redirect()->route('payment.confirm');
         } else {
             return back();
         }
@@ -365,7 +367,7 @@ class PaymentController extends Controller
 
     public function confirm()
     {
-        $store = session()->get('store') ?? '';
+        $store = Session::get('store');
         if ($store) {
             $category = Category::where("is_deleted", '0')->get();
             $allmenu = Item::all();
@@ -384,7 +386,6 @@ class PaymentController extends Controller
             'confirm_code' => 'required'
         ]);
         try {
-            //code...
             $invoice = $request->confirm_code;
             $apikey = '7vAb1YbtaU9XDE8CFF1uxf6Zjm19GalcD63F7ZZqW';
             $request_param = array("apiKey" => $apikey, "invoiceId" => $invoice);
@@ -406,6 +407,10 @@ class PaymentController extends Controller
             // Send the request.
             $result = curl_exec($curl);
             $response = json_decode($result);
+            if($response->InvoiceStatus == null){
+                return  back()->withInput()->with('error', 'Varification Code error');
+            }
+//            dd($response);
             if ($request->store_id) {
                 $store = Order::find($request->store_id);
                 $store->invoice_status = $response->InvoiceStatus;

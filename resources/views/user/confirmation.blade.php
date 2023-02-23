@@ -19,9 +19,19 @@
                         </div>
                     </div>
                 @endif
+            @if (Session::has('error'))
+                    <div class="col-sm-12">
+                        <div class="alert  {{ Session::get('alert-class', 'alert-danger') }} alert-dismissible fade show"
+                             role="alert">{{ Session::get('error') }}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    </div>
+                @endif
                     <form class="w-50 container-fluid" action="{{ route('payment.confirm.submit') }}" method="post">
                         @csrf
-                        <input type="hidden" name="store_id" value="{{$store->id ?? ''}}">
+                        <input type="hidden" name="store_id" value="{{$store ?? ''}}">
                         <div class="form-group">
                             <h1><label for="confirm_code">Confirmation code</label></h1>
                             <input type="text" class="form-control" id="confirm_code" name="confirm_code"  placeholder="Confirmation code" style="height: 50px">

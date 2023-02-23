@@ -6,6 +6,7 @@ use App\Banner;
 use App\Http\Controllers\Controller as Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\LoginRequest;
+use Illuminate\Support\Facades\DB;
 use Sentinel;
 use Session;
 use DataTables;
@@ -24,7 +25,6 @@ use App\OrderResponse;
 use App\Slider;
 use App\Testimonial;
 use Share;
-use DB;
 use App\Review;
 
 class frontController extends Controller

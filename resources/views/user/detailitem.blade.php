@@ -133,7 +133,7 @@
                             <span>{{ __('messages.addcart') }}</span>
                         </div>
                     </a>
-                    <a href="{{ url('cartdetails') }}" class="ml-2" onclick="addtocart('checkout')">
+                    <a href="javascript:addtocart('{{ route('cartdetails')  }}')" class="ml-2" >
                         <div class="detail-plus-add-checkout">
                             <span>{{ __('messages.checkout') }}</span>
                         </div>

@@ -25,21 +25,22 @@ function delete_record(url, id) {
 
     if (confirm($("#delete_recored").val())) {
 
+        if(id) {
+            const buttonorderdeleterecord = document.getElementById("deleterecord__" + id);
 
-        const buttonorderdeleterecord = document.getElementById("deleterecord__" + id);
+            $("#deleterecord__" + id).html(
+                '<span style="color: white;">Processing...</span>'
+            );
 
-        $("#deleterecord__" + id).html(
-            '<span style="color: white;">Processing...</span>'
-        );
+            buttonorderdeleterecord.disabled = true;
+        }
 
-        buttonorderdeleterecord.disabled = true;
-
-        if ($("#demo").val() == '1') {
+        // if ($("#demo").val() == '1') {
             window.location.href = url;
-        }
-        else {
-            disablebtn();
-        }
+        // }
+        // else {
+        //     disablebtn();
+        // }
 
     } else {
         window.location.reload();
