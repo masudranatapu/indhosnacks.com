@@ -78,59 +78,6 @@
             </div>
         </div>
     </div>
-    <div class="modal fade" id="moreinfo" role="dialog">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="orderheader">
-                        </h5>
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    </div>
-                    <div class="modal-body">
-                        <div>
-                            <div class="container">
-                                <table class="table">
-                                    <tbody>
-                                        <tr>
-                                            <th>{{ __('messages.order_place') }}</th>
-                                            <th>{{ __('messages.preparing') }}</th>
-                                            <th>{{ __('messages.dispatching') }}</th>
-                                            <th>{{ __('messages.delivered') }}</th>
-                                        </tr>
-                                        <tr>
-                                            <td id="orderplace"></td>
-                                            <td id="orderparpare"></td>
-                                            <td id="dispatching"></td>
-                                            <td id="delivered"></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                <h5 class="moredetailinfo">{{ __('messages.person_detail') }}</h5>
-                                <div><b id="username"></b></div>
-                                <div id="phoneno"></div>
-                                <div id="ordertime"></div>
-                                <div id="address" class="moreaddress"></div>
-                                <div id="paymenttype"></div>
-                                <div id="note"></div>
-                            </div>
-                            <h5 class="orderh">{{ __('messages.order_detail') }}</h5>
-                            <table class="table" id="itemdata">
-                                <tbody>
-                                    <tr>
-                                        <th>{{ __('messages.item_name') }}</th>
-                                        <th>{{ __('messages.item_qty') }}</th>
-                                        <th>{{ __('messages.price') }}</th>
-                                        <th>{{ __('messages.total_price') }}</th>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
     <input type="hidden" id="order_no_msg" value="{{ __('messages.order_no') }}">
     <input type="hidden" id="order_pay_type" value="{{ __('messages.pay_type') }}">
     <input type="hidden" id="ordermsgnote" value="{{ __('messages.note') }}">

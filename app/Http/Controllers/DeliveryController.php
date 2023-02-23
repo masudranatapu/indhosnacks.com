@@ -268,13 +268,14 @@ class DeliveryController extends Controller
             ->editColumn('action', function ($item) {
                 if ($item->order_status == 5) { //in pick up
                     $pick = url('deliveryboy/outofdelivery', array('id' => $item->id));
-                    $return = '<a href="' . $pick . '" rel="tooltip" title="" class="btn btn-sm btn-success" data-original-title="Remove">' . __('messages.in_pickup') . '</a>';
+                    $return = '<a href="' . $pick . '" rel="tooltip" onclick="pick_up('."'".$item->id."'".')" title="" id="pick__'.$item->id.'" class="btn btn-sm btn-success" data-original-title="Remove">' . __('messages.in_pickup') . '</a>';
                 } elseif ($item->order_status == 3 && $item->delivery_mode == '0') { //Out Of delivery
                     $outofdelivery = url('deliveryboy/ordercomplete', array('id' => $item->id));
-                    $return = '<a href="' . $outofdelivery . '" rel="tooltip" title="" class="btn btn-sm btn-success" data-original-title="Remove">' . __('messages.out_of_delivery') . '</a>';
+                    $return = '<a href="' . $outofdelivery . '" rel="tooltip" onclick="outofdelivery('."'".$item->id."'".')" title="" id="outofdelivery'.$item->id.'" class="btn btn-sm btn-success" data-original-title="Remove">' . __('messages.out_of_delivery') . '</a>';
                 } else { //deleted
-                    $return = '<a href="#" rel="tooltip" title="" class="btn btn-danger btn-md" data-original-title="Remove">' . __('messages.delete') . '</a>';
+                    $return = '<a href="javascript:;" rel="tooltip" title="" class="btn btn-danger btn-md" data-original-title="Remove">' . __('messages.delete') . '</a>';
                 }
+
                 return $return;
             })
 

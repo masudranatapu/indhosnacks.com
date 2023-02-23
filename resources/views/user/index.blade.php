@@ -28,7 +28,7 @@
     <meta charset="UTF-8">
     <meta property="og:url" content="{{ __('messages.site_name') }}" />
     <meta property="og:title" content="{{ __('messages.site_name') }}" />
-    <meta property="og:image" content="{{ asset('public/fav.png') }}" />
+    <meta property="og:image" content="{{ asset('public/upload/web') . '/' . $settings->favicon }}" />
     <meta property="og:image:width" content="250px" />
     <meta property="og:image:height" content="250px" />
     <meta property="og:site_name" content="{{ __('messages.site_name') }}" />
@@ -36,7 +36,8 @@
     <meta property="og:keyword" content="{{ __('messages.metakeyboard') }}" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="shortcut icon" href="{{ asset('public/fav.png') }}">
+    <link rel="shortcut icon" href="{{ asset('public/upload/web') . '/' . $settings->favicon }}">
+
     @if (__('messages.rtl') == '0')
         <link rel="stylesheet" type="text/css" href="{{ asset('burger/css/style.css?v=1') . '?version=232132' }}">
     @else
@@ -142,7 +143,7 @@
                                         <a href="javascript:forgotmodel()">{{ __('messages.forgot_u') }}</a>
                                     </span>
                                     <div class="modal-login-button">
-                                        <button type="button" onclick="loginaccount()">
+                                        <button type="button" onclick="loginaccount()" id="loaderForLogin">
                                             <h6>{{ __('messages.login') }}</h6>
                                         </button>
                                     </div>
@@ -175,7 +176,7 @@
                                             <p>{{ __('messages.reg_fixed') }}</p>
                                         </div>
                                         <div class="modal-login-button">
-                                            <button type="button" onclick="registeruser()">
+                                            <button type="button" onclick="registeruser()" id="loaderForRegister">
                                                 <h6>{{ __('messages.register') }}</h6>
                                             </button>
                                         </div>

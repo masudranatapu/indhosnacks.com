@@ -12,15 +12,16 @@
     <title>{{ __('messages.site_name') }}</title>
     <meta property="og:url" content="{{ __('messages.site_name') }}" />
     <meta property="og:title" content="{{ __('messages.site_name') }}" />
-    <meta property="og:image" content="{{ asset('public/favicon.png') }}" />
+    <meta property="og:image" content="{{ asset('public/upload/web') . '/' . isset($settings->favicon) ? $settings->favicon : '' }}" />
     <meta property="og:image:width" content="250px" />
     <meta property="og:image:height" content="250px" />
     <meta property="og:site_name" content="{{ __('messages.site_name') }}" />
     <meta property="og:description" content="{{ __('messages.metadescweb') }}" />
     <meta property="og:keyword" content="{{ __('messages.metakeyboard') }}" />
-    <link rel="shortcut icon" href="{{ asset('public/favicon.png') }}">
+    <link rel="shortcut icon" href="{{ asset('public/upload/web') . '/' . isset($settings->favicon) ? $settings->favicon : '' }}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="shortcut icon" href="{{ asset('public/upload/web') . '/' . isset($settings->favicon) ? $settings->favicon : '' }}">
     @if (__('messages.rtl') == '0')
         <link rel="stylesheet" type="text/css" href="{{ asset('burger/css/style.css?v=1') . '?version=232132' }}">
     @else
@@ -130,7 +131,7 @@
                                         <a href="javascript:forgotmodel()">{{ __('messages.forgot_u') }}</a>
                                     </span>
                                     <div class="modal-login-button">
-                                        <button type="button" onclick="loginaccount()">
+                                        <button type="button" onclick="loginaccount()" id="loaderForLogin">
                                             <h6>{{ __('messages.login') }}</h6>
                                         </button>
                                     </div>
@@ -163,7 +164,7 @@
                                             <p>{{ __('messages.reg_fixed') }}</p>
                                         </div>
                                         <div class="modal-login-button">
-                                            <button type="button" onclick="registeruser()">
+                                            <button type="button" onclick="registeruser()" id="loaderForRegister">
                                                 <h6>{{ __('messages.register') }}</h6>
                                             </button>
                                         </div>

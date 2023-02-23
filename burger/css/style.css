@@ -408,6 +408,9 @@ div#orderplacestrip .stripe-button-el span {
 img#pay2.activepayment {
     opacity: 0.5;
 }
+img#zaad.activepayment {
+    opacity: 0.5;
+}
 
 img#pay3.activepayment {
     opacity: 0.5;
@@ -1182,7 +1185,8 @@ select {
 .element-item .weight {
     position: absolute;
     left: 10px;
-    top: 76px font-size: 12px;
+    top: 76px;
+    font-size: 12px;
 }
 
 .element-item .bor {
@@ -1638,10 +1642,22 @@ button.detail-navbar-2.tab-b {
 }
 
 .detail-product-box .detail-plus-add-cart {
-    padding: 10px 60px;
+    padding: 10px 40px;
     background-color: #dc3545;
     border-radius: 1000px;
     display: inline-block;
+}
+.detail-product-box .detail-plus-add-checkout {
+    padding: 10px 40px;
+    background-color: #007bff;
+    border-radius: 1000px;
+    display: inline-block;
+}
+.detail-product-box .detail-plus-add-checkout span {
+    font-size: 18px;
+    font-family: roboto;
+    font-weight: bold;
+    color: white;
 }
 
 .detail-product-box input#number {
@@ -2070,6 +2086,39 @@ div#orderplace1 button {
     width: 100%;
     border-radius: 1000px;
     margin-top: 40px;
+    cursor: pointer;
+}
+div#orderplaceEdahab {
+    display: none;
+}
+
+div#orderplaceEdahab button {
+    border: none;
+    background: none;
+    color: white;
+    padding: 10px 0px;
+    text-align: center;
+    background-color: #ae191a;
+    width: 100%;
+    border-radius: 1000px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+div#orderplaceZaad {
+    display: none;
+}
+
+div#orderplaceZaad button {
+    border: none;
+    background: none;
+    color: white;
+    padding: 10px 0px;
+    text-align: center;
+    background-color: #ae191a;
+    width: 100%;
+    border-radius: 1000px;
+    margin-top: 20px;
     cursor: pointer;
 }
 
@@ -2809,6 +2858,10 @@ td.cart-product-image img {
 }
 
 img#pay1.activepayment {
+    opacity: 0.5;
+}
+
+img#edahub.activepayment {
     opacity: 0.5;
 }
 

@@ -20,6 +20,7 @@ try {
  */
 
 window.axios = require('axios');
+window.waafipay = require('waafipay-sdk-node');
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
