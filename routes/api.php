@@ -43,5 +43,10 @@ Route::any("forgotpassword","api\ApiController@forgotpassword");
 Route::get("getsetting",'api\ApiController@getsetting');
 
 
+Route::get('/greeting', function () {
+    return 'Hello World';
+});
+
+
 
 
