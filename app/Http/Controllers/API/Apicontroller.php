@@ -28,6 +28,8 @@ use Mail;
 use DB;
 
 
+
+
 class ApiController extends Controller {
     public function postregister(Request $request){
         $response = array("success" => "0", "register" => "Validation error");
