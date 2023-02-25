@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\API\ApiController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -43,9 +44,10 @@ Route::any("forgotpassword","api\ApiController@forgotpassword");
 Route::get("getsetting",'api\ApiController@getsetting');
 
 
-Route::get('/greeting', function () {
-    return 'Hello World';
-});
+
+
+Route::get('/greeting', [ApiController::class, 'menucategory']);
+
 
 
 
