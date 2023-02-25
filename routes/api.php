@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\API\AbcController;
 use App\Http\Controllers\API\ApiController;
 use App\Http\Controllers\User\OrderController;
 /*
@@ -48,7 +49,7 @@ Route::get("getsetting",'api\ApiController@getsetting');
 
 
 Route::get('/greeting', [ApiController::class, 'menucategory']);
-Route::get('/test100', [OrderController::class, 'index']);
+Route::get('/test100', [AbcController::class, 'index']);
 
 
 
