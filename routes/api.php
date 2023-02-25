@@ -44,12 +44,13 @@ Route::post("food_order","api\ApiController@food_order");
 Route::any("order_details","api\ApiController@order_details");
 Route::any("forgotpassword","api\ApiController@forgotpassword");
 Route::get("getsetting",'api\ApiController@getsetting');
+Route::get("test100",'api\AbcController@index');
 
 
 
 
 Route::get('/greeting', [ApiController::class, 'menucategory']);
-Route::get('/test100', [AbcController::class, 'index']);
+
 
 
 
