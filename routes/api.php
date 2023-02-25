@@ -31,7 +31,7 @@ Route::post("deliveryboy_presence","API\ApiController@deliveryboy_presence");
 Route::any("deliveryboy_profile","API\ApiController@deliveryboy_profile");
 
 Route::any("ingredients","API\ApiController@ingredients");
-Route::any("menu_category","API\ApiController@menucategory");
+Route::any("menu_category",[ApiController::class, 'menucategory']);
 Route::any("noOfOrder","API\ApiController@noOfOrder");
 Route::any("orderdetails","API\ApiController@orderdetails");
 Route::any("subcategory","API\ApiController@subcategory");
@@ -49,7 +49,7 @@ Route::get("test100",'API\AbcController@index');
 
 
 
-Route::get('/greeting', [ApiController::class, 'menucategory']);
+// Route::get('/greeting', [ApiController::class, 'menucategory']);
 
 
 
