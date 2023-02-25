@@ -2,35 +2,31 @@
 
 namespace App\Http\Controllers\API;
 
-use DB;
-use Mail;
-use App\City;
-use App\Item;
-use DateTime;
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use Response;
 use Sentinel;
-use App\Order;
 use Validator;
 use App\AppUser;
-use App\Setting;
-use App\Category;
+use App\TokenData;
 use App\Delivery;
-use DateTimeZone;
+use App\OrderResponse;
+use App\City;
+use Stripe\Stripe;
+use Stripe\Charge;
+use App\Order;
+use App\Category;
+use App\Item;
+use App\Ingredient;
 use App\FoodOrder;
 use App\Notiy_key;
-use App\TokenData;
-use Stripe\Charge;
-use Stripe\Stripe;
-use App\Ingredient;
-use App\OrderResponse;
+use App\Setting;
+use DateTimeZone;
+use DateTime;
 use App\Resetpassword;
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-
-
+use Mail;
+use DB;
 class ApiController extends Controller {
-
-
     public function postregister(Request $request){
         $response = array("success" => "0", "register" => "Validation error");
         $rules = [
