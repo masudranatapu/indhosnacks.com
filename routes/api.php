@@ -3,7 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\AbcController;
-use App\Http\Controllers\API\ApiController;
+use App\Http\Controllers\API\Apiv1Controller;
 use App\Http\Controllers\User\OrderController;
 /*
 |--------------------------------------------------------------------------
@@ -22,34 +22,34 @@ Route::get('locale/{locale}', function (Request $locale){
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::any("register","API\ApiController@postregister");//register
-Route::any("tokan_data","API\ApiController@savetoken");//store token
-Route::any("getcity","API\ApiController@getcity");//get city list
-Route::any("deliveryboy_login","API\ApiController@deliveryboy_login");//delivery login
-Route::any("deliveryboy_order","API\ApiController@deliveryboy_order");//delivery order
-Route::post("deliveryboy_presence","API\ApiController@deliveryboy_presence");
-Route::any("deliveryboy_profile","API\ApiController@deliveryboy_profile");
+Route::any("register","API\Apiv1Controller@postregister");//register
+Route::any("tokan_data","API\Apiv1Controller@savetoken");//store token
+Route::any("getcity","API\Apiv1Controller@getcity");//get city list
+Route::any("deliveryboy_login","API\Apiv1Controller@deliveryboy_login");//delivery login
+Route::any("deliveryboy_order","API\Apiv1Controller@deliveryboy_order");//delivery order
+Route::post("deliveryboy_presence","API\Apiv1Controller@deliveryboy_presence");
+Route::any("deliveryboy_profile","API\Apiv1Controller@deliveryboy_profile");
 
-Route::any("ingredients","API\ApiController@ingredients");
-Route::any("menu_category",[ApiController::class, 'menucategory']);
-Route::any("noOfOrder","API\ApiController@noOfOrder");
-Route::any("orderdetails","API\ApiController@orderdetails");
-Route::any("subcategory","API\ApiController@subcategory");
-Route::any("order_history","API\ApiController@order_history");
-Route::any("order_cancel","API\ApiController@order_cancel");
-Route::any("order_complete","API\ApiController@order_complete");
-Route::any("order_pick","API\ApiController@order_pick");
-Route::any("order_item_details","API\ApiController@order_item_details");
-Route::post("food_order","API\ApiController@food_order");
-Route::any("order_details","API\ApiController@order_details");
-Route::any("forgotpassword","API\ApiController@forgotpassword");
-Route::get("getsetting",'API\ApiController@getsetting');
+Route::any("ingredients","API\Apiv1Controller@ingredients");
+Route::any("menu_category",[Apiv1Controller::class, 'menucategory']);
+Route::any("noOfOrder","API\Apiv1Controller@noOfOrder");
+Route::any("orderdetails","API\Apiv1Controller@orderdetails");
+Route::any("subcategory","API\Apiv1Controller@subcategory");
+Route::any("order_history","API\Apiv1Controller@order_history");
+Route::any("order_cancel","API\Apiv1Controller@order_cancel");
+Route::any("order_complete","API\Apiv1Controller@order_complete");
+Route::any("order_pick","API\Apiv1Controller@order_pick");
+Route::any("order_item_details","API\Apiv1Controller@order_item_details");
+Route::post("food_order","API\Apiv1Controller@food_order");
+Route::any("order_details","API\Apiv1Controller@order_details");
+Route::any("forgotpassword","API\Apiv1Controller@forgotpassword");
+Route::get("getsetting",'API\Apiv1Controller@getsetting');
 Route::get("test100",'API\AbcController@index');
 
 
 
 
-// Route::get('/greeting', [ApiController::class, 'menucategory']);
+// Route::get('/greeting', [Apiv1Controller::class, 'menucategory']);
 
 
 

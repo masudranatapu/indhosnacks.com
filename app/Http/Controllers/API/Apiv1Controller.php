@@ -30,7 +30,7 @@ use DB;
 
 
 
-class ApiController extends Controller {
+class Apiv1Controller extends Controller {
     public function postregister(Request $request){
         $response = array("success" => "0", "register" => "Validation error");
         $rules = [
