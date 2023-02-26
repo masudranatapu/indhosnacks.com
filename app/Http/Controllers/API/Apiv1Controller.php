@@ -441,6 +441,30 @@ class Apiv1Controller extends Controller {
         }
         return Response::json($response);
    }
+   public function viewitem(Request $request){
+      $response = array("success" => "0", "item" => "Validation error");
+        $rules = [
+            'item_id' => 'required'
+        ];
+
+        $validator = Validator::make($request->all(), $rules);
+
+        if ($validator->fails()) {
+            $response['order'] = "enter your data perfectly";
+        } else {
+
+              $item=Item::find($request->get("item_id"));
+              if($item){
+                 $response['success']="1";
+                 $response['item']=$item;
+              }
+              else{
+                $response['success']="0";
+                $response['item']="No record Found";
+              }
+        }
+        return Response::json($response);
+   }
 
    public function subcategory(Request $request){
 
