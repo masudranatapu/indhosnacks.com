@@ -35,6 +35,7 @@ Route::any("menu_category",[Apiv1Controller::class, 'menucategory']);
 Route::any("noOfOrder","API\Apiv1Controller@noOfOrder");
 Route::any("orderdetails","API\Apiv1Controller@orderdetails");
 Route::any("viewitem/{id}","API\Apiv1Controller@viewitem");
+Route::any("gettopping","API\Apiv1Controller@gettopping");
 Route::any("subcategory","API\Apiv1Controller@subcategory");
 Route::any("order_history","API\Apiv1Controller@order_history");
 Route::any("order_cancel","API\Apiv1Controller@order_cancel");

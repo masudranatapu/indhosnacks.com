@@ -441,6 +441,34 @@ class Apiv1Controller extends Controller {
         }
         return Response::json($response);
    }
+   public function gettopping(Request $request){
+      $response = array("success" => "0", "order" => "Validation error");
+        $rules = [
+            'menu_id' => 'required'
+        ];
+
+        $validator = Validator::make($request->all(), $rules);
+
+        if ($validator->fails()) {
+            $response['order'] = "enter your data perfectly";
+        } else {
+
+              $item=Item::find($request->get("menu_id"));
+              if($item){
+                $result = Category::select(['id', 'cat_name as name', 'created_at', 'updated_at','is_deleted'])->where('id', $item->category)->first();
+                $result->topping =Ingredient::where('menu_id', $item->id)->select(['id', 'category as top_cat_id', 'item_name as name', 'price', 'created_at', 'updated_at', 'is_deleted'])->get();
+                // dd($result);
+
+                 $response['success']="1";
+                 $response['order']=$result;
+              }
+              else{
+                $response['success']="0";
+                $response['order']="No record Found";
+              }
+        }
+        return Response::json($response);
+   }
    public function viewitem($id){
       $response = array("success" => "0", "item" => "Validation error");
 
