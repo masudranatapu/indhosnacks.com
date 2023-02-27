@@ -1218,7 +1218,7 @@ static public function generate_timezone_list(){
    {
        $response = array("success" => "0", "item" => "Validation error");
 
-       $item = Item::with('categoryitem')->where("is_deleted", '0')->paginate(16);
+       $item = Item::with('categoryitem')->where("is_deleted", '0')->paginate(10);
        if($item){
            $response['success']="1";
            $response['item']=$item;
