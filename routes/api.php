@@ -34,7 +34,6 @@ Route::any("ingredients","API\Apiv1Controller@ingredients");
 Route::any("spacial_offer","API\Apiv1Controller@spacialOffer");
 Route::any("popular","API\Apiv1Controller@popular");
 Route::any("testimonial","API\Apiv1Controller@testimonial");
-Route::any("testimonial","API\Apiv1Controller@testimonial");
 Route::any("shop","API\Apiv1Controller@shop");
 Route::any("contactInfo","API\Apiv1Controller@contactInfo");
 Route::post("contactSubmit","API\Apiv1Controller@contactSubmit");
