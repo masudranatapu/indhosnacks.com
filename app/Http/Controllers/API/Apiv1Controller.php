@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers\API;
 
+use App\Banner;
+use App\Contact;
 use App\Http\Controllers\Controller;
+use App\Testimonial;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 use Response;
 use Sentinel;
 use Validator;
@@ -24,6 +28,7 @@ use App\Setting;
 use DateTimeZone;
 use DateTime;
 use App\Resetpassword;
+use App\Review;
 use Mail;
 use DB;
 
@@ -1156,6 +1161,139 @@ static public function generate_timezone_list(){
         return Response::json($response);
    }
 
+   public function spacialOffer()
+   {
+       $response = array("success" => "0", "item" => "Validation error");
+
+       $item = Banner::where('status', 1)->orderBy('id', 'asc')->take(3)->get();
+       if($item){
+           $response['success']="1";
+           $response['item']=$item;
+       }
+       else{
+           $response['success']="0";
+           $response['item']="No record Found";
+       }
+       return Response::json($response);
+   }
+
+   public function popular()
+   {
+       $response = array("success" => "0", "item" => "Validation error");
+
+       $item = Item::latest()->with('categoryitem')->where('category', 8)->where("is_deleted", '0')->take(3)->get();
+       foreach ($item as $val){
+           $val->review = Review::where('item_id', $val->id)
+               ->where('status', 1)
+               ->sum('stars');
+       }
+       if($item){
+           $response['success']="1";
+           $response['item']=$item;
+       }
+       else{
+           $response['success']="0";
+           $response['item']="No record Found";
+       }
+       return Response::json($response);
+   }
+
+   public function testimonial()
+   {
+       $response = array("success" => "0", "item" => "Validation error");
+
+       $item = Testimonial::where('status', 1)->get();
+       if($item){
+           $response['success']="1";
+           $response['item']=$item;
+       }
+       else{
+           $response['success']="0";
+           $response['item']="No record Found";
+       }
+       return Response::json($response);
+   }
+
+   public function shop()
+   {
+       $response = array("success" => "0", "item" => "Validation error");
+
+       $item = Item::with('categoryitem')->where("is_deleted", '0')->paginate(16);
+       if($item){
+           $response['success']="1";
+           $response['item']=$item;
+       }
+       else{
+           $response['success']="0";
+           $response['item']="No record Found";
+       }
+       return Response::json($response);
+   }
+   public function contactInfo()
+   {
+       $response = array("success" => "0", "item" => "Validation error");
+       $setting = Setting::first();
+
+       $item = [];
+        $item['address'] = $setting->address;
+        $item['email'] = $setting->email;
+        $item['phone'] = $setting->phone;
+       if($item){
+           $response['success']="1";
+           $response['item']=$item;
+       }
+       else{
+           $response['success']="0";
+           $response['item']="No record Found";
+       }
+       return Response::json($response);
+   }
+   public function contactSubmit(Request $request)
+   {
+       $response = array("success" => "0", "data" => "Validation error");
+       $rules = [
+           'name' => 'required',
+           'email' => 'required',
+           'phone' => 'required',
+           'message' => 'required',
+       ];
+
+       $messages = array(
+           'name.required' => "Name field are required",
+           'email.required' => "Email field are required",
+           'phone.required' => "Phone field are required",
+           'message.required' => "Message field are required",
+
+       );
+       $validator = Validator::make($request->all(), $rules,$messages);
+
+       if ($validator->fails()) {
+           $message = '';
+           $messages_l = json_decode(json_encode($validator->messages()), true);
+           foreach ($messages_l as $msg) {
+               $message .= $msg[0] . ", ";
+           }
+           $response['msg'] = $message;
+       } else {
+           $contact = new Contact();
+           $contact->name = strip_tags(preg_replace('#<script(.*?)>(.*?)</script>#is', '', $request->get("name")));
+           $contact->email = strip_tags(preg_replace('#<script(.*?)>(.*?)</script>#is', '', $request->get("email")));
+           $contact->phone = strip_tags(preg_replace('#<script(.*?)>(.*?)</script>#is', '', $request->get("phone")));
+           $contact->message = strip_tags(preg_replace('#<script(.*?)>(.*?)</script>#is', '', $request->get("message")));
+           $contact->save();
+           if($contact){
+               $response["success"]=1;
+               $response['message']="Thanks For Your Contact. We will respond as soon as possible";
+           }
+           else{
+               $response["success"]=0;
+               $response['data']="Data not found";
+           }
+
+
+       }
+       return Response::json($response);
+   }
 
 }
 
