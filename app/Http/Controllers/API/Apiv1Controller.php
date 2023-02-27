@@ -1287,7 +1287,7 @@ static public function generate_timezone_list(){
            }
            else{
                $response["success"]=0;
-               $response['data']="Data not found";
+               $response['message']="Something is wrong!";
            }
 
 
