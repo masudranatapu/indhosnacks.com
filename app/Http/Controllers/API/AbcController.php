@@ -5,7 +5,7 @@ use DB;
 use Auth;
 use App\Setting;
 use App\Category;
-use Response;
+use Illuminate\Support\Facades\Response;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 

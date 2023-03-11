@@ -13,7 +13,7 @@
         $story_desc = $story_desc;
         return $story_desc;
     }
-
+    
     $settings = DB::table('setting')
         ->where('id', 1)
         ->first();
@@ -28,7 +28,8 @@
     <meta charset="UTF-8">
     <meta property="og:url" content="{{ __('messages.site_name') }}" />
     <meta property="og:title" content="{{ __('messages.site_name') }}" />
-    <meta property="og:image" content="{{ asset('public/upload/web') . '/' . isset($settings->favicon) ? $settings->favicon : '' }}" />
+    <meta property="og:image"
+        content="{{ asset('public/upload/web') . '/' . isset($settings->favicon) ? $settings->favicon : '' }}" />
     <meta property="og:image:width" content="250px" />
     <meta property="og:image:height" content="250px" />
     <meta property="og:site_name" content="{{ __('messages.site_name') }}" />
@@ -36,7 +37,8 @@
     <meta property="og:keyword" content="{{ __('messages.metakeyboard') }}" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="shortcut icon" href="{{ asset('public/upload/web') . '/' . isset($settings->favicon) ? $settings->favicon : '' }}"/>
+    <link rel="shortcut icon"
+        href="{{ asset('public/upload/web') . '/' . isset($settings->favicon) ? $settings->favicon : '' }}" />
 
     @if (__('messages.rtl') == '0')
         <link rel="stylesheet" type="text/css" href="{{ asset('burger/css/style.css?v=1') . '?version=232132' }}">
@@ -270,7 +272,7 @@
                                     $totalamount = (float) $car->quantity * (float) $car->price;
                                     $totalamountarr[] = round($totalamount, 2);
                                 }
-
+                                
                                 ?>
                                 <span>{{ Session::get('usercurrency') . number_format(Cart::getTotal(), 2, '.', '') }}
                                 </span>
@@ -790,8 +792,9 @@
     <input type="hidden" id="login_error" value="{{ __('messages.login_error') }}" />
     <input type="hidden" id="forgot_error_2" value="{{ __('messages.forgot_error_2') }}">
     {{-- js file --}}
-    <script type="text/javascript" src="{{ URL::to('public/js/code.js') . '?version=965326' }}"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    <script src="{{ asset('js/isotope.pkgd.min.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::to('public/js/code.js') . '?version=965326' }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     <script type="text/javascript" src="{{ URL::to('public/demo/button.js') . '?version=1' }}"></script>
     <script src="{{ URL::to('public/demo/script.js') . '?version=1111' }}"></script>

@@ -7,15 +7,15 @@ use App\Http\Controllers\Controller as Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\LoginRequest;
 use Illuminate\Support\Facades\DB;
-use Sentinel;
-use Session;
-use DataTables;
+use Cartalyst\Sentinel\Laravel\Facades\Sentinel;
+use Illuminate\Support\Facades\Session;
+use Yajra\DataTables\Facades\DataTables;
 use App\User;
-use Artisan;
+use Illuminate\Support\Facades\Artisan;
 use App\Category;
 use App\Item;
 use App\Ingredient;
-use Hash;
+use Illuminate\Support\Facades\Hash;
 use Cart;
 use App\Setting;
 use App\Order;
@@ -26,6 +26,7 @@ use App\Slider;
 use App\Testimonial;
 use Share;
 use App\Review;
+use Exception;
 
 class frontController extends Controller
 {
@@ -290,7 +291,7 @@ class frontController extends Controller
     {
         $cartCollection = Cart::getContent();
 
-        if($cartCollection->count() == 0){
+        if ($cartCollection->count() == 0) {
             Session::flash('message', __('messages.shipping_error'));
             Session::flash('alert-class', 'alert-danger');
             return redirect()->back();
