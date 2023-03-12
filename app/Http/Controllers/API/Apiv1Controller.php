@@ -28,6 +28,7 @@ use DateTimeZone;
 use DateTime;
 use App\Resetpassword;
 use App\Review;
+use Exception;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Response;
@@ -256,7 +257,7 @@ class Apiv1Controller extends Controller
         $validator = Validator::make($request->all(), $rules);
 
         if ($validator->fails()) {
-            $response['presence'] = "enter your data perfectly";
+            $response['presence'] = $validator->errors()->first();
         } else {
             $update = Delivery::where("id", $request->get("deliverboy_id"))->update(["attendance" => $request->get("status")]);
             if ($update) {
@@ -344,7 +345,8 @@ class Apiv1Controller extends Controller
         $validator = Validator::make($request->all(), $rules);
 
         if ($validator->fails()) {
-            $response['order'] = "enter your data perfectly";
+            // $response['order'] = "enter your data perfectly";
+            $response['order'] = $validator->errors()->first();
         } else {
             $update = Order::where("user_id", $request->get("user_id"))->get();
             if ($update) {
@@ -745,7 +747,7 @@ class Apiv1Controller extends Controller
         $validator = Validator::make($request->all(), $rules);
 
         if ($validator->fails()) {
-            $response['order'] = "enter your data perfectly";
+            $response['order'] = $validator->errors()->first();
         } else {
             $setting = Setting::find(1);
             $orderdata = array();
@@ -789,8 +791,8 @@ class Apiv1Controller extends Controller
                     "address" => $update->address,
                     "customer_name" => $update->name,
                     "phone" => $update->userdata->mob_number,
-                    "latitude" => $sp_la[0],
-                    "longitude" => $sp_la[1],
+                    "latitude" => $sp_la[0] ?? '',
+                    "longitude" => $sp_la[1] ?? '',
                     "delivery_charges" => $phone,
                     "tax" => $update->tax,
                     "item_name" => $arrName
@@ -900,7 +902,8 @@ class Apiv1Controller extends Controller
 
         if ($validator->fails()) {
             $message = '';
-            $messages_l = json_decode(json_encode($validator->errors()->first()), true);
+            $messages_l = json_decode(json_encode($validator->errors()), true);
+
             foreach ($messages_l as $msg) {
                 $message .= $msg[0] . ", ";
             }
@@ -1097,30 +1100,36 @@ class Apiv1Controller extends Controller
         if ($validator->fails()) {
             $response['data'] = "Email/phone Is Required";
         } else {
-            $checkmobile = AppUser::where("mob_number", $request->get("phone"))->orwhere("email", $request->get("phone"))->get();
-            if (count($checkmobile) != 0) {
-                if ($checkmobile[0]->email == "") {
-                    $response["success"] = 0;
-                    $response['data'] = "Email not found";
+            try {
+
+
+                $checkmobile = AppUser::where("mob_number", $request->get("phone"))->orwhere("email", $request->get("phone"))->get();
+                if (count($checkmobile) != 0) {
+                    if ($checkmobile[0]->email == "") {
+                        $response["success"] = 0;
+                        $response['data'] = "Email not found";
+                    } else {
+                        $code = mt_rand(100000, 999999);
+                        $store = array();
+                        $store['email'] = $checkmobile[0]->email;
+                        $store['name'] = $checkmobile[0]->name;
+                        $store['code'] = $code;
+                        $add = new Resetpassword();
+                        $add->user_id = $checkmobile[0]->id;
+                        $add->code = $code;
+                        $add->save();
+                        Mail::send('email.forgotpassword', ['user' => $store], function ($message) use ($store) {
+                            $message->to($store['email'], $store['name'])->subject(__("messages.site_name"));
+                        });
+                        $response["success"] = 1;
+                        $response['data'] = "Mail Send Successfully";
+                    }
                 } else {
-                    $code = mt_rand(100000, 999999);
-                    $store = array();
-                    $store['email'] = $checkmobile[0]->email;
-                    $store['name'] = $checkmobile[0]->name;
-                    $store['code'] = $code;
-                    $add = new Resetpassword();
-                    $add->user_id = $checkmobile[0]->id;
-                    $add->code = $code;
-                    $add->save();
-                    Mail::send('email.forgotpassword', ['user' => $store], function ($message) use ($store) {
-                        $message->to($store['email'], $store['name'])->subject(__("messages.site_name"));
-                    });
-                    $response["success"] = 1;
-                    $response['data'] = "Mail Send Successfully";
+                    $response["success"] = 0;
+                    $response['data'] = "Data not found";
                 }
-            } else {
-                $response["success"] = 0;
-                $response['data'] = "Data not found";
+            } catch (Exception $th) {
+                return Response::json($th->getMessage());
             }
         }
         return Response::json($response);
