@@ -28,6 +28,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::any("register", "API\Apiv1Controller@postregister"); //register
 Route::any("tokan_data", "API\Apiv1Controller@savetoken"); //store token
 Route::any("getcity", "API\Apiv1Controller@getcity"); //get city list
+Route::any("login", "API\Apiv1Controller@login"); //user login
 Route::any("deliveryboy_login", "API\Apiv1Controller@deliveryboy_login"); //delivery login
 Route::any("deliveryboy_order", "API\Apiv1Controller@deliveryboy_order"); //delivery order
 Route::post("deliveryboy_presence", "API\Apiv1Controller@deliveryboy_presence");
@@ -55,7 +56,12 @@ Route::post("food_order", "API\Apiv1Controller@food_order");
 Route::any("order_details", "API\Apiv1Controller@order_details");
 Route::any("forgotpassword", "API\Apiv1Controller@forgotpassword");
 Route::get("getsetting", 'API\Apiv1Controller@getsetting');
+Route::post("review", 'API\Apiv1Controller@itemReview');
+Route::get("offer-discount", 'API\Apiv1Controller@offerDiscount');
+Route::get("populer-snacks", 'API\Apiv1Controller@popularSnaks');
+Route::get("settings", 'API\Apiv1Controller@settings');
 Route::get("test100", 'API\AbcController@index');
+
 
 
 

@@ -68,7 +68,7 @@ class Apiv1Controller extends Controller
             if ($getuser) { //update token
                 if ($request->get("type") == 2) {
                     $response['success'] = "0";
-                    $response['register'] = "Mobile Number Not Exist";
+                    $response['register'] = "Mobile Number Already Is Exist";
                 }
                 if ($request->get("type") == 1) {
                     $store = TokenData::where("token", $request->get("token"))->get();
@@ -185,6 +185,32 @@ class Apiv1Controller extends Controller
                 }
                 $response['success'] = "1";
                 $response['login'] = $getdata;
+            } else {
+                $response['success'] = "0";
+                $response['login'] = "Invallid Email and Password";
+            }
+        }
+        return Response::json(array("data" => $response));
+    }
+    public function login(Request $request)
+    {
+        $response = array("success" => "0", "login" => "Validation error");
+        $rules = [
+
+            'phone' => 'required',
+            'password' => 'required'
+        ];
+
+        $validator = Validator::make($request->all(), $rules);
+
+        if ($validator->fails()) {
+            $response['login'] = $validator->errors()->first();
+        } else {
+            $checkdetails = AppUser::where("mob_number", $request->get("phone"))->where("password", md5($request->get("password")))->where("is_deleted", "0")->get();
+            if (count($checkdetails) != 0) {
+
+                $response['success'] = "1";
+                $response['login'] = $checkdetails;
             } else {
                 $response['success'] = "0";
                 $response['login'] = "Invallid Email and Password";
@@ -1054,8 +1080,8 @@ class Apiv1Controller extends Controller
                     $Order = $datadesc['Order'];
                 }
                 $phone = "";
-                if (isset($update->userdata->mob_number)) {
-                    $phone = $update->userdata->mob_number;
+                if (isset($orderdata->userdata->mob_number)) {
+                    $phone = $orderdata->userdata->mob_number;
                 }
                 $total_item = OrderResponse::where("set_order_id", $request->get("order_id"))->get();
                 $order_details[] = array(
@@ -1189,7 +1215,7 @@ class Apiv1Controller extends Controller
     {
         $response = array("success" => "0", "item" => "Validation error");
 
-        $item = Item::with('categoryitem')->where("is_deleted", '0')->paginate(10);
+        $item = Item::with(['categoryitem'])->where("is_deleted", '0')->paginate(10);
         if ($item) {
             $response['success'] = "1";
             $response['item'] = $item;
@@ -1237,11 +1263,9 @@ class Apiv1Controller extends Controller
         $validator = Validator::make($request->all(), $rules, $messages);
 
         if ($validator->fails()) {
-            $message = '';
-            $messages_l = json_decode(json_encode($validator->errors()->first()), true);
-            foreach ($messages_l as $msg) {
-                $message .= $msg[0] . ", ";
-            }
+
+            $message = $validator->errors()->first();
+
             $response['msg'] = $message;
         } else {
             $contact = new Contact();
@@ -1252,12 +1276,93 @@ class Apiv1Controller extends Controller
             $contact->save();
             if ($contact) {
                 $response["success"] = 1;
+                $response['data'] = [];
                 $response['message'] = "Thanks For Your Contact. We will respond as soon as possible";
             } else {
                 $response["success"] = 0;
+                $response['data'] = [];
                 $response['message'] = "Something is wrong!";
             }
         }
+        return Response::json($response);
+    }
+
+
+    public function itemReview(Request $request)
+    {
+        $response = array("success" => "0", "data" => "Validation error");
+
+        $validator = Validator::make($request->all(), [
+            'item_id' =>  'required',
+            'stars' =>  'required',
+            'title' =>  'required',
+            'comment' =>  'required|max:200',
+        ]);
+
+        if ($validator->fails()) {
+
+            $message = $validator->errors()->first();
+
+            $response['msg'] = $message;
+            return Response::json($response);
+        }
+
+        $review = Review::where('item_id', $request->item_id)->where('user_id', Session::get('login_user'))->get();
+
+        if ($review->count() > 0) {
+            $message =  __('You already review this item.');
+
+            $response['msg'] = $message;
+            return Response::json($response);
+        } else {
+
+            Review::insert([
+                'user_id' => Session::get('login_user'),
+                'item_id' => $request->item_id,
+                'stars' => $request->stars,
+                'title' => $request->title,
+                'status' => 0,
+                'comment' => $request->comment,
+            ]);
+            $message =  __('Your review successfully done. Please wait for admin approved.');
+
+            $response['msg'] = $message;
+
+            return Response::json($response);
+        }
+    }
+
+    public function offerDiscount()
+    {
+
+        $bannersone = Banner::where('id', 1)->where('status', 1)->first();
+        $bannerstwo = Banner::where('id', 2)->where('status', 1)->first();
+        $bannersthree = Banner::where('id', 3)->where('status', 1)->first();
+
+        $data = [
+
+            $bannersone,
+            $bannerstwo,
+            $bannersthree,
+        ];
+        $response['status'] = true;
+        $response['data'] = $data;
+        return Response::json($response);
+    }
+
+    public function popularSnaks()
+    {
+        $popular_snacks_item = Item::latest()->with('categoryitem')->where('category', 8)->where("is_deleted", '0')->take(3)->get();
+        $response['status'] = true;
+        $response['data'] = $popular_snacks_item;
+        return Response::json($response);
+    }
+
+    public function settings()
+    {
+        $getsetting = Setting::find(1);
+        $response['status'] = true;
+        $response['data'] = $getsetting;
         return Response::json($response);
     }
 }

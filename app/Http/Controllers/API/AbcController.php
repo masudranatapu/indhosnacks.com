@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers\API;
 
 use DB;
@@ -16,12 +17,9 @@ class AbcController extends Controller
     public function index(Request $request)
     {
 
-        $getsetting=Setting::find(1);
-        $getdata=Category::where("is_deleted",'0')->get();
-        $response=array('menu_category' =>$getdata,"delivery_charges"=>$getsetting->delivery_charges);
+        $getsetting = Setting::find(1);
+        $getdata = Category::where("is_deleted", '0')->get();
+        $response = array('menu_category' => $getdata, "delivery_charges" => $getsetting->delivery_charges);
         return Response::json($response);
-
     }
-
-
 }

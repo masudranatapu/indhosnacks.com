@@ -16,7 +16,7 @@ use App\Category;
 use App\Item;
 use App\Ingredient;
 use Illuminate\Support\Facades\Hash;
-use Cart;
+use Darryldecode\Cart\Facades\CartFacade;
 use App\Setting;
 use App\Order;
 use App\Contact;
@@ -222,7 +222,7 @@ class frontController extends Controller
     }
     public function cartdetails()
     {
-        $cartCollection = Cart::getContent();
+        $cartCollection = CartFacade::getContent();
         if ($cartCollection->count()) {
             foreach ($cartCollection  as $item) {
                 $item_id = $item->id;
@@ -289,7 +289,7 @@ class frontController extends Controller
     }
     public function checkout(Request $request)
     {
-        $cartCollection = Cart::getContent();
+        $cartCollection = CartFacade::getContent();
 
         if ($cartCollection->count() == 0) {
             Session::flash('message', __('messages.shipping_error'));
