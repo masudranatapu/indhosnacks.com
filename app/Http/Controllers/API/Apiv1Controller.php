@@ -608,7 +608,7 @@ class Apiv1Controller extends Controller
             }
             $registrationIds =  $reg_id;
             $message = array(
-                'message' => $msg,
+                'msg' => $msg,
                 'title' => 'Order Status'
             );
             $fields = array(
@@ -1250,7 +1250,7 @@ class Apiv1Controller extends Controller
             'name' => 'required',
             'email' => 'required',
             'phone' => 'required',
-            'message' => 'required',
+            'msg' => 'required',
         ];
 
         $messages = array(
@@ -1277,11 +1277,11 @@ class Apiv1Controller extends Controller
             if ($contact) {
                 $response["success"] = 1;
                 $response['data'] = [];
-                $response['message'] = "Thanks For Your Contact. We will respond as soon as possible";
+                $response['msg'] = "Thanks For Your Contact. We will respond as soon as possible";
             } else {
                 $response["success"] = 0;
                 $response['data'] = [];
-                $response['message'] = "Something is wrong!";
+                $response['msg'] = "Something is wrong!";
             }
         }
         return Response::json($response);
