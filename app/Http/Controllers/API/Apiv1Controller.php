@@ -237,8 +237,10 @@ class Apiv1Controller extends Controller
         } else {
 
             $order = Order::where("is_assigned", $request->get("deliverboy_id"))->get();
+
             foreach ($order as $k) {
                 $orderres = OrderResponse::where("set_order_id", $k->id)->get(); //get order response
+                $status = "";
                 if ($k->order_status == 5) {
                     $status = 'Order is preparing';
                 } else if ($k->order_status == 3) {
@@ -255,6 +257,16 @@ class Apiv1Controller extends Controller
                         "order_no" => $k->id,
                         "total_amount" => $k->total_price,
                         "items" => count($orderres),
+                        "address" => $k->address ?? '',
+                        "date" => $k->order_placed_date,
+                        "status" => $status
+                    );
+                } else {
+                    $result[] = array(
+                        "order_no" => $k->id,
+                        "total_amount" => $k->total_price,
+                        "items" => count($orderres),
+                        "address" => $k->address ?? '',
                         "date" => $k->order_placed_date,
                         "status" => $status
                     );

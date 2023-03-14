@@ -357,7 +357,7 @@ class AppuserController extends Controller
             'copyright' => 'Copyright © ' . Carbon::now()->format('Y') . ' ' . 'IndhoSnacks. All rights reserved.',
         ];
 
-        Mail::to($user->email)->send(new OrderUserMail($details));
+        // Mail::to($user->email)->send(new OrderUserMail($details));
 
         // mail to admin for users order
         $adminuser = User::latest()->first();
