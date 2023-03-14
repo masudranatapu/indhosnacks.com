@@ -168,26 +168,30 @@ class Apiv1Controller extends Controller
         if ($validator->fails()) {
             $response['login'] = $validator->errors()->first();
         } else {
-            $getdata = Delivery::where("email", $request->get("email"))->where("password", $request->get("password"))->select("id", "name", "mobile_no", "email", "vehicle_no", "vehicle_type")->get();
-            if (count($getdata) != 0) {
-                $gettoken = TokenData::where("token", $request->get("token"))->get();
-                if (count($gettoken) != 0) {
+            $getdata = Delivery::where("email", $request->get("email"))->where("password", $request->get("password"))->select("id", "name", "mobile_no", "email", "vehicle_no", "vehicle_type")->first();
+
+            if (isset($getdata)) {
+                $gettoken = TokenData::where("token", $request->get("token"))->first();
+                if (isset($gettoken)) {
                     //update token
-                    $store = TokenData::where("token", $request->get("token"))->update(["delivery_boyid" => $getdata[0]->id, "user_id" => '0']);
+                    $store = TokenData::where("token", $request->get("token"))->update(["delivery_boyid" => $getdata->id, "user_id" => '0']);
                 } else {
                     //insert token
                     $add = new TokenData();
                     $add->user_id = '0';
                     $add->token = $request->get("token");
                     $add->type = $request->get("type");
-                    $add->delivery_boyid = $getdata[0]->id;
+                    $add->delivery_boyid = $getdata->id;
                     $add->save();
                 }
                 $response['success'] = "1";
-                $response['login'] = $getdata;
+                $response['login'] = "";
+
+                $response['data'] = $user[] = $getdata;
             } else {
                 $response['success'] = "0";
-                $response['login'] = "Invallid Email and Password";
+                $response['login'] = "Credencial Error";
+                $response['data'] = "Invallid Email and Password";
             }
         }
         return Response::json(array("data" => $response));
