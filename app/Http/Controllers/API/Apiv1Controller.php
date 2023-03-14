@@ -1345,7 +1345,7 @@ class Apiv1Controller extends Controller
             $bannerstwo,
             $bannersthree,
         ];
-        $response['status'] = true;
+        $response['status'] = "0";
         $response['data'] = $data;
         return Response::json($response);
     }
@@ -1353,7 +1353,7 @@ class Apiv1Controller extends Controller
     public function popularSnaks()
     {
         $popular_snacks_item = Item::latest()->with('categoryitem')->where('category', 8)->where("is_deleted", '0')->take(3)->get();
-        $response['status'] = true;
+        $response['status'] = "0";
         $response['data'] = $popular_snacks_item;
         return Response::json($response);
     }
@@ -1361,7 +1361,7 @@ class Apiv1Controller extends Controller
     public function testimonials(Request $request)
     {
         $testimonials = Testimonial::where('status', 1)->get();
-        $response['status'] = true;
+        $response['status'] = "0";
         $response['data'] = $testimonials;
         return Response::json($response);
     }
@@ -1369,7 +1369,7 @@ class Apiv1Controller extends Controller
     public function settings()
     {
         $getsetting = Setting::find(1);
-        $response['status'] = true;
+        $response['status'] = "0";
         $response['data'] = $getsetting;
         return Response::json($response);
     }
