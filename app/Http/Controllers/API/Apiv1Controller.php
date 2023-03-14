@@ -1358,6 +1358,14 @@ class Apiv1Controller extends Controller
         return Response::json($response);
     }
 
+    public function testimonials(Request $request)
+    {
+        $testimonials = Testimonial::where('status', 1)->get();
+        $response['status'] = true;
+        $response['data'] = $testimonials;
+        return Response::json($response);
+    }
+
     public function settings()
     {
         $getsetting = Setting::find(1);

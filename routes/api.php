@@ -59,6 +59,7 @@ Route::get("getsetting", 'API\Apiv1Controller@getsetting');
 Route::post("review", 'API\Apiv1Controller@itemReview');
 Route::get("offer-discount", 'API\Apiv1Controller@offerDiscount');
 Route::get("populer-snacks", 'API\Apiv1Controller@popularSnaks');
+Route::get("testimonials", 'API\Apiv1Controller@testimonials');
 Route::get("settings", 'API\Apiv1Controller@settings');
 Route::get("test100", 'API\AbcController@index');
 
