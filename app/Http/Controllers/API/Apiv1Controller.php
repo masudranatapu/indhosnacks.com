@@ -392,14 +392,30 @@ class Apiv1Controller extends Controller
         } else {
             $update = Order::where("user_id", $request->get("user_id"))->get();
             if ($update) {
+
                 $ls = array();
                 foreach ($update as $k) {
+                    $order_status = "";
+                    if ($k->order_status == '0') {
+                        $order_status = 'Not Assign';
+                    } elseif ($k->order_status == '1') {
+                        $order_status = 'Assign Order';
+                    } elseif ($k->order_status == '2') {
+                        $order_status = 'Rejected';
+                    } elseif ($k->order_status == '3') {
+                        $order_status = 'Delivered';
+                    } elseif ($k->order_status == '4') {
+                        $order_status = 'Delete';
+                    } elseif ($k->order_status == '5') {
+                        $order_status = 'In Pickup';
+                    }
                     $dt = array();
                     $dt['order_no'] = $k->id;
                     $dt['total_amount'] = $k->total_price;
                     $dt['order_id'] = $k->id;
                     $dt['address'] = $k->address;
                     $dt['delivery_mode'] = $k->delivery_mode;
+                    $dt['order_status'] = $order_status;
                     $ls[] = $dt;
                 }
                 $response['success'] = "1";
