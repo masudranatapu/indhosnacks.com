@@ -973,7 +973,7 @@ class Apiv1Controller extends Controller
                 $datadesc = json_decode($request->get("food_desc"), true);
 
 
-                $Order = $datadesc['order'];
+                $Order = $datadesc['Order'];
                 $setting = Setting::find(1);
                 $gettimezone = $this->gettimezonename($setting->timezone);
                 date_default_timezone_set($gettimezone);
@@ -1009,7 +1009,7 @@ class Apiv1Controller extends Controller
                         }
                         $adddesc = new OrderResponse();
                         $adddesc->set_order_id = $store->id;
-                        $adddesc->item_id = $or["ItemId"];
+                        $adddesc->item_id = intval($or["ItemId"]);
                         $adddesc->item_qty = $or["ItemQty"];
                         $adddesc->ItemTotalPrice = $or["ItemTotalPrice"];
                         $adddesc->item_amt = $or["ItemAmt"];
