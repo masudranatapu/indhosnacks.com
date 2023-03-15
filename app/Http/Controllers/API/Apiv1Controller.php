@@ -570,6 +570,7 @@ class Apiv1Controller extends Controller
                     $dt['items'] = count($getitem);
                     $dt['date'] = $k->order_placed_date;
                     $dt['status'] = $status;
+                    $dt['address'] = $k->address;
 
                     $ls[] = $dt;
                 }
