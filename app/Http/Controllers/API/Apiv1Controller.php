@@ -944,13 +944,8 @@ class Apiv1Controller extends Controller
         $validator = Validator::make($request->all(), $rules, $messages);
 
         if ($validator->fails()) {
-            $message = '';
-            $messages_l = json_decode(json_encode($validator->errors()), true);
 
-            foreach ($messages_l as $msg) {
-                $message .= $msg[0] . ", ";
-            }
-            $response['msg'] = $message;
+            $response['msg'] = $validator->errors()->first();
         } else {
             if ($request->get('delivery_mode') == '0' && $request->get("address") == "") {
                 $response['msg'] = "Address is Required";
@@ -960,7 +955,9 @@ class Apiv1Controller extends Controller
                 return Response::json($response);
             } else {
                 $datadesc = json_decode($request->get("food_desc"), true);
-                $Order = $datadesc['Order'];
+
+
+                $Order = $datadesc['order'];
                 $setting = Setting::find(1);
                 $gettimezone = $this->gettimezonename($setting->timezone);
                 date_default_timezone_set($gettimezone);
@@ -1029,10 +1026,10 @@ class Apiv1Controller extends Controller
                     $response['success'] = "1";
                     $response['order_details'] = "your order succefully submited";
                     $response['order_id'] = $store->id;
-                } catch (\Exception $e) {
+                } catch (Exception $e) {
                     DB::rollback();
                     $response['success'] = "0";
-                    $response['order_details'] = $e;
+                    $response['order_details'] = $e->getMessage();
                 }
             }
         }
