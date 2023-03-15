@@ -1,70 +1,62 @@
 "use strict";
 
-$(function () {
-    $('.grid').isotope({
-        filter: '.transition'
-    });
-});
+// $(function () {
+//     $('.grid').isotope({
+//         filter: '.transition'
+//     });
+// });
 
-var $grid = $('.grid').isotope({
-    itemSelector: '.element-item',
-    layoutMode: 'fitRows',
-});
+// var $grid = $('.grid').isotope({
+//     itemSelector: '.element-item',
+//     layoutMode: 'fitRows',
+// });
 $(document).ready(function () {
-    $('a[href="' + $("#path_site").val() + '"]').addClass('active');
+    $('a[href="' + $("#path_site").val() + '"]').addClass("active");
 });
 var filterFns = {
     numberGreaterThan50: function () {
-        var number = $(this).find('.number').text();
+        var number = $(this).find(".number").text();
         return parseInt(number, 10) > 50;
     },
     ium: function () {
-        var name = $(this).find('.name').text();
+        var name = $(this).find(".name").text();
         return name.match(/ium$/);
-    }
+    },
 };
-$('.filters-select').on('change', function () {
+$(".filters-select").on("change", function () {
     var filterValue = this.value;
     filterValue = filterFns[filterValue] || filterValue;
     $grid.isotope({
-        filter: filterValue
+        filter: filterValue,
     });
 });
 function disablebtn() {
     alert("This action is disabled in demo.");
 }
 $(function () {
-
     var filterList = {
-
         init: function () {
-
-            $('#portfoliolist').mixItUp({
+            $("#portfoliolist").mixItUp({
                 selectors: {
-                    target: '.portfolio',
-                    filter: '.filter'
+                    target: ".portfolio",
+                    filter: ".filter",
                 },
                 load: {
-                    filter: '.1'
-                }
+                    filter: ".1",
+                },
             });
-
-        }
-
+        },
     };
 
-
     filterList.init();
-
 });
-
 
 $(document).ready(function () {
     $("#content-slider").lightSlider({
         loop: true,
-        keyPress: true
+        keyPress: true,
     });
-    $('#image-gallery').lightSlider({
+    $("#image-gallery").lightSlider({
         gallery: true,
         item: 1,
         thumbItem: 9,
@@ -73,16 +65,14 @@ $(document).ready(function () {
         auto: true,
         loop: true,
         onSliderLoad: function () {
-            $('#image-gallery').removeClass('cS-hidden');
-        }
+            $("#image-gallery").removeClass("cS-hidden");
+        },
     });
 });
 $(document).ready(function () {
-
     $("#owl-demo").owlCarousel({
-        navigation: true
+        navigation: true,
     });
-
 });
 
 function changetab() {
@@ -90,47 +80,49 @@ function changetab() {
     $("#menu").slideToggle();
 }
 
-
-$('.responsive').slick({
+$(".responsive").slick({
     dots: true,
-    prevArrow: $('.prev'),
-    nextArrow: $('.next'),
+    prevArrow: $(".prev"),
+    nextArrow: $(".next"),
     infinite: false,
     speed: 300,
     rtl: rtl_slick(),
     slidesToShow: 7,
     slidesToScroll: 4,
-    responsive: [{
-        breakpoint: 1024,
-        settings: {
-            slidesToShow: 7,
-            slidesToScroll: 3,
-            infinite: true,
-            dots: true
-        }
-    }, {
-        breakpoint: 767,
-        settings: {
-            slidesToShow: 3,
-            slidesToScroll: 3,
-            infinite: true,
-            dots: true
-        }
-    }, {
-        breakpoint: 576,
-        settings: {
-            slidesToShow: 2,
-            slidesToScroll: 2
-        }
-    }, {
-        breakpoint: 480,
-        settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1
-        }
-    }
-
-    ]
+    responsive: [
+        {
+            breakpoint: 1024,
+            settings: {
+                slidesToShow: 7,
+                slidesToScroll: 3,
+                infinite: true,
+                dots: true,
+            },
+        },
+        {
+            breakpoint: 767,
+            settings: {
+                slidesToShow: 3,
+                slidesToScroll: 3,
+                infinite: true,
+                dots: true,
+            },
+        },
+        {
+            breakpoint: 576,
+            settings: {
+                slidesToShow: 2,
+                slidesToScroll: 2,
+            },
+        },
+        {
+            breakpoint: 480,
+            settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1,
+            },
+        },
+    ],
 });
 
 function checkboth(val) {
@@ -159,7 +151,7 @@ function checkcurrentpwd(val) {
                 alert($("#error_cut_pwd").val());
                 $("input[name='opwd']").val("");
             }
-        }
+        },
     });
 }
 
@@ -183,10 +175,11 @@ function changepassword() {
             $("input[name='npwd']").val("");
             $("input[name='rpwd']").val("");
             $("input[name='opwd']").val("");
-            $('#contact').addClass('active');
-            var txt = '<div class="col-sm-12"><div class="alert  alert-success alert-dismissible fade show" role="alert">Password Change Successfully<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div></div>';
+            $("#contact").addClass("active");
+            var txt =
+                '<div class="col-sm-12"><div class="alert  alert-success alert-dismissible fade show" role="alert">Password Change Successfully<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div></div>';
             document.getElementById("msgres").innerHTML = txt;
-        }
+        },
     });
 }
 
@@ -200,12 +193,11 @@ function changecategory(val, id) {
         method: "GET",
         success: function (result) {
             for (var i = 0; i < total; i++) {
-                ;
-                $("#cat1" + i).removeClass('slick-slide active');
-                $("#catdiv" + i).removeClass('slick-slide active');
+                $("#cat1" + i).removeClass("slick-slide active");
+                $("#catdiv" + i).removeClass("slick-slide active");
             }
-            $("#cat1" + id).addClass('slick-slide active');
-            $("#catdiv" + id).addClass('slick-slide active');
+            $("#cat1" + id).addClass("slick-slide active");
+            $("#catdiv" + id).addClass("slick-slide active");
             var res = JSON.parse(result);
             var data = res.item;
             var txt = "";
@@ -213,19 +205,51 @@ function changecategory(val, id) {
             txt = txt + '<div class="row">';
             var path = $("#path_site").val();
             for (var i = 0; i < data.length; i++) {
-                txt = txt + '<div class="portfolio 1 col-md-6 burger w3-container  w3-animate-zoom portfoliocat" data-cat="' + data[i]['id'] + '" data-bound><div class="items"><div class="b-img"><a href="' + path + '/detailitem' + "/" + data[i]['id'] + '"><img src="' + path + '/public/upload/images/menu_item_icon' + "/" + data[i]['menu_image'] + '"></a></div><div class="bor"><div class="b-text"><h1><a href="' + path + '/detailitem' + "/" + data[i]['id'] + '">' + data[i]['menu_name'] + '</a></h1><p>' + data[i]['description'] + '</p></div><div class="price"><h1>' + $("#currency").val() + data[i]['price'] + '</h1><div class="cart"><a href="' + path + '/detailitem' + "/" + data[i]['id'] + '">' + $("#addcart").val() + '</a></div></div></div></div></div>';
+                txt =
+                    txt +
+                    '<div class="portfolio 1 col-md-6 burger w3-container  w3-animate-zoom portfoliocat" data-cat="' +
+                    data[i]["id"] +
+                    '" data-bound><div class="items"><div class="b-img"><a href="' +
+                    path +
+                    "/detailitem" +
+                    "/" +
+                    data[i]["id"] +
+                    '"><img src="' +
+                    path +
+                    "/public/upload/images/menu_item_icon" +
+                    "/" +
+                    data[i]["menu_image"] +
+                    '"></a></div><div class="bor"><div class="b-text"><h1><a href="' +
+                    path +
+                    "/detailitem" +
+                    "/" +
+                    data[i]["id"] +
+                    '">' +
+                    data[i]["menu_name"] +
+                    "</a></h1><p>" +
+                    data[i]["description"] +
+                    '</p></div><div class="price"><h1>' +
+                    $("#currency").val() +
+                    data[i]["price"] +
+                    '</h1><div class="cart"><a href="' +
+                    path +
+                    "/detailitem" +
+                    "/" +
+                    data[i]["id"] +
+                    '">' +
+                    $("#addcart").val() +
+                    "</a></div></div></div></div></div>";
             }
-            txt = txt + '</div>';
+            txt = txt + "</div>";
             var cat = res.category;
 
             document.getElementById("category_div").innerHTML = txt;
-        }
+        },
     });
-
 }
 $(document).ready(function () {
-    $('a[href="/"]').removeClass('active');
-    $('a[href="' + window.location.href + '"]').addClass('active');
+    $('a[href="/"]').removeClass("active");
+    $('a[href="' + window.location.href + '"]').addClass("active");
 });
 
 function logout() {
@@ -233,7 +257,7 @@ function logout() {
 }
 
 function rtl_slick() {
-    if ($("#is_rtl").val() == '1') {
+    if ($("#is_rtl").val() == "1") {
         return true;
     } else {
         return false;
@@ -245,7 +269,7 @@ function addtocart(url) {
     var item_id = $("#menu_name").val();
     var item = $("#item_id").val();
     var qty = $("#number").val();
-    var price = $('#origin_price').val();
+    var price = $("#origin_price").val();
     var favorite = [];
     $.each($("input[name='interdient']:checked"), function () {
         favorite.push($(this).val());
@@ -258,50 +282,49 @@ function addtocart(url) {
             id: item_id,
             qty: qty,
             totalint: totalint,
-            price: price
+            price: price,
         },
         success: function (data) {
             // console.log(ch);
             if (url) {
-                window.location.href = url ;
-            }else {
-
+                window.location.href = url;
+            } else {
                 document.getElementById("totalcart").innerHTML = data;
-                window.location.href = $("#path_site").val() + "/detailitem" + '/' + item;
+                window.location.href =
+                    $("#path_site").val() + "/detailitem" + "/" + item;
             }
-        }
+        },
     });
-
 }
 
 function increaseValue() {
-    var value = parseInt(document.getElementById('number').value, 10);
+    var value = parseInt(document.getElementById("number").value, 10);
     value = isNaN(value) ? 1 : value;
     value++;
     var getprice = $("#origin_price").val();
-    document.getElementById('number').value = value;
+    document.getElementById("number").value = value;
     var finalvalues = parseInt(value) * parseFloat(getprice);
-    document.getElementById('price').innerHTML = finalvalues.toFixed(2);
+    document.getElementById("price").innerHTML = finalvalues.toFixed(2);
 }
 
 function decreaseValue() {
-    var value = parseInt(document.getElementById('number').value, 10);
+    var value = parseInt(document.getElementById("number").value, 10);
     value = isNaN(value) ? 1 : value;
-    value < 1 ? value = 1 : '';
+    value < 1 ? (value = 1) : "";
     if (value > 1) {
         value--;
     }
     var getprice = $("#origin_price").val();
-    document.getElementById('number').value = value;
+    document.getElementById("number").value = value;
     var finalvalues = parseInt(value) * parseFloat(getprice);
-    document.getElementById('price').innerHTML = finalvalues.toFixed(2);
+    document.getElementById("price").innerHTML = finalvalues.toFixed(2);
 }
 
 function changemodel() {
-    $('a[href="#tab1').removeClass('active');
-    $('a[href="#tab2').addClass('active');
-    $('#tab1').removeClass('active');
-    $('#tab2').addClass('active');
+    $('a[href="#tab1').removeClass("active");
+    $('a[href="#tab2').addClass("active");
+    $("#tab1").removeClass("active");
+    $("#tab2").addClass("active");
     $("#myModal1").model("show");
 }
 
@@ -314,12 +337,12 @@ function addtocartsingle(item_id) {
         data: {
             id: item_id,
             qty: qty,
-            totalint: totalint
+            totalint: totalint,
         },
         success: function (data) {
             document.getElementById("totalcart").innerHTML = data;
             window.location.reload();
-        }
+        },
     });
 }
 
@@ -329,15 +352,28 @@ function shareonsoical(val, id) {
         method: "GET",
         success: function (data) {
             if (val == 1) {
-                window.open('https://www.facebook.com/sharer/sharer.php?u=' + $("#path_site").val() + '/detailitem/' + id + '', '_blank');
+                window.open(
+                    "https://www.facebook.com/sharer/sharer.php?u=" +
+                        $("#path_site").val() +
+                        "/detailitem/" +
+                        id +
+                        "",
+                    "_blank"
+                );
                 document.getElementById("facebook_share_id").innerHTML = data;
             }
             if (val == 2) {
-                window.open('https://twitter.com/intent/tweet?text=my share text&amp;url=' + $("#path_site").val() + '/detailitem/' + id + '', '_blank');
+                window.open(
+                    "https://twitter.com/intent/tweet?text=my share text&amp;url=" +
+                        $("#path_site").val() +
+                        "/detailitem/" +
+                        id +
+                        "",
+                    "_blank"
+                );
                 document.getElementById("twitter_share_id").innerHTML = data;
             }
-
-        }
+        },
     });
 }
 
@@ -347,7 +383,6 @@ function checkcart() {
         window.location.href = $("#path_site").val() + "/cartdetails";
     }
 }
-
 
 function registeruser() {
     document.getElementById("reg_error_msg").style.display = "none";
@@ -360,8 +395,13 @@ function registeruser() {
     var password = $("input[name='password_reg']").val();
     var email = $("input[name='email']").val();
     var conn = $("input[name='con_password_reg']").val();
-    if (name != "" && phone != "" && password != "" && conn != "" && email != "") {
-
+    if (
+        name != "" &&
+        phone != "" &&
+        password != "" &&
+        conn != "" &&
+        email != ""
+    ) {
         const buttonlogin = document.getElementById("loaderForRegister");
 
         $("#loaderForRegister").html(
@@ -377,7 +417,7 @@ function registeruser() {
                 name: name,
                 phone: phone,
                 password: password,
-                email: email
+                email: email,
             },
             success: function (data) {
                 if (data == 1) {
@@ -387,7 +427,7 @@ function registeruser() {
                         data: {
                             phone: phone,
                             password: password,
-                            rem_me: 0
+                            rem_me: 0,
                         },
                         success: function (data) {
                             if (data == 1) {
@@ -396,20 +436,24 @@ function registeruser() {
                                 var n = url1.localeCompare(url2);
                                 console.log(n);
                                 if (n == 0) {
-                                    window.location.href = $("#path_site").val() + "/myaccount";
+                                    window.location.href =
+                                        $("#path_site").val() + "/myaccount";
                                 } else {
                                     window.location.reload();
                                 }
-
                             } else {
-                                document.getElementById("login_error_msg").innerHTML = $("#login_error").val();
-                                document.getElementById("login_error_msg").style.display = "block";
+                                document.getElementById(
+                                    "login_error_msg"
+                                ).innerHTML = $("#login_error").val();
+                                document.getElementById(
+                                    "login_error_msg"
+                                ).style.display = "block";
                             }
-                        }
+                        },
                     });
                 } else {
-
-                    const buttonlogin = document.getElementById("loaderForRegister");
+                    const buttonlogin =
+                        document.getElementById("loaderForRegister");
 
                     $("#loaderForRegister").html(
                         '<span style="color: white;"> Register </span>'
@@ -417,18 +461,21 @@ function registeruser() {
 
                     buttonlogin.disabled = false;
 
-                    document.getElementById("reg_error_msg").innerHTML = $("#reg_error").val();
-                    document.getElementById("reg_error_msg").style.display = "block";
-                    document.getElementById("reg_success_msg").style.display = "none";
+                    document.getElementById("reg_error_msg").innerHTML =
+                        $("#reg_error").val();
+                    document.getElementById("reg_error_msg").style.display =
+                        "block";
+                    document.getElementById("reg_success_msg").style.display =
+                        "none";
                 }
-            }
+            },
         });
     } else {
         document.getElementById("reg_error_msg").style.display = "block";
         document.getElementById("reg_success_msg").style.display = "none";
         console.log($("#reg_error").val());
-        document.getElementById("reg_error_msg").innerHTML = $("#reg_error").val();
-
+        document.getElementById("reg_error_msg").innerHTML =
+            $("#reg_error").val();
     }
     $("#overlaychk").fadeOut(1000);
 }
@@ -456,7 +503,6 @@ function loginaccount() {
     }
 
     if (phone != "" && password != "") {
-
         const buttonlogin = document.getElementById("loaderForLogin");
 
         $("#loaderForLogin").html(
@@ -471,7 +517,7 @@ function loginaccount() {
             data: {
                 phone: phone,
                 password: password,
-                rem_me: rem_me
+                rem_me: rem_me,
             },
             success: function (data) {
                 if (data == 1) {
@@ -480,11 +526,11 @@ function loginaccount() {
                     var n = url1.localeCompare(url2);
                     console.log(n);
                     if (n == 0) {
-                        window.location.href = $("#path_site").val() + "/myaccount";
+                        window.location.href =
+                            $("#path_site").val() + "/myaccount";
                     } else {
                         window.location.reload();
                     }
-
                 } else {
                     $("#loaderForLogin").html(
                         '<span style="color: white;"> Login </span>'
@@ -492,13 +538,16 @@ function loginaccount() {
 
                     buttonlogin.disabled = false;
 
-                    document.getElementById("login_error_msg").innerHTML = $("#login_error").val();
-                    document.getElementById("login_error_msg").style.display = "block";
+                    document.getElementById("login_error_msg").innerHTML =
+                        $("#login_error").val();
+                    document.getElementById("login_error_msg").style.display =
+                        "block";
                 }
-            }
+            },
         });
     } else {
-        document.getElementById("login_error_msg").innerHTML = $("#required_field").val();
+        document.getElementById("login_error_msg").innerHTML =
+            $("#required_field").val();
         document.getElementById("login_error_msg").style.display = "block";
     }
     $("#overlaychk").fadeOut(1000);
@@ -520,7 +569,7 @@ function checkloginaccount() {
             data: {
                 phone: phone,
                 password: password,
-                rem_me: rem_me
+                rem_me: rem_me,
             },
             success: function (data) {
                 if (data == 1) {
@@ -529,31 +578,36 @@ function checkloginaccount() {
                     var n = url1.localeCompare(url2);
                     console.log(n);
                     if (n == 0) {
-                        window.location.href = $("#path_site").val() + "/myaccount";
+                        window.location.href =
+                            $("#path_site").val() + "/myaccount";
                     } else {
                         window.location.reload();
                     }
-
                 } else {
-                    document.getElementById("check_login_error_msg").innerHTML = $("#login_error").val();
-                    document.getElementById("check_login_error_msg").style.display = "block";
+                    document.getElementById("check_login_error_msg").innerHTML =
+                        $("#login_error").val();
+                    document.getElementById(
+                        "check_login_error_msg"
+                    ).style.display = "block";
                 }
-            }
+            },
         });
     } else {
-        document.getElementById("check_login_error_msg").innerHTML = $("#required_field").val();
-        document.getElementById("check_login_error_msg").style.display = "block";
+        document.getElementById("check_login_error_msg").innerHTML =
+            $("#required_field").val();
+        document.getElementById("check_login_error_msg").style.display =
+            "block";
     }
 }
 
 function forgotmodel() {
-    document.getElementById('forgotbody').style.display = "block";
-    document.getElementById('loginmodel').style.display = "none";
+    document.getElementById("forgotbody").style.display = "block";
+    document.getElementById("loginmodel").style.display = "none";
 }
 
 function loginmodel() {
-    document.getElementById('forgotbody').style.display = "none";
-    document.getElementById('loginmodel').style.display = "block";
+    document.getElementById("forgotbody").style.display = "none";
+    document.getElementById("loginmodel").style.display = "block";
 }
 
 function forgotaccount() {
@@ -563,29 +617,32 @@ function forgotaccount() {
             url: $("#path_site").val() + "/forgotpassword",
             method: "GET",
             data: {
-                phone: phone
+                phone: phone,
             },
             success: function (data) {
                 console.log(data);
                 if (data == 1) {
-                    document.getElementById("for_success_msg").style.display = "block";
-                    document.getElementById("for_error_msg").style.display = "none";
+                    document.getElementById("for_success_msg").style.display =
+                        "block";
+                    document.getElementById("for_error_msg").style.display =
+                        "none";
                 } else {
-                    document.getElementById("for_error_msg").innerHTML = $("#forgot_error").val();
-                    document.getElementById("for_error_msg").style.display = "block";
-                    document.getElementById("for_success_msg").style.display = "none";
+                    document.getElementById("for_error_msg").innerHTML =
+                        $("#forgot_error").val();
+                    document.getElementById("for_error_msg").style.display =
+                        "block";
+                    document.getElementById("for_success_msg").style.display =
+                        "none";
                 }
-            }
+            },
         });
     } else {
-        document.getElementById("for_error_msg").innerHTML = $("#forgot_error_2").val();
+        document.getElementById("for_error_msg").innerHTML =
+            $("#forgot_error_2").val();
         document.getElementById("for_error_msg").style.display = "block";
         document.getElementById("for_success_msg").style.display = "none";
-
     }
-
 }
-
 
 function changeoptioncart(val) {
     if (val == 0) {
@@ -604,16 +661,23 @@ function addqty(id, iqty) {
     var price = document.getElementById("price_pro" + id).innerHTML;
     $("input[name='qty" + iqty + "']").val(nqty);
     $.ajax({
-        url: $("#path_site").val() + "/cartqtyupdate" + "/" + id + "/" + nqty + "/1",
+        url:
+            $("#path_site").val() +
+            "/cartqtyupdate" +
+            "/" +
+            id +
+            "/" +
+            nqty +
+            "/1",
         data: {},
         success: function (data) {
             var pricedata = parseFloat(nqty) * parseFloat(price);
-            document.getElementById("producttotal" + id).innerHTML = pricedata.toFixed(2);
+            document.getElementById("producttotal" + id).innerHTML =
+                pricedata.toFixed(2);
             document.getElementById("finaltotal").innerHTML = data.finaltotal;
             document.getElementById("subtotal").innerHTML = data.subtotal;
-        }
+        },
     });
-
 }
 
 function minusqty(id, iqty) {
@@ -623,14 +687,23 @@ function minusqty(id, iqty) {
     $("input[name='qty" + iqty + "']").val(nqty);
     if (nqty != 0) {
         $.ajax({
-            url: $("#path_site").val() + "/cartqtyupdate" + "/" + id + "/" + nqty + "/0",
+            url:
+                $("#path_site").val() +
+                "/cartqtyupdate" +
+                "/" +
+                id +
+                "/" +
+                nqty +
+                "/0",
             data: {},
             success: function (data) {
                 var pricedata = parseFloat(nqty) * parseFloat(price);
-                document.getElementById("producttotal" + id).innerHTML = pricedata.toFixed(2);
-                document.getElementById("finaltotal").innerHTML = data.finaltotal;
+                document.getElementById("producttotal" + id).innerHTML =
+                    pricedata.toFixed(2);
+                document.getElementById("finaltotal").innerHTML =
+                    data.finaltotal;
                 document.getElementById("subtotal").innerHTML = data.subtotal;
-            }
+            },
         });
     } else {
         $.ajax({
@@ -638,12 +711,10 @@ function minusqty(id, iqty) {
             data: {},
             success: function (data) {
                 window.location.reload();
-            }
+            },
         });
     }
-
 }
-
 
 function changebutton(val) {
     if (val == "Cash" || val == "by Card") {
@@ -652,11 +723,11 @@ function changebutton(val) {
         document.getElementById("orderplaceEdahab").style.display = "none";
         document.getElementById("orderplacestrip").style.display = "none";
         document.getElementById("orderplacepaypal").style.display = "none";
-        $("#pay1").addClass('activepayment');
-        $("#zaad").removeClass('activepayment');
-        $("#edahub").removeClass('activepayment');
-        $("#pay2").removeClass('activepayment');
-        $("#pay3").removeClass('activepayment');
+        $("#pay1").addClass("activepayment");
+        $("#zaad").removeClass("activepayment");
+        $("#edahub").removeClass("activepayment");
+        $("#pay2").removeClass("activepayment");
+        $("#pay3").removeClass("activepayment");
         $("#order_payment_type_1").prop("checked", true);
         $("#order_payment_type_zaad").prop("checked", false);
         $("#order_payment_type_eadhab").prop("checked", false);
@@ -664,7 +735,7 @@ function changebutton(val) {
         $("#order_payment_type_4").prop("checked", false);
     }
     if (val == "zaad") {
-        alert('Coming soon.. ');
+        alert("Coming soon.. ");
         $("#order_payment_type_zaad").prop("checked", false);
         // console.log($("#order_city").val());
         // $("#zaad_user_phone").val($("#order_phone").val());
@@ -720,7 +791,9 @@ function changebutton(val) {
         $("#edahab_city").val($("#order_city").val());
         var totalprice = document.getElementById("finaltotal_order").innerHTML;
         var subtotal = document.getElementById("subtotal_order").innerHTML;
-        var charge = document.getElementById("delivery_charges_order").innerHTML;
+        var charge = document.getElementById(
+            "delivery_charges_order"
+        ).innerHTML;
         $("#edahab_total").val(totalprice);
         $("#edahab_subtotal").val(subtotal);
         if ($("#user_phone").val() != "" && $("#edahab_city").val() != "") {
@@ -728,8 +801,12 @@ function changebutton(val) {
                 var shipping_type = 0;
                 $("#edahab_shipping_type").val(0);
                 $("#edahab_address").val($("#us2-address").val());
-                $("#edahab_lat_long").val($("#us2-lat").val() + "," + $("#us2-lon").val());
-                $('#eadhab_charage').val(document.getElementById("delivery_charges_order").innerHTML);
+                $("#edahab_lat_long").val(
+                    $("#us2-lat").val() + "," + $("#us2-lon").val()
+                );
+                $("#eadhab_charage").val(
+                    document.getElementById("delivery_charges_order").innerHTML
+                );
             } else if ($("#home2").prop("checked") == true) {
                 var shipping_type = 1;
                 $("#edahab_shipping_type").val(1);
@@ -739,16 +816,20 @@ function changebutton(val) {
                 $("#order_payment_type_4").prop("checked", false);
                 alert("{{__('messages.required_field')}}");
             } else {
-                document.getElementById("orderplaceEdahab").style.display = "block";
-                document.getElementById("orderplaceZaad").style.display = "none";
+                document.getElementById("orderplaceEdahab").style.display =
+                    "block";
+                document.getElementById("orderplaceZaad").style.display =
+                    "none";
                 document.getElementById("orderplace1").style.display = "none";
-                document.getElementById("orderplacestrip").style.display = "none";
-                document.getElementById("orderplacepaypal").style.display = "none";
-                $("#edahub").addClass('activepayment');
-                $("#zaad").removeClass('activepayment');
-                $("#pay1").removeClass('activepayment');
-                $("#pay2").removeClass('activepayment');
-                $("#pay3").removeClass('activepayment');
+                document.getElementById("orderplacestrip").style.display =
+                    "none";
+                document.getElementById("orderplacepaypal").style.display =
+                    "none";
+                $("#edahub").addClass("activepayment");
+                $("#zaad").removeClass("activepayment");
+                $("#pay1").removeClass("activepayment");
+                $("#pay2").removeClass("activepayment");
+                $("#pay3").removeClass("activepayment");
                 $("#order_payment_type_eadhab").prop("checked", true);
                 $("#order_payment_type_zaad").prop("checked", false);
                 $("#order_payment_type_3").prop("checked", false);
@@ -758,30 +839,34 @@ function changebutton(val) {
         } else {
             $("#order_payment_type_eadhab").prop("checked", false);
             alert($("#required_field").val());
-
         }
-
     }
     if (val == "Stripe") {
         var totalprice = document.getElementById("finaltotal_order").innerHTML;
         $("script").each(function () {
-            $(this).attr('data-amount', totalprice);
-        })
+            $(this).attr("data-amount", totalprice);
+        });
         $("#phone_or").val($("#order_phone").val());
         $("#note_or").val($("#order_notes").val());
         $("#city_or").val($("#order_city").val());
         $("#payment_type_or").val("Stripe");
         $("#shipping_type_or").val($("input[name='shipping_type']").val());
-        $('#total_price_or').val(totalprice);
-        $('#subtotal_or').val(document.getElementById("subtotal_order").innerHTML);
+        $("#total_price_or").val(totalprice);
+        $("#subtotal_or").val(
+            document.getElementById("subtotal_order").innerHTML
+        );
 
         if ($("#phone_or").val() != "" && $("#city_or").val() != "") {
             if ($("#home1").prop("checked") == true) {
                 var shipping_type = 0;
                 $("#shipping_type_or").val(0);
                 $("#address_or").val($("#us2-address").val());
-                $("#lat_long_or").val($("#us2-lat").val() + "," + $("#us2-lon").val());
-                $('#charage_or').val(document.getElementById("delivery_charges_order").innerHTML);
+                $("#lat_long_or").val(
+                    $("#us2-lat").val() + "," + $("#us2-lon").val()
+                );
+                $("#charage_or").val(
+                    document.getElementById("delivery_charges_order").innerHTML
+                );
             } else if ($("#home2").prop("checked") == true) {
                 var shipping_type = 1;
                 $("#shipping_type_or").val(1);
@@ -791,16 +876,20 @@ function changebutton(val) {
                 $("#order_payment_type_4").prop("checked", false);
                 alert("{{__('messages.required_field')}}");
             } else {
-                document.getElementById("orderplaceZaad").style.display = "none";
+                document.getElementById("orderplaceZaad").style.display =
+                    "none";
                 document.getElementById("orderplace1").style.display = "none";
-                document.getElementById("orderplaceEdahab").style.display = "none"
-                document.getElementById("orderplacestrip").style.display = "block";
-                document.getElementById("orderplacepaypal").style.display = "none";
-                $("#pay1").removeClass('activepayment');
-                $("#edahub").removeClass('activepayment');
-                $("#pay2").removeClass('activepayment');
-                $("#zaad").removeClass('activepayment');
-                $("#pay3").addClass('activepayment');
+                document.getElementById("orderplaceEdahab").style.display =
+                    "none";
+                document.getElementById("orderplacestrip").style.display =
+                    "block";
+                document.getElementById("orderplacepaypal").style.display =
+                    "none";
+                $("#pay1").removeClass("activepayment");
+                $("#edahub").removeClass("activepayment");
+                $("#pay2").removeClass("activepayment");
+                $("#zaad").removeClass("activepayment");
+                $("#pay3").addClass("activepayment");
                 $("#order_payment_type_1").prop("checked", false);
                 $("#order_payment_type_eadhab").prop("checked", false);
                 $("#order_payment_type_zaad").prop("checked", false);
@@ -810,9 +899,7 @@ function changebutton(val) {
         } else {
             $("#order_payment_type_4").prop("checked", false);
             alert($("#required_field").val());
-
         }
-
     }
     if (val == "Paypal") {
         var totalprice = document.getElementById("finaltotal_order").innerHTML;
@@ -820,19 +907,21 @@ function changebutton(val) {
         $("#note_pal").val($("#order_notes").val());
         $("#city_pal").val($("#order_city").val());
         $("#payment_type_pal").val("Paypal");
-        $('#total_price_pal').val(totalprice);
-        $('#subtotal_pal').val(document.getElementById("subtotal_order").innerHTML);
+        $("#total_price_pal").val(totalprice);
+        $("#subtotal_pal").val(
+            document.getElementById("subtotal_order").innerHTML
+        );
         if ($("#phone_pal").val() != "" && $("#city_pal").val() != "") {
             document.getElementById("orderplaceZaad").style.display = "none";
             document.getElementById("orderplace1").style.display = "none";
             document.getElementById("orderplacestrip").style.display = "none";
             document.getElementById("orderplaceEdahab").style.display = "none";
             document.getElementById("orderplacepaypal").style.display = "block";
-            $("#pay1").removeClass('activepayment');
-            $("#pay2").addClass('activepayment');
-            $("#zaad").removeClass('activepayment');
-            $("#edahub").removeClass('activepayment');
-            $("#pay3").removeClass('activepayment');
+            $("#pay1").removeClass("activepayment");
+            $("#pay2").addClass("activepayment");
+            $("#zaad").removeClass("activepayment");
+            $("#edahub").removeClass("activepayment");
+            $("#pay3").removeClass("activepayment");
             $("#order_payment_type_1").prop("checked", false);
             $("#order_payment_type_3").prop("checked", true);
             $("#order_payment_type_zaad").prop("checked", false);
@@ -842,19 +931,20 @@ function changebutton(val) {
                 var shipping_type = 0;
                 $("#shipping_type_pal").val(0);
                 $("#address_pal").val($("#us2-address").val());
-                $("#lat_long_pal").val($("#us2-lat").val() + "," + $("#us2-lon").val());
-                $('#charage_pal').val(document.getElementById("delivery_charges_order").innerHTML);
+                $("#lat_long_pal").val(
+                    $("#us2-lat").val() + "," + $("#us2-lon").val()
+                );
+                $("#charage_pal").val(
+                    document.getElementById("delivery_charges_order").innerHTML
+                );
             } else if ($("#home2").prop("checked") == true) {
                 var shipping_type = 1;
                 $("#shipping_type_pal").val(1);
             }
-
         } else {
             $("#order_payment_type_3").prop("checked", false);
             alert($("#required_field").val());
-
         }
-
     }
 }
 
@@ -867,7 +957,8 @@ function changeoption(val) {
         document.getElementById("maporder").style.display = "block";
         document.getElementById("addressorder").style.display = "block";
         document.getElementById("dcorder").style.display = "block";
-        document.getElementById("finaltotal_order").innerHTML = parseFloat(subtotal) + parseFloat(discharges);
+        document.getElementById("finaltotal_order").innerHTML =
+            parseFloat(subtotal) + parseFloat(discharges);
     }
     if (val == 1) {
         document.getElementById("home2").checked = true;
@@ -875,7 +966,8 @@ function changeoption(val) {
         document.getElementById("maporder").style.display = "none";
         document.getElementById("addressorder").style.display = "none";
         document.getElementById("dcorder").style.display = "none";
-        document.getElementById("finaltotal_order").innerHTML = parseFloat(subtotal);
+        document.getElementById("finaltotal_order").innerHTML =
+            parseFloat(subtotal);
     }
 }
 
@@ -883,12 +975,11 @@ function orderplace() {
     var phone = $("#order_phone").val();
     var note = $("#order_notes").val();
     var city = $("#order_city").val();
-    var payment_type = 'Cash';
+    var payment_type = "Cash";
     var totalprice = document.getElementById("finaltotal_order").innerHTML;
     var subtotal = document.getElementById("subtotal_order").innerHTML;
     var charge = document.getElementById("delivery_charges_order").innerHTML;
     var typedata = "";
-
 
     if ($("#home1").prop("checked") == true) {
         var shipping_type = 0;
@@ -903,7 +994,7 @@ function orderplace() {
     }
 
     if (phone != "" && city != "" && payment_type != "") {
-        document.getElementById('loaderForPlaceOrder').disabled = true;
+        document.getElementById("loaderForPlaceOrder").disabled = true;
 
         $("#loaderForPlaceOrder").html(
             ' <div class="spinner" style="width:25px; height: 25px; display: inline-flex;" role="status"></div> <span style="display:block">Processing...</span>'
@@ -921,29 +1012,31 @@ function orderplace() {
                 totalprice: totalprice,
                 subtotal: subtotal,
                 charge: charge,
-                latlong: latlong
+                latlong: latlong,
             },
             success: function (data1) {
                 console.log(data1);
                 if (data1 != 0) {
-
                     $("#loaderForPlaceOrder").html(
-                        '<span>Order Success</span>'
+                        "<span>Order Success</span>"
                     );
 
-                    document.getElementById('loaderForPlaceOrder').disabled = false;
+                    document.getElementById(
+                        "loaderForPlaceOrder"
+                    ).disabled = false;
 
-                    window.location.href = $("#path_site").val() + "/viewdetails" + "/" + data1;
+                    window.location.href =
+                        $("#path_site").val() + "/viewdetails" + "/" + data1;
                 }
-            }
+            },
         });
     } else {
         document.getElementById("orderplace1").style.display = "none";
         document.getElementById("orderplacestrip").style.display = "none";
         document.getElementById("orderplacepaypal").style.display = "none";
-        $("#pay1").removeClass('activepayment');
-        $("#pay2").removeClass('activepayment');
-        $("#pay3").removeClass('activepayment');
+        $("#pay1").removeClass("activepayment");
+        $("#pay2").removeClass("activepayment");
+        $("#pay3").removeClass("activepayment");
         $("#order_payment_type_1").prop("checked", false);
         $("#order_payment_type_3").prop("checked", false);
         $("#order_payment_type_4").prop("checked", false);
@@ -951,31 +1044,37 @@ function orderplace() {
     }
 }
 function edahabOrder(e) {
-
-    var phone = $('#edahab_phone').val();
-    if(phone == ''){
-        alert('Please fill Edahab Phone');
+    var phone = $("#edahab_phone").val();
+    if (phone == "") {
+        alert("Please fill Edahab Phone");
         e.preventDefault();
-    }else{
+    } else {
         return true;
     }
 }
 function zaadOrder(e) {
     e.preventDefault();
 
-    const waafipay = require('waafipay-sdk-node').API("API-1901083745AHX", "1000297", "M0912269", {testMode: true}); // TestMode flag -->  true is production : false is test
+    const waafipay = require("waafipay-sdk-node").API(
+        "API-1901083745AHX",
+        "1000297",
+        "M0912269",
+        { testMode: true }
+    ); // TestMode flag -->  true is production : false is test
 
-    waafipay.preAuthorize({
-        paymentMethod: "MWALLET_ACCOUNT",
-        accountNo: "252619977991",
-        amount: "1",
-        currency: "USD",
-        description: "wan diray"
-    }, function(err, res){
-        console.log("response", res)
-    })
+    waafipay.preAuthorize(
+        {
+            paymentMethod: "MWALLET_ACCOUNT",
+            accountNo: "252619977991",
+            amount: "1",
+            currency: "USD",
+            description: "wan diray",
+        },
+        function (err, res) {
+            console.log("response", res);
+        }
+    );
 }
-
 
 function addprice(price, iqty) {
     if ($("#checkbox-" + iqty).prop("checked") == true) {
@@ -983,7 +1082,7 @@ function addprice(price, iqty) {
         var origin_price = $("#origin_price").val();
         var menu_new_price = parseFloat(origin_price) + parseFloat(price);
         $("#origin_price").val(menu_new_price.toFixed(2));
-        var pricedata = menu_new_price * parseFloat($('#number').val());
+        var pricedata = menu_new_price * parseFloat($("#number").val());
         document.getElementById("price").innerHTML = pricedata.toFixed(2);
         console.log(menu_new_price);
     } else if ($("#checkbox-" + iqty).prop("checked") == false) {
@@ -991,26 +1090,24 @@ function addprice(price, iqty) {
         var origin_price = $("#origin_price").val();
         var menu_new_price = parseFloat(origin_price) - parseFloat(price);
         $("#origin_price").val(menu_new_price.toFixed(2));
-        var pricedata = menu_new_price * parseFloat($('#number').val());
+        var pricedata = menu_new_price * parseFloat($("#number").val());
         document.getElementById("price").innerHTML = pricedata.toFixed(2);
         console.log(menu_new_price);
     }
-
-
 }
-if ($('#us2').length) {
-    $('#us2').locationpicker({
+if ($("#us2").length) {
+    $("#us2").locationpicker({
         location: {
             latitude: $("#lat_env").val(),
-            longitude: $("#long_env").val()
+            longitude: $("#long_env").val(),
         },
         radius: 300,
         inputBinding: {
-            latitudeInput: $('#us2-lat'),
-            longitudeInput: $('#us2-lon'),
-            radiusInput: $('#us2-radius'),
-            locationNameInput: $('#us2-address')
+            latitudeInput: $("#us2-lat"),
+            longitudeInput: $("#us2-lon"),
+            radiusInput: $("#us2-radius"),
+            locationNameInput: $("#us2-address"),
         },
-        enableAutocomplete: true
+        enableAutocomplete: true,
     });
 }

@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Sentinel;
-use Session;
+use Illuminate\Support\Facades\Session;
 
 class deliveryboy
 {
@@ -17,9 +17,9 @@ class deliveryboy
      */
     public function handle($request, Closure $next)
     {
-        if(Session::get('user_id')){
+        if (Session::get('user_id')) {
             return $next($request);
-        }else{
+        } else {
             return redirect('deliveryboy/');
         }
     }

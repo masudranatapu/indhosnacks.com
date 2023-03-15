@@ -7,16 +7,16 @@ use App\Http\Controllers\Controller as Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\LoginRequest;
 use Illuminate\Support\Facades\DB;
-use Sentinel;
-use Session;
-use DataTables;
+use Cartalyst\Sentinel\Laravel\Facades\Sentinel;
+use Illuminate\Support\Facades\Session;
+use Yajra\DataTables\Facades\DataTables;
 use App\User;
-use Artisan;
+use Illuminate\Support\Facades\Artisan;
 use App\Category;
 use App\Item;
 use App\Ingredient;
-use Hash;
-use Cart;
+use Illuminate\Support\Facades\Hash;
+use Darryldecode\Cart\Facades\CartFacade;
 use App\Setting;
 use App\Order;
 use App\Contact;
@@ -26,6 +26,7 @@ use App\Slider;
 use App\Testimonial;
 use Share;
 use App\Review;
+use Exception;
 
 class frontController extends Controller
 {
@@ -221,7 +222,7 @@ class frontController extends Controller
     }
     public function cartdetails()
     {
-        $cartCollection = Cart::getContent();
+        $cartCollection = CartFacade::getContent();
         if ($cartCollection->count()) {
             foreach ($cartCollection  as $item) {
                 $item_id = $item->id;
@@ -288,9 +289,9 @@ class frontController extends Controller
     }
     public function checkout(Request $request)
     {
-        $cartCollection = Cart::getContent();
+        $cartCollection = CartFacade::getContent();
 
-        if($cartCollection->count() == 0){
+        if ($cartCollection->count() == 0) {
             Session::flash('message', __('messages.shipping_error'));
             Session::flash('alert-class', 'alert-danger');
             return redirect()->back();

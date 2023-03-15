@@ -5,13 +5,13 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
 use Illuminate\Support\Facades\Artisan;
 
-Route::get('/cc', function() {
+Route::get('/cc', function () {
     Artisan::call('cache:clear');
     Artisan::call('view:clear');
     Artisan::call('route:clear');
     Artisan::call('config:clear');
     Artisan::call('config:cache');
-	return 'DONE';
+    return 'DONE';
 });
 
 Route::group(['middleware' => ['XSS']], function () {
@@ -96,10 +96,10 @@ Route::group(['middleware' => ['admincheckexiste']], function () {
     Route::post("savewebpage/{id}", "PagesController@savewebpage")->name('savewebpage');
 
     // slider
-     Route::get("sliders", "SliderController@index")->name("slider.index");
-     Route::post("sliders/store", "SliderController@store")->name("slider.store");
-     Route::post("sliders/update/{id}", "SliderController@update")->name("slider.update");
-     Route::get("sliders/delete/{id}", "SliderController@delete")->name("slider.delete");
+    Route::get("sliders", "SliderController@index")->name("slider.index");
+    Route::post("sliders/store", "SliderController@store")->name("slider.store");
+    Route::post("sliders/update/{id}", "SliderController@update")->name("slider.update");
+    Route::get("sliders/delete/{id}", "SliderController@delete")->name("slider.delete");
 
     // discount Banner
     Route::get("banners", "BannerController@index")->name("banner.index");
@@ -184,7 +184,6 @@ Route::group(['middleware' => ['admincheckexiste']], function () {
     Route::get("readyforpickup/{id}/{status}", "OrderController@readyforpickup");
     Route::get("waitingforpickup/{id}", "OrderController@waitingforpickup");
     Route::get("notification/{id}", "OrderController@notification");
-
 });
 
 Route::group(['prefix' => 'deliveryboy'], function () {
@@ -211,6 +210,4 @@ Route::group(['prefix' => 'deliveryboy'], function () {
         Route::get("outofdelivery/{id}", "DeliveryController@outofdelivery");
         Route::get("ordercomplete/{id}", "DeliveryController@ordercomplete");
     });
-
 });
-

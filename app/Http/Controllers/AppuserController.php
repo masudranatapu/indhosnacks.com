@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller as Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\LoginRequest;
-use Sentinel;
-use Session;
-use DataTables;
+use Cartalyst\Sentinel\Laravel\Facades\Sentinel;
+use Illuminate\Support\Facades\Session;
+use Yajra\DataTables\Facades\DataTables;
 use App\User;
 use App\Order;
 use App\AppUser;
@@ -15,8 +15,8 @@ use App\Item;
 use App\Delivery;
 use App\Setting;
 use App\Resetpassword;
-use Response;
-use Cookie;
+use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\Cookie;
 use App\FoodOrder;
 use App\OrderResponse;
 use App\Ingredient;
@@ -26,10 +26,11 @@ use App\Mail\OrderAdminGetMail;
 use App\Mail\OrderUserMail;
 use App\Mail\RegisterMail;
 use Carbon\Carbon;
-use Hash;
+use Darryldecode\Cart\Facades\CartFacade;
+use Illuminate\Support\Facades\Hash;
 use DateTimeZone;
 use DateTime;
-use Cart;
+
 use Illuminate\Support\Facades\Mail;
 
 class AppuserController extends Controller
@@ -65,13 +66,12 @@ class AppuserController extends Controller
                     'thanks' => 'Thank you for using Indhosnacks',
                     'site_url' => route('website.home'),
                     'site_name' => 'Indhosnacks.com',
-                    'copyright' => 'Copyright © '.Carbon::now()->format('Y').' '.'IndhoSnacks. All rights reserved.',
+                    'copyright' => 'Copyright © ' . Carbon::now()->format('Y') . ' ' . 'IndhoSnacks. All rights reserved.',
                 ];
 
                 Mail::to($request->get("email"))->send(new RegisterMail($details));
 
                 return 1;
-
             } else {
                 return 0;
             }
@@ -162,7 +162,7 @@ class AppuserController extends Controller
 
             $details = [
                 'subject' => 'Message from Indhosnacks.com',
-                'greeting' => 'Hi ' . $user->name. ', ',
+                'greeting' => 'Hi ' . $user->name . ', ',
                 'body' => 'Your request to forget password is here. Please click the Reset Password and create a new password now',
                 'email' => 'Your email is : ' . $user->email,
                 'phone' => 'Your phone number is : ' . $user->mob_number,
@@ -171,13 +171,12 @@ class AppuserController extends Controller
                 'action_url' =>  route('resetpassword.code', $code),
                 'site_url' => route('website.home'),
                 'site_name' => 'Indhosnacks.com',
-                'copyright' => 'Copyright © '.Carbon::now()->format('Y').' '.'IndhoSnacks. All rights reserved.',
+                'copyright' => 'Copyright © ' . Carbon::now()->format('Y') . ' ' . 'IndhoSnacks. All rights reserved.',
             ];
 
             Mail::to($user->email)->send(new ForgetPasswordMail($details));
 
             return 1;
-
         } else {
             return 0;
         }
@@ -274,11 +273,11 @@ class AppuserController extends Controller
     }
     public function placeorder(Request $request)
     {
-    //  dd($request->all());
+        //  dd($request->all());
         $data = array();
         $finalresult = array();
         $result = array();
-        $cartCollection = Cart::getContent();
+        $cartCollection = CartFacade::getContent();
         $setting = Setting::find(1);
         $gettimezone = $this->gettimezonename($setting->timezone);
         date_default_timezone_set($gettimezone);
@@ -358,7 +357,7 @@ class AppuserController extends Controller
             'copyright' => 'Copyright © ' . Carbon::now()->format('Y') . ' ' . 'IndhoSnacks. All rights reserved.',
         ];
 
-        Mail::to($user->email)->send(new OrderUserMail($details));
+        // Mail::to($user->email)->send(new OrderUserMail($details));
 
         // mail to admin for users order
         $adminuser = User::latest()->first();
@@ -377,7 +376,7 @@ class AppuserController extends Controller
 
         Mail::to($adminuser->email)->send(new OrderAdminGetMail($admindetails));
 
-        Cart::clear();
+        CartFacade::clear();
         Session::flash('message', __('messages.order_success'));
         Session::flash('alert-class', 'alert-success');
         return $store->id;
