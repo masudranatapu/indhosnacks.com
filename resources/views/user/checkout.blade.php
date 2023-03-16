@@ -19,6 +19,18 @@
                         </div>
                     </div>
                 @endif
+                @if ($errors->any())
+                    @foreach ($errors->all() as $k => $error)
+                        <div class="col-sm-12">
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                {{ $error }}
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        </div>
+                    @endforeach
+                @endif
                 <div class="checkbox-box col-lg-8 col-md-12">
                     <div class="accordion indicator-plus-before round-indicator" id="accordionH">
                         <div class="check-pa">
@@ -243,8 +255,8 @@
                                 <div class="cart-bs-head">
                                     <h4>{{ __($item->name) }}</h4>
 
-                                    <p>{{ Session::get('usercurrency') }}<span
-                                            id="subtotal_order">{{ number_format($item->price, 2, '.', '') }}</span>
+                                    <p><span>{{ $item->quantity }} X </span> {{ Session::get('usercurrency') }}<span
+                                            id="subtotal_order_item">{{ number_format($item->price, 2, '.', '') }}</span>
                                     </p>
                                 </div>
                             </div>
@@ -276,9 +288,12 @@
                                 } else {
                                     $charges = 0;
                                 }
+                                $total = array_sum($totalamountarr) + $charges;
+                                session()->put('total', $total);
+                                session()->put('charges', $charges);
                                 ?>
                                 <p>{{ Session::get('usercurrency') }}<span
-                                        id="finaltotal_order"><?php $total = array_sum($totalamountarr) + $charges; ?>
+                                        id="finaltotal_order">
                                         {{ number_format($total, 2, '.', '') }}</span></p>
                             </div>
                         </div>
@@ -339,7 +354,7 @@
                                 <input type="hidden" name="edahab_total" id="edahab_total" required=""/>
                                 <input type="hidden" name="edahab_subtotal" id="edahab_subtotal" required=""/>
                                 <input type="hidden" name="edahab_lat_long" id="edahab_lat_long" required="">
-                                <input type="hidden" name="eadahab_charage" id="eadahab_charage" required=""/>
+                                <input type="hidden" name="edahab_charage" id="eadahab_charage" required=""/>
                                 <div class="cart-shipping-box">
                                     <label for="edahab_phone" class="form-label">Edahab Phone</label>
                                     <input type="number" name="edahab_phone" class="form-control"
@@ -422,7 +437,6 @@
                 </div>
             </div>
         </div>
-    </div>
     </div>
 
 

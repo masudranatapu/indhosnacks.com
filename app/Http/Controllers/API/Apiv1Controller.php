@@ -2,36 +2,37 @@
 
 namespace App\Http\Controllers\API;
 
-use App\Banner;
-use App\Contact;
-use App\Http\Controllers\Controller;
-use App\Testimonial;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Session;
-use Cartalyst\Sentinel\Laravel\Facades\Sentinel;
-use Illuminate\Support\Facades\Validator;
 use App\AppUser;
-use App\TokenData;
-use App\Delivery;
-use App\OrderResponse;
-use App\City;
-use Stripe\Stripe;
-use Stripe\Charge;
-use App\Order;
+use App\Banner;
 use App\Category;
-use App\Item;
-use App\Ingredient;
+use App\City;
+use App\Contact;
+use App\Delivery;
 use App\FoodOrder;
+use App\Http\Controllers\Controller;
+use App\Ingredient;
+use App\Item;
+use App\Mail\OrderAdminGetMail;
+use App\Mail\OrderUserMail;
 use App\Notiy_key;
-use App\Setting;
-use DateTimeZone;
-use DateTime;
+use App\Order;
+use App\OrderResponse;
 use App\Resetpassword;
 use App\Review;
+use App\Setting;
+use App\Testimonial;
+use App\TokenData;
+use App\User;
+use Carbon\Carbon;
+use DateTime;
+use DateTimeZone;
 use Exception;
-use Illuminate\Support\Facades\Mail;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Validator;
 
 class Apiv1Controller extends Controller
 {
@@ -116,7 +117,6 @@ class Apiv1Controller extends Controller
     }
 
 
-
     public function savetoken(Request $request)
     {
         $response = array("success" => "0", "register" => "Validation error");
@@ -153,6 +153,7 @@ class Apiv1Controller extends Controller
         $response = array("success" => "1", "data" => $getcitydata);
         return Response::json($data = array("data" => $response));
     }
+
     public function deliveryboy_login(Request $request)
     {
         $response = array("success" => "0", "login" => "Validation error");
@@ -196,6 +197,7 @@ class Apiv1Controller extends Controller
         }
         return Response::json(array("data" => $response));
     }
+
     public function login(Request $request)
     {
         $response = array("success" => "0", "login" => "Validation error");
@@ -248,8 +250,8 @@ class Apiv1Controller extends Controller
                 } else if ($k->order_status == 4) {
                     $status = 'Order is Delivered';
                 }
-                $dateTime  = $k->assign_date_time;
-                $datefrom  = date("d-m-Y", strtotime($dateTime));
+                $dateTime = $k->assign_date_time;
+                $datefrom = date("d-m-Y", strtotime($dateTime));
                 $today = date('d-m-Y');
                 $last_date = $datefrom;
                 if ($today == $last_date) {
@@ -427,6 +429,7 @@ class Apiv1Controller extends Controller
         }
         return Response::json($response);
     }
+
     function headreadMoreHelper($story_desc, $chars = 75)
     {
         $story_desc = substr($story_desc, 0, $chars);
@@ -434,6 +437,7 @@ class Apiv1Controller extends Controller
         $story_desc = $story_desc;
         return $story_desc;
     }
+
     public function orderdetails(Request $request)
     {
         $response = array("success" => "0", "order" => "Validation error");
@@ -485,6 +489,7 @@ class Apiv1Controller extends Controller
         }
         return Response::json($response);
     }
+
     public function gettopping(Request $request)
     {
         $response = array("success" => "0", "order" => "Validation error");
@@ -513,6 +518,7 @@ class Apiv1Controller extends Controller
         }
         return Response::json($response);
     }
+
     public function viewitem($id)
     {
         $response = array("success" => "0", "item" => "Validation error");
@@ -639,14 +645,14 @@ class Apiv1Controller extends Controller
             foreach ($getuser as $gt) {
                 $reg_id[] = $gt->token;
             }
-            $registrationIds =  $reg_id;
+            $registrationIds = $reg_id;
             $message = array(
                 'msg' => $msg,
                 'title' => 'Order Status'
             );
             $fields = array(
-                'registration_ids'  => $registrationIds,
-                'data'              => $message
+                'registration_ids' => $registrationIds,
+                'data' => $message
             );
 
             $url = 'https://fcm.googleapis.com/fcm/send';
@@ -654,7 +660,7 @@ class Apiv1Controller extends Controller
                 'Authorization: key=' . $key, // . $api_key,
                 'Content-Type: application/json'
             );
-            $json =  json_encode($fields);
+            $json = json_encode($fields);
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_URL, $url);
             curl_setopt($ch, CURLOPT_POST, true);
@@ -676,6 +682,7 @@ class Apiv1Controller extends Controller
         }
         return 0;
     }
+
     public function send_notification_IOS($key, $user_id, $msg)
     {
         $getuser = TokenData::where("type", "Iphone")->where("user_id", $user_id)->get();
@@ -684,16 +691,16 @@ class Apiv1Controller extends Controller
             foreach ($getuser as $gt) {
                 $reg_id[] = $gt->token;
             }
-            $registrationIds =  $reg_id;
+            $registrationIds = $reg_id;
             $msg = array(
-                'body'  => $msg,
-                'title'     => "Notification",
-                'vibrate'   => 1,
-                'sound'     => 1,
+                'body' => $msg,
+                'title' => "Notification",
+                'vibrate' => 1,
+                'sound' => 1,
             );
             $fields = array(
-                'registration_ids'  => $registrationIds,
-                'data'              => $msg
+                'registration_ids' => $registrationIds,
+                'data' => $msg
             );
 
             $url = 'https://fcm.googleapis.com/fcm/send';
@@ -701,7 +708,7 @@ class Apiv1Controller extends Controller
                 'Authorization: key=' . $key, // . $api_key,
                 'Content-Type: application/json'
             );
-            $json =  json_encode($fields);
+            $json = json_encode($fields);
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_URL, $url);
             curl_setopt($ch, CURLOPT_POST, true);
@@ -866,6 +873,7 @@ class Apiv1Controller extends Controller
         }
         return Response::json($response);
     }
+
     static public function generate_timezone_list()
     {
         static $regions = array(
@@ -912,6 +920,7 @@ class Apiv1Controller extends Controller
             }
         }
     }
+
     public function food_order(Request $request)
     {
         $response = array("success" => "0", "order_details" => "Validation error");
@@ -1255,6 +1264,7 @@ class Apiv1Controller extends Controller
         }
         return Response::json($response);
     }
+
     public function contactInfo()
     {
         $response = array("success" => "0", "item" => "Validation error");
@@ -1273,6 +1283,7 @@ class Apiv1Controller extends Controller
         }
         return Response::json($response);
     }
+
     public function contactSubmit(Request $request)
     {
         $response = array("success" => "0", "data" => "Validation error");
@@ -1323,10 +1334,10 @@ class Apiv1Controller extends Controller
         $response = array("success" => "0", "data" => "Validation error");
 
         $validator = Validator::make($request->all(), [
-            'item_id' =>  'required',
-            'stars' =>  'required',
-            'title' =>  'required',
-            'comment' =>  'required|max:200',
+            'item_id' => 'required',
+            'stars' => 'required',
+            'title' => 'required',
+            'comment' => 'required|max:200',
         ]);
 
         if ($validator->fails()) {
@@ -1340,7 +1351,7 @@ class Apiv1Controller extends Controller
         $review = Review::where('item_id', $request->item_id)->where('user_id', Session::get('login_user'))->get();
 
         if ($review->count() > 0) {
-            $message =  __('You already review this item.');
+            $message = __('You already review this item.');
 
             $response['msg'] = $message;
             return Response::json($response);
@@ -1354,7 +1365,7 @@ class Apiv1Controller extends Controller
                 'status' => 0,
                 'comment' => $request->comment,
             ]);
-            $message =  __('Your review successfully done. Please wait for admin approved.');
+            $message = __('Your review successfully done. Please wait for admin approved.');
 
             $response['msg'] = $message;
 
@@ -1402,5 +1413,227 @@ class Apiv1Controller extends Controller
         $response['status'] = "1";
         $response['data'] = $getsetting;
         return Response::json($response);
+    }
+
+    public function edahabPay(Request $request)
+    {
+//             dd($request->all());
+//        return back();
+        $request->validate([
+            'edahab_phone' => 'required|integer|digits:9'
+        ]);
+        $apikey = '7vAb1YbtaU9XDE8CFF1uxf6Zjm19GalcD63F7ZZqW';
+        $edahabNumber = $request->edahab_phone ?? '657166178';
+        $amount = $request->edahab_total;
+        $agentCode = '721759';
+        $returnUrl = url('/');
+        $request_param = [
+            "apiKey" => $apikey,
+            "edahabNumber" => $edahabNumber,
+            "amount" => $request->get("edahab_total"),
+            "agentCode" => $agentCode,
+            "returnUrl" => $returnUrl
+        ];
+        /* Encode it into a JSON string. */
+        $json = json_encode($request_param, JSON_UNESCAPED_SLASHES);
+        $hashed = hash('SHA256', $json . "cd5GBclmmx7A4uj8ozZ481qChLk1CQiHIPeaNI");
+        $url = "https://edahab.net/api/api/IssueInvoice?hash=" . $hashed;
+        $curl = curl_init($url);
+        // Tell cURL to send a POST request.
+        curl_setopt($curl, CURLOPT_POST, TRUE);
+        // Set the JSON object as the POST content.
+        curl_setopt($curl, CURLOPT_POSTFIELDS, $json);
+        // Set the JSON content-type: application/json.
+        curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+        // dd($json);
+        // Set the return transfer option to true
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        // Send the request.
+        $result = curl_exec($curl);
+        // curl_close($curl);
+        // Get the InvoiceId from the API response and store it in your database.
+        $response = json_decode($result);
+//         dd($response);
+        // Get the InvoiceId from the API response and store it in your database.
+        if ($response->ValidationErrors && count($response->ValidationErrors) > 0) {
+//            dd($response->ValidationErrors[0]);
+            $response['status'] = "0";
+            $response['data'] = ['Something is wrong!'];
+            return Response::json($response);
+        }
+        $invoice = $response->InvoiceId;
+        $requestId = $response->RequestId;
+
+        $data = array();
+        $finalresult = array();
+        $result = array();
+        $cartCollection = Cart::getContent();
+        $setting = Setting::find(1);
+        $gettimezone = $this->gettimezonename($setting->timezone);
+        date_default_timezone_set($gettimezone);
+        $date = date('d-m-Y H:i');
+        $getuser = AppUser::find(Session::get('login_user'));
+        $store = new Order();
+        $store->user_id = $getuser->id;
+        $store->edahab_request_id = $requestId;
+        $store->edahab_phone = $edahabNumber;
+        $store->edahab_invoice = $invoice;
+        $store->total_price = number_format($request->get("edahab_total"), 2, '.', '');
+        $store->order_placed_date = $date;
+        $store->order_status = 0;
+        $store->latlong = strip_tags(preg_replace('#<script(.*?)>(.*?)</script>#is', '', $request->get("edahab_lat_long")));
+        $store->name = $getuser->name;
+        $store->address = strip_tags(preg_replace('#<script(.*?)>(.*?)</script>#is', '', $request->get("edahab_address")));
+        $store->email = $getuser->email;
+        $store->payment_type = strip_tags(preg_replace('#<script(.*?)>(.*?)</script>#is', '', $request->get("payment_type")));
+        $store->notes = strip_tags(preg_replace('#<script(.*?)>(.*?)</script>#is', '', $request->get("edahab_note")));
+        $store->city = strip_tags(preg_replace('#<script(.*?)>(.*?)</script>#is', '', $request->get("edahab_city")));
+        $store->shipping_type = strip_tags(preg_replace('#<script(.*?)>(.*?)</script>#is', '', $request->get("edahab_shipping_type")));
+        $store->subtotal = number_format($request->get("edahab_subtotal"), 2, '.', '');
+        $store->delivery_charges = number_format($request->get("edahab_charage"), 2, '.', '');
+        $store->phone_no = strip_tags(preg_replace('#<script(.*?)>(.*?)</script>#is', '', $request->get("user_phone")));
+        $store->delivery_mode = strip_tags(preg_replace('#<script(.*?)>(.*?)</script>#is', '', $request->get("edahab_shipping_type")));
+        $store->notify = 1;
+        $store->save();
+
+        foreach ($cartCollection as $ke) {
+            $getmenu = Item::where("menu_name", $ke->name)->first();
+            $result['ItemId'] = (string)isset($getmenu->id) ? $getmenu->id : 0;
+            $result['ItemName'] = (string)$ke->name;
+            $result['ItemQty'] = (string)$ke->quantity;
+            $result['ItemAmt'] = (string)$ke->price;
+            $totalamount = (float)$ke->quantity * (float)$ke->price;
+            $result['ItemTotalPrice'] = number_format($totalamount, 2, '.', '');
+            $ingredient = array();
+            $inter_ids = array();
+            foreach ($ke->attributes[0] as $val) {
+                $ls = array();
+                $inter = Ingredient::find($val);
+                $ls['id'] = (string)$inter->id;
+                $inter_ids[] = $inter->id;
+                $ls['category'] = (string)$inter->category;
+                $ls['item_name'] = (string)$inter->item_name;
+                $ls['type'] = (string)$inter->type;
+                $ls['price'] = (string)$inter->price;
+                $ls['menu_id'] = (string)$inter->menu_id;
+                $ingredient[] = $ls;
+            }
+
+            $result['Ingredients'] = $ingredient;
+            $finalresult[] = $result;
+            $adddesc = new OrderResponse();
+            $adddesc->set_order_id = $store->id;
+            $adddesc->item_id = $result["ItemId"];
+            $adddesc->item_qty = $result["ItemQty"];
+            $adddesc->ItemTotalPrice = number_format($result["ItemTotalPrice"], 2, '.', '');
+            $adddesc->item_amt = $result["ItemAmt"];
+            $adddesc->ingredients_id = implode(",", $inter_ids);
+            $adddesc->save();
+        }
+        $data = array("Order" => $finalresult);
+        $addresponse = new FoodOrder();
+        $addresponse->order_id = $store->id;
+        $addresponse->desc = json_encode($data);
+        $addresponse->save();
+//        dd($store);
+
+        if ($store) {
+            $response['status'] = "1";
+            $response['data'] = $store;
+            return Response::json($response);
+        } else {
+            $response['status'] = "0";
+            $response['data'] = ['Something is wrong!'];
+            return Response::json($response);
+        }
+    }
+
+
+    public function edahabConfirm(Request $request, $id)
+    {
+        $request->validate([
+            'confirm_code' => 'required'
+        ]);
+        $invoice = $request->confirm_code;
+        $apikey = '7vAb1YbtaU9XDE8CFF1uxf6Zjm19GalcD63F7ZZqW';
+        $request_param = array("apiKey" => $apikey, "invoiceId" => $invoice);
+
+        /* Encode it into a JSON string. */
+        $json = json_encode($request_param, JSON_UNESCAPED_SLASHES);
+
+        $hashed = hash('SHA256', $json . "cd5GBclmmx7A4uj8ozZ481qChLk1CQiHIPeaNI");
+
+        $url = "https://edahab.net/api/api/CheckInvoiceStatus?hash=" . $hashed;
+        $curl = curl_init($url);
+        // Tell cURL to send a POST request.
+        curl_setopt($curl, CURLOPT_POST, TRUE);
+        // Set the JSON object as the POST content.
+        curl_setopt($curl, CURLOPT_POSTFIELDS, $json);
+        // Set the JSON content-type: application/json.
+        curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        // Send the request.
+        $result = curl_exec($curl);
+        $res = json_decode($result);
+        if ($res->InvoiceStatus == null) {
+            $response['status'] = "0";
+            $response['data'] = ['You are entered an invalid code.'];
+            return Response::json($response);
+        }
+//            dd($response);
+        if ($id) {
+            $store = Order::find($id);
+            $store->invoice_status = $res->InvoiceStatus;
+            $store->save();
+            $user = AppUser::find(Session::get('login_user'));
+            if ($store->invoice_status == 'Paid') {
+                $body = 'paid by edahub payment.';
+            } else {
+                $body = 'cash on delivery';
+            }
+
+            $details = [
+                'subject' => 'Message from Indhosnacks.com',
+                'greeting' => 'Hi ' . $user->name . ', ',
+                'body' => 'You just order a food from Indhosnacks.com. We are happy to let you know that we have received your order. Your payment is ' . $body,
+                'email' => 'Your email is : ' . $user->email,
+                'phone' => 'Your phone number is : ' . $user->mob_number,
+                'thanks' => 'Thank you for using Indhosnacks',
+                'site_url' => route('website.home'),
+                'site_name' => 'Indhosnacks.com',
+                'copyright' => 'Copyright © ' . Carbon::now()->format('Y') . ' ' . 'IndhoSnacks. All rights reserved.',
+            ];
+
+            Mail::to($user->email)->send(new OrderUserMail($details));
+
+            // mail to admin for users order
+            $adminuser = User::latest()->first();
+
+            $admindetails = [
+                'subject' => 'Message from Indhosnacks.com',
+                'greeting' => 'Hi ' . $adminuser->name . ', ',
+                'body' => $user->name . ' ' . 'just ordred a food form Indosnacks.com. His/Her payment is ' . $body . '. Please see what he/she order from Indhosnacks.com.',
+                'email' => 'His email is : ' . $user->email,
+                'phone' => 'His phone number is : ' . $user->mob_number,
+                'thanks' => 'Thank you for using Indhosnacks',
+                'site_url' => route('website.home'),
+                'site_name' => 'Indhosnacks.com',
+                'copyright' => 'Copyright © ' . Carbon::now()->format('Y') . ' ' . 'IndhoSnacks. All rights reserved.',
+            ];
+
+            Mail::to($adminuser->email)->send(new OrderAdminGetMail($admindetails));
+
+            Cart::clear();
+            session()->forget('store');
+            $response['status'] = "1";
+            $response['data'] = [$res->InvoiceStatus];
+            return Response::json($response);
+        } else {
+            session()->forget('store');
+            $response['status'] = "1";
+            $response['data'] = ['Payment is failed.'];
+            return Response::json($response);
+        }
+
     }
 }

@@ -2,31 +2,27 @@
 
 namespace App\Http\Controllers;
 
+use App\AppUser;
 use App\Category;
 use App\City;
-use Illuminate\Http\Request;
-use Stripe\Stripe;
-use Stripe\Charge;
-use Session;
-use Cart;
-use App\User;
-use App\Order;
-use App\AppUser;
-use App\Delivery;
-use App\Setting;
-use App\Resetpassword;
-use App\Item;
-use Response;
-use Cookie;
 use App\FoodOrder;
-use App\OrderResponse;
-use DateTimeZone;
-use DateTime;
 use App\Ingredient;
-use Carbon\Carbon;
-use Illuminate\Support\Facades\Mail;
+use App\Item;
 use App\Mail\OrderAdminGetMail;
 use App\Mail\OrderUserMail;
+use App\Order;
+use App\OrderResponse;
+use App\Setting;
+use App\User;
+use Carbon\Carbon;
+use Cart;
+use Cookie;
+use DateTime;
+use DateTimeZone;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use Response;
+use Session;
 
 class PaymentController extends Controller
 {
@@ -34,6 +30,7 @@ class PaymentController extends Controller
     {
         return view("stripe");
     }
+
     function get_lat_long($address)
     {
 
@@ -55,6 +52,7 @@ class PaymentController extends Controller
 
         return $lat . ',' . $long;
     }
+
     static public function generate_timezone_list()
     {
         static $regions = array(
@@ -101,6 +99,7 @@ class PaymentController extends Controller
             }
         }
     }
+
     public function pay(Request $request)
     {
         $data = array();
@@ -137,7 +136,7 @@ class PaymentController extends Controller
 
         $store->delivery_charges = number_format($request->get("charage_or"), 2, '.', '');
 
-        $store->phone_no =  strip_tags(preg_replace('#<script(.*?)>(.*?)</script>#is', '', $request->get("phone_or")));
+        $store->phone_no = strip_tags(preg_replace('#<script(.*?)>(.*?)</script>#is', '', $request->get("phone_or")));
         $store->delivery_mode = $store->shipping_type;
         $store->notify = 1;
         $store->save();
@@ -274,8 +273,8 @@ class PaymentController extends Controller
         $response = json_decode($result);
 //         dd($response);
         // Get the InvoiceId from the API response and store it in your database.
-        if($response->ValidationErrors && count($response->ValidationErrors) > 0){
-            dd($response->ValidationErrors[0]);
+        if ($response->ValidationErrors && count($response->ValidationErrors) > 0) {
+//            dd($response->ValidationErrors[0]);
             Session::flash('message', __('Something is wrong!'));
             Session::flash('alert-class', 'alert-danger');
             return back();
@@ -309,7 +308,7 @@ class PaymentController extends Controller
         $store->city = strip_tags(preg_replace('#<script(.*?)>(.*?)</script>#is', '', $request->get("edahab_city")));
         $store->shipping_type = strip_tags(preg_replace('#<script(.*?)>(.*?)</script>#is', '', $request->get("edahab_shipping_type")));
         $store->subtotal = number_format($request->get("edahab_subtotal"), 2, '.', '');
-        $store->delivery_charges = number_format($request->get("eadhab_charage"), 2, '.', '');
+        $store->delivery_charges = number_format($request->get("edahab_charage"), 2, '.', '');
         $store->phone_no = strip_tags(preg_replace('#<script(.*?)>(.*?)</script>#is', '', $request->get("user_phone")));
         $store->delivery_mode = strip_tags(preg_replace('#<script(.*?)>(.*?)</script>#is', '', $request->get("edahab_shipping_type")));
         $store->notify = 1;
@@ -359,7 +358,7 @@ class PaymentController extends Controller
         if ($store) {
             Session::put('store', $store->id);
 
-            return  redirect()->route('payment.confirm');
+            return redirect()->route('payment.confirm');
         } else {
             return back();
         }
@@ -367,14 +366,15 @@ class PaymentController extends Controller
 
     public function confirm()
     {
-        $store = Session::get('store');
+        $store = Order::find(Session::get('store'));
         if ($store) {
+            $item_details = FoodOrder::where('order_id', $store->id)->first();
             $category = Category::where("is_deleted", '0')->get();
             $allmenu = Item::all();
             $inter = Ingredient::all();
             $setting = Setting::find(1);
             $city = City::where("is_deleted", '0')->get();
-            return view('user.confirmation', compact('allmenu', 'category', 'setting', 'store'));
+            return view('user.confirmation', compact('allmenu', 'category', 'setting', 'store', 'item_details'));
         } else {
             return redirect()->route('website.home');
         }
@@ -407,63 +407,69 @@ class PaymentController extends Controller
             // Send the request.
             $result = curl_exec($curl);
             $response = json_decode($result);
-            if($response->InvoiceStatus == null){
-                return  back()->withInput()->with('error', 'Varification Code error');
-            }
-//            dd($response);
-            if ($request->store_id) {
-                $store = Order::find($request->store_id);
-                $store->invoice_status = $response->InvoiceStatus;
-                $store->save();
-                $user = AppUser::find(Session::get('login_user'));
-
-                $details = [
-                    'subject' => 'Message from Indhosnacks.com',
-                    'greeting' => 'Hi ' . $user->name . ', ',
-                    'body' => 'You just order a food from Indhosnacks.com. We are happy to let you know that we have received your order.Your payment is cash on delivery',
-                    'email' => 'Your email is : ' . $user->email,
-                    'phone' => 'Your phone number is : ' . $user->mob_number,
-                    'thanks' => 'Thank you for using Indhosnacks',
-                    'site_url' => route('website.home'),
-                    'site_name' => 'Indhosnacks.com',
-                    'copyright' => 'Copyright © ' . Carbon::now()->format('Y') . ' ' . 'IndhoSnacks. All rights reserved.',
-                ];
-
-                //        Mail::to($user->email)->send(new OrderUserMail($details));
-
-                // mail to admin for users order
-                $adminuser = User::latest()->first();
-
-                $admindetails = [
-                    'subject' => 'Message from Indhosnacks.com',
-                    'greeting' => 'Hi ' . $adminuser->name . ', ',
-                    'body' => $user->name . ' ' . 'just ordred a food form Indosnacks.com. His/Her payment is cash on delivery. Please see what he/she order from Indhosnacks.com.',
-                    'email' => 'His email is : ' . $user->email,
-                    'phone' => 'His phone number is : ' . $user->mob_number,
-                    'thanks' => 'Thank you for using Indhosnacks',
-                    'site_url' => route('website.home'),
-                    'site_name' => 'Indhosnacks.com',
-                    'copyright' => 'Copyright © ' . Carbon::now()->format('Y') . ' ' . 'IndhoSnacks. All rights reserved.',
-                ];
-
-                //        Mail::to($adminuser->email)->send(new OrderAdminGetMail($admindetails));
-
-                Cart::clear();
-                session()->forget('store');
-                Session::flash('message', __('messages.order_success'));
-                Session::flash('alert-class', 'alert-success');
-                return redirect("viewdetails/" . $store->id);
-            } else {
-                session()->forget('store');
-                Session::flash('message', __('messages.order_failed'));
-                Session::flash('alert-class', 'alert-danger');
-                return  redirect('/checkout');
+            if ($response->InvoiceStatus == null) {
+                return back()->withInput()->with('error', 'Varification Code error');
             }
         } catch (\Throwable $th) {
             session()->forget('store');
             Session::flash('message', __('messages.order_failed'));
             Session::flash('alert-class', 'alert-danger');
-            return  redirect('/checkout');
+            return redirect('/checkout');
         }
+//            dd($response);
+        if ($request->store_id) {
+            $store = Order::find($request->store_id);
+            $store->invoice_status = $response->InvoiceStatus;
+            $store->save();
+            $user = AppUser::find(Session::get('login_user'));
+            if ($store->invoice_status == 'Paid') {
+                $body = 'paid by edahub payment.';
+            } else {
+                $body = 'cash on delivery';
+            }
+
+            $details = [
+                'subject' => 'Message from Indhosnacks.com',
+                'greeting' => 'Hi ' . $user->name . ', ',
+                'body' => 'You just order a food from Indhosnacks.com. We are happy to let you know that we have received your order. Your payment is ' . $body,
+                'email' => 'Your email is : ' . $user->email,
+                'phone' => 'Your phone number is : ' . $user->mob_number,
+                'thanks' => 'Thank you for using Indhosnacks',
+                'site_url' => route('website.home'),
+                'site_name' => 'Indhosnacks.com',
+                'copyright' => 'Copyright © ' . Carbon::now()->format('Y') . ' ' . 'IndhoSnacks. All rights reserved.',
+            ];
+
+                 Mail::to($user->email)->send(new OrderUserMail($details));
+
+            // mail to admin for users order
+            $adminuser = User::latest()->first();
+
+            $admindetails = [
+                'subject' => 'Message from Indhosnacks.com',
+                'greeting' => 'Hi ' . $adminuser->name . ', ',
+                'body' => $user->name . ' ' . 'just ordred a food form Indosnacks.com. His/Her payment is ' . $body . '. Please see what he/she order from Indhosnacks.com.',
+                'email' => 'His email is : ' . $user->email,
+                'phone' => 'His phone number is : ' . $user->mob_number,
+                'thanks' => 'Thank you for using Indhosnacks',
+                'site_url' => route('website.home'),
+                'site_name' => 'Indhosnacks.com',
+                'copyright' => 'Copyright © ' . Carbon::now()->format('Y') . ' ' . 'IndhoSnacks. All rights reserved.',
+            ];
+
+               Mail::to($adminuser->email)->send(new OrderAdminGetMail($admindetails));
+
+            Cart::clear();
+            session()->forget('store');
+            Session::flash('message', __('messages.order_success'));
+            Session::flash('alert-class', 'alert-success');
+            return redirect("viewdetails/" . $store->id);
+        } else {
+            session()->forget('store');
+            Session::flash('message', __('messages.order_failed'));
+            Session::flash('alert-class', 'alert-danger');
+            return redirect('/checkout');
+        }
+
     }
 }

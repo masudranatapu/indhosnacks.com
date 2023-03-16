@@ -791,9 +791,8 @@ function changebutton(val) {
         $("#edahab_city").val($("#order_city").val());
         var totalprice = document.getElementById("finaltotal_order").innerHTML;
         var subtotal = document.getElementById("subtotal_order").innerHTML;
-        var charge = document.getElementById(
-            "delivery_charges_order"
-        ).innerHTML;
+        var charge = document.getElementById("delivery_charges_order").innerHTML;
+
         $("#edahab_total").val(totalprice);
         $("#edahab_subtotal").val(subtotal);
         if ($("#user_phone").val() != "" && $("#edahab_city").val() != "") {
@@ -804,9 +803,7 @@ function changebutton(val) {
                 $("#edahab_lat_long").val(
                     $("#us2-lat").val() + "," + $("#us2-lon").val()
                 );
-                $("#eadhab_charage").val(
-                    document.getElementById("delivery_charges_order").innerHTML
-                );
+                $("#eadahab_charage").val(charge);
             } else if ($("#home2").prop("checked") == true) {
                 var shipping_type = 1;
                 $("#edahab_shipping_type").val(1);
