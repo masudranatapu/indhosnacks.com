@@ -1560,6 +1560,7 @@ class Apiv1Controller extends Controller
         $validator = Validator::make($request->all(),[
             'confirm_code' => 'required'
         ]);
+
         if ($validator->fails()) {
             $message = $validator->errors()->first();
             $response['msg'] = $message;
