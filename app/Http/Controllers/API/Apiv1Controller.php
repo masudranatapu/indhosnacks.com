@@ -1059,7 +1059,7 @@ class Apiv1Controller extends Controller
 
                         $apikey = '7vAb1YbtaU9XDE8CFF1uxf6Zjm19GalcD63F7ZZqW';
                         $edahabNumber = $request->edahab_phone ?? '657166178';
-                        $amount = $request->edahab_total;
+                        $amount = $request->total_price;
                         $agentCode = '721759';
                         $returnUrl = url('/edahab/confirm/'.$store->id);
                         $request_param = [
