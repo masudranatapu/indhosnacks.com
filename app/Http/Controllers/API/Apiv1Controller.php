@@ -1435,7 +1435,7 @@ class Apiv1Controller extends Controller
         $request_param = [
             "apiKey" => $apikey,
             "edahabNumber" => $edahabNumber,
-            "amount" => $request->get("edahab_total"),
+            "amount" => $amount,
             "agentCode" => $agentCode,
             "returnUrl" => $returnUrl
         ];
@@ -1477,7 +1477,7 @@ class Apiv1Controller extends Controller
         $gettimezone = $this->gettimezonename($setting->timezone);
         date_default_timezone_set($gettimezone);
         $date = date('d-m-Y H:i');
-        $getuser = AppUser::find(Session::get('login_user'));
+        $getuser = AppUser::find(Auth::user()->id);
         $store = new Order();
         $store->user_id = $getuser->id;
         $store->edahab_request_id = $requestId;
