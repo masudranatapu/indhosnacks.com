@@ -1061,7 +1061,7 @@ class Apiv1Controller extends Controller
                         $edahabNumber = $request->edahab_phone ?? '657166178';
                         $amount = $request->total_price;
                         $agentCode = '721759';
-                        $returnUrl = url('/edahab/confirm/'.$store->id);
+                        $returnUrl = url('/api/edahab/confirm/'.$store->id);
                         $request_param = [
                             "apiKey" => $apikey,
                             "edahabNumber" => $edahabNumber,
@@ -1089,16 +1089,16 @@ class Apiv1Controller extends Controller
 
                         // curl_close($curl);
                         // Get the InvoiceId from the API response and store it in your database.
-                        $response = json_decode($result);
+                        $res = json_decode($result);
                         // Get the InvoiceId from the API response and store it in your database.
-                        if ($response->ValidationErrors && count($response->ValidationErrors) > 0) {
-                            $res['status'] = "0";
-                            $res['msg'] = 'Something is wrong!';
-                            $res['error'] = $response->ValidationErrors;
-                            return Response::json($res);
+                        if ($res->ValidationErrors && count($res->ValidationErrors) > 0) {
+                            $response['status'] = "0";
+                            $response['msg'] = 'Something is wrong!';
+                            $response['error'] = $res->ValidationErrors;
+                            return Response::json($response);
                         }
-                        $invoiceId = $response->InvoiceId;
-                        $requestId = $response->RequestId;
+                        $invoiceId = $res->InvoiceId;
+                        $requestId = $res->RequestId;
                         $data = Order::find($store->id);
                         $data->edahab_phone = $request->edahab_phone;
                         $data->edahab_request_id = $requestId;
@@ -1108,6 +1108,7 @@ class Apiv1Controller extends Controller
 
 
                     DB::commit();
+
                     $response['success'] = "1";
                     $response['returnUrl'] = $returnUrl ?? null;
                     $response['order_details'] = "your order succefully submited";
