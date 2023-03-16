@@ -1419,9 +1419,14 @@ class Apiv1Controller extends Controller
     {
 //             dd($request->all());
 //        return back();
-        $request->validate([
+        $validator = Validator::make($request->all(),[
             'edahab_phone' => 'required|integer|digits:9'
         ]);
+        if ($validator->fails()) {
+            $message = $validator->errors()->first();
+            $response['msg'] = $message;
+            return Response::json($response);
+        }
         $apikey = '7vAb1YbtaU9XDE8CFF1uxf6Zjm19GalcD63F7ZZqW';
         $edahabNumber = $request->edahab_phone ?? '657166178';
         $amount = $request->edahab_total;
@@ -1551,9 +1556,15 @@ class Apiv1Controller extends Controller
 
     public function edahabConfirm(Request $request, $id)
     {
-        $request->validate([
+
+        $validator = Validator::make($request->all(),[
             'confirm_code' => 'required'
         ]);
+        if ($validator->fails()) {
+            $message = $validator->errors()->first();
+            $response['msg'] = $message;
+            return Response::json($response);
+        }
         $invoice = $request->confirm_code;
         $apikey = '7vAb1YbtaU9XDE8CFF1uxf6Zjm19GalcD63F7ZZqW';
         $request_param = array("apiKey" => $apikey, "invoiceId" => $invoice);

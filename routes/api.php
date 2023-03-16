@@ -61,8 +61,8 @@ Route::get("offer-discount", 'API\Apiv1Controller@offerDiscount');
 Route::get("populer-snacks", 'API\Apiv1Controller@popularSnaks');
 Route::get("testimonials", 'API\Apiv1Controller@testimonials');
 Route::get("settings", 'API\Apiv1Controller@settings');
-Route::post("edahub/pay", 'API\Apiv1Controller@edahabPay');
-Route::post("edahub/confirm/{id}", 'API\Apiv1Controller@edahabConfirm');
+Route::post("edahab/pay", 'API\Apiv1Controller@edahabPay');
+Route::post("edahab/confirm/{id}", 'API\Apiv1Controller@edahabConfirm');
 Route::get("test100", 'API\AbcController@index');
 
 
