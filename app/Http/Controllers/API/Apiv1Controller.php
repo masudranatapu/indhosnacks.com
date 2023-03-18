@@ -934,7 +934,7 @@ class Apiv1Controller extends Controller
             'total_price' => 'required',
             'latlong' => 'required_if:delivery_mode,0',
             'token' => 'required',
-            'delivery_charges' => 'required',
+            'delivery_charges' => 'required_if:delivery_mode,0',
             'delivery_mode' => 'required'
         ];
         if ($request->input('payment_type') == "Paypal") {
@@ -956,7 +956,7 @@ class Apiv1Controller extends Controller
             'total_price.required' => "total_price field are required",
             'latlong.required_if' => "latlong field are required",
             'token.required' => 'token field are required',
-            'delivery_charges.required' => 'delivery_charges field are required',
+            'delivery_charges.required_if' => 'delivery_charges field are required',
             'delivery_mode.required' => 'delivery_mode field are required',
             "pay_pal_paymentId.required" => "pay_pal_paymentId are required",
             "pay_pal_PayerID.required" => "pay_pal_PayerID are required",
