@@ -1488,6 +1488,7 @@ class Apiv1Controller extends Controller
 
         if ($validator->fails()) {
             $message = $validator->errors()->first();
+            $response['success'] = "0";
             $response['msg'] = $message;
             return Response::json($response);
         }
@@ -1513,8 +1514,8 @@ class Apiv1Controller extends Controller
         $result = curl_exec($curl);
         $res = json_decode($result);
         if ($res->InvoiceStatus == null) {
-            $response['status'] = "0";
-            $response['data'] = ['You are entered an invalid code.'];
+            $response['success'] = "0";
+            $response['msg'] = 'You are entered an invalid code.';
             return Response::json($response);
         }
 //            dd($response);
@@ -1523,14 +1524,14 @@ class Apiv1Controller extends Controller
             $store->invoice_status = $res->InvoiceStatus;
             $store->save();
             session()->forget('store');
-            $response['status'] = "1";
+            $response['success'] = "1";
             $response['paymentStatus'] = $res->InvoiceStatus;
             $response['data'] = $store;
             return Response::json($response);
         } else {
             session()->forget('store');
-            $response['status'] = "1";
-            $response['data'] = ['Payment is failed.'];
+            $response['success'] = "1";
+            $response['msg'] = 'Payment is failed.';
             return Response::json($response);
         }
 
